@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>WESCO 회사소개서 2026 — 사례집 형식 시안 (6쪽)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#E1431B; --red-deep:#B8321A; --stone:#44403C; --body:#57534E; --muted:#8A847D;
+  --ivory:#FDFCF9; --line:#E7E2DA; --sand:#F4F1EB; --tint:#FBEAE4;
+  --page-w:1120px; --page-h:720px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:#EDE9E2;color:var(--body);font-family:"Malgun Gothic","Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+/* ── 상단 툴바 (사례집 뷰어의 공유·다운로드 자리) ── */
+.bar{position:sticky;top:0;z-index:10;height:60px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 28px;gap:14px}
+.bar .doc{font-weight:700;color:var(--stone);font-size:14px}
+.bar .tag{font-size:11px;color:var(--red);border:1px solid var(--red);border-radius:999px;padding:2px 9px;letter-spacing:.06em}
+.bar .sp{flex:1}
+.bar button{height:38px;padding:0 20px;border-radius:999px;border:1px solid #CFC9C0;background:#fff;color:var(--stone);font:inherit;font-size:13px;cursor:default;opacity:.55}
+.bar .hint{font-size:11px;color:var(--muted);margin-left:6px}
+/* ── 페이지 ── */
+.stage{padding:32px 0 80px;display:flex;flex-direction:column;align-items:center;gap:28px}
+.page{width:var(--page-w);height:var(--page-h);background:var(--ivory);position:relative;overflow:hidden;box-shadow:0 2px 3px rgba(60,50,40,.06),0 14px 40px rgba(60,50,40,.10)}
+.page .pno{position:absolute;right:40px;bottom:22px;font-size:11px;color:var(--muted);letter-spacing:.04em}
+.page .wm{position:absolute;left:40px;bottom:18px;height:16px;opacity:.55}
+.band{position:absolute;left:0;right:0;bottom:0;height:46px;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;letter-spacing:.01em}
+.band .n{position:absolute;right:28px;font-size:12px;opacity:.9}
+.eyebrow{font-size:11.5px;color:var(--red);font-weight:700;letter-spacing:.08em}
+.h{margin:6px 0 0;color:var(--stone);font-weight:800;line-height:1.25}
+.h .no{color:var(--stone);font-weight:600;margin-right:8px}
+.lead{margin:12px 0 0;font-size:13.5px;line-height:1.7;color:var(--body);max-width:760px}
+.rule{position:absolute;left:0;right:0;height:1px;background:var(--line)}
+/* 표지 */
+.cover{background:linear-gradient(135deg,#FDFCF9 0%,#FDFCF9 42%,#F6E6DF 70%,#E1431B 140%)}
+.cover .logo{position:absolute;left:64px;top:56px;height:64px}
+.cover .kicker{position:absolute;left:66px;top:150px;font-size:12px;letter-spacing:.18em;color:var(--red);font-weight:700}
+.cover .kicker:before{content:"";display:inline-block;width:34px;height:2px;background:var(--red);vertical-align:middle;margin-right:12px}
+.cover h1{position:absolute;left:64px;top:190px;margin:0;font-size:56px;line-height:1.18;font-weight:800;color:var(--stone);letter-spacing:-.01em}
+.cover h1 em{font-style:normal;color:var(--red)}
+.cover .sub{position:absolute;left:66px;top:360px;font-size:17px;line-height:1.65;color:var(--body)}
+.cover .stats{position:absolute;left:64px;right:64px;bottom:96px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #D9CFC7;padding-top:22px}
+.cover .st b{display:block;font-size:40px;color:var(--stone);font-weight:800;line-height:1;letter-spacing:-.02em}
+.cover .st b i{font-style:normal;font-size:16px;color:var(--red);margin-left:4px}
+.cover .st span{display:block;margin-top:8px;font-size:11.5px;letter-spacing:.1em;color:var(--muted)}
+.cover .foot{position:absolute;left:66px;bottom:44px;font-size:12px;color:var(--muted);letter-spacing:.06em}
+/* 회사·고객 카드 */
+.card .logo{position:absolute;left:72px;top:88px}
+.card .logo img{height:44px}
+.card .logo .name{font-size:30px;font-weight:800;color:var(--stone);letter-spacing:-.01em;line-height:1.1}
+.card .logo .name small{display:block;font-size:12px;font-weight:600;color:var(--red);letter-spacing:.14em;margin-bottom:6px}
+.card .intro{position:absolute;left:72px;top:168px;width:560px;font-size:14px;line-height:1.75}
+.card .intro p{margin:0 0 14px}
+.card .intro b{color:var(--stone)}
+.card table{position:absolute;right:72px;top:96px;width:330px;border-collapse:collapse;font-size:14px}
+.card td{padding:12px 4px;border-top:1px solid var(--line);vertical-align:top}
+.card tr:last-child td{border-bottom:1px solid var(--line)}
+.card td:first-child{color:var(--muted);width:118px}
+.card td:last-child{color:var(--stone);font-weight:500}
+.card .photo{position:absolute;left:72px;right:72px;top:352px;height:296px;border-radius:14px;overflow:hidden;background:#CFC9C0}
+.card .photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05)}
+/* 도입배경 */
+.bg .col{position:absolute;left:0;top:214px;width:300px;padding:0 44px 0 40px;border-right:1px solid var(--line);height:396px}
+.bg .col h4{margin:0 0 10px;font-size:15px;color:var(--stone)}
+.bg .col p{margin:0 0 26px;font-size:12.5px;line-height:1.75}
+.bg .flows{position:absolute;left:340px;right:44px;top:214px}
+.bg .lab{font-size:12px;color:var(--muted);margin:0 0 8px 4px}
+.bg .lab.on{color:var(--red);font-weight:700}
+.bg .flow{border:1px solid var(--line);border-radius:18px;background:#fff;height:160px;display:flex;align-items:center;justify-content:space-around;padding:0 24px;margin-bottom:22px;position:relative}
+.bg .flow.on{background:var(--tint);border-color:#F1C7BA}
+.bg .flow:before{content:"";position:absolute;left:70px;right:70px;top:66px;height:1px;background:#D9CFC7}
+.bg .flow.on:before{background:#EFB8A8}
+.bg .step{position:relative;text-align:center;width:118px;font-size:12px;line-height:1.45;color:var(--stone)}
+.bg .step .ic{width:56px;height:56px;border-radius:50%;background:#fff;border:1px solid #D9CFC7;margin:0 auto 12px;display:flex;align-items:center;justify-content:center}
+.bg .flow.on .step .ic{border-color:#EFB8A8}
+.bg .step .ic svg{width:24px;height:24px;stroke:var(--stone);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.bg .step.key .ic{background:var(--red);border-color:var(--red)}
+.bg .step.key .ic svg{stroke:#fff}
+.bg .step.key{color:var(--red);font-weight:700}
+/* 핵심 기능 */
+.key .pills{position:absolute;left:72px;top:250px;width:440px}
+.key .pills h4{margin:0 0 16px;font-size:15px;color:var(--red)}
+.key .pill{display:flex;align-items:center;margin-bottom:14px;border:1px solid var(--line);border-radius:999px;background:#fff;height:58px;overflow:hidden}
+.key .pill b{flex:0 0 172px;height:100%;display:flex;align-items:center;justify-content:center;background:var(--red);color:#fff;font-size:14px;font-weight:700;border-radius:999px}
+.key .pill span{flex:1;text-align:center;font-size:12.5px;line-height:1.5;color:var(--body)}
+.key .conf{position:absolute;right:72px;top:250px;width:480px}
+.key .conf h4{margin:0 0 12px;font-size:13px;color:var(--muted);font-weight:600;letter-spacing:.04em}
+.key table{width:100%;border-collapse:collapse;font-size:12.5px}
+.key th{background:var(--red);color:#fff;font-weight:600;padding:9px 10px;text-align:left;font-size:12px}
+.key td{padding:9px 10px;border-bottom:1px solid var(--line);color:var(--stone)}
+.key tr:nth-child(even) td{background:#F8F6F2}
+.key td.n{text-align:right;font-variant-numeric:tabular-nums}
+.key tfoot td{font-weight:700;background:var(--tint)!important;border-bottom:0}
+.key .note{margin-top:10px;font-size:11.5px;color:var(--muted)}
+/* 효과 */
+.eff .chart{position:absolute;left:72px;top:232px;width:600px}
+.eff .chart .t{font-size:12.5px;font-weight:700;color:var(--stone);margin:0 0 6px}
+.eff .metrics{position:absolute;right:72px;top:236px;width:330px}
+.eff .m{border-top:1px solid var(--line);padding:16px 0}
+.eff .m:last-child{border-bottom:1px solid var(--line)}
+.eff .m b{display:block;font-size:30px;font-weight:800;color:var(--stone);line-height:1;letter-spacing:-.02em}
+.eff .m b i{font-style:normal;font-size:14px;color:var(--red);margin-left:4px}
+.eff .m span{display:block;margin-top:6px;font-size:12px;color:var(--muted)}
+.eff .m.em b{color:var(--red)}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <span class="doc">WESCO 회사소개서 2026</span>
+  <span class="tag">시안 · 6쪽</span>
+  <span class="sp"></span>
+  <button>공유</button><button>다운로드</button>
+  <span class="hint">※ 2단계(열람 링크·이메일 게이트)에서 동작</span>
+</div>
+
+<div class="stage">
+
+<!-- 1 · 표지 -->
+<section class="page cover">
+  <img class="logo" src="images/wesco_wordmark.png" alt="WESCO">
+  <div class="kicker">회사소개서 · 2026</div>
+  <h1>0.1초의 전압 저하가<br><em>생산을 멈춥니다.</em></h1>
+  <div class="sub">순간정전보상장치 TSP® — 배터리 없이 2ms 안에 보상하는<br>25년 단일 분야 전문기업, 웨스코입니다.</div>
+  <div class="stats">
+    <div class="st"><b>25<i>년</i></b><span>단일 분야 집중 · 2001년 설립</span></div>
+    <div class="st"><b>150,000<i>+ 대</i></b><span>누적 납품</span></div>
+    <div class="st"><b>900<i>+ 사</i></b><span>거래 고객사</span></div>
+    <div class="st"><b>15<i>+ 개국</i></b><span>글로벌 공급</span></div>
+  </div>
+  <div class="foot">㈜웨스코 · 경기 안양 본사 · 이천 EMS 공장 · www.wesco.co.kr</div>
+</section>
+
+<!-- 2 · 1.0 회사 카드 -->
+<section class="page card">
+  <div class="logo"><img src="images/wesco_wordmark.png" alt="WESCO"></div>
+  <div class="intro">
+    <p><b>웨스코는 순간정전 보호 한 가지에 25년을 집중해 온 제조기업입니다.</b></p>
+    <p>반도체·디스플레이·자동차·이차전지 생산라인의 순간전압강하를 배터리 없이
+       2ms 안에 보상하는 TSP®를 설계·제조하며, 국내 유일하게 단상 0.5kVA부터
+       삼상 2,400kVA까지 풀라인업을 갖추고 있습니다.</p>
+  </div>
+  <table>
+    <tr><td>설립연도</td><td>2001년</td></tr>
+    <tr><td>업종</td><td>순간정전보상장치 TSP® 제조</td></tr>
+    <tr><td>본사 · 공장</td><td>경기 안양 · 이천 EMS 공장</td></tr>
+    <tr><td>라인업</td><td>단·삼상 0.5 ~ 2,400 kVA</td></tr>
+    <tr><td>인증</td><td>CE · KC · S마크 · NRTL<br><span style="font-weight:400;color:var(--muted)">SEMI F47 평가보고서 보유</span></td></tr>
+  </table>
+  <div class="photo"><img src="images/company/main_large.png" alt="WESCO TSP 제품"></div>
+  <img class="wm" src="images/wesco_wordmark.png" alt="">
+  <div class="pno">3</div>
+</section>
+
+<!-- 3 · 2.1 고객 카드 : Volta -->
+<section class="page card">
+  <div class="logo"><div class="name"><small>고객사례 2.1</small>Volta Energy Solutions Hungary</div></div>
+  <div class="intro">
+    <p><b>볼타 에너지 솔루션은 헝가리 쾨르녜에서 전기차 배터리 모듈을 생산하는 LG에너지솔루션 협력사입니다.</b></p>
+    <p>도금·슬리터·보일러·펌프 등 순간정전에 민감한 공정 설비를 2단계(PH1·PH2)에 걸쳐
+       TSP® 53대로 보호하고 있으며, 웨스코가 매년 현장 점검과 Sag 분석 보고서를 제공합니다.</p>
+  </div>
+  <table>
+    <tr><td>국가</td><td>헝가리 (Környe)</td></tr>
+    <tr><td>업종</td><td>전기차 배터리 모듈 제조</td></tr>
+    <tr><td>보호 설비</td><td>TSP® 53대 (50 ~ 450 kVA)</td></tr>
+    <tr><td>공급 전압</td><td>3상 400V · 전 라인</td></tr>
+    <tr><td>도입 시기</td><td>PH1 2022 · PH2 2023</td></tr>
+  </table>
+  <div class="photo"><img src="images/proof/install_auto.jpg" alt="TSP 설치 현장"></div>
+  <img class="wm" src="images/wesco_wordmark.png" alt="">
+  <div class="pno">9</div>
+</section>
+
+<!-- 4 · 2.1.1 도입 배경 -->
+<section class="page bg">
+  <div style="position:absolute;left:40px;top:70px">
+    <div class="eyebrow">WESCO 고객사례</div>
+    <h2 class="h" style="font-size:30px"><span class="no">2.1.1</span>순간정전을 «사고»에서 «기록»으로 바꾼 배터리 공장</h2>
+    <p class="lead">배터리 모듈 공장은 계통에서 넘어오는 0.1초의 전압 저하에도 도금·슬리터 라인이 멈추고 재기동에 수 시간이 걸립니다.
+       TSP® 도입 후 순간정전은 라인을 멈추는 사고가 아니라, Sag-VIEWER™에 남는 기록이 되었습니다.</p>
+  </div>
+  <div class="rule" style="top:196px"></div>
+  <div class="col">
+    <h4>도입 배경</h4>
+    <p>헝가리 계통은 낙뢰·스위칭에 의한 순간전압강하가 연 수십 회 발생합니다.
+       한 번의 Sag로 도금 라인이 정지하면 라인 재기동과 불량 처리에 수 시간이 소요되어
+       생산계획 전체가 흔들렸습니다.</p>
+    <h4>TSP®를 선택한 배경</h4>
+    <p>배터리 UPS는 배터리실·공조·3년 주기 교체가 필요했습니다.
+       설비 옆에 바로 설치되고 10년 이상 무점검인 TSP®가 해외 공장의 유지보수 여건에 맞았습니다.</p>
+  </div>
+  <div class="flows">
+    <div class="lab">도입 전</div>
+    <div class="flow">
+      <div class="step"><div class="ic"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></div>계통 순간정전<br>발생</div>
+      <div class="step"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg></div>인버터 · PLC<br>즉시 정지</div>
+      <div class="step"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>라인 재기동<br>수 시간</div>
+      <div class="step"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 6h18l-2 14H5z"/><path d="M8 6V4h8v2"/></svg></div>공정 중 제품<br>불량 · 폐기</div>
+      <div class="step"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 19h16M6 15l4-5 4 3 4-6"/></svg></div>생산계획<br>차질</div>
+    </div>
+    <div class="lab on">도입 후</div>
+    <div class="flow on">
+      <div class="step"><div class="ic"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></div>계통 순간정전<br>발생</div>
+      <div class="step key"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3 4 7v5c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V7z"/><path d="m9 12 2 2 4-4"/></svg></div>TSP® 2ms 감지<br>즉시 보상</div>
+      <div class="step"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 12h4l2-6 4 12 2-6h4"/></svg></div>라인 무중단<br>정상 가동</div>
+      <div class="step"><div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>Sag-VIEWER™<br>이벤트 기록</div>
+    </div>
+  </div>
+  <div class="band">멈추던 라인이 보상·기록으로 — 순간정전이 사고가 아닌 데이터가 되다<span class="n">10</span></div>
+</section>
+
+<!-- 5 · 2.1.2 구성·핵심 기능 -->
+<section class="page key">
+  <div style="position:absolute;left:40px;top:70px">
+    <div class="eyebrow">WESCO 고객사례</div>
+    <h2 class="h" style="font-size:30px"><span class="no">2.1.2</span>해외 공장 여건에 맞춘 무점검 보호 구성</h2>
+    <p class="lead">전 라인 3상 400V에 설비 부하별로 50 ~ 450kVA를 배치했습니다. 배터리실·냉각팬·정기 교체 없이
+       현지 인력만으로 운영되도록 구성한 것이 핵심입니다.</p>
+  </div>
+  <div class="rule" style="top:196px"></div>
+  <div class="pills">
+    <h4>Key Solution</h4>
+    <div class="pill"><b>배터리 없음</b><span>울트라 캐패시터 방식 —<br>10년 이상 교체·점검 불필요</span></div>
+    <div class="pill"><b>2ms 보상</b><span>순간전압강하 감지 즉시<br>100% 전압 보상, 1초 지속</span></div>
+    <div class="pill"><b>냉각팬 없음</b><span>자연 냉각 — 화재·고장 원인 제거,<br>먼지 많은 현장에 적합</span></div>
+    <div class="pill"><b>설비 옆 설치</b><span>별도 배터리실·공조 없이<br>부하별 개별 보호</span></div>
+  </div>
+  <div class="conf">
+    <h4>구축 구성 — TSP® 53대 (PH1 25 · PH2 28)</h4>
+    <table>
+      <thead><tr><th>모델</th><th>용량</th><th style="text-align:right">PH1</th><th style="text-align:right">PH2</th><th style="text-align:right">계</th><th>보호 부하</th></tr></thead>
+      <tbody>
+        <tr><td>TSP-340050-400</td><td>50 kVA</td><td class="n">5</td><td class="n">6</td><td class="n">11</td><td>컴프레서 · 펌프</td></tr>
+        <tr><td>TSP-340200-400</td><td>200 kVA</td><td class="n">8</td><td class="n">1</td><td class="n">9</td><td>도금 · 펌프 · 보일러</td></tr>
+        <tr><td>TSP-340230-400</td><td>230 kVA</td><td class="n">12</td><td class="n">12</td><td class="n">24</td><td>슬리터 · 도금 · 펌프</td></tr>
+        <tr><td>TSP-340300-400</td><td>300 kVA</td><td class="n">–</td><td class="n">6</td><td class="n">6</td><td>도금 · 펌프</td></tr>
+        <tr><td>TSP-340450-400</td><td>450 kVA</td><td class="n">–</td><td class="n">3</td><td class="n">3</td><td>도금</td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="2">합계</td><td class="n">25</td><td class="n">28</td><td class="n">53</td><td></td></tr></tfoot>
+    </table>
+    <div class="note">3상 400V 저압 라인 · 부하별 개별 보호 방식</div>
+  </div>
+  <div class="band">배터리실도, 냉각팬도, 교체 주기도 없는 53대 — 현지 인력만으로 운영<span class="n">11</span></div>
+</section>
+
+<!-- 6 · 2.1.3 효과 -->
+<section class="page eff">
+  <div style="position:absolute;left:40px;top:70px">
+    <div class="eyebrow">WESCO 고객사례</div>
+    <h2 class="h" style="font-size:30px"><span class="no">2.1.3</span>1년 41건의 순간정전, 라인 정지 0건</h2>
+    <p class="lead">Sag-VIEWER™가 기록한 2023년 이벤트 41건은 모두 1초 이내에 발생했고 TSP®가 전량 보상했습니다.
+       이후 매년 실시하는 전수 점검에서 53대 모두 이상 없이 가동 중입니다.</p>
+  </div>
+  <div class="rule" style="top:196px"></div>
+  <div class="chart">
+    <p class="t">2023년 순간정전 이벤트 분포 — 잔여전압 vs 지속시간 (41건)</p>
+    <svg viewBox="0 0 600 340" width="600" height="340" font-family="Arial,sans-serif">
+      <defs><clipPath id="c"><rect x="60" y="20" width="520" height="280"/></clipPath></defs>
+      <rect x="60" y="20" width="520" height="280" fill="#fff" stroke="#E7E2DA"/>
+      <rect x="60" y="48" width="520" height="56" fill="#FBF3E4"/>
+      <rect x="60" y="104" width="520" height="196" fill="#FBEAE4"/>
+      <line x1="60" y1="104" x2="580" y2="104" stroke="#E1431B" stroke-dasharray="4 3"/>
+      <text x="574" y="42" font-size="11" fill="#8A847D" text-anchor="end" font-weight="700">주의 (70 ~ 90%)</text>
+      <text x="574" y="122" font-size="11" fill="#E1431B" text-anchor="end" font-weight="700">고위험 — 라인 정지 구간 (70% 미만)</text>
+      <g font-size="10" fill="#8A847D">
+        <text x="52" y="24" text-anchor="end">100</text><text x="52" y="80" text-anchor="end">80</text>
+        <text x="52" y="136" text-anchor="end">60</text><text x="52" y="192" text-anchor="end">40</text>
+        <text x="52" y="248" text-anchor="end">20</text><text x="52" y="304" text-anchor="end">0</text>
+        <text x="60" y="318" text-anchor="middle">0</text><text x="164" y="318" text-anchor="middle">200</text>
+        <text x="268" y="318" text-anchor="middle">400</text><text x="372" y="318" text-anchor="middle">600</text>
+        <text x="476" y="318" text-anchor="middle">800</text><text x="580" y="318" text-anchor="middle">1,000 ms</text>
+      </g>
+      <text x="18" y="160" font-size="10.5" fill="#57534E" transform="rotate(-90 18 160)" text-anchor="middle">잔여 전압 (%)</text>
+      <g clip-path="url(#c)" fill="#57534E">
+        <circle cx="68" cy="50" r="4"/><circle cx="66" cy="84" r="4"/><circle cx="72" cy="80" r="4"/>
+        <circle cx="98" cy="70" r="4"/><circle cx="104" cy="60" r="4"/><circle cx="110" cy="78" r="4"/>
+        <circle cx="112" cy="98" r="4"/><circle cx="118" cy="66" r="4"/><circle cx="126" cy="84" r="4"/>
+        <circle cx="132" cy="92" r="4"/><circle cx="140" cy="62" r="4"/><circle cx="146" cy="74" r="4"/>
+        <circle cx="152" cy="56" r="4"/><circle cx="158" cy="88" r="4"/><circle cx="164" cy="70" r="4"/>
+        <circle cx="170" cy="96" r="4"/><circle cx="178" cy="64" r="4"/><circle cx="184" cy="78" r="4"/>
+        <circle cx="190" cy="58" r="4"/><circle cx="196" cy="86" r="4"/><circle cx="204" cy="72" r="4"/>
+        <circle cx="212" cy="94" r="4"/><circle cx="220" cy="66" r="4"/><circle cx="228" cy="80" r="4"/>
+        <circle cx="236" cy="60" r="4"/><circle cx="244" cy="90" r="4"/><circle cx="252" cy="74" r="4"/>
+        <circle cx="262" cy="68" r="4"/><circle cx="272" cy="84" r="4"/><circle cx="284" cy="76" r="4"/>
+        <circle cx="296" cy="62" r="4"/><circle cx="310" cy="88" r="4"/><circle cx="326" cy="72" r="4"/>
+        <circle cx="344" cy="96" r="4"/><circle cx="360" cy="80" r="4"/>
+      </g>
+      <g clip-path="url(#c)" fill="#E1431B">
+        <circle cx="90" cy="176" r="6.5"/><circle cx="108" cy="150" r="6.5"/><circle cx="140" cy="128" r="6.5"/>
+        <circle cx="172" cy="162" r="6.5"/><circle cx="214" cy="118" r="6.5"/><circle cx="238" cy="140" r="6.5"/>
+      </g>
+      <g font-size="10.5" fill="#57534E"><circle cx="420" cy="266" r="4" fill="#57534E"/><text x="430" y="270">주의 35건</text>
+      <circle cx="500" cy="266" r="6" fill="#E1431B"/><text x="512" y="270">고위험 6건</text></g>
+    </svg>
+    <div style="font-size:11px;color:var(--muted);margin-top:4px">※ 시안용 예시 분포 — 최종본은 2023 Sag 분석 보고서 원데이터로 작성</div>
+  </div>
+  <div class="metrics">
+    <div class="m em"><b>41<i>건</i></b><span>2023년 순간정전 발생 · TSP® 전량 보상</span></div>
+    <div class="m em"><b>0<i>건</i></b><span>라인 정지 · 불량 발생</span></div>
+    <div class="m"><b>53<i>대 전수 PASS</i></b><span>2024 · 2026 연간 현장 점검</span></div>
+    <div class="m"><b>100<i>%</i></b><span>이벤트 1초 이내 · TSP® 보상 범위 안</span></div>
+  </div>
+  <div class="band">순간정전 41건, 라인 정지 0건 — 두 차례 현장 점검 53대 전수 통과<span class="n">12</span></div>
+</section>
+
+</div>
+</body>
+</html>
