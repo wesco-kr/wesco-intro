@@ -54,6 +54,9 @@
       const attrName = el.getAttribute('data-i18n-attr');
       if (attrName) {
         el.setAttribute(attrName, val);
+      } else if (el.hasAttribute('data-i18n-html')) {
+        // 표지 h1 처럼 <br>/<em> 이 섞인 문장 — 사전 값을 HTML 로 그대로 넣는다 (사전은 우리 파일뿐이므로 안전)
+        el.innerHTML = val;
       } else if (VOID_TAGS.has(el.tagName.toLowerCase())) {
         // Skip void elements (br, hr, etc.) — they cannot hold text
         return;
@@ -88,6 +91,10 @@
     document.querySelectorAll('[data-lang-btn]').forEach((btn) => {
       btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
     });
+
+    // 스크립트가 동적으로 만드는 문구(이펙트 버튼 등)를 위해 사전을 공개하고 알린다
+    window.__dict = dict;
+    document.dispatchEvent(new CustomEvent('wesco:i18n', { detail: { lang } }));
   }
 
   async function setLang(lang) {
