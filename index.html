@@ -173,7 +173,7 @@ table.tb td.em{color:var(--red);font-weight:700}
 /* ---- 회사 카드 ---- */
 .card .logo{height:40px;margin-bottom:12px}
 .card .intro{font-size:16.5px;color:var(--stone);font-weight:500;line-height:1.55;margin-bottom:18px}
-.card .photo{width:100%;height:280px;object-fit:cover;filter:grayscale(1) contrast(1.05);border-radius:4px}
+.card .photo{width:100%;height:280px;object-fit:cover;border-radius:4px}
 /* ---- 순간정전 ---- */
 .stat-big{display:flex;gap:22px;margin:16px 0 18px}
 .stat-big div{flex:1;border-left:3px solid var(--red);padding-left:14px}
@@ -268,7 +268,7 @@ table.tb td.em{color:var(--red);font-weight:700}
 .ind .mini b i{font-style:normal;font-size:13px;color:#FBEAE4;margin-left:2px}
 .ind .mini div > span{font-size:11.5px;opacity:.8}
 /* ---- 네트워크 ---- */
-.net .map{width:100%;height:360px;object-fit:cover;object-position:center 40%;filter:grayscale(1) opacity(.55);border-radius:6px;margin:8px 0 16px}
+.net .map{width:100%;height:360px;object-fit:cover;object-position:center 40%;opacity:.55;border-radius:6px;margin:8px 0 16px}
 .net .ctry{display:flex;flex-wrap:wrap;gap:7px}
 .net .ctry span{border:1px solid var(--line);background:#FDFCF9;padding:5px 12px;font-size:13px;color:var(--stone);border-radius:4px}
 .net .ctry span.hq{background:var(--red);border-color:var(--red);color:#FDFCF9;font-weight:700}
@@ -365,7 +365,7 @@ table.tb thead th{background:transparent;border-bottom:1px solid var(--stone)}
 .cover h1{font-size:50px;line-height:1.22;max-width:555px;margin-top:18px;letter-spacing:-.06em;word-break:keep-all}
 .cover h1 em{color:var(--red)}
 .cover .sl{font-size:14px;line-height:1.7;max-width:455px;margin-top:24px;color:var(--line);opacity:1}
-.cover .prod{width:465px;right:32px;bottom:173px;opacity:1;z-index:1;filter:grayscale(1) drop-shadow(0 18px 20px rgba(28,25,23,.25))}
+.cover .prod{width:465px;right:32px;bottom:173px;opacity:1;z-index:1;filter:drop-shadow(0 18px 20px rgba(28,25,23,.25))}
 .cover .stats{position:absolute;left:64px;right:64px;bottom:69px;margin:0;display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr;gap:30px}
 .cover .st b{font-size:38px;line-height:1.4;font-weight:700}
 .cover .st b i{color:var(--red)}
@@ -391,23 +391,18 @@ table.tb thead th{background:transparent;border-bottom:1px solid var(--stone)}
 .div .stripe{inset:0;width:100%;height:100%;background:none;clip-path:none}
 .div .stripe::after{content:"";position:absolute;left:64px;right:64px;top:368px;height:2px;background:var(--muted)}
 .div .stripe::before{content:"";position:absolute;left:270px;top:321px;width:152px;height:96px;border:2px solid var(--red);border-top:0;z-index:1;background:#292524}
-.page[data-tk="thumb.12"]{background:var(--red)}
-.page[data-tk="thumb.12"] .big{color:#292524}
-.page[data-tk="thumb.12"] .stripe::after{background:var(--tint)}
-.page[data-tk="thumb.12"] .stripe::before{left:270px;top:367px;height:2px;width:200px;background:var(--ivory);border:0}
-.page[data-tk="thumb.12"] p{color:var(--ivory)}
 /* Company profile. */
 .card .grid2{grid-template-columns:1fr 1.05fr}
 .card .intro{font-size:17px;line-height:1.8;margin-bottom:20px}
 .card .logo{height:32px;margin-bottom:20px}
-.card .photo{height:285px;object-position:55% center;filter:grayscale(1)}
+.card .photo{height:285px;object-position:55% center}
 .card .metrics{gap:0;margin-top:0!important;background:var(--tint2)}
 .card .metrics .m{padding:22px;border-top:0}
 .card .metrics .m+.m{border-left:1px solid var(--line)}
 .card .m b{font-size:43px}
 .card table.tb th,.card table.tb td{padding:10px 8px}
 /* Losses: a single spread dominated by the cost of a stop. */
-.page[data-tk="thumb.5"] .grid2{grid-template-columns:1.2fr 1fr;gap:52px}
+.pg-use .grid2{grid-template-columns:1.2fr 1fr;gap:52px}
 .stat-big{gap:24px;margin:20px 0 30px}
 .stat-big div{border-left:0;padding:0}
 .stat-big b{font-size:84px;letter-spacing:-.055em;line-height:1.1;margin-bottom:14px}
@@ -417,8 +412,8 @@ table.tb thead th{background:transparent;border-bottom:1px solid var(--stone)}
 .bars .r{grid-template-columns:104px 1fr 42px;gap:12px;margin-bottom:18px;font-size:12px}
 .bars .r .tr{height:10px;border-radius:0}
 .bars .r .tr i.g{background:var(--muted)}
-.page[data-tk="thumb.5"] .bars{margin-top:26px}
-.page[data-tk="thumb.5"] .grid2>div:last-child{padding:24px;background:var(--tint2)}
+.pg-use .bars{margin-top:26px}
+.pg-use .grid2>div:last-child{padding:24px;background:var(--tint2)}
 /* Before / after: two timelines, with the intervention isolated. */
 .bg{background:var(--tint2)}
 .flows{gap:32px}
@@ -430,38 +425,37 @@ table.tb thead th{background:transparent;border-bottom:1px solid var(--stone)}
 .step.key{padding:16px 12px;background:var(--tint);margin:0 -12px;border-bottom:0}
 .step.key b{color:var(--ivory)}
 /* Operating diagram and comparison. */
-.page[data-tk="thumb.7"] .grid2{grid-template-columns:1.45fr 1fr!important;gap:28px}
+.pg-adv .grid2{grid-template-columns:1.45fr 1fr!important;gap:28px}
 .sld{padding:68px 20px 22px;border:0;background:var(--tint2);min-height:355px}
 .sld .state{top:22px;left:22px;right:auto;border-radius:0;background:transparent;font-size:10px}
 .sld .box{fill:var(--ivory)}
 .sld .wire,.sld .wave.src{stroke:var(--muted)}
-.page[data-tk="thumb.7"] .metrics{gap:8px}
-.page[data-tk="thumb.7"] .metrics .m{padding:18px 14px}
-.page[data-tk="thumb.7"] .m.em b{font-size:62px}
-.page[data-tk="thumb.7"] .m b{font-size:35px}
-.page[data-tk="thumb.7"] ul.li li{font-size:12px;margin-bottom:7px}
+.pg-adv .metrics{gap:8px}
+.pg-adv .metrics .m{padding:18px 14px}
+.pg-adv .m.em b{font-size:62px}
+.pg-adv .m b{font-size:35px}
+.pg-adv ul.li li{font-size:12px;margin-bottom:7px}
 .key .grid2{grid-template-columns:.8fr 1.2fr;gap:48px}
 .key .pills{gap:0}
 .key table.tb th,.key table.tb td{padding:14px 10px}
 .key table.tb td:nth-child(2),.key table.tb thead th:nth-child(2){background:var(--tint)}
 .key table.tb td.em{font-size:21px;letter-spacing:-.04em}
 /* Product catalogue: broad product plate over a quiet specification rail. */
-.page[data-tk="thumb.9"] .grid2{grid-template-columns:1.1fr 1fr!important;gap:32px}
-.page[data-tk="thumb.9"] .grid2>div:first-child{background:var(--tint2);height:360px;display:flex;align-items:center}
-.page[data-tk="thumb.9"] img{border:0!important;border-radius:0!important;background:transparent!important;mix-blend-mode:multiply;filter:grayscale(1)}
+.pg-line .grid2{grid-template-columns:1.1fr 1fr!important;gap:32px}
+.pg-line .grid2>div:first-child{background:var(--tint2);height:360px;display:flex;align-items:center}
+.pg-line img{border:0!important;border-radius:0!important;background:transparent!important;mix-blend-mode:multiply}
 .tiers{gap:12px}
 .tier{padding:18px 14px;border:0;border-top:2px solid var(--stone);background:transparent}
 .tier .k{font-size:9px;letter-spacing:.1em}
 .tier b{font-size:24px;line-height:1.4;margin-top:14px}
-.page[data-tk="thumb.9"] .tier b{white-space:nowrap}
-.page[data-tk="thumb.9"] .tier b i{display:block;font-style:normal;font-size:12px;font-weight:500;color:var(--muted);letter-spacing:.06em;margin-top:2px}
+.pg-line .tier b{white-space:nowrap}
+.pg-line .tier b i{display:block;font-style:normal;font-size:12px;font-weight:500;color:var(--muted);letter-spacing:.06em;margin-top:2px}
 .tier p{font-size:12px;line-height:1.7;margin-top:12px}
 .tier.em{border-color:var(--red)}
 .ways{gap:16px;margin-top:28px}
 .way{border:0;padding:18px;font-size:12px;line-height:1.7}
 .way b{font-size:13px;line-height:1.6}
 /* Monitoring: instrument face, editorial annotations. */
-.page[data-tk="thumb.10"] .grid2{grid-template-columns:1.5fr 1fr!important;gap:36px}
 .hmi{border-radius:2px;background:#292524;box-shadow:0 12px 24px rgba(41,37,36,.16)}
 .hmi .hd{background:var(--stone);padding:14px 16px;font-size:10px}
 .hmi .hd .ok{font-size:9px;color:var(--tint)}
@@ -472,21 +466,13 @@ table.tb thead th{background:transparent;border-bottom:1px solid var(--stone)}
 .hmi th{padding:9px 12px;font-size:9px}
 .hmi td.ok{color:var(--tint)}
 .hmi .ft{font-size:9px}
-.page[data-tk="thumb.10"] .pills{gap:0}
-.page[data-tk="thumb.10"] .pill b{font-size:16px}
 /* Credentials and client index. */
-.page[data-tk="thumb.11"] .grid2{gap:48px}
-.page[data-tk="thumb.11"] table.tb th{color:var(--stone);font-weight:700}
-.page[data-tk="thumb.11"] .grid2>div:last-child{background:var(--tint2);padding:24px}
-.page[data-tk="thumb.11"] .grid2>div:last-child>div:last-child{gap:7px!important;align-items:flex-start}
-.page[data-tk="thumb.11"] img{width:calc((100% - 28px)/5)!important;filter:grayscale(1)}
 .lg .grp{display:grid;grid-template-columns:175px 1fr;gap:20px;padding:19px 0;border-top:1px solid var(--line);margin:0}
 .lg .grp h4{font-size:10px;line-height:1.7;padding-top:6px}
 .lg .cells{gap:8px 22px;align-items:center}
 .lg .cell{padding:5px 0;background:transparent;border:0;font-size:17px;line-height:1.5}
 .lg .rule{margin-bottom:16px}
 /* Industry case studies: image-led facing-page rhythm. */
-.ind:not([data-tk="thumb.18"]) .grid2{grid-template-columns:1fr 1fr;gap:40px}
 .ind .h{font-size:44px}
 .ind .tag{border-radius:0;background:transparent;color:var(--red);padding:0;font-size:10px;letter-spacing:.14em;margin-bottom:18px}
 .ind .risk{background:transparent;border-left:0;border-top:2px solid var(--red);padding:16px 0 0;margin-bottom:24px;font-size:16px;line-height:1.8;letter-spacing:-.025em}
@@ -497,30 +483,12 @@ table.tb thead th{background:transparent;border-bottom:1px solid var(--stone)}
 .ind .loads{gap:6px}
 .ind .loads span{padding:4px 8px;background:var(--tint2);border:0;font-size:11px}
 .ind ul.li li{font-size:12.5px;margin-bottom:8px}
-.page[data-tk="thumb.15"]{background:var(--tint2)}
-.page[data-tk="thumb.15"] .grid2>div:first-child{grid-column:2;grid-row:1}
-.page[data-tk="thumb.15"] .grid2>div:last-child{grid-column:1;grid-row:1}
-.page[data-tk="thumb.15"] .photo{height:330px}
-.page[data-tk="thumb.15"] .loads span{background:var(--ivory)}
-.page[data-tk="thumb.16"] .photo{height:345px;object-position:65% center}
-.page[data-tk="thumb.17"] .risk{font-size:13px;line-height:1.6;margin-bottom:14px;padding-top:12px}
-.page[data-tk="thumb.17"] .tag{margin-bottom:12px}
-.page[data-tk="thumb.17"] .mini div{padding:12px}
-.page[data-tk="thumb.17"] .mini b{font-size:32px}
-.page[data-tk="thumb.17"] .sub{margin-bottom:9px}
-.page[data-tk="thumb.17"] .photo{height:248px}
 .ind .mini{gap:1px;margin-top:12px;background:var(--line)}
 .ind .mini div{border-radius:0;background:#292524;padding:17px 12px}
 .ind .mini b{font-size:39px;margin-bottom:8px}
 .ind .mini div>span{font-size:10px;line-height:1.6;display:block}
 .ind .mini div:last-child{background:var(--red)}
 /* Public infrastructure: four architectural columns. */
-.page[data-tk="thumb.18"] .h{font-size:36px}
-.page[data-tk="thumb.18"] .grid3{gap:24px}
-.page[data-tk="thumb.18"] .tier{min-height:210px;padding:26px 16px 18px;background:var(--tint2)}
-.page[data-tk="thumb.18"] .tier b{font-size:24px;margin-top:34px;letter-spacing:-.04em}
-.page[data-tk="thumb.18"] .tier.em{background:var(--tint)}
-.page[data-tk="thumb.18"] .grid2{margin-top:28px!important;gap:48px}
 /* Evidence spread: headline values, no dashboard boxes. */
 .eff .metrics{grid-template-columns:1.2fr 1.3fr 1fr .7fr;gap:0;background:#292524}
 .eff .metrics .m{padding:34px 22px;border:0;border-right:1px solid var(--stone);background:transparent}
@@ -533,7 +501,7 @@ table.tb thead th{background:transparent;border-bottom:1px solid var(--stone)}
 .eff .bars .r{grid-template-columns:140px 1fr 42px}
 .eff .bars .r .tr{height:8px}
 /* Network: full map preserved, with a narrow destination index. */
-.net .map{position:absolute;left:50px;top:206px;width:755px;height:430px;object-fit:contain;filter:grayscale(1);opacity:.22;mix-blend-mode:multiply;margin:0;border-radius:0}
+.net .map{position:absolute;left:50px;top:206px;width:755px;height:430px;object-fit:contain;opacity:.28;mix-blend-mode:multiply;margin:0;border-radius:0}
 .net .ctry{position:absolute;right:64px;top:218px;width:215px;gap:0;display:grid;grid-template-columns:1fr 1fr;align-content:start}
 .net .ctry span{background:transparent;border:0;border-bottom:1px solid var(--line);padding:10px 8px;font-size:11px}
 .net .ctry span.hq{grid-column:1/-1;background:var(--red);color:var(--ivory);padding:12px;margin-bottom:12px}
@@ -564,7 +532,6 @@ html:not([lang="ko"]) .ind ul.li li{font-size:11.5px}
 html:not([lang="ko"]) .toc .row{font-size:12px}
 html:not([lang="ko"]) .lg .cell{font-size:15px}
 html:not([lang="ko"]) .tier b{font-size:21px}
-html:not([lang="ko"]) .page[data-tk="thumb.18"] .tier b{font-size:21px}
 body.effects-off .page,body.effects-off .page [data-r],body.effects-off .step,body.effects-off .hmi tr{transition:none!important;opacity:1!important;transform:none!important}
 body.effects-off .page *{animation:none!important;transition:none!important}
 @media(prefers-reduced-motion:reduce){
@@ -573,7 +540,7 @@ body.effects-off .page *{animation:none!important;transition:none!important}
  .page,.page [data-r],.step,.hmi tr{opacity:1!important;transform:none!important}
  .bars .tr i{width:var(--w)!important}
 }
-@media(max-width:760px){.bar{height:auto;padding:8px 12px}.bar .btns{gap:5px}.bar .pg{margin-right:4px}.wrap{padding:12px}.pages{gap:20px}}
+@media(max-width:760px){html,body{overflow-x:hidden}.thumbs{display:none}.bar{height:auto;padding:8px 12px}.bar a.btn:not(.red){display:none}.bar .btns{gap:5px}.bar .pg{margin-right:4px}.wrap{padding:12px}.pages{gap:20px}}
 @page{size:1120px 720px;margin:0}
 @media print{
  html,body,body.present{margin:0!important;padding:0!important;background:var(--ivory);overflow:visible!important;width:1120px;print-color-adjust:exact;-webkit-print-color-adjust:exact}
@@ -586,6 +553,38 @@ body.effects-off .page *{animation:none!important;transition:none!important}
  *,*::before,*::after{animation:none!important;transition:none!important}
  .bars .tr i{width:var(--w)!important}
 }
+
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+/* History: four eras on one spread. */
+.hist .tl{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:6px}
+.hist .era{border-top:2px solid var(--stone);padding-top:16px}
+.hist .era.on{border-color:var(--red)}
+.hist .y{font-family:Arial,sans-serif;font-size:32px;font-weight:900;letter-spacing:-.04em;color:var(--stone);line-height:1;margin-bottom:14px}
+.hist .era.on .y{color:var(--red)}
+.hist .y small{display:block;font-family:inherit;font-size:10px;font-weight:700;letter-spacing:.12em;color:var(--muted);margin-top:8px}
+.hist ul{list-style:none;margin:0;padding:0}
+.hist li{font-size:12.5px;line-height:1.55;color:var(--body);padding:9px 0;border-bottom:1px solid var(--line);letter-spacing:-.02em}
+html:not([lang="ko"]) .hist li{font-size:11.5px}
+/* Product use: applied fields grid. */
+.pg-use .grid2{grid-template-columns:1.15fr 1fr;gap:48px}
+.pg-use .grid2>div:last-child{padding:22px 24px;background:var(--tint2)}
+.pg-use .stat-big{margin:14px 0 20px}
+.pg-use .stat-big b{font-size:72px}
+.pg-use ul.li li{font-size:13px;margin-bottom:8px}
+.uses{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0 16px}
+.uses span{display:block;padding:14px 14px;background:var(--ivory);border-left:2px solid var(--red);font-size:14px;font-weight:700;color:var(--stone);letter-spacing:-.02em}
+html:not([lang="ko"]) .uses span{font-size:12.5px}
+.pg-use .note{font-size:11.5px}
+/* Advantages: diagram left, five pills right. */
+.pg-adv .grid2{grid-template-columns:1.35fr 1fr!important;gap:32px}
+.pg-adv .pills{gap:0;grid-template-columns:1fr!important}
+.pg-adv .pill{padding:15px 0;border:0;border-bottom:1px solid var(--line);background:transparent}
+.pg-adv .pill b{font-size:14px}
+.pg-adv .pill span{font-size:15px}
+.pg-adv .pill span small{font-size:12px;line-height:1.5}
+html:not([lang="ko"]) .pg-adv .pill span{font-size:13px}
+html:not([lang="ko"]) .pg-adv .pill span small{font-size:10.5px}
+.lg .cell{font-size:16px}
 </style>
 
 </head>
@@ -594,7 +593,7 @@ body.effects-off .page *{animation:none!important;transition:none!important}
 <div class="bar">
   <div class="t"><a href="/"><img src="images/wesco_wordmark.png" alt="WESCO"></a><span data-i18n="bar.sub">사업소개서 · 2026</span></div>
   <div class="btns">
-    <span class="pg" id="pg">1 / 21</span>
+    <span class="pg" id="pg">1 / 9</span>
     <div class="lang" role="group" aria-label="Language">
       <button type="button" data-lang-btn="ko" aria-label="한국어">KO</button><button type="button" data-lang-btn="en" aria-label="English">EN</button><button type="button" data-lang-btn="cn" aria-label="简体中文">CN</button><button type="button" data-lang-btn="jp" aria-label="日本語">JP</button><button type="button" data-lang-btn="vn" aria-label="Tiếng Việt">VN</button>
     </div>
@@ -629,144 +628,128 @@ body.effects-off .page *{animation:none!important;transition:none!important}
   <img class="prod" src="images/company/main_large.png" alt="TSP" data-r style="--d:4">
 </section>
 
-<!-- 2 목차 -->
-<section class="page toc" data-t="목차" data-tk="thumb.2">
-  <div class="eyebrow">CONTENTS</div>
-  <div class="h" data-i18n="toc.h">목차</div>
-  <div class="rule"></div>
-  <div class="cols">
-    <div data-r style="--d:1">
-      <div class="part">01<span data-i18n="toc.p1">WESCO 소개</span></div>
-      <a class="row" href="#p4"><span><b>1.1</b><span data-i18n="toc.11">회사 개요</span></span><span class="p">04</span></a>
-      <a class="row" href="#p5"><span><b>1.2</b><span data-i18n="toc.12">순간정전, 얼마나 잃고 있나</span></span><span class="p">05</span></a>
-      <a class="row" href="#p6"><span><b>1.3</b><span data-i18n="toc.13">도입 전·후 — 라인에서 일어나는 일</span></span><span class="p">06</span></a>
-      <a class="row" href="#p7"><span><b>1.4</b><span data-i18n="toc.14">TSP® 작동 원리</span></span><span class="p">07</span></a>
-      <a class="row" href="#p8"><span><b>1.5</b><span data-i18n="toc.15">TSP® vs UPS</span></span><span class="p">08</span></a>
-      <a class="row" href="#p9"><span><b>1.6</b><span data-i18n="toc.16">제품 라인업 · 도입 방식</span></span><span class="p">09</span></a>
-      <a class="row" href="#p10"><span><b>1.7</b><span data-i18n="toc.17">Sag-VIEWER 모니터링</span></span><span class="p">10</span></a>
-      <a class="row" href="#p11"><span><b>1.8</b><span data-i18n="toc.18">인증 · 수상</span></span><span class="p">11</span></a>
-    </div>
-    <div data-r style="--d:2">
-      <div class="part">02<span data-i18n="toc.p2">적용 실적</span></div>
-      <a class="row" href="#p13"><span><b>2.1</b><span data-i18n="toc.21">주요 고객사</span></span><span class="p">13</span></a>
-      <a class="row" href="#p14"><span><b>2.2</b><span data-i18n="toc.22">반도체</span></span><span class="p">14</span></a>
-      <a class="row" href="#p15"><span><b>2.3</b><span data-i18n="toc.23">디스플레이</span></span><span class="p">15</span></a>
-      <a class="row" href="#p16"><span><b>2.4</b><span data-i18n="toc.24">자동차 · 타이어</span></span><span class="p">16</span></a>
-      <a class="row" href="#p17"><span><b>2.5</b><span data-i18n="toc.25">이차전지</span></span><span class="p">17</span></a>
-      <a class="row" href="#p18"><span><b>2.6</b><span data-i18n="toc.26">국가 SOC · 랜드마크</span></span><span class="p">18</span></a>
-      <a class="row" href="#p19"><span><b>2.7</b><span data-i18n="toc.27">도입 효과 실증</span></span><span class="p">19</span></a>
-      <a class="row" href="#p20"><span><b>2.8</b><span data-i18n="toc.28">글로벌 네트워크</span></span><span class="p">20</span></a>
-    </div>
-  </div>
-  <div class="band"><span data-i18n="toc.band">WESCO 사업소개서</span><span class="n">02</span></div>
-</section>
-
-<!-- 3 파트 01 -->
-<section class="page div" data-t="01 WESCO 소개" data-tk="thumb.3">
-  <div class="stripe"></div>
-  <div class="inner">
-    <div class="big" data-r>01</div>
-    <h2 data-r style="--d:1" data-i18n="d1.h">WESCO 소개</h2>
-    <p data-r style="--d:2" data-i18n="d1.p">순간정전이 무엇이고, 왜 생산라인에 치명적이며, TSP®가 그것을 어떻게 2ms 안에 해결하는지 — 회사와 제품을 한 흐름으로 소개합니다.</p>
-  </div>
-</section>
-
-<!-- 4 회사 개요 -->
-<section class="page card" data-t="회사 개요" data-tk="thumb.4">
-  <div class="eyebrow">01 · WESCO</div>
-  <div class="h"><span class="no">1.1</span><span data-i18n="p4.h">회사 개요</span></div>
+<!-- 2 회사 소개 -->
+<section class="page card" data-t="회사 소개" data-tk="thumb.2">
+  <div class="eyebrow">WESCO</div>
+  <div class="h"><span class="no">01</span><span data-i18n="p2.h">회사 소개</span></div>
   <div class="rule"></div>
   <div class="grid2">
     <div data-r style="--d:1">
       <img class="logo" src="images/wesco_wordmark.png" alt="WESCO">
-      <p class="intro" data-i18n="p4.intro">순간정전 보상장치 TSP® 한 분야를 25년간 파고든 전문 제조사. 국내에서 유일하게 단상 0.5kVA부터 삼상 2,400kVA까지 풀 라인업을 자체 설계·생산합니다.</p>
+      <p class="intro" data-i18n="p2.intro">2001년 설립. 순간정전 보상장치 TSP® 한 분야를 25년간 파고든 전문 제조사로, 단상 0.5kVA부터 삼상 2,400kVA까지 국내 유일 풀 라인업을 자체 설계·생산합니다.</p>
       <table class="tb">
-        <tr><th data-i18n="p4.k1">설립</th><td data-i18n="p4.v1">2001년 1월</td></tr>
-        <tr><th data-i18n="p4.k2">업종</th><td data-i18n="p4.v2">전력품질(Power Quality) 장비 제조 · 순간정전 보상장치(TSP®) 전문</td></tr>
-        <tr><th data-i18n="p4.k3">사업장</th><td data-i18n="p4.v3">본사·연구소 경기 안양 / EMS 생산공장 경기 이천</td></tr>
-        <tr><th data-i18n="p4.k4">주요 고객</th><td data-i18n="p4.v4">반도체 · 디스플레이 · 자동차 · 이차전지 · 국가 SOC</td></tr>
-        <tr><th data-i18n="p4.k5">해외</th><td data-i18n="p4.v5">15개국 이상 공급 · 천만불 수출의 탑(2018)</td></tr>
+        <tr><th data-i18n="p2.k1">설립</th><td data-i18n="p2.v1">2001년 1월</td></tr>
+        <tr><th data-i18n="p2.k2">사업</th><td data-i18n="p2.v2">순간정전 보상장치 TSP® 제조 · 전력품질 컨설팅</td></tr>
+        <tr><th data-i18n="p2.k3">사업장</th><td data-i18n="p2.v3">본사·연구소 경기 안양 / EMS 생산공장 경기 이천</td></tr>
+        <tr><th data-i18n="p2.k4">인증</th><td data-i18n="p2.v4">ISO 9001 · 14001 · INNO-BIZ · KC · CE · S마크 · NRTL</td></tr>
+        <tr><th data-i18n="p2.k5">해외</th><td data-i18n="p2.v5">15개국 이상 공급 · 천만불 수출의 탑(2018)</td></tr>
       </table>
     </div>
     <div data-r style="--d:2">
-      <img class="photo" src="images/proof/install_auto.jpg" alt="TSP 설치 현장">
+      <img class="photo" src="images/proof/install_semi.jpg" alt="TSP 설치 현장">
       <div class="metrics" style="grid-template-columns:repeat(2,1fr);margin-top:12px">
-        <div class="m"><b><span data-count="150000">0</span><i>+</i></b><span data-i18n="p4.m1">누적 공급 대수</span></div>
-        <div class="m"><b><span data-count="900">0</span><i>+</i></b><span data-i18n="p4.m2">공급 기업 수</span></div>
+        <div class="m"><b><span data-count="150000">0</span><i>+</i></b><span data-i18n="p2.m1">누적 공급 대수</span></div>
+        <div class="m"><b><span data-count="900">0</span><i>+</i></b><span data-i18n="p2.m2">공급 기업 수</span></div>
       </div>
     </div>
   </div>
-  <div class="band"><span data-i18n="p4.band">25년 · 한 분야 · 국내 유일 풀 라인업 자체 생산</span><span class="n">04</span></div>
+  <div class="band"><span data-i18n="p2.band">25년 · 한 분야 · 국내 유일 풀 라인업 자체 생산</span><span class="n">02</span></div>
 </section>
 
-<!-- 5 순간정전 손실 -->
-<section class="page" data-t="순간정전 손실" data-tk="thumb.5">
-  <div class="eyebrow">01 · WESCO</div>
-  <div class="h"><span class="no">1.2</span><span data-i18n="p5.h">순간정전, 얼마나 잃고 있나</span></div>
-  <p class="lead" data-i18n="p5.lead">순간정전(Voltage Sag)은 전압이 0.01~1초 동안 정격의 90% 이하로 떨어지는 현상입니다. 정전이 아니어서 한전 통계에 잡히지 않지만, 정밀 설비는 그 찰나에 멈춥니다.</p>
+<!-- 3 연혁 -->
+<section class="page hist" data-t="연혁" data-tk="thumb.3">
+  <div class="eyebrow">WESCO</div>
+  <div class="h"><span class="no">02</span><span data-i18n="p3.h">연혁</span></div>
+  <p class="lead" data-i18n="p3.lead">일본 MEIDENSHA 대리점에서 출발해, 자체 개발한 TSP®로 15개국 이상에 공급하기까지.</p>
+  <div class="rule"></div>
+  <div class="tl">
+    <div class="era" data-r style="--d:1"><div class="y">2001<small data-i18n="p3.e1">설립기 · ~2010</small></div><ul>
+      <li data-i18n="p3.e1a">한광호 대표 창업(2001)</li>
+      <li data-i18n="p3.e1b">MEIDENSHA(일본) 한국 독점대리점</li>
+      <li data-i18n="p3.e1c">ISO 9001 · 14001 · INNO-BIZ 인증</li>
+      <li data-i18n="p3.e1d">DB하이텍 · 현대제철 공급</li></ul></div>
+    <div class="era" data-r style="--d:2"><div class="y">2011<small data-i18n="p3.e2">기술 확립 · ~2017</small></div><ul>
+      <li data-i18n="p3.e2a">기업부설연구소 승격</li>
+      <li data-i18n="p3.e2b">TSP® 상표 등록 · CE · S마크 인증</li>
+      <li data-i18n="p3.e2c">현대·기아 / LG디스플레이 국내·해외 공급</li>
+      <li data-i18n="p3.e2d">SONY(일본) 수출 · LG에너지솔루션 한국·폴란드</li></ul></div>
+    <div class="era on" data-r style="--d:3"><div class="y">2018<small data-i18n="p3.e3">글로벌 확장 · ~2022</small></div><ul>
+      <li data-i18n="p3.e3a">천만불 수출의 탑 수상(2018)</li>
+      <li data-i18n="p3.e3b">NXP · X-FAB(말레이시아) 수출</li>
+      <li data-i18n="p3.e3c">TSMC · ASE · UMC · INNOLUX(대만) 공급</li>
+      <li data-i18n="p3.e3d">BOE · VISIONOX(중국) · Volta(헝가리) 수출</li></ul></div>
+    <div class="era" data-r style="--d:4"><div class="y">2023<small data-i18n="p3.e4">25주년 · ~2026</small></div><ul>
+      <li data-i18n="p3.e4a">US NRTL 인증 획득</li>
+      <li data-i18n="p3.e4b">현대·기아 3년 독점 공급 · 만도(멕시코)</li>
+      <li data-i18n="p3.e4c">하나마이크론 · SI-FLEX(베트남) 수출</li>
+      <li data-i18n="p3.e4d">Sag-VIEWER™ 업그레이드 · 누적 150,000대</li></ul></div>
+  </div>
+  <div class="band"><span data-i18n="p3.band">2001년 설립 — 2026년 25주년</span><span class="n">03</span></div>
+</section>
+
+<!-- 4 제품 용도 -->
+<section class="page pg-use" data-t="제품 용도" data-tk="thumb.4">
+  <div class="eyebrow">PRODUCT</div>
+  <div class="h"><span class="no">03</span><span data-i18n="p4.h">제품 용도 — 순간정전으로부터 설비 보호</span></div>
+  <p class="lead" data-i18n="p4.lead">순간정전(Voltage Sag)은 전압이 0.01~1초 동안 정격의 90% 이하로 떨어지는 현상입니다. 정전이 아니라 통계엔 없지만, 정밀 설비는 그 찰나에 멈춥니다. TSP®는 설비 앞단에서 그 찰나를 메웁니다.</p>
   <div class="rule"></div>
   <div class="grid2">
     <div data-r style="--d:1">
-      <div class="sub"><i></i><span data-i18n="p5.s1">피해 규모 — 반도체 FAB 기준</span></div>
+      <div class="sub"><i></i><span data-i18n="p4.s1">피해 규모 — 반도체 FAB 기준</span></div>
       <div class="stat-big">
-        <div><b><span data-count="20">0</span><i data-i18n="p5.u1">회/년</i></b><span data-i18n="p5.l1">154kV 수전 FAB 연간 발생</span></div>
-        <div><b><span data-count="5.2" data-dec="1">0</span><i data-i18n="p5.u2">억원</i></b><span data-i18n="p5.l2">1회 정지 시 평균 손실</span></div>
+        <div><b><span data-count="20">0</span><i data-i18n="p4.u1">회/년</i></b><span data-i18n="p4.l1">154kV 수전 FAB 연간 발생</span></div>
+        <div><b><span data-count="5.2" data-dec="1">0</span><i data-i18n="p4.u2">억원</i></b><span data-i18n="p4.l2">1회 정지 시 평균 손실</span></div>
       </div>
       <ul class="li">
-        <li data-i18n="p5.li1">설비 정지 → 재기동·세정·재검증에 수 시간~수일</li>
-        <li data-i18n="p5.li2">공정 중 웨이퍼·패널·셀은 대부분 폐기</li>
-        <li data-i18n="p5.li3">정지 이력이 남지 않아 원인 규명이 늦어짐</li>
-        <li data-i18n="p5.li4">UPS는 용량·비용 때문에 핵심 설비 일부만 보호</li>
+        <li data-i18n="p4.li1">설비 정지 → 재기동·재검증에 수 시간~수일</li>
+        <li data-i18n="p4.li2">공정 중 웨이퍼·패널·셀은 대부분 폐기</li>
+        <li data-i18n="p4.li3">UPS는 용량·비용 때문에 일부 설비만 보호</li>
       </ul>
     </div>
     <div data-r style="--d:2">
-      <div class="sub"><i></i><span data-i18n="p5.s2">발생 원인 분포</span></div>
-      <div class="bars">
-        <div class="r"><span data-i18n="p5.c1">낙뢰</span><div class="tr"><i style="--w:45%;--d:.2s"></i></div><em>45%</em></div>
-        <div class="r"><span data-i18n="p5.c2">계통 스위칭</span><div class="tr"><i style="--w:25%;--d:.35s"></i></div><em>25%</em></div>
-        <div class="r"><span data-i18n="p5.c3">중부하 기동</span><div class="tr"><i style="--w:15%;--d:.5s"></i></div><em>15%</em></div>
-        <div class="r"><span data-i18n="p5.c4">변압기 투입</span><div class="tr"><i style="--w:10%;--d:.65s"></i></div><em>10%</em></div>
-        <div class="r"><span data-i18n="p5.c5">기타</span><div class="tr"><i class="g" style="--w:5%;--d:.8s"></i></div><em>5%</em></div>
+      <div class="sub"><i></i><span data-i18n="p4.s2">적용 분야</span></div>
+      <div class="uses">
+        <span data-i18n="p4.i1">반도체</span><span data-i18n="p4.i2">디스플레이</span>
+        <span data-i18n="p4.i3">이차전지</span><span data-i18n="p4.i4">자동차</span>
+        <span data-i18n="p4.i5">PCB</span><span data-i18n="p4.i6">철강 · 금속</span>
+        <span data-i18n="p4.i7">타이어 · 화학</span><span data-i18n="p4.i8">국가 SOC</span>
       </div>
-      <p class="note" data-i18n="p5.note">※ 외부 계통 요인이 70%. 공장 내부에서 막을 수 없기 때문에 «설비 앞단 보상»이 유일한 대책입니다.</p>
+      <p class="note" data-i18n="p4.note">※ 진공·온도·가스 시퀀스처럼 «한 번 멈추면 처음부터»인 공정일수록 효과가 큽니다.</p>
     </div>
   </div>
-  <div class="band"><span data-i18n="p5.band">정전이 아니라서 통계엔 없고, 정전보다 자주 라인을 세운다</span><span class="n">05</span></div>
+  <div class="band"><span data-i18n="p4.band">정전이 아니라서 통계엔 없고, 정전보다 자주 라인을 세운다</span><span class="n">04</span></div>
 </section>
 
-<!-- 6 Before / After -->
-<section class="page bg" data-t="도입 전·후" data-tk="thumb.6">
-  <div class="eyebrow">01 · WESCO</div>
-  <div class="h"><span class="no">1.3</span><span data-i18n="p6.h">도입 전·후 — 라인에서 일어나는 일</span></div>
-  <p class="lead" data-i18n="p6.lead">같은 순간정전이 와도, TSP®가 있는 라인은 «사고»가 아니라 «기록 한 줄»로 끝납니다.</p>
+<!-- 5 라인업 -->
+<section class="page pg-line" data-t="제품 라인업" data-tk="thumb.5">
+  <div class="eyebrow">PRODUCT</div>
+  <div class="h"><span class="no">04</span><span data-i18n="p5.h">제품 라인업</span></div>
+  <p class="lead" data-i18n="p5.lead">설비 한 대부터 라인 전체까지 — 단상 0.5kVA에서 삼상 2,400kVA까지 국내 유일 풀 라인업.</p>
   <div class="rule"></div>
-  <div class="flows">
-    <div class="flow" data-r style="--d:1">
-      <h4 data-i18n="p6.b">BEFORE · 순간정전 발생 시</h4>
-      <div class="step" style="--i:0"><b>1</b><span data-i18n="p6.b1">계통 전압 순간 강하(0.1~0.5초)</span></div>
-      <div class="step" style="--i:1"><b>2</b><span data-i18n="p6.b2">PLC·서보·인버터 저전압 트립</span></div>
-      <div class="step" style="--i:2"><b>3</b><span data-i18n="p6.b3">라인 전체 정지 · 알람 폭주</span></div>
-      <div class="step" style="--i:3"><b>4</b><span data-i18n="p6.b4">재기동·세정·재검증 <small data-i18n="p6.b4s">수 시간 ~ 수일</small></span></div>
-      <div class="step" style="--i:4"><b>5</b><span data-i18n="p6.b5">재공품 폐기 · 납기 지연 · 원인 미상</span></div>
-    </div>
-    <div class="flow on" data-r style="--d:2">
-      <h4 data-i18n="p6.a">AFTER · TSP® 도입 후</h4>
-      <div class="step" style="--i:0"><b>1</b><span data-i18n="p6.a1">계통 전압 순간 강하 감지</span></div>
-      <div class="step key" style="--i:1"><b>2</b><span data-i18n="p6.a2">2ms 이내 INVERTER + EDLC로 전환 · 100% 보상</span></div>
-      <div class="step" style="--i:2"><b>3</b><span data-i18n="p6.a3">설비는 이상을 느끼지 못하고 계속 가동</span></div>
-      <div class="step" style="--i:3"><b>4</b><span data-i18n="p6.a4">이벤트 자동 기록 → 시각·전압·지속시간 리포트 <small>Sag-VIEWER</small></span></div>
+  <div class="grid2" style="grid-template-columns:1fr 1.1fr">
+    <div data-r style="--d:1"><img src="images/product/lineup_wide.png" alt="TSP 라인업" style="width:100%;border-radius:6px;border:1px solid var(--line);background:#FDFCF9"></div>
+    <div data-r style="--d:2">
+      <div class="tiers">
+        <div class="tier"><div class="k">SINGLE PHASE</div><b>0.5 ~ 20<i>kVA</i></b><p data-i18n="p5.t1">단상 220V · 미니·벽걸이·스탠드 · 설비 1대 단위</p></div>
+        <div class="tier em"><div class="k">THREE PHASE</div><b>5 ~ 200<i>kVA</i></b><p data-i18n="p5.t2">삼상 380/400V · 캐비닛 · 설비군·소규모 라인</p></div>
+        <div class="tier"><div class="k">LARGE</div><b>300 ~ 2,400<i>kVA</i></b><p data-i18n="p5.t3">삼상 · 대용량 · 라인 전체·수전 단위</p></div>
+      </div>
+      <div class="ways">
+        <div class="way"><b><i>A</i><span data-i18n="p5.a">설비별 분산 설치</span></b><span data-i18n="p5.ad">핵심 설비 옆에 각각. 단계적 확대가 쉽고 전기실 공사가 없다.</span></div>
+        <div class="way"><b><i>B</i><span data-i18n="p5.b">라인 일괄 보호</span></b><span data-i18n="p5.bd">분전반·MCC 단위로 대용량 1대. 신설 라인·FAB에 유리.</span></div>
+      </div>
     </div>
   </div>
-  <div class="band"><span data-i18n="p6.band">멈추던 라인이 보상·기록으로 — 순간정전이 사고가 아닌 데이터가 된다</span><span class="n">06</span></div>
+  <div class="band"><span data-i18n="p5.band">단상 0.5kVA부터 삼상 2,400kVA까지 — 자체 설계·생산</span><span class="n">05</span></div>
 </section>
 
-<!-- 7 작동 원리 -->
-<section class="page" data-t="작동 원리" data-tk="thumb.7">
-  <div class="eyebrow">01 · WESCO</div>
-  <div class="h"><span class="no">1.4</span><span data-i18n="p7.h">TSP® 작동 원리</span></div>
-  <p class="lead" data-i18n="p7.lead">평상시엔 바이패스로 흘려 효율 98%를 유지하고, 순간정전을 감지한 순간 EDLC(슈퍼커패시터) 에너지로 인버터가 정격 전압을 만들어 설비에 공급합니다.</p>
+<!-- 6 제품 장점 -->
+<section class="page pg-adv key" data-t="제품 장점" data-tk="thumb.6">
+  <div class="eyebrow">PRODUCT</div>
+  <div class="h"><span class="no">05</span><span data-i18n="p6.h">제품 장점</span></div>
+  <p class="lead" data-i18n="p6.lead">평상시엔 바이패스로 흘려 효율 98%, 순간정전을 감지한 순간 EDLC(슈퍼커패시터) 에너지로 2ms 안에 정격 전압을 공급합니다.</p>
   <div class="rule"></div>
-  <div class="grid2" style="grid-template-columns:1.35fr 1fr">
+  <div class="grid2">
     <div class="sld" id="sld" data-r style="--d:1">
       <div class="state" id="sldst">NORMAL · BYPASS</div>
       <svg viewBox="0 0 600 300">
@@ -787,367 +770,49 @@ body.effects-off .page *{animation:none!important;transition:none!important}
         <circle cx="150" cy="150" r="4" fill="#44403C"/><circle cx="560" cy="150" r="4" fill="#44403C"/>
         <text class="lbl" x="560" y="130" text-anchor="middle">LOAD</text>
         <path class="wave" d="M540 175 q6 -18 12 0 t12 0 t12 0 t12 0"/>
-        <g class="badge"><rect x="390" y="255" width="180" height="28" rx="14" fill="#E1431B"/><text x="480" y="274" text-anchor="middle" fill="#FDFCF9" font-size="12" font-weight="700" font-family="Arial" data-i18n="p7.badge">2ms · 100% 보상</text></g>
-        <text class="lbl" x="18" y="285" data-i18n="p7.svgnote">평상시 BYPASS 효율 98%  ·  정전 시 INVERTER + EDLC</text>
+        <g class="badge"><rect x="390" y="255" width="180" height="28" rx="14" fill="#E1431B"/><text x="480" y="274" text-anchor="middle" fill="#FDFCF9" font-size="12" font-weight="700" font-family="Arial" data-i18n="p6.badge">2ms · 100% 보상</text></g>
+        <text class="lbl" x="18" y="285" data-i18n="p6.svgnote">평상시 BYPASS 효율 98%  ·  정전 시 INVERTER + EDLC</text>
       </svg>
     </div>
-    <div data-r style="--d:2">
-      <div class="metrics" style="grid-template-columns:1fr 1fr">
-        <div class="m em"><b>2<i>ms</i></b><span data-i18n="p7.m1">감지 → 보상 전환</span></div>
-        <div class="m"><b>100<i>%</i></b><span data-i18n="p7.m2">정격 전압 보상</span></div>
-        <div class="m"><b>98<i>%</i></b><span data-i18n="p7.m3">평상시 바이패스 효율</span></div>
-        <div class="m"><b>10<i data-i18n="p7.m4u">년+</i></b><span data-i18n="p7.m4">EDLC 수명 · 무점검</span></div>
-      </div>
-      <ul class="li" style="margin-top:16px">
-        <li data-i18n="p7.li1">배터리 없음 — 교체·폐기·화재 위험이 없다</li>
-        <li data-i18n="p7.li2">냉각팬 없음 — 소음·먼지 유입·팬 고장이 없다</li>
-        <li data-i18n="p7.li3">설비 옆 설치 — 전기실 공사 없이 라인 단위로 붙인다</li>
-        <li data-i18n="p7.li4">보상 이력 자동 기록 — 「언제·얼마나」가 데이터로 남는다</li>
-      </ul>
-    </div>
-  </div>
-  <div class="band"><span data-i18n="p7.band">평상시엔 없는 듯 98%, 사고의 순간엔 2ms — 보상 장치의 두 얼굴</span><span class="n">07</span></div>
-</section>
-
-<!-- 8 TSP vs UPS -->
-<section class="page key" data-t="TSP vs UPS" data-tk="thumb.8">
-  <div class="eyebrow">01 · WESCO</div>
-  <div class="h"><span class="no">1.5</span><span data-i18n="p8.h">TSP® vs UPS</span></div>
-  <p class="lead" data-i18n="p8.lead">UPS는 «정전 대비» 장비이고 TSP®는 «순간정전 전용» 장비입니다. 대상이 다르니 비용 구조도 다릅니다.</p>
-  <div class="rule"></div>
-  <div class="grid2">
-    <div class="pills" data-r style="grid-template-columns:1fr;--d:1">
-      <div class="pill"><b>1</b><span data-i18n="p8.p1">배터리 없음 <small data-i18n="p8.p1s">EDLC 커패시터 · 10년 이상 무교체</small></span></div>
-      <div class="pill"><b>2</b><span data-i18n="p8.p2">효율 98% <small data-i18n="p8.p2s">평상시 바이패스 → 전력 손실 최소</small></span></div>
-      <div class="pill"><b>3</b><span data-i18n="p8.p3">냉각팬 없음 <small data-i18n="p8.p3s">소음·먼지·팬 고장 원천 제거</small></span></div>
-      <div class="pill"><b>4</b><span data-i18n="p8.p4">설비 옆 분산 설치 <small data-i18n="p8.p4s">전기실 개조 없이 라인 단위 도입</small></span></div>
-      <div class="pill"><b>5</b><span data-i18n="p8.p5">ESG <small data-i18n="p8.p5s">납축전지 폐기 없음 · 손실전력 절감</small></span></div>
-    </div>
-    <div data-r style="--d:2">
-      <div class="sub"><i></i><span data-i18n="p8.s">800대 설비 FAB 보호 — 비교 예시</span></div>
-      <table class="tb">
-        <thead><tr><th data-i18n="p8.th1">항목</th><th>TSP®</th><th>UPS</th></tr></thead>
-        <tr><th data-i18n="p8.k1">보호 대상</th><td data-i18n="p8.t1">순간정전(0.01~1초)</td><td data-i18n="p8.u1">정전(수 분~수십 분)</td></tr>
-        <tr><th data-i18n="p8.k2">도입 비용</th><td class="em" data-i18n="p8.t2">약 8억원</td><td data-i18n="p8.u2">약 70억원</td></tr>
-        <tr><th data-i18n="p8.k3">구축 기간</th><td class="em" data-i18n="p8.t3">약 7개월</td><td data-i18n="p8.u3">약 12개월</td></tr>
-        <tr><th data-i18n="p8.k4">에너지 저장</th><td data-i18n="p8.t4">EDLC · 10년+</td><td data-i18n="p8.u4">배터리 · 3~5년 교체</td></tr>
-        <tr><th data-i18n="p8.k5">유지보수</th><td data-i18n="p8.t5">무점검</td><td data-i18n="p8.u5">정기 점검·교체</td></tr>
-        <tr><th data-i18n="p8.k6">설치 위치</th><td data-i18n="p8.t6">설비 옆</td><td data-i18n="p8.u6">전기실</td></tr>
-      </table>
-      <p class="note" data-i18n="p8.note">※ 비용·기간은 동일 규모 FAB의 견적 비교 예시. 현장 조건에 따라 달라집니다.</p>
-    </div>
-  </div>
-  <div class="band"><span data-i18n="p8.band">같은 라인, 1/9 비용 — 순간정전엔 순간정전 전용 장비</span><span class="n">08</span></div>
-</section>
-
-<!-- 9 라인업 -->
-<section class="page" data-t="라인업" data-tk="thumb.9">
-  <div class="eyebrow">01 · WESCO</div>
-  <div class="h"><span class="no">1.6</span><span data-i18n="p9.h">제품 라인업 · 도입 방식</span></div>
-  <p class="lead" data-i18n="p9.lead">설비 한 대부터 라인 전체까지 — 단상 0.5kVA에서 삼상 2,400kVA까지 국내 유일 풀 라인업.</p>
-  <div class="rule"></div>
-  <div class="grid2" style="grid-template-columns:1fr 1.1fr">
-    <div data-r style="--d:1"><img src="images/product/lineup_wide.png" alt="TSP 라인업" style="width:100%;border-radius:6px;border:1px solid var(--line);background:#FDFCF9"></div>
-    <div data-r style="--d:2">
-      <div class="tiers">
-        <div class="tier"><div class="k">SINGLE PHASE</div><b>0.5 ~ 20<i>kVA</i></b><p data-i18n="p9.t1">단상 220V · 미니·벽걸이·스탠드 · 설비 1대 단위</p></div>
-        <div class="tier em"><div class="k">THREE PHASE</div><b>5 ~ 200<i>kVA</i></b><p data-i18n="p9.t2">삼상 380/400V · 캐비닛 · 설비군·소규모 라인</p></div>
-        <div class="tier"><div class="k">LARGE</div><b>300 ~ 2,400<i>kVA</i></b><p data-i18n="p9.t3">삼상 · 대용량 · 라인 전체·수전 단위</p></div>
-      </div>
-      <div class="ways">
-        <div class="way"><b><i>A</i><span data-i18n="p9.a">설비별 분산 설치</span></b><span data-i18n="p9.ad">핵심 설비 옆에 각각. 단계적 확대가 쉽고 전기실 공사가 없다.</span></div>
-        <div class="way"><b><i>B</i><span data-i18n="p9.b">라인 일괄 보호</span></b><span data-i18n="p9.bd">분전반·MCC 단위로 대용량 1대. 신설 라인·FAB에 유리.</span></div>
-      </div>
-    </div>
-  </div>
-  <div class="band"><span data-i18n="p9.band">단상 0.5kVA부터 삼상 2,400kVA까지 — 자체 설계·생산</span><span class="n">09</span></div>
-</section>
-
-<!-- 10 Sag-VIEWER -->
-<section class="page" data-t="Sag-VIEWER" data-tk="thumb.10">
-  <div class="eyebrow">01 · WESCO</div>
-  <div class="h"><span class="no">1.7</span><span data-i18n="p10.h">Sag-VIEWER 모니터링</span></div>
-  <p class="lead" data-i18n="p10.lead">TSP®가 보상한 모든 순간정전은 시각·전압·지속시간과 함께 기록됩니다. 「우리 공장에 순간정전이 몇 번 왔나」를 처음으로 숫자로 답하게 됩니다.</p>
-  <div class="rule"></div>
-  <div class="grid2" style="grid-template-columns:1.1fr 1fr">
-    <div class="hmi" data-r style="--d:1">
-      <div class="hd"><span>Sag-VIEWER<sup>TM</sup> · EVENT LOG</span><span class="ok">● ALL TSP ONLINE · 12 UNITS</span></div>
-      <div class="kp"><div><b>12</b><span>TSP</span></div><div><b>41</b><span>EVENTS · YTD</span></div><div><b>100%</b><span>COMPENSATED</span></div><div><b>0</b><span>LINE STOP</span></div></div>
-      <table>
-        <thead><tr><th>#</th><th data-i18n="p10.th1">발생 시각</th><th data-i18n="p10.th2">잔류전압</th><th data-i18n="p10.th3">지속시간</th><th>TSP</th><th data-i18n="p10.th4">결과</th></tr></thead>
-        <tr style="--i:0"><td>041</td><td>08-27 14:02:13</td><td>61%</td><td>120 ms</td><td>#07</td><td class="ok" data-i18n="p10.ok">보상</td></tr>
-        <tr style="--i:1"><td>040</td><td>08-19 03:41:55</td><td>72%</td><td>80 ms</td><td>#03</td><td class="ok" data-i18n="p10.ok">보상</td></tr>
-        <tr style="--i:2"><td>039</td><td>08-02 17:25:08</td><td>44%</td><td>210 ms</td><td>#11</td><td class="ok" data-i18n="p10.ok">보상</td></tr>
-        <tr style="--i:3"><td>038</td><td>07-28 11:09:40</td><td>68%</td><td>95 ms</td><td>#07</td><td class="ok" data-i18n="p10.ok">보상</td></tr>
-        <tr style="--i:4"><td>037</td><td>07-14 22:57:31</td><td>55%</td><td>150 ms</td><td>#02</td><td class="ok" data-i18n="p10.ok">보상</td></tr>
-        <tr style="--i:5"><td>036</td><td>07-03 06:12:19</td><td>79%</td><td>60 ms</td><td>#09</td><td class="ok" data-i18n="p10.ok">보상</td></tr>
-      </table>
-      <div class="ft" data-i18n="p10.ft">※ 화면 구성 예시 — 실제 화면은 설치 현장 데이터로 표시됩니다</div>
-    </div>
     <div class="pills" data-r style="grid-template-columns:1fr;--d:2">
-      <div class="pill"><b>M1</b><span data-i18n="p10.m1">이벤트 기록 <small data-i18n="p10.m1s">발생 시각 · 잔류전압 · 지속시간 · 보상 결과</small></span></div>
-      <div class="pill"><b>M2</b><span data-i18n="p10.m2">실시간 상태 <small data-i18n="p10.m2s">입출력 전압 · EDLC 충전 · 바이패스/보상 모드</small></span></div>
-      <div class="pill"><b>M3</b><span data-i18n="p10.m3">다수 대 통합 <small data-i18n="p10.m3s">공장 내 TSP 전체를 한 화면에</small></span></div>
-      <div class="pill"><b>M4</b><span data-i18n="p10.m4">SCADA · 상위 연동 <small data-i18n="p10.m4s">Modbus 등 표준 프로토콜</small></span></div>
+      <div class="pill"><b>1</b><span data-i18n="p6.p1">2ms 보상 <small data-i18n="p6.p1s">감지 즉시 전환 · 정격 전압 100%</small></span></div>
+      <div class="pill"><b>2</b><span data-i18n="p6.p2">배터리 없음 <small data-i18n="p6.p2s">EDLC 커패시터 · 10년 이상 무교체 · 화재 위험 없음</small></span></div>
+      <div class="pill"><b>3</b><span data-i18n="p6.p3">효율 98% · 냉각팬 없음 <small data-i18n="p6.p3s">평상시 바이패스 · 소음·먼지·팬 고장 원천 제거</small></span></div>
+      <div class="pill"><b>4</b><span data-i18n="p6.p4">설비 옆 분산 설치 <small data-i18n="p6.p4s">전기실 개조 없이 라인 단위 도입</small></span></div>
+      <div class="pill"><b>5</b><span data-i18n="p6.p5">보상 이력 자동 기록 <small data-i18n="p6.p5s">Sag-VIEWER™ — 시각·전압·지속시간이 데이터로 남는다</small></span></div>
     </div>
   </div>
-  <div class="band"><span data-i18n="p10.band">보상은 기본, 기록은 자산 — 순간정전 이력이 설비 투자 근거가 된다</span><span class="n">10</span></div>
+  <div class="band"><span data-i18n="p6.band">평상시엔 없는 듯 98%, 사고의 순간엔 2ms — 보상 장치의 두 얼굴</span><span class="n">06</span></div>
 </section>
 
-<!-- 11 인증 -->
-<section class="page" data-t="인증·수상" data-tk="thumb.11">
-  <div class="eyebrow">01 · WESCO</div>
-  <div class="h"><span class="no">1.8</span><span data-i18n="p11.h">인증 · 수상</span></div>
-  <p class="lead" data-i18n="p11.lead">국내·유럽·북미 안전 규격과 반도체 업계 규격을 모두 대응합니다.</p>
+<!-- 7 글로벌 레퍼런스 -->
+<section class="page lg" data-t="글로벌 레퍼런스" data-tk="thumb.7">
+  <div class="eyebrow">REFERENCE</div>
+  <div class="h"><span class="no">06</span><span data-i18n="p7.h">글로벌 레퍼런스</span></div>
+  <p class="lead" data-i18n="p7.lead">누적 150,000대 이상 · 900개사 이상 · 15개국 이상.</p>
   <div class="rule"></div>
-  <div class="grid2">
-    <div data-r style="--d:1">
-      <div class="sub"><i></i><span data-i18n="p11.s1">제품 인증 · 평가</span></div>
-      <table class="tb">
-        <tr><th>KC</th><td data-i18n="p11.c1">국가통합 안전·전자파 인증 · TSP 전 모델</td></tr>
-        <tr><th>CE</th><td data-i18n="p11.c2">유럽 적합성 · LVD + EMC · 단상/삼상 전 모델</td></tr>
-        <tr><th>S-MARK</th><td data-i18n="p11.c3">한국 전기 안전 표준</td></tr>
-        <tr><th>NRTL</th><td data-i18n="p11.c4">북미 시험인증기관 등재</td></tr>
-        <tr><th>SEMI F47</th><td data-i18n="p11.c5">반도체 장비 전압 저하 내성 — 평가보고서 보유</td></tr>
-        <tr><th>SEMI S2</th><td data-i18n="p11.c6">반도체 장비 안전 가이드라인 — 평가보고서 보유</td></tr>
-        <tr><th>IEC 61000-4-11</th><td data-i18n="p11.c7">국제 전압 저하 내성 표준 대응</td></tr>
-      </table>
-    </div>
-    <div data-r style="--d:2">
-      <div class="sub"><i></i><span data-i18n="p11.s2">기업 인증 · 수상</span></div>
-      <table class="tb">
-        <tr><th>ISO 9001</th><td data-i18n="p11.q1">품질경영시스템</td></tr>
-        <tr><th>ISO 14001</th><td data-i18n="p11.q2">환경경영시스템</td></tr>
-        <tr><th>INNO-BIZ</th><td data-i18n="p11.q3">기술혁신형 중소기업</td></tr>
-        <tr><th data-i18n="p11.q4k">수출의 탑</th><td data-i18n="p11.q4">천만불 수출의 탑 (2018)</td></tr>
-      </table>
-      <div style="display:flex;gap:10px;margin-top:18px">
-        <img src="images/cert/cert_01.png" alt="" style="width:19%;border:1px solid var(--line)"><img src="images/cert/cert_02.png" alt="" style="width:19%;border:1px solid var(--line)"><img src="images/cert/cert_03.png" alt="" style="width:19%;border:1px solid var(--line)"><img src="images/cert/cert_04.png" alt="" style="width:19%;border:1px solid var(--line)"><img src="images/cert/cert_05.png" alt="" style="width:19%;border:1px solid var(--line)">
-      </div>
-    </div>
-  </div>
-  <div class="band"><span data-i18n="p11.band">KC · CE · NRTL · SEMI F47/S2 — 국내외 규격을 한 제품으로</span><span class="n">11</span></div>
+  <div class="grp" data-r style="--d:1"><h4>SEMICONDUCTOR</h4><div class="cells"><span class="cell">Samsung</span><span class="cell">SK hynix</span><span class="cell">DB HiTek</span><span class="cell">TSMC</span><span class="cell">ASE</span><span class="cell">UMC</span><span class="cell">NXP</span><span class="cell">X-FAB</span><span class="cell">Sony</span><span class="cell">onsemi</span><span class="cell">Hana Micron</span></div></div>
+  <div class="grp" data-r style="--d:2"><h4>DISPLAY</h4><div class="cells"><span class="cell">Samsung Display</span><span class="cell">LG Display</span><span class="cell">BOE</span><span class="cell">VISIONOX</span><span class="cell">INNOLUX</span><span class="cell">CSOT</span></div></div>
+  <div class="grp" data-r style="--d:3"><h4>AUTOMOTIVE · BATTERY</h4><div class="cells"><span class="cell">Hyundai Motor</span><span class="cell">Kia</span><span class="cell">Hyundai Steel</span><span class="cell">Mando</span><span class="cell">Hankook Tire</span><span class="cell">LG Energy Solution</span><span class="cell">Volta Energy Solutions</span></div></div>
+  <div class="grp" data-r style="--d:4"><h4>SOC · LANDMARK</h4><div class="cells"><span class="cell" data-i18n="p7.soc1">인천국제공항</span><span class="cell" data-i18n="p7.soc2">롯데월드타워</span><span class="cell" data-i18n="p7.soc3">롯데월드</span><span class="cell" data-i18n="p7.soc4">에버랜드</span></div></div>
+  <div class="band"><span data-i18n="p7.band">글로벌 Top-Tier 제조사가 검증한 25년</span><span class="n">07</span></div>
 </section>
 
-<!-- 12 파트 02 -->
-<section class="page div" data-t="02 적용 실적" data-tk="thumb.12">
-  <div class="stripe"></div>
-  <div class="inner">
-    <div class="big" data-r>02</div>
-    <h2 data-r style="--d:1" data-i18n="d2.h">적용 실적</h2>
-    <p data-r style="--d:2" data-i18n="d2.p">반도체·디스플레이·자동차·이차전지·국가 SOC — 산업마다 순간정전이 멈추는 설비가 다르고, 지키는 방식도 다릅니다. 산업별로 어디에 어떻게 적용되는지 소개합니다.</p>
-  </div>
-</section>
-
-<!-- 13 고객사 -->
-<section class="page lg" data-t="주요 고객사" data-tk="thumb.13">
-  <div class="eyebrow">02 · TRACK RECORD</div>
-  <div class="h"><span class="no">2.1</span><span data-i18n="p13.h">주요 고객사</span></div>
-  <p class="lead" data-i18n="p13.lead">누적 150,000대 이상 · 900개사 이상 · 15개국 이상.</p>
+<!-- 8 글로벌 네트워크 -->
+<section class="page net" data-t="글로벌 네트워크" data-tk="thumb.8">
+  <div class="eyebrow">REFERENCE</div>
+  <div class="h"><span class="no">07</span><span data-i18n="p8.h">글로벌 네트워크</span></div>
+  <p class="lead" data-i18n="p8.lead">국내 5 · 해외 7 영업·기술망 — 16개국 현지 즉시 대응.</p>
   <div class="rule"></div>
-  <div class="grp" data-r style="--d:1"><h4>SEMICONDUCTOR</h4><div class="cells"><span class="cell">Samsung</span><span class="cell">SK hynix</span><span class="cell">Sony</span><span class="cell">Western Digital</span><span class="cell">NXP</span><span class="cell">onsemi</span><span class="cell">SK Siltron</span><span class="cell">DB HiTek</span><span class="cell">X-FAB</span><span class="cell">ASE</span><span class="cell">LB Semicon</span></div></div>
-  <div class="grp" data-r style="--d:2"><h4>DISPLAY</h4><div class="cells"><span class="cell">Samsung Display</span><span class="cell">LG Display</span><span class="cell">BOE</span><span class="cell">VISIONOX</span><span class="cell">CSOT</span><span class="cell">Tianma</span></div></div>
-  <div class="grp" data-r style="--d:3"><h4>AUTOMOTIVE · BATTERY</h4><div class="cells"><span class="cell">Hyundai Motor</span><span class="cell">Kia</span><span class="cell">Renault Korea</span><span class="cell">Hankook Tire</span><span class="cell">LG Energy Solution</span><span class="cell">Volta Energy Solutions</span></div></div>
-  <div class="grp" data-r style="--d:4"><h4>SOC · LANDMARK</h4><div class="cells"><span class="cell" data-i18n="p13.soc1">인천국제공항</span><span class="cell" data-i18n="p13.soc2">롯데월드타워</span><span class="cell" data-i18n="p13.soc3">롯데월드</span><span class="cell" data-i18n="p13.soc4">에버랜드</span></div></div>
-  <div class="band"><span data-i18n="p13.band">글로벌 Top-Tier 제조사가 검증한 25년</span><span class="n">13</span></div>
-</section>
-
-<!-- 14 반도체 -->
-<section class="page ind" data-t="반도체" data-tk="thumb.14">
-  <div class="eyebrow">02 · TRACK RECORD</div>
-  <div class="h"><span class="no">2.2</span><span data-i18n="p14.h">반도체</span></div>
-  <div class="rule"></div>
-  <div class="grid2">
-    <div data-r style="--d:1">
-      <div class="tag">SEMICONDUCTOR</div>
-      <div class="risk"><b>WHY IT HURTS</b><span data-i18n="p14.risk">0.1초의 전압 강하로 진공·온도·가스 시퀀스가 끊기면 공정 중 웨이퍼는 전량 폐기. 재기동·세정·재검증에 수 시간, 154kV FAB 기준 연 20회·회당 5.2억원.</span></div>
-      <div class="sub"><i></i><span data-i18n="ind.how">적용 방식</span></div>
-      <ul class="li">
-        <li data-i18n="p14.h1">SEMI F47 기준 설비별 분산 설치(A) — 장비 벤더 사양에 맞춰 설비 옆</li>
-        <li data-i18n="p14.h2">신설 FAB은 MCC 단위 대용량(B)과 병행</li>
-        <li data-i18n="p14.h3">Sag-VIEWER로 FAB 전체 이벤트를 한 화면에 통합</li>
-      </ul>
-      <div class="sub" style="margin-top:14px"><i></i><span data-i18n="ind.loads">보호 대상 설비</span></div>
-      <div class="loads"><span data-i18n="p14.l1">식각·증착 장비</span><span data-i18n="p14.l2">이온주입기</span><span data-i18n="p14.l3">세정 장비</span><span data-i18n="p14.l4">검사·계측</span><span data-i18n="p14.l5">진공 펌프</span><span data-i18n="p14.l6">패키징·테스트</span></div>
-    </div>
-    <div data-r style="--d:2">
-      <img class="photo" src="images/proof/install_semi.jpg" alt="반도체 설치">
-      <div class="sub"><i></i><span data-i18n="ind.cust">대표 고객</span></div>
-      <div class="cust"><span>Samsung</span><span>SK hynix</span><span>Sony</span><span>Western Digital</span><span>NXP</span><span>onsemi</span><span>SK Siltron</span><span>DB HiTek</span><span>X-FAB</span><span>ASE</span><span>LB Semicon</span></div>
-    </div>
-  </div>
-  <div class="band"><span data-i18n="p14.band">SEMI F47 대응 · 설비별 분산 보호 — 반도체 FAB 표준 구성</span><span class="n">14</span></div>
-</section>
-
-<!-- 15 디스플레이 -->
-<section class="page ind" data-t="디스플레이" data-tk="thumb.15">
-  <div class="eyebrow">02 · TRACK RECORD</div>
-  <div class="h"><span class="no">2.3</span><span data-i18n="p15.h">디스플레이</span></div>
-  <div class="rule"></div>
-  <div class="grid2">
-    <div data-r style="--d:1">
-      <div class="tag">DISPLAY</div>
-      <div class="risk"><b>WHY IT HURTS</b><span data-i18n="p15.risk">대면적 유리기판은 이송 로봇·증착 챔버가 한 번 멈추면 파손·오염으로 이어지고, OLED 증착은 재개까지 챔버 안정화가 다시 필요합니다.</span></div>
-      <div class="sub"><i></i><span data-i18n="ind.how">적용 방식</span></div>
-      <ul class="li">
-        <li data-i18n="p15.h1">증착·이송 핵심 설비 중심 분산 설치(A)</li>
-        <li data-i18n="p15.h2">중국·국내 신규 라인은 라인 단위 대용량(B) 병행</li>
-        <li data-i18n="p15.h3">해외 현장은 현지 기술지원망을 통해 설치·점검</li>
-      </ul>
-      <div class="sub" style="margin-top:14px"><i></i><span data-i18n="ind.loads">보호 대상 설비</span></div>
-      <div class="loads"><span data-i18n="p15.l1">OLED 증착</span><span data-i18n="p15.l2">기판 이송 로봇</span><span data-i18n="p15.l3">노광·현상</span><span data-i18n="p15.l4">세정·건조</span><span data-i18n="p15.l5">검사 장비</span></div>
-    </div>
-    <div data-r style="--d:2">
-      <img class="photo" src="images/proof/install_chem.jpg" alt="디스플레이 설치">
-      <div class="sub"><i></i><span data-i18n="ind.cust">대표 고객</span></div>
-      <div class="cust"><span>Samsung Display</span><span>LG Display</span><span>BOE</span><span>VISIONOX</span><span>CSOT</span><span>Tianma</span></div>
-    </div>
-  </div>
-  <div class="band"><span data-i18n="p15.band">국내 양대 패널사와 중국 주요 패널사 — 해외 라인 현지 대응</span><span class="n">15</span></div>
-</section>
-
-<!-- 16 자동차 -->
-<section class="page ind" data-t="자동차·타이어" data-tk="thumb.16">
-  <div class="eyebrow">02 · TRACK RECORD</div>
-  <div class="h"><span class="no">2.4</span><span data-i18n="p16.h">자동차 · 타이어</span></div>
-  <div class="rule"></div>
-  <div class="grid2">
-    <div data-r style="--d:1">
-      <div class="tag">AUTOMOTIVE</div>
-      <div class="risk"><b>WHY IT HURTS</b><span data-i18n="p16.risk">수백 대 로봇이 동기화된 차체·도장 라인은 한 대만 트립해도 전체가 섭니다. 도장 라인은 재기동 시 공정 중 차체를 재도장하거나 폐기해야 합니다.</span></div>
-      <div class="sub"><i></i><span data-i18n="ind.how">적용 방식</span></div>
-      <ul class="li">
-        <li data-i18n="p16.h1">로봇 제어반·PLC 단위 분산 설치(A)</li>
-        <li data-i18n="p16.h2">도장·컨베이어 등 라인 단위 삼상 대용량(B)</li>
-        <li data-i18n="p16.h3">해외 공장(멕시코 등)은 현지 전압 사양으로 공급</li>
-      </ul>
-      <div class="sub" style="margin-top:14px"><i></i><span data-i18n="ind.loads">보호 대상 설비</span></div>
-      <div class="loads"><span data-i18n="p16.l1">용접 로봇</span><span data-i18n="p16.l2">도장 라인</span><span data-i18n="p16.l3">컨베이어·AGV</span><span data-i18n="p16.l4">프레스 제어</span><span data-i18n="p16.l5">타이어 가류기</span></div>
-    </div>
-    <div data-r style="--d:2">
-      <img class="photo" src="images/proof/install_auto.jpg" alt="자동차 설치">
-      <div class="sub"><i></i><span data-i18n="ind.cust">대표 고객</span></div>
-      <div class="cust"><span>Hyundai Motor</span><span>Kia</span><span>Renault Korea</span><span>Hankook Tire</span></div>
-    </div>
-  </div>
-  <div class="band"><span data-i18n="p16.band">동기화된 라인은 한 대가 서면 전체가 선다 — 라인 단위 보호</span><span class="n">16</span></div>
-</section>
-
-<!-- 17 이차전지 -->
-<section class="page ind" data-t="이차전지" data-tk="thumb.17">
-  <div class="eyebrow">02 · TRACK RECORD</div>
-  <div class="h"><span class="no">2.5</span><span data-i18n="p17.h">이차전지</span></div>
-  <div class="rule"></div>
-  <div class="grid2">
-    <div data-r style="--d:1">
-      <div class="tag">BATTERY</div>
-      <div class="risk"><b>WHY IT HURTS</b><span data-i18n="p17.risk">전극 코팅·슬리팅은 연속 공정이라 멈추는 순간 롤 전체가 불량이 되고, 도금·보일러·컴프레서 같은 유틸리티가 서면 라인 재개까지 시간이 더 걸립니다.</span></div>
-      <div class="sub"><i></i><span data-i18n="ind.how">적용 방식</span></div>
-      <ul class="li">
-        <li data-i18n="p17.h1">공정 설비 + 유틸리티(컴프레서·펌프·보일러)를 함께 보호</li>
-        <li data-i18n="p17.h2">유럽 현장은 3상 400V 사양 · CE 인증 모델</li>
-        <li data-i18n="p17.h3">설치 후 연간 현장 점검으로 전수 상태 확인</li>
-      </ul>
-      <div class="sub" style="margin-top:14px"><i></i><span data-i18n="p17.case">적용 사례 — Volta Energy Solutions (헝가리, EV 배터리 모듈)</span></div>
-      <div class="mini">
-        <div><b><span data-count="53">0</span><i data-i18n="p17.u1">대</i></b><span data-i18n="p17.c1">50~450kVA · 2단계 도입</span></div>
-        <div><b><span data-count="41">0</span><i data-i18n="p17.u2">건</i></b><span data-i18n="p17.c2">2023년 순간정전 전량 보상</span></div>
-        <div><b>0<i data-i18n="p17.u3">건</i></b><span data-i18n="p17.c3">라인 정지 · 점검 53대 PASS</span></div>
-      </div>
-    </div>
-    <div data-r style="--d:2">
-      <img class="photo" src="images/proof/install_auto.jpg" alt="이차전지 설치">
-      <div class="sub"><i></i><span data-i18n="ind.cust">대표 고객</span></div>
-      <div class="cust"><span>LG Energy Solution</span><span>Volta Energy Solutions</span></div>
-      <div class="sub" style="margin-top:14px"><i></i><span data-i18n="ind.loads">보호 대상 설비</span></div>
-      <div class="loads"><span data-i18n="p17.l1">코팅·슬리터</span><span data-i18n="p17.l2">도금 라인</span><span data-i18n="p17.l3">컴프레서</span><span data-i18n="p17.l4">펌프</span><span data-i18n="p17.l5">보일러</span></div>
-    </div>
-  </div>
-  <div class="band"><span data-i18n="p17.band">헝가리 53대 · 2023년 41건 전량 보상 · 라인 정지 0건</span><span class="n">17</span></div>
-</section>
-
-<!-- 18 SOC -->
-<section class="page ind" data-t="국가 SOC" data-tk="thumb.18">
-  <div class="eyebrow">02 · TRACK RECORD</div>
-  <div class="h"><span class="no">2.6</span><span data-i18n="p18.h">국가 SOC · 랜드마크</span></div>
-  <p class="lead" data-i18n="p18.lead">공장만이 아닙니다. 사람이 타고 있는 설비가 멈추면 그것은 «안전 사고»입니다.</p>
-  <div class="rule"></div>
-  <div class="grid3" style="grid-template-columns:repeat(4,1fr)">
-    <div class="tier" data-r style="--d:1"><div class="k">NATIONAL INFRA</div><b data-i18n="p18.n1">인천국제공항</b><p data-i18n="p18.d1">에스컬레이터 · 무빙워크 24시간 무중단 운행</p></div>
-    <div class="tier em" data-r style="--d:2"><div class="k">LANDMARK</div><b data-i18n="p18.n2">롯데월드타워</b><p data-i18n="p18.d2">555m 초고층 에스컬레이터 보호</p></div>
-    <div class="tier" data-r style="--d:3"><div class="k">THEME PARK</div><b data-i18n="p18.n3">롯데월드</b><p data-i18n="p18.d3">놀이기구 안전 설비 보호</p></div>
-    <div class="tier" data-r style="--d:4"><div class="k">THEME PARK</div><b data-i18n="p18.n4">에버랜드</b><p data-i18n="p18.d4">놀이기구 · 안전 시스템 무정전 운영</p></div>
-  </div>
-  <div class="grid2" style="margin-top:22px">
-    <div data-r style="--d:5">
-      <div class="sub"><i></i><span data-i18n="p18.s1">왜 SOC에 필요한가</span></div>
-      <ul class="li">
-        <li data-i18n="p18.w1">에스컬레이터 급정지 = 이용객 전도 사고</li>
-        <li data-i18n="p18.w2">놀이기구는 정지 위치에 따라 구조 작업이 필요</li>
-        <li data-i18n="p18.w3">UPS로는 대수·용량이 감당되지 않는 분산 설비</li>
-      </ul>
-    </div>
-    <div data-r style="--d:6">
-      <div class="sub"><i></i><span data-i18n="ind.how">적용 방식</span></div>
-      <ul class="li">
-        <li data-i18n="p18.h1">설비 제어반 단위 소용량 분산 설치</li>
-        <li data-i18n="p18.h2">배터리·냉각팬이 없어 공공시설 유지관리 부담 최소</li>
-        <li data-i18n="p18.h3">운영사 관제와 연동한 이벤트 기록</li>
-      </ul>
-    </div>
-  </div>
-  <div class="band"><span data-i18n="p18.band">사람이 타는 설비는 멈추면 안전 사고 — 공공 인프라의 순간정전 대책</span><span class="n">18</span></div>
-</section>
-
-<!-- 19 실증 -->
-<section class="page eff" data-t="도입 효과" data-tk="thumb.19">
-  <div class="eyebrow">02 · TRACK RECORD</div>
-  <div class="h"><span class="no">2.7</span><span data-i18n="p19.h">도입 효과 실증</span></div>
-  <p class="lead" data-i18n="p19.lead">도입 전 1년과 도입 후 1년, 같은 공장의 실제 데이터 비교입니다.</p>
-  <div class="rule"></div>
-  <div class="metrics" data-r style="--d:1">
-    <div class="m em"><b>−<span data-count="745">0</span><i data-i18n="p19.u1">대</i></b><span data-i18n="p19.m1">장비 Down 수량 · 전년 대비 −93.5%</span></div>
-    <div class="m em"><b>−<span data-count="4137">0</span><i>h</i></b><span data-i18n="p19.m2">라인 Down Time · 전년 대비 −97.1%</span></div>
-    <div class="m"><b><span data-count="7.93" data-dec="2">0</span><i data-i18n="p19.u3">억원</i></b><span data-i18n="p19.m3">직접 사고 피해 절감 · 1년</span></div>
-    <div class="m"><b>1<i data-i18n="p19.u4">년</i></b><span data-i18n="p19.m4">투자비 회수 기간</span></div>
-  </div>
-  <p class="note" data-i18n="p19.note">※ 실 적용 고객사 1년 데이터 · 고객 식별 비공개</p>
-  <div class="grid2" style="margin-top:18px">
-    <div data-r style="--d:2">
-      <div class="sub"><i></i><span data-i18n="p19.s1">보상 성공률 — 현장 기록</span></div>
-      <div class="bars">
-        <div class="r"><span data-i18n="p19.r1">Volta 헝가리 · 2023</span><div class="tr"><i style="--w:100%;--d:.2s"></i></div><em>41/41</em></div>
-        <div class="r"><span data-i18n="p19.r2">「L」화학 · 2012</span><div class="tr"><i style="--w:100%;--d:.4s"></i></div><em>21/21</em></div>
-      </div>
-      <p class="note" data-i18n="p19.rn">기록된 순간정전 전량 보상 · 라인 정지 0건</p>
-    </div>
-    <div data-r style="--d:3">
-      <div class="sub"><i></i><span data-i18n="p19.s2">고객이 받는 것</span></div>
-      <ul class="li">
-        <li data-i18n="p19.g1">월간·연간 Sag 이벤트 리포트(시각·전압·지속시간)</li>
-        <li data-i18n="p19.g2">연간 현장 점검 성적서 — 전수 PASS 여부</li>
-        <li data-i18n="p19.g3">설비 투자 심의용 「순간정전 손실 산정」 자료</li>
-      </ul>
-    </div>
-  </div>
-  <div class="band"><span data-i18n="p19.band">Down Time −97% · 1년 회수 — 보상 장치는 비용이 아니라 투자</span><span class="n">19</span></div>
-</section>
-
-<!-- 20 네트워크 -->
-<section class="page net" data-t="글로벌 네트워크" data-tk="thumb.20">
-  <div class="eyebrow">02 · TRACK RECORD</div>
-  <div class="h"><span class="no">2.8</span><span data-i18n="p20.h">글로벌 네트워크</span></div>
-  <p class="lead" data-i18n="p20.lead">국내 5 · 해외 7 영업·기술망 — 16개국 현지 즉시 대응.</p>
-  <div class="rule"></div>
-  <img class="map" src="images/world-map.png" alt="World" data-r style="--d:1">
+  <img class="map" src="images/world-map.png" alt="World">
   <div class="ctry" data-r style="--d:2">
-    <span class="hq" data-i18n="p20.c0">대한민국 · 본사</span><span data-i18n="p20.c1">중국</span><span data-i18n="p20.c2">일본</span><span data-i18n="p20.c3">대만</span><span data-i18n="p20.c4">베트남</span><span data-i18n="p20.c5">말레이시아</span><span data-i18n="p20.c6">인도네시아</span><span data-i18n="p20.c7">인도</span><span data-i18n="p20.c8">미국</span><span data-i18n="p20.c9">멕시코</span><span data-i18n="p20.c10">독일</span><span data-i18n="p20.c11">폴란드</span><span data-i18n="p20.c12">체코</span><span data-i18n="p20.c13">슬로바키아</span><span data-i18n="p20.c14">헝가리</span><span data-i18n="p20.c15">터키</span>
+    <span class="hq" data-i18n="p8.c0">대한민국 · 본사</span><span data-i18n="p8.c1">중국</span><span data-i18n="p8.c2">일본</span><span data-i18n="p8.c3">대만</span><span data-i18n="p8.c4">베트남</span><span data-i18n="p8.c5">말레이시아</span><span data-i18n="p8.c6">인도네시아</span><span data-i18n="p8.c7">인도</span><span data-i18n="p8.c8">미국</span><span data-i18n="p8.c9">멕시코</span><span data-i18n="p8.c10">독일</span><span data-i18n="p8.c11">폴란드</span><span data-i18n="p8.c12">체코</span><span data-i18n="p8.c13">슬로바키아</span><span data-i18n="p8.c14">헝가리</span><span data-i18n="p8.c15">터키</span>
   </div>
-  <div class="band"><span data-i18n="p20.band">고객의 해외 공장이 있는 곳에 WESCO 기술지원이 있다</span><span class="n">20</span></div>
+  <div class="band"><span data-i18n="p8.band">고객의 해외 공장이 있는 곳에 WESCO 기술지원이 있다</span><span class="n">08</span></div>
 </section>
 
-<!-- 21 뒷표지 -->
-<section class="page back" data-t="연락처" data-tk="thumb.21">
+<!-- 9 뒷표지 -->
+<section class="page back" data-t="연락처" data-tk="thumb.9">
   <div class="inner">
     <div>
       <img class="wm" src="images/wesco_wordmark.png" alt="WESCO">
@@ -1166,7 +831,7 @@ body.effects-off .page *{animation:none!important;transition:none!important}
 <nav class="thumbs" id="thumbs"></nav>
 </div>
 
-<div class="pnav" id="pnav"><button type="button" id="pprev" aria-label="prev">‹</button><span id="ppg">1 / 21</span><button type="button" id="pnext" aria-label="next">›</button><button type="button" id="pexit" aria-label="exit">ESC</button></div>
+<div class="pnav" id="pnav"><button type="button" id="pprev" aria-label="prev">‹</button><span id="ppg">1 / 9</span><button type="button" id="pnext" aria-label="next">›</button><button type="button" id="pexit" aria-label="exit">ESC</button></div>
 
 <script>
 (function(){
