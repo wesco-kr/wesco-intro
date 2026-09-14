@@ -7,6 +7,7 @@
 - [WESCO TSP Business Introduction](https://intro.wesco.works/): Company overview and TSP® product introduction.
 
 ## Latest blog posts
+- [순간전압강하 FAQ — 현장에서 가장 많이 받는 질문 총정리](https://intro.wesco.works/blog/faq-voltage-sag-basics/): 순간전압강하의 정의, 발생 원인, 정전과의 차이, 대응장비 선택 기준까지 현장 엔지니어가 가장 자주 묻는 질문을 팩트 중심으로 정리했다. ([English](https://intro.wesco.works/blog/en/faq-voltage-sag-basics/))
 - [ITIC 커브 읽는 법: 우리 장비가 견디는 전압 범위 확인하기](https://intro.wesco.works/blog/itic-curve-guide/): ITIC(CBEMA) 커브의 가로축·세로축과 세 가지 영역을 읽는 법을 정리하고, 우리 설비가 견디는 전압 범위를 확인해 순간전압강하 보상장치 적용 여부를 판단하는 기준을 설명한다. ([English](https://intro.wesco.works/blog/en/itic-curve-guide/))
 - [디스플레이 라인과 전력품질 — 24시간 공정이 전압 흔들림을 못 견디는 이유](https://intro.wesco.works/blog/display-fab-power-quality/): OLED·TFT-LCD 라인은 24시간 연속공정이라 수 밀리초의 순간전압강하도 설비 트립과 재공품 손실로 이어진다. 배터리리스 보상 기술이 필요한 이유를 정리한다. ([English](https://intro.wesco.works/blog/en/display-fab-power-quality/))
 - [자동화될수록 취약해진다 — 스마트팩토리와 전력품질의 역설](https://intro.wesco.works/blog/smart-factory-power-quality/): 스마트팩토리는 로봇과 서보모터, PLC가 촘촘히 연결될수록 순간전압강하 한 번에도 전체 라인이 멈출 위험이 커진다. 배터리 없는 TSP 보상장치로 자동화 투자와 전력품질 투자의 균형을 맞추는 방법을 정리한다. ([English](https://intro.wesco.works/blog/en/smart-factory-power-quality/))
@@ -16,7 +17,6 @@
 - [15개국, 15만 대 — 순간전압강하 보상장치가 세계 공장에 놓인 이유](https://intro.wesco.works/blog/global-track-record/): WESCO TSP는 25년간 15개국 이상에 15만 대 넘게 공급됐다. 순간전압강하가 산업별로 반복되는 이유와 배터리리스 보상 방식을 정리했다. ([English](https://intro.wesco.works/blog/en/global-track-record/))
 - [순간전압보상장치 용량 선정, 부하 조사에서 시작한다](https://intro.wesco.works/blog/selecting-sag-protector-capacity/): TSP 용량은 수전용량이 아니라 보호가 필요한 부하 기준으로 정한다. 부하 조사→용량 산정→설치 위치 결정 순서와 과대·과소 선정의 문제를 정리한다. ([English](https://intro.wesco.works/blog/en/selecting-sag-protector-capacity/))
 - [반도체 팹의 순간전압강하, 왜 가장 민감한 산업인가](https://intro.wesco.works/blog/semiconductor-fab-voltage-sag/): 반도체 팹이 순간전압강하에 유독 취약한 구조적 이유와 SEMI F47·ITIC 기준, 배터리리스 EDLC 방식 TSP 보상장치의 역할을 정리한 글. ([English](https://intro.wesco.works/blog/en/semiconductor-fab-voltage-sag/))
-- [SEMI F47 완전 정리 — 반도체 장비가 견뎌야 하는 전압강하 기준](https://intro.wesco.works/blog/semi-f47-explained/): SEMI F47은 반도체 장비가 순간전압강하에서도 정지하지 않고 버텨야 하는 최소 조건을 정한 산업 표준이다. 라이드스루 포인트의 의미와 기준 밖 대응법을 정리한다. ([English](https://intro.wesco.works/blog/en/semi-f47-explained/))
 
 ## Key facts
 - Product: TSP® (The Second Power) — battery-free voltage sag protector / power conditioner
