@@ -1,31 +1,209 @@
 {
   "_comment": "WESCO 공개 사이트 목록 — 런처 서랍의 단일 정본. {lang} 은 ko/en/cn/jp/vn 로 치환(tsp는 jp가 없어 en으로). 사내 시스템(quote·works 대시보드)은 넣지 않는다.",
+  "label": {
+    "ko": "WESCO 사이트",
+    "en": "WESCO Sites",
+    "cn": "WESCO 网站",
+    "jp": "WESCO サイト",
+    "vn": "Trang WESCO"
+  },
   "groups": [
     {
       "id": "learn",
-      "title": {"ko": "알아보기", "en": "Learn", "cn": "了解", "jp": "知る", "vn": "Tìm hiểu"},
+      "title": {
+        "ko": "알아보기",
+        "en": "Learn",
+        "cn": "了解",
+        "jp": "知る",
+        "vn": "Tìm hiểu"
+      },
       "items": [
-        {"id": "intro", "href": "https://intro.wesco.works/", "title": {"ko": "회사소개서", "en": "Company Profile", "cn": "公司介绍", "jp": "会社紹介", "vn": "Hồ sơ công ty"}, "desc": {"ko": "연혁 · 제품 · 글로벌 레퍼런스 10쪽", "en": "History, products and references in 10 pages", "cn": "沿革·产品·全球业绩 10 页", "jp": "沿革・製品・グローバル実績 10ページ", "vn": "Lịch sử, sản phẩm, tham chiếu — 10 trang"}},
-        {"id": "tsp", "href": "https://tsp.wesco.works/{tsp}/", "title": {"ko": "TSP 제품 · 순간정전", "en": "TSP Product · Voltage Sag", "cn": "TSP 产品 · 电压暂降", "jp": "TSP 製品・瞬時電圧低下", "vn": "Sản phẩm TSP · Sụt áp"}, "desc": {"ko": "순간정전이란, TSP가 하는 일, 설치 현장", "en": "What a sag is, what TSP does, installations", "cn": "什么是暂降、TSP 的作用、安装现场", "jp": "瞬低とは、TSPの働き、設置現場", "vn": "Sụt áp là gì, TSP làm gì, hiện trường lắp đặt"}},
-        {"id": "blog", "href": "https://intro.wesco.works/blog/", "title": {"ko": "인사이트", "en": "Insights", "cn": "洞察", "jp": "インサイト", "vn": "Bài viết"}, "desc": {"ko": "순간정전 기초 · ITIC 곡선 · 업종별 사례", "en": "Sag basics, ITIC curve, industry cases", "cn": "暂降基础 · ITIC 曲线 · 行业案例", "jp": "瞬低の基礎・ITIC曲線・業種別事例", "vn": "Kiến thức sụt áp, đường ITIC, ca theo ngành"}},
-        {"id": "youtube", "href": "https://www.youtube.com/@WESCOTSP/videos", "title": {"ko": "제품 영상", "en": "Product Videos", "cn": "产品视频", "jp": "製品動画", "vn": "Video sản phẩm"}, "desc": {"ko": "YouTube @WESCOTSP", "en": "YouTube @WESCOTSP", "cn": "YouTube @WESCOTSP", "jp": "YouTube @WESCOTSP", "vn": "YouTube @WESCOTSP"}}
+        {
+          "id": "intro",
+          "href": "https://intro.wesco.works/",
+          "title": {
+            "ko": "회사소개서",
+            "en": "Company Profile",
+            "cn": "公司介绍",
+            "jp": "会社紹介",
+            "vn": "Hồ sơ công ty"
+          },
+          "desc": {
+            "ko": "연혁 · 제품 · 글로벌 레퍼런스 10쪽",
+            "en": "History, products and references in 10 pages",
+            "cn": "沿革·产品·全球业绩 10 页",
+            "jp": "沿革・製品・グローバル実績 10ページ",
+            "vn": "Lịch sử, sản phẩm, tham chiếu — 10 trang"
+          }
+        },
+        {
+          "id": "tsp",
+          "href": "https://tsp.wesco.works/{tsp}/",
+          "title": {
+            "ko": "TSP 제품 · 순간정전",
+            "en": "TSP Product · Voltage Sag",
+            "cn": "TSP 产品 · 电压暂降",
+            "jp": "TSP 製品・瞬時電圧低下",
+            "vn": "Sản phẩm TSP · Sụt áp"
+          },
+          "desc": {
+            "ko": "순간정전이란, TSP가 하는 일, 설치 현장",
+            "en": "What a sag is, what TSP does, installations",
+            "cn": "什么是暂降、TSP 的作用、安装现场",
+            "jp": "瞬低とは、TSPの働き、設置現場",
+            "vn": "Sụt áp là gì, TSP làm gì, hiện trường lắp đặt"
+          }
+        },
+        {
+          "id": "blog",
+          "href": "https://intro.wesco.works/blog/",
+          "title": {
+            "ko": "인사이트",
+            "en": "Insights",
+            "cn": "洞察",
+            "jp": "インサイト",
+            "vn": "Bài viết"
+          },
+          "desc": {
+            "ko": "순간정전 기초 · ITIC 곡선 · 업종별 사례",
+            "en": "Sag basics, ITIC curve, industry cases",
+            "cn": "暂降基础 · ITIC 曲线 · 行业案例",
+            "jp": "瞬低の基礎・ITIC曲線・業種別事例",
+            "vn": "Kiến thức sụt áp, đường ITIC, ca theo ngành"
+          }
+        },
+        {
+          "id": "youtube",
+          "href": "https://www.youtube.com/@WESCOTSP/videos",
+          "title": {
+            "ko": "제품 영상",
+            "en": "Product Videos",
+            "cn": "产品视频",
+            "jp": "製品動画",
+            "vn": "Video sản phẩm"
+          },
+          "desc": {
+            "ko": "YouTube @WESCOTSP",
+            "en": "YouTube @WESCOTSP",
+            "cn": "YouTube @WESCOTSP",
+            "jp": "YouTube @WESCOTSP",
+            "vn": "YouTube @WESCOTSP"
+          }
+        }
       ]
     },
     {
       "id": "contact",
-      "title": {"ko": "문의 · 거래", "en": "Contact & Trade", "cn": "咨询 · 交易", "jp": "お問い合わせ・取引", "vn": "Liên hệ & Giao dịch"},
+      "title": {
+        "ko": "문의 · 거래",
+        "en": "Contact & Trade",
+        "cn": "咨询 · 交易",
+        "jp": "お問い合わせ・取引",
+        "vn": "Liên hệ & Giao dịch"
+      },
       "items": [
-        {"id": "inquiry", "href": "https://tsp.wesco.works/{tsp}/#inquiry", "title": {"ko": "문의 남기기", "en": "Send an Inquiry", "cn": "留言咨询", "jp": "お問い合わせ", "vn": "Gửi yêu cầu"}, "desc": {"ko": "용량 · 현장 조건을 남기면 담당자가 회신", "en": "Leave capacity and site details; we reply", "cn": "留下容量与现场条件，专人回复", "jp": "容量・現場条件を残せば担当者が返信", "vn": "Để lại công suất, điều kiện hiện trường"}},
-        {"id": "catalog", "href": "https://tsp.wesco.works/{tsp}/#catalog", "title": {"ko": "카탈로그 받기", "en": "Get the Catalog", "cn": "获取产品目录", "jp": "カタログ入手", "vn": "Nhận catalog"}, "desc": {"ko": "TSP 카탈로그 PDF", "en": "TSP catalog PDF", "cn": "TSP 产品目录 PDF", "jp": "TSP カタログ PDF", "vn": "Catalog TSP (PDF)"}},
-        {"id": "partner", "href": "https://partner.wesco.works/", "title": {"ko": "대리점 포털", "en": "Partner Portal", "cn": "经销商门户", "jp": "代理店ポータル", "vn": "Cổng đại lý"}, "desc": {"ko": "발주 요청 · 발주 내역 · 결제일 (대리점 전용)", "en": "Orders, history, payment dates (partners only)", "cn": "订购申请 · 订单记录 · 付款日（经销商专用）", "jp": "発注依頼・発注履歴・支払日（代理店専用）", "vn": "Đặt hàng, lịch sử, ngày thanh toán (đại lý)"}}
+        {
+          "id": "inquiry",
+          "href": "https://tsp.wesco.works/{tsp}/#inquiry",
+          "title": {
+            "ko": "문의 남기기",
+            "en": "Send an Inquiry",
+            "cn": "留言咨询",
+            "jp": "お問い合わせ",
+            "vn": "Gửi yêu cầu"
+          },
+          "desc": {
+            "ko": "용량 · 현장 조건을 남기면 담당자가 회신",
+            "en": "Leave capacity and site details; we reply",
+            "cn": "留下容量与现场条件，专人回复",
+            "jp": "容量・現場条件を残せば担当者が返信",
+            "vn": "Để lại công suất, điều kiện hiện trường"
+          }
+        },
+        {
+          "id": "catalog",
+          "href": "https://tsp.wesco.works/{tsp}/#catalog",
+          "title": {
+            "ko": "카탈로그 받기",
+            "en": "Get the Catalog",
+            "cn": "获取产品目录",
+            "jp": "カタログ入手",
+            "vn": "Nhận catalog"
+          },
+          "desc": {
+            "ko": "TSP 카탈로그 PDF",
+            "en": "TSP catalog PDF",
+            "cn": "TSP 产品目录 PDF",
+            "jp": "TSP カタログ PDF",
+            "vn": "Catalog TSP (PDF)"
+          }
+        },
+        {
+          "id": "partner",
+          "href": "https://partner.wesco.works/",
+          "title": {
+            "ko": "대리점 포털",
+            "en": "Partner Portal",
+            "cn": "经销商门户",
+            "jp": "代理店ポータル",
+            "vn": "Cổng đại lý"
+          },
+          "desc": {
+            "ko": "발주 요청 · 발주 내역 · 결제일 (대리점 전용)",
+            "en": "Orders, history, payment dates (partners only)",
+            "cn": "订购申请 · 订单记录 · 付款日（经销商专用）",
+            "jp": "発注依頼・発注履歴・支払日（代理店専用）",
+            "vn": "Đặt hàng, lịch sử, ngày thanh toán (đại lý)"
+          }
+        }
       ]
     },
     {
       "id": "support",
-      "title": {"ko": "고객 지원", "en": "Support", "cn": "客户支持", "jp": "サポート", "vn": "Hỗ trợ"},
+      "title": {
+        "ko": "고객 지원",
+        "en": "Support",
+        "cn": "客户支持",
+        "jp": "サポート",
+        "vn": "Hỗ trợ"
+      },
       "items": [
-        {"id": "cs", "href": "https://cs.wesco.works/", "title": {"ko": "CS 시스템", "en": "CS System", "cn": "CS 系统", "jp": "CS システム", "vn": "Hệ thống CS"}, "desc": {"ko": "설치 제품 점검 · A/S 접수", "en": "Installed-unit checks and service requests", "cn": "已装设备检查 · 售后受理", "jp": "設置製品の点検・A/S受付", "vn": "Kiểm tra thiết bị, tiếp nhận bảo hành"}},
-        {"id": "site", "href": "https://www.wesco.co.kr", "title": {"ko": "회사 홈페이지", "en": "Corporate Website", "cn": "公司官网", "jp": "会社ホームページ", "vn": "Trang web công ty"}, "desc": {"ko": "www.wesco.co.kr", "en": "www.wesco.co.kr", "cn": "www.wesco.co.kr", "jp": "www.wesco.co.kr", "vn": "www.wesco.co.kr"}}
+        {
+          "id": "cs",
+          "href": "https://cs.wesco.works/",
+          "title": {
+            "ko": "CS 시스템",
+            "en": "CS System",
+            "cn": "CS 系统",
+            "jp": "CS システム",
+            "vn": "Hệ thống CS"
+          },
+          "desc": {
+            "ko": "설치 제품 점검 · A/S 접수",
+            "en": "Installed-unit checks and service requests",
+            "cn": "已装设备检查 · 售后受理",
+            "jp": "設置製品の点検・A/S受付",
+            "vn": "Kiểm tra thiết bị, tiếp nhận bảo hành"
+          }
+        },
+        {
+          "id": "site",
+          "href": "https://www.wesco.co.kr",
+          "title": {
+            "ko": "회사 홈페이지",
+            "en": "Corporate Website",
+            "cn": "公司官网",
+            "jp": "会社ホームページ",
+            "vn": "Trang web công ty"
+          },
+          "desc": {
+            "ko": "www.wesco.co.kr",
+            "en": "www.wesco.co.kr",
+            "cn": "www.wesco.co.kr",
+            "jp": "www.wesco.co.kr",
+            "vn": "www.wesco.co.kr"
+          }
+        }
       ]
     }
   ]
