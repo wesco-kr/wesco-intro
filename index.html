@@ -216,6 +216,22 @@ table.tb td.em{color:var(--red);font-weight:700}
 .sld.sag .badge{opacity:1}
 .sld.sag .box.edlc{stroke:var(--red);stroke-width:2.5}
 @keyframes dash{to{stroke-dashoffset:-24}}
+.sld .sym{fill:none;stroke:var(--stone);stroke-width:1.8}
+.sld .thin{stroke-width:1.2;stroke:#8A847D}
+.sld .node{fill:#44403C}
+.sld .thy path{fill:var(--stone);stroke:none}
+.sld .thy .ln{fill:none;stroke:var(--stone);stroke-width:1.8}
+.sld .ln{fill:none;stroke:var(--stone);stroke-width:1.2}
+.sld .cap{fill:none;stroke:var(--stone);stroke-width:2.5}
+.sld .ctl{fill:none;stroke:#8A847D;stroke-width:1;stroke-dasharray:3 3}
+.sld .lbl.sm{font-size:9px}
+.sld .cut{opacity:0;transition:opacity .2s}
+.sld .cut path{fill:none;stroke:var(--red);stroke-width:3}
+.sld .cut text{fill:var(--red);font-family:Arial,sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em}
+.sld.sag .cut{opacity:1}
+.sld.sag .live.out{stroke:var(--red);animation-duration:.5s}
+.sld.sag .cap{stroke:var(--red)}
+.sld.sag .thy path{fill:#8A847D;opacity:.5}
 .sld .wave{fill:none;stroke:var(--stone);stroke-width:1.5}
 .sld .wave.src{stroke:#8A847D}
 .sld .state{position:absolute;right:18px;top:12px;font-size:11px;letter-spacing:.12em;font-family:Arial,sans-serif;color:var(--muted);border:1px solid var(--line);padding:3px 10px;border-radius:20px;background:#FDFCF9}
@@ -557,6 +573,14 @@ html:not([lang="ko"]) .hist li{font-size:11.5px}
 .uses span{display:block;padding:14px 14px;background:var(--ivory);border-left:2px solid var(--red);font-size:14px;font-weight:700;color:var(--stone);letter-spacing:-.02em}
 html:not([lang="ko"]) .uses span{font-size:12.5px}
 .pg-use .note{font-size:11.5px}
+.pg-use .sagdef{width:100%;height:auto;display:block;margin:14px 0 18px}
+.pg-use .sagdef .ax{stroke:var(--line);stroke-width:1.5}
+.pg-use .sagdef .ref{stroke:var(--line);stroke-width:1;stroke-dasharray:4 4}
+.pg-use .sagdef .ref.lim{stroke:var(--muted)}
+.pg-use .sagdef .v{fill:none;stroke:var(--stone);stroke-width:2.5;stroke-linejoin:round}
+.pg-use .sagdef .win{fill:var(--red);opacity:.07}
+.pg-use .sagdef .t{font-family:Arial,sans-serif;font-size:11px;fill:var(--muted)}
+.pg-use .sagdef .t.red{fill:var(--red);font-weight:700;letter-spacing:.08em}
 /* Advantages: diagram left, five pills right. */
 .pg-adv .grid2{grid-template-columns:1.35fr 1fr!important;gap:32px}
 .pg-adv .pills{gap:0;grid-template-columns:1fr!important}
@@ -566,7 +590,8 @@ html:not([lang="ko"]) .uses span{font-size:12.5px}
 .pg-adv .pill span small{font-size:12px;line-height:1.5}
 html:not([lang="ko"]) .pg-adv .pill span{font-size:13px}
 html:not([lang="ko"]) .pg-adv .pill span small{font-size:10.5px}
-.fitbox{width:100%;overflow:hidden}
+.fitbox{width:100%}
+@media(max-width:760px){.fitbox{overflow:hidden}}
 @media(max-width:760px){.wrap{display:block;padding:12px 0}}
 html[lang="ko"] .page{word-break:keep-all;overflow-wrap:anywhere}
 /* 사이트 런처 — launcher.js(공용) 가 #sites-mount 에 버튼을 넣는다. 목록은 sites.json 한 곳 */
@@ -694,18 +719,24 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
 </section>
 
 <!-- 4 제품 용도 -->
-<section class="page pg-use" data-t="제품 용도" data-tk="thumb.4">
+<section class="page pg-use" data-t="용도" data-tk="thumb.4">
   <div class="eyebrow">PRODUCT</div>
-  <div class="h"><span class="no">03</span><span data-i18n="p4.h">제품 용도 — 순간정전으로부터 설비 보호</span></div>
+  <div class="h"><span class="no">03</span><span data-i18n="p4.h">용도 — 순간정전으로부터 설비 보호</span></div>
   <p class="lead" data-i18n="p4.lead">순간정전(Voltage Sag)은 전압이 0.01~1초 동안 정격의 90% 이하로 떨어지는 현상입니다. 정전이 아니라 통계엔 없지만, 정밀 설비는 그 찰나에 멈춥니다. TSP®는 설비 앞단에서 그 찰나를 메웁니다.</p>
   <div class="rule"></div>
   <div class="grid2">
     <div data-r style="--d:1">
-      <div class="sub"><i></i><span data-i18n="p4.s1">피해 규모 — 반도체 FAB 기준</span></div>
-      <div class="stat-big">
-        <div><b><span data-count="20">0</span><i data-i18n="p4.u1">회/년</i></b><span data-i18n="p4.l1">154kV 수전 FAB 연간 발생</span></div>
-        <div><b><span data-count="5.2" data-dec="1">0</span><i data-i18n="p4.u2">억원</i></b><span data-i18n="p4.l2">1회 정지 시 평균 손실</span></div>
-      </div>
+      <div class="sub"><i></i><span data-i18n="p4.s1">순간정전이 라인을 세우는 방식</span></div>
+      <!-- 순간정전 정의 파형: 수치 라벨만 두어 언어와 무관하게 읽힌다 -->
+      <svg class="sagdef" viewBox="0 0 520 150" aria-hidden="true">
+        <line class="ax" x1="40" y1="20" x2="40" y2="122"/><line class="ax" x1="40" y1="122" x2="510" y2="122"/>
+        <line class="ref" x1="40" y1="34" x2="510" y2="34"/><text class="t" x="34" y="38" text-anchor="end">100%</text>
+        <line class="ref lim" x1="40" y1="46" x2="510" y2="46"/><text class="t" x="34" y="50" text-anchor="end">90%</text>
+        <path class="v" d="M40 34 H210 L214 92 H296 L300 34 H510"/>
+        <rect class="win" x="210" y="20" width="90" height="102"/>
+        <text class="t" x="255" y="140" text-anchor="middle">0.01 – 1 s</text>
+        <text class="t red" x="255" y="110" text-anchor="middle">Voltage Sag</text>
+      </svg>
       <ul class="li">
         <li data-i18n="p4.li1">설비 정지 → 재기동·재검증에 수 시간~수일</li>
         <li data-i18n="p4.li2">공정 중 웨이퍼·패널·셀은 대부분 폐기</li>
@@ -727,7 +758,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
 </section>
 
 <!-- 5 라인업 -->
-<section class="page pg-line" data-t="제품 라인업" data-tk="thumb.5">
+<section class="page pg-line" data-t="라인업" data-tk="thumb.5">
   <div class="eyebrow">PRODUCT</div>
   <div class="h"><span class="no">04</span><span data-i18n="p5.h">제품 라인업</span></div>
   <p class="lead" data-i18n="p5.lead">설비 한 대부터 라인 전체까지 — 단상 0.5kVA에서 삼상 2,400kVA까지 국내 유일 풀 라인업.</p>
@@ -745,40 +776,79 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
 </section>
 
 <!-- 6 제품 장점 -->
-<section class="page pg-adv key" data-t="제품 장점" data-tk="thumb.6">
+<section class="page pg-adv key" data-t="장점" data-tk="thumb.6">
   <div class="eyebrow">PRODUCT</div>
-  <div class="h"><span class="no">05</span><span data-i18n="p6.h">제품 장점</span></div>
-  <p class="lead" data-i18n="p6.lead">평상시엔 바이패스로 흘려 효율 98%, 순간정전을 감지한 순간 EDLC(슈퍼커패시터) 에너지로 2ms 안에 정격 전압을 공급합니다.</p>
+  <div class="h"><span class="no">05</span><span data-i18n="p6.h">장점</span></div>
+  <p class="lead" data-i18n="p6.lead">평상시엔 SCR 정적 스위치로 전원을 그대로 통전하며 대기(오프라인)합니다. 순간정전을 감지한 순간 SCR을 끊고, EDLC(울트라커패시터)에 저장된 에너지를 인버터·변압기로 2ms 안에 부하에 공급합니다. 보상이 끝나면 다시 대기 상태로 돌아옵니다.</p>
   <div class="rule"></div>
   <div class="grid2">
     <div class="sld" id="sld" data-r style="--d:1">
-      <div class="state" id="sldst">NORMAL · BYPASS</div>
-      <svg viewBox="0 0 600 300">
-        <text class="lbl" x="18" y="150">SOURCE</text>
-        <path class="wave src" d="M18 175 q6 -18 12 0 t12 0 t12 0 t12 0 t12 0" id="wsrc"/>
-        <path class="wire" d="M90 150 H150"/>
-        <path class="live byp" d="M150 150 V80 H430 V150"/>
-        <rect class="box" x="250" y="60" width="90" height="40" rx="4"/><text class="bt" x="295" y="85" text-anchor="middle">BYPASS</text>
-        <path class="inv" d="M150 150 V220 H210"/>
-        <rect class="box" x="210" y="195" width="90" height="50" rx="4"/><text class="bt" x="255" y="216" text-anchor="middle">RECTIFIER</text><text class="lbl" x="255" y="232" text-anchor="middle">AC→DC</text>
-        <path class="inv" d="M300 220 H330"/>
-        <rect class="box edlc" x="330" y="195" width="80" height="50" rx="4"/><text class="bt" x="370" y="216" text-anchor="middle">EDLC</text><text class="lbl" x="370" y="232" text-anchor="middle">CAPACITOR</text>
-        <path class="inv" d="M410 220 H440"/>
-        <rect class="box" x="440" y="195" width="90" height="50" rx="4"/><text class="bt" x="485" y="216" text-anchor="middle">INVERTER</text><text class="lbl" x="485" y="232" text-anchor="middle">DC→AC</text>
-        <path class="inv" d="M530 220 H560 V150"/>
-        <path class="live" d="M430 150 H560 M560 150 H590"/>
-        <path class="wire" d="M150 150 H160 M420 150 H430"/>
-        <circle cx="150" cy="150" r="4" fill="#44403C"/><circle cx="560" cy="150" r="4" fill="#44403C"/>
+      <div class="state" id="sldst">NORMAL · SCR ON (BYPASS)</div>
+      <!-- 구조·동작원리. 정본 = TSP 카탈로그 p.11 「구조 및 동작원리」·Company Profile p.20.
+           주경로: 전원 → IN → SCR(정적 스위치, 평상시 ON=바이패스) → OUT → 부하.
+           보상경로는 부하측 모선에 붙는다: UC(EDLC) → 인버터 → TR → MC → 모선. 정전 시 SCR OFF 후 인버터가 부하를 맡는다.
+           수동 바이패스(MCCB)는 정비용으로 SCR 위에 병렬. 블록도가 아니라 전기 심볼로 그린다. -->
+      <svg viewBox="0 0 600 330">
+        <!-- 전원 -->
+        <circle class="sym" cx="34" cy="100" r="15"/>
+        <path class="wave src" d="M23 100 q5.5 -10 11 0 t11 0" id="wsrc"/>
+        <text class="lbl" x="34" y="130" text-anchor="middle">SOURCE</text>
+        <path class="wire" d="M49 100 H80"/>
+        <!-- 입력 개폐기 -->
+        <path class="sym" d="M80 100 L98 89"/><path class="wire" d="M100 100 H130"/>
+        <text class="lbl" x="90" y="82" text-anchor="middle">IN</text>
+        <circle class="node" cx="130" cy="100" r="3.5"/>
+        <!-- 수동 바이패스 (정비용) -->
+        <path class="wire thin" d="M130 100 V40 H265"/><path class="sym thin" d="M265 40 L283 30"/><path class="wire thin" d="M285 40 H430 V100"/>
+        <text class="lbl" x="275" y="58" text-anchor="middle">MANUAL BYPASS</text>
+        <!-- SCR 정적 스위치: 역병렬 사이리스터 2개 -->
+        <path class="live byp" d="M130 100 H200"/>
+        <path class="live byp" d="M200 100 V86 H290 V100 M200 100 V114 H290 V100"/>
+        <g class="thy">
+          <path d="M232 79 L232 93 L248 86 Z"/><path class="ln" d="M248 79 V93 M248 89 L257 96"/>
+          <path d="M258 107 L258 121 L242 114 Z"/><path class="ln" d="M242 107 V121 M242 118 L233 125"/>
+        </g>
+        <text class="lbl" x="245" y="74" text-anchor="middle">SCR · STATIC SWITCH</text>
+        <g class="cut"><path d="M236 91 L254 109 M254 91 L236 109"/><text x="222" y="140" text-anchor="middle">OFF</text></g>
+        <path class="live byp" d="M290 100 H330"/>
+        <circle class="node" cx="330" cy="100" r="3.5"/>
+        <!-- 부하측 모선 → 출력 개폐기 → 부하 -->
+        <path class="live out" d="M330 100 H470"/>
+        <circle class="node" cx="430" cy="100" r="3.5"/>
+        <path class="sym" d="M470 100 L488 89"/><path class="live out" d="M490 100 H545"/>
+        <text class="lbl" x="480" y="82" text-anchor="middle">OUT</text>
+        <circle class="sym" cx="560" cy="100" r="15"/>
+        <path class="wave" d="M549 100 q5.5 -10 11 0 t11 0"/>
         <text class="lbl" x="560" y="130" text-anchor="middle">LOAD</text>
-        <path class="wave" d="M540 175 q6 -18 12 0 t12 0 t12 0 t12 0"/>
-        <g class="badge"><rect x="390" y="255" width="180" height="28" rx="14" fill="#E1431B"/><text x="480" y="274" text-anchor="middle" fill="#FDFCF9" font-size="12" font-weight="700" font-family="Arial" data-i18n="p6.badge">2ms · 100% 보상</text></g>
-        <text class="lbl" x="18" y="285" data-i18n="p6.svgnote">평상시 BYPASS 효율 98%  ·  정전 시 INVERTER + EDLC</text>
+        <!-- 보상 경로: 모선 → MC → TR → INVERTER → UC(EDLC) -->
+        <path class="inv" d="M330 100 V125"/>
+        <path class="sym" d="M330 145 L341 128"/><text class="lbl" x="348" y="140">MC</text>
+        <path class="inv" d="M330 145 V167"/>
+        <circle class="sym" cx="330" cy="178" r="11"/><circle class="sym" cx="330" cy="194" r="11"/>
+        <text class="lbl" x="348" y="190">TR</text>
+        <path class="inv" d="M330 205 V218"/>
+        <rect class="box" x="300" y="218" width="60" height="36"/>
+        <path class="ln" d="M300 254 L360 218"/>
+        <text class="bt" x="313" y="233" text-anchor="middle">~</text><text class="bt" x="347" y="250" text-anchor="middle">=</text>
+        <text class="lbl" x="368" y="240">INVERTER · IGBT</text>
+        <path class="inv" d="M330 254 V272"/>
+        <path class="cap" d="M314 272 H346 M314 281 H346"/>
+        <path class="inv" d="M330 281 V296"/>
+        <text class="lbl" x="352" y="284">UC · EDLC</text>
+        <!-- 제어: SCR 게이트 · PWM -->
+        <rect class="box" x="140" y="205" width="90" height="36"/>
+        <text class="bt" x="185" y="228" text-anchor="middle">DSP · CPU</text>
+        <path class="ctl" d="M185 205 V150 H245 V128"/><text class="lbl sm" x="190" y="164">GATE</text>
+        <path class="ctl" d="M230 230 H300"/><text class="lbl sm" x="265" y="226" text-anchor="middle">PWM</text>
+        <!-- 상태 표시 -->
+        <g class="badge"><rect x="405" y="150" width="175" height="28" rx="14" fill="#E1431B"/><text x="492" y="169" text-anchor="middle" fill="#FDFCF9" font-size="12" font-weight="700" font-family="Arial" data-i18n="p6.badge">2ms · 100% 보상</text></g>
+        <text class="lbl" x="18" y="322" data-i18n="p6.svgnote">평상시 SCR 통전(바이패스)  ·  정전 시 SCR 차단 → EDLC · 인버터 · TR 로 부하 공급</text>
       </svg>
     </div>
     <div class="pills" data-r style="grid-template-columns:1fr;--d:2">
       <div class="pill"><b>1</b><span data-i18n="p6.p1">2ms 보상 <small data-i18n="p6.p1s">감지 즉시 전환 · 정격 전압 100%</small></span></div>
       <div class="pill"><b>2</b><span data-i18n="p6.p2">배터리 없음 <small data-i18n="p6.p2s">EDLC 커패시터 · 10년 이상 무교체 · 화재 위험 없음</small></span></div>
-      <div class="pill"><b>3</b><span data-i18n="p6.p3">효율 98% · 냉각팬 없음 <small data-i18n="p6.p3s">평상시 바이패스 · 소음·먼지·팬 고장 원천 제거</small></span></div>
+      <div class="pill"><b>3</b><span data-i18n="p6.p3">효율 98% · 냉각팬 없음(50kVA 이하) <small data-i18n="p6.p3s">평상시 바이패스 · 소음·먼지·팬 고장 원천 제거</small></span></div>
       <div class="pill"><b>4</b><span data-i18n="p6.p4">설비 옆 분산 설치 <small data-i18n="p6.p4s">전기실 개조 없이 라인 단위 도입</small></span></div>
       <div class="pill"><b>5</b><span data-i18n="p6.p5">보상 이력 자동 기록 <small data-i18n="p6.p5s">Sag-VIEWER™ — 시각·전압·지속시간이 데이터로 남는다</small></span></div>
     </div>
@@ -787,7 +857,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
 </section>
 
 <!-- 7 Sag-VIEWER -->
-<section class="page pg-hmi" data-t="제품 화면" data-tk="thumb.7">
+<section class="page pg-hmi" data-t="Sag-VIEWER" data-tk="thumb.7">
   <div class="eyebrow">PRODUCT</div>
   <div class="h"><span class="no">06</span><span data-i18n="p7.h">Sag-VIEWER™ — 제품 화면에서 이렇게 봅니다</span></div>
   <p class="lead" data-i18n="p7.lead">7인치 터치 패널에 실시간 계측과 사고 기록이 함께 뜹니다. 메뉴를 눌러보십시오.</p>
@@ -926,7 +996,9 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
       box.style.height=Math.round(wrap.offsetHeight*s+24)+'px';return;
     }
     wrap.style.transform='';box.style.height='';
-    var w=innerWidth-(innerWidth>1300?230:24);wrap.style.zoom=Math.min(1,w/1120);
+    // 데스크톱: 폭에 맞추되, 화면 높이가 허락하면 한 쪽이 화면을 채우도록 키운다(최대 1.6배). 작은 노트북에서 줄어들지는 않는다
+    var w=innerWidth-(innerWidth>1300?230:24),byW=w/1120,byH=(innerHeight-130)/720;
+    wrap.style.zoom=Math.max(Math.min(1,byW),Math.min(byW,byH,1.6));
   }
   addEventListener('resize',fit);fit();
 
@@ -954,11 +1026,11 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
 
   // SLD: 6초마다 순간정전 발생 → 1.6초 보상 모드
   var sld=document.getElementById('sld'),st=document.getElementById('sldst'),w=document.getElementById('wsrc');
-  var normal='M18 175 q6 -18 12 0 t12 0 t12 0 t12 0 t12 0',sag='M18 175 q6 -18 12 0 t12 0 q6 -5 12 0 t12 0 t12 0';
+  var normal='M23 100 q5.5 -10 11 0 t11 0',sag='M23 100 q5.5 -10 11 0 q5.5 -3 11 0';
   setInterval(function(){
     if(!fx||reduce)return;
-    sld.classList.add('sag');st.textContent='SAG DETECTED · INVERTER';w.setAttribute('d',sag);
-    setTimeout(function(){sld.classList.remove('sag');st.textContent='NORMAL · BYPASS';w.setAttribute('d',normal)},1600);
+    sld.classList.add('sag');st.textContent='SAG · SCR OFF → INVERTER';w.setAttribute('d',sag);
+    setTimeout(function(){sld.classList.remove('sag');st.textContent='NORMAL · SCR ON (BYPASS)';w.setAttribute('d',normal)},1600);
   },6000);
 
   // Sag-VIEWER 탭 — 화면 캡처 교체
