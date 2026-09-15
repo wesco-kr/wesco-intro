@@ -591,6 +591,17 @@ html:not([lang="ko"]) .uses span{font-size:12.5px}
 .pg-adv .pill span small{font-size:12px;line-height:1.5}
 html:not([lang="ko"]) .pg-adv .pill span{font-size:13px}
 html:not([lang="ko"]) .pg-adv .pill span small{font-size:10.5px}
+/* Sag-VIEWER: real 800x480 HMI captures, tabbed. */
+.pg-hmi .grid2{grid-template-columns:1.7fr 1fr;gap:36px;align-items:center}
+.pg-hmi .shot{background:#292524;padding:12px;border-radius:4px;box-shadow:0 12px 24px rgba(41,37,36,.16)}
+.pg-hmi .shot img{display:block;width:100%;height:auto;border-radius:2px}
+.pg-hmi .tabs{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--line)}
+.pg-hmi .tabs button{all:unset;cursor:pointer;display:flex;align-items:center;gap:12px;padding:12px 10px;border-bottom:1px solid var(--line);font-family:Arial,sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--muted)}
+.pg-hmi .tabs button::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--line)}
+.pg-hmi .tabs button.on{color:var(--stone)}
+.pg-hmi .tabs button.on::before{background:var(--red)}
+.pg-hmi .cap{margin-top:18px;font-size:14px;line-height:1.75;color:var(--body);min-height:96px}
+html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
 .lg .cell{font-size:16px}
 </style>
 
@@ -600,7 +611,7 @@ html:not([lang="ko"]) .pg-adv .pill span small{font-size:10.5px}
 <div class="bar">
   <div class="t"><a href="/"><img src="images/wesco_wordmark.png" alt="WESCO"></a><span data-i18n="bar.sub">사업소개서 · 2026</span></div>
   <div class="btns">
-    <span class="pg" id="pg">1 / 9</span>
+    <span class="pg" id="pg">1 / 10</span>
     <div class="lang" role="group" aria-label="Language">
       <button type="button" data-lang-btn="ko" aria-label="한국어">KO</button><button type="button" data-lang-btn="en" aria-label="English">EN</button><button type="button" data-lang-btn="cn" aria-label="简体中文">CN</button><button type="button" data-lang-btn="jp" aria-label="日本語">JP</button><button type="button" data-lang-btn="vn" aria-label="Tiếng Việt">VN</button>
     </div>
@@ -787,34 +798,62 @@ html:not([lang="ko"]) .pg-adv .pill span small{font-size:10.5px}
   <div class="band"><span data-i18n="p6.band">평상시엔 없는 듯 98%, 사고의 순간엔 2ms — 보상 장치의 두 얼굴</span><span class="n">06</span></div>
 </section>
 
-<!-- 7 글로벌 레퍼런스 -->
-<section class="page lg" data-t="글로벌 레퍼런스" data-tk="thumb.7">
+<!-- 7 Sag-VIEWER -->
+<section class="page pg-hmi" data-t="제품 화면" data-tk="thumb.7">
+  <div class="eyebrow">PRODUCT</div>
+  <div class="h"><span class="no">06</span><span data-i18n="p7.h">Sag-VIEWER™ — 제품 화면에서 이렇게 봅니다</span></div>
+  <p class="lead" data-i18n="p7.lead">7인치 터치 패널에 실시간 계측과 사고 기록이 함께 뜹니다. 메뉴를 눌러보십시오.</p>
+  <div class="rule"></div>
+  <div class="grid2">
+    <div class="shot" data-r style="--d:1"><img id="hmi-shot" src="images/hmi/hmi_status.webp" alt="TSP HMI" width="800" height="480"></div>
+    <div data-r style="--d:2">
+      <div class="tabs" role="tablist">
+        <button type="button" role="tab" class="on" data-s="status" aria-selected="true">STATUS</button>
+        <button type="button" role="tab" data-s="sag" aria-selected="false">SAG EVENT</button>
+        <button type="button" role="tab" data-s="history" aria-selected="false">HISTORY D/B</button>
+        <button type="button" role="tab" data-s="energy" aria-selected="false">ENERGY M/T</button>
+        <button type="button" role="tab" data-s="setting" aria-selected="false">SETTING</button>
+      </div>
+      <p class="cap" id="hmi-cap" data-i18n="p7.c1">입출력 전압·전류, DC 충전율, 검출·복귀 레벨을 한 화면에서 봅니다.</p>
+      <div class="store" hidden>
+        <span data-i18n="p7.c2">사고 순간의 계통 파형(위)과 TSP가 만든 부하 파형(아래)을 나란히 남깁니다. 사고 시각·전압·지속시간이 함께 기록됩니다.</span>
+        <span data-i18n="p7.c3">차단기 개폐, 기동·정지, 설정 변경까지 최대 500건을 남깁니다.</span>
+        <span data-i18n="p7.c4">피상·유효·무효 전력과 누적 전력량. 시간·일·월·연 단위로 볼 수 있습니다.</span>
+        <span data-i18n="p7.c5">검출 레벨, 복귀 히스테리시스, 보상 시간을 현장에서 조정합니다.</span>
+      </div>
+    </div>
+  </div>
+  <div class="band"><span data-i18n="p7.band">사고가 데이터로 남는다 — 보상 이력·파형·전력량까지 한 화면에</span><span class="n">07</span></div>
+</section>
+
+<!-- 8 글로벌 레퍼런스 -->
+<section class="page lg" data-t="글로벌 레퍼런스" data-tk="thumb.8">
   <div class="eyebrow">REFERENCE</div>
-  <div class="h"><span class="no">06</span><span data-i18n="p7.h">글로벌 레퍼런스</span></div>
-  <p class="lead" data-i18n="p7.lead">누적 150,000대 이상 · 900개사 이상 · 15개국 이상.</p>
+  <div class="h"><span class="no">07</span><span data-i18n="p8.h">글로벌 레퍼런스</span></div>
+  <p class="lead" data-i18n="p8.lead">누적 150,000대 이상 · 900개사 이상 · 15개국 이상.</p>
   <div class="rule"></div>
   <div class="grp" data-r style="--d:1"><h4>SEMICONDUCTOR</h4><div class="cells"><span class="cell">Samsung</span><span class="cell">SK hynix</span><span class="cell">DB HiTek</span><span class="cell">TSMC</span><span class="cell">ASE</span><span class="cell">UMC</span><span class="cell">NXP</span><span class="cell">X-FAB</span><span class="cell">Sony</span><span class="cell">onsemi</span><span class="cell">Hana Micron</span></div></div>
   <div class="grp" data-r style="--d:2"><h4>DISPLAY</h4><div class="cells"><span class="cell">Samsung Display</span><span class="cell">LG Display</span><span class="cell">BOE</span><span class="cell">VISIONOX</span><span class="cell">INNOLUX</span><span class="cell">CSOT</span></div></div>
   <div class="grp" data-r style="--d:3"><h4>AUTOMOTIVE · BATTERY</h4><div class="cells"><span class="cell">Hyundai Motor</span><span class="cell">Kia</span><span class="cell">Hyundai Steel</span><span class="cell">Mando</span><span class="cell">Hankook Tire</span><span class="cell">LG Energy Solution</span><span class="cell">Volta Energy Solutions</span></div></div>
-  <div class="grp" data-r style="--d:4"><h4>SOC · LANDMARK</h4><div class="cells"><span class="cell" data-i18n="p7.soc1">인천국제공항</span><span class="cell" data-i18n="p7.soc2">롯데월드타워</span><span class="cell" data-i18n="p7.soc3">롯데월드</span><span class="cell" data-i18n="p7.soc4">에버랜드</span></div></div>
-  <div class="band"><span data-i18n="p7.band">글로벌 Top-Tier 제조사가 검증한 25년</span><span class="n">07</span></div>
+  <div class="grp" data-r style="--d:4"><h4>SOC · LANDMARK</h4><div class="cells"><span class="cell" data-i18n="p8.soc1">인천국제공항</span><span class="cell" data-i18n="p8.soc2">롯데월드타워</span><span class="cell" data-i18n="p8.soc3">롯데월드</span><span class="cell" data-i18n="p8.soc4">에버랜드</span></div></div>
+  <div class="band"><span data-i18n="p8.band">글로벌 Top-Tier 제조사가 검증한 25년</span><span class="n">08</span></div>
 </section>
 
-<!-- 8 글로벌 네트워크 -->
-<section class="page net" data-t="글로벌 네트워크" data-tk="thumb.8">
+<!-- 9 글로벌 네트워크 -->
+<section class="page net" data-t="글로벌 네트워크" data-tk="thumb.9">
   <div class="eyebrow">REFERENCE</div>
-  <div class="h"><span class="no">07</span><span data-i18n="p8.h">글로벌 네트워크</span></div>
-  <p class="lead" data-i18n="p8.lead">국내 5 · 해외 7 영업·기술망 — 16개국 현지 즉시 대응.</p>
+  <div class="h"><span class="no">08</span><span data-i18n="p9.h">글로벌 네트워크</span></div>
+  <p class="lead" data-i18n="p9.lead">국내 5 · 해외 7 영업·기술망 — 16개국 현지 즉시 대응.</p>
   <div class="rule"></div>
   <img class="map" src="images/world-map.png" alt="World">
   <div class="ctry" data-r style="--d:2">
-    <span class="hq" data-i18n="p8.c0">대한민국 · 본사</span><span data-i18n="p8.c1">중국</span><span data-i18n="p8.c2">일본</span><span data-i18n="p8.c3">대만</span><span data-i18n="p8.c4">베트남</span><span data-i18n="p8.c5">말레이시아</span><span data-i18n="p8.c6">인도네시아</span><span data-i18n="p8.c7">인도</span><span data-i18n="p8.c8">미국</span><span data-i18n="p8.c9">멕시코</span><span data-i18n="p8.c10">독일</span><span data-i18n="p8.c11">폴란드</span><span data-i18n="p8.c12">체코</span><span data-i18n="p8.c13">슬로바키아</span><span data-i18n="p8.c14">헝가리</span><span data-i18n="p8.c15">터키</span>
+    <span class="hq" data-i18n="p9.c0">대한민국 · 본사</span><span data-i18n="p9.c1">중국</span><span data-i18n="p9.c2">일본</span><span data-i18n="p9.c3">대만</span><span data-i18n="p9.c4">베트남</span><span data-i18n="p9.c5">말레이시아</span><span data-i18n="p9.c6">인도네시아</span><span data-i18n="p9.c7">인도</span><span data-i18n="p9.c8">미국</span><span data-i18n="p9.c9">멕시코</span><span data-i18n="p9.c10">독일</span><span data-i18n="p9.c11">폴란드</span><span data-i18n="p9.c12">체코</span><span data-i18n="p9.c13">슬로바키아</span><span data-i18n="p9.c14">헝가리</span><span data-i18n="p9.c15">터키</span>
   </div>
-  <div class="band"><span data-i18n="p8.band">고객의 해외 공장이 있는 곳에 WESCO 기술지원이 있다</span><span class="n">08</span></div>
+  <div class="band"><span data-i18n="p9.band">고객의 해외 공장이 있는 곳에 WESCO 기술지원이 있다</span><span class="n">09</span></div>
 </section>
 
-<!-- 9 뒷표지 -->
-<section class="page back" data-t="연락처" data-tk="thumb.9">
+<!-- 10 뒷표지 -->
+<section class="page back" data-t="연락처" data-tk="thumb.10">
   <div class="inner">
     <div>
       <img class="wm" src="images/wesco_wordmark.png" alt="WESCO">
@@ -833,7 +872,7 @@ html:not([lang="ko"]) .pg-adv .pill span small{font-size:10.5px}
 <nav class="thumbs" id="thumbs"></nav>
 </div>
 
-<div class="pnav" id="pnav"><button type="button" id="pprev" aria-label="prev">‹</button><span id="ppg">1 / 9</span><button type="button" id="pnext" aria-label="next">›</button><button type="button" id="pexit" aria-label="exit">ESC</button></div>
+<div class="pnav" id="pnav"><button type="button" id="pprev" aria-label="prev">‹</button><span id="ppg">1 / 10</span><button type="button" id="pnext" aria-label="next">›</button><button type="button" id="pexit" aria-label="exit">ESC</button></div>
 
 <script>
 (function(){
@@ -921,6 +960,21 @@ html:not([lang="ko"]) .pg-adv .pill span small{font-size:10.5px}
     sld.classList.add('sag');st.textContent='SAG DETECTED · INVERTER';w.setAttribute('d',sag);
     setTimeout(function(){sld.classList.remove('sag');st.textContent='NORMAL · BYPASS';w.setAttribute('d',normal)},1600);
   },6000);
+
+  // Sag-VIEWER 탭 — 화면 캡처 교체
+  (function(){
+    var tabs=document.querySelector('.pg-hmi .tabs'),shot=document.getElementById('hmi-shot'),cap=document.getElementById('hmi-cap');
+    if(!tabs||!shot)return;
+    var keys={status:'p7.c1',sag:'p7.c2',history:'p7.c3',energy:'p7.c4',setting:'p7.c5'};
+    tabs.addEventListener('click',function(e){
+      var b=e.target.closest('button');if(!b)return;
+      tabs.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b);x.setAttribute('aria-selected',x===b)});
+      shot.src='images/hmi/hmi_'+b.dataset.s+'.webp';
+      var src=document.querySelector('.pg-hmi .store [data-i18n="'+keys[b.dataset.s]+'"]');
+      cap.setAttribute('data-i18n',keys[b.dataset.s]);
+      if(src)cap.textContent=src.textContent;
+    });
+  })();
 })();
 </script>
 <script src="i18n.js?v=2"></script>
