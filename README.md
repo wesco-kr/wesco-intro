@@ -20,6 +20,7 @@
 | `tools/check_i18n.py` | 4개 언어 누락·잉여·한글 잔존·태그 검사 |
 | `tools/render_book.py` | 쪽별 PNG 렌더 + 넘침 검사 (`RENDER_BASE=http://127.0.0.1:8765` 로 http 경유 시 다국어) |
 | `blog/` | 인사이트 글 (별도 유지) |
+| `sites.json` | WESCO 공개 사이트 목록 — 상단 「WESCO 사이트」 서랍과 뒷표지 「다음 단계」 카드가 이 한 파일을 읽는다. 사이트가 늘면 여기만 고친다. 사내 시스템(quote·works)은 넣지 않는다 |
 
 `_build/` 는 렌더 산출물·작업 로그로 git 에 올리지 않는다.
 
