@@ -591,6 +591,9 @@ html:not([lang="ko"]) .uses span{font-size:12.5px}
 .pg-adv .pill span small{font-size:12px;line-height:1.5}
 html:not([lang="ko"]) .pg-adv .pill span{font-size:13px}
 html:not([lang="ko"]) .pg-adv .pill span small{font-size:10.5px}
+.fitbox{width:100%;overflow:hidden}
+@media(max-width:760px){.wrap{display:block;padding:12px 0}}
+html[lang="ko"] .page{word-break:keep-all;overflow-wrap:anywhere}
 /* Sag-VIEWER: real 800x480 HMI captures, tabbed. */
 .pg-hmi .grid2{grid-template-columns:1.7fr 1fr;gap:36px;align-items:center}
 .pg-hmi .shot{background:#292524;padding:12px;border-radius:4px;box-shadow:0 12px 24px rgba(41,37,36,.16)}
@@ -622,6 +625,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
   </div>
 </div>
 
+<div class="fitbox" id="fitbox">
 <div class="wrap">
 <div class="pages" id="pages">
 
@@ -871,6 +875,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
 
 <nav class="thumbs" id="thumbs"></nav>
 </div>
+</div>
 
 <div class="pnav" id="pnav"><button type="button" id="pprev" aria-label="prev">‹</button><span id="ppg">1 / 10</span><button type="button" id="pnext" aria-label="next">›</button><button type="button" id="pexit" aria-label="exit">ESC</button></div>
 
@@ -924,8 +929,17 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
   // 화면 폭에 맞춰 축소 (모바일)
   function fit(){
     if(document.body.classList.contains('present')){
-      var s=Math.min(innerWidth/1120,(innerHeight-56)/720);wrap.style.zoom=s;return;
+      wrap.style.transform='';document.getElementById('fitbox').style.height='';var s=Math.min(innerWidth/1120,(innerHeight-56)/720);wrap.style.zoom=s;return;
     }
+    var box=document.getElementById('fitbox');
+    if(innerWidth<=760){
+      // 모바일: zoom 은 글리프 위치를 픽셀 단위로 반올림해 「CO UNTRIES」처럼 글자가 끊긴다.
+      // transform 은 1120px 로 배치한 뒤 통째로 축소하므로 자간이 보존된다. 클립 상자로 문서 폭 확장(iOS 뷰포트 팽창)을 막는다.
+      wrap.style.zoom='';var s=(innerWidth-16)/1120;
+      wrap.style.transformOrigin='0 0';wrap.style.transform='translateX(8px) scale('+s+')';
+      box.style.height=Math.round(wrap.offsetHeight*s+24)+'px';return;
+    }
+    wrap.style.transform='';box.style.height='';
     var w=innerWidth-(innerWidth>1300?230:24);wrap.style.zoom=Math.min(1,w/1120);
   }
   addEventListener('resize',fit);fit();
