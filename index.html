@@ -275,9 +275,14 @@ table.tb td.em{color:var(--red);font-weight:700}
 .tol path.itic{fill:none;stroke:#8A847D;stroke-width:1.5;stroke-dasharray:4 3}
 .tol path.f47{fill:none;stroke:var(--stone);stroke-width:2.5}
 .tol .f47d{fill:var(--stone)}
+.tol .tsp{fill:#FBEAE4}
+.tol .pvd{fill:var(--red)}
+.tol text.lg.tsp{fill:var(--red)}
+.tol text.lg.tsp2{fill:var(--red);font-weight:400;font-size:9.5px}
 .tol path.pv{fill:none;stroke:var(--red);stroke-width:2.5}
 .tol text.lg{font-family:Arial,"Noto Sans KR",sans-serif;font-size:11px;font-weight:700}
 .tol text.lg.pv{fill:var(--red)}
+.tol text.lg.pv2{fill:var(--red);font-weight:400;font-size:9.5px}
 .tol text.lg.f47{fill:var(--stone)}
 .tol text.lg.itic{fill:#8A847D;font-weight:400}
 .tol text.lg.ok{fill:#8A847D;font-weight:400;font-size:10px}
@@ -468,7 +473,7 @@ table.tb thead th{background:transparent;border-bottom:1px solid var(--stone)}
 .card .grid2{grid-template-columns:1fr 1.05fr}
 .card .intro{font-size:17px;line-height:1.8;margin-bottom:20px}
 .card .logo{height:32px;margin-bottom:20px}
-.card .photo{height:285px;object-position:55% center}
+.card .photo{height:285px;object-position:center 58%}
 .card .metrics{gap:0;margin-top:0!important;background:var(--tint2)}
 .card .metrics .m{padding:22px;border-top:0}
 .card .metrics .m+.m{border-left:1px solid var(--line)}
@@ -570,7 +575,7 @@ table.tb thead th{background:transparent;border-bottom:1px solid var(--stone)}
 .net .mapwrap{position:absolute;left:56px;top:196px;width:640px;aspect-ratio:1280/836}
 .net .map{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;opacity:.22;mix-blend-mode:multiply;margin:0;border-radius:0}
 .net .netsvg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.net .netsvg .sup circle{fill:#8A847D;opacity:.8}
+.net .netsvg .sup circle{fill:var(--stone);stroke:var(--ivory);stroke-width:2.5}
 .net .netsvg .ln path{fill:none;stroke:var(--red);stroke-width:2.4;opacity:.75;stroke-linecap:round}
 .net .netsvg .nd circle{fill:var(--red);stroke:var(--ivory);stroke-width:2.5}
 .net .netsvg .nd circle.tc{fill:var(--ivory);stroke:var(--red);stroke-width:3}
@@ -583,7 +588,7 @@ table.tb thead th{background:transparent;border-bottom:1px solid var(--stone)}
 .net .leg i{width:10px;height:10px;border-radius:50%;display:inline-block}
 .net .leg i.hq{background:var(--red);box-shadow:0 0 0 3px #FBEAE4}
 .net .leg i.dl{background:var(--red)}
-.net .leg i.sp{background:#8A847D}
+.net .leg i.sp{background:var(--stone);box-shadow:0 0 0 2px var(--ivory),0 0 0 3px var(--stone)}
 .net .ctry{position:absolute;right:64px;top:206px;width:230px;gap:0;display:grid;grid-template-columns:1fr 1fr;align-content:start}
 .net .ctry span{background:transparent;border:0;border-bottom:1px solid var(--line);padding:5px 8px;font-size:11px}
 .net .ctry span.hq{grid-column:1/-1;background:var(--red);color:var(--ivory);padding:11px 12px;margin-bottom:6px;font-size:12px}
@@ -727,7 +732,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
     <div>
       <img class="wm" src="images/wesco_wordmark.png" alt="WESCO">
       <div class="eyebrow" style="color:#FBEAE4;margin-top:44px" data-i18n="c.eyebrow">COMPANY PROFILE · 2026</div>
-      <h1 data-r style="--d:1" data-i18n="c.h1" data-i18n-html>순간정전으로부터<br>생산라인을 <em>2ms</em>에 지킵니다</h1>
+      <h1 data-r style="--d:1" data-i18n="c.h1" data-i18n-html>순간정전이 와도<br>생산라인은 <em>멈추지 않습니다</em></h1>
       <div class="sl" data-r style="--d:2" data-i18n="c.sl">2001년부터 한 분야 — 순간정전 보상장치 TSP®</div>
       <div class="stats">
         <div class="st" data-r style="--d:3"><b><span data-count="150000">0</span><i>+</i></b><span data-i18n="c.s1">UNITS</span></div>
@@ -759,7 +764,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
       </table>
     </div>
     <div data-r style="--d:2">
-      <img class="photo" src="images/proof/install_semi.jpg" alt="TSP 설치 현장">
+      <img class="photo" src="images/proof/install_semi_2026.jpg" alt="TSP 설치 현장">
       <div class="metrics" style="grid-template-columns:repeat(2,1fr);margin-top:12px">
         <div class="m"><b><span data-count="150000">0</span><i>+</i></b><span data-i18n="p2.m1">누적 공급 대수</span></div>
         <div class="m"><b><span data-count="900">0</span><i>+</i></b><span data-i18n="p2.m2">공급 기업 수</span></div>
@@ -773,12 +778,12 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
 <section class="page hist" data-t="연혁" data-tk="thumb.3">
   <div class="eyebrow">WESCO</div>
   <div class="h"><span class="no">02</span><span data-i18n="p3.h">연혁</span></div>
-  <p class="lead" data-i18n="p3.lead">일본 MEIDENSHA 대리점에서 출발해, 자체 개발한 TSP®로 15개국 이상에 공급하기까지.</p>
+  <p class="lead" data-i18n="p3.lead">국내 최초로 순간정전 보상장치 사업을 시작해, 자체 개발한 TSP®로 15개국 이상에 공급하기까지.</p>
   <div class="rule"></div>
   <div class="tl">
     <div class="era" data-r style="--d:1"><div class="y">2001<small data-i18n="p3.e1">설립기 · ~2010</small></div><ul>
       <li data-i18n="p3.e1a">한광호 대표 창업(2001)</li>
-      <li data-i18n="p3.e1b">DPT(미국) · MEIDENSHA(일본) 한국 독점대리점</li>
+      <li data-i18n="p3.e1b">국내 최초 순간정전 보상장치 사업 개시</li>
       <li data-i18n="p3.e1c">ISO 9001 · 14001 · INNO-BIZ 인증</li>
       <li data-i18n="p3.e1d">DB하이텍 공급</li>
       <li data-i18n="p3.e1e">현대제철 당진 TSP® 공급</li></ul></div>
@@ -902,7 +907,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
            SEMI F47-0706 Table 1(필수) = 50%/0.2s · 70%/0.5s · 80%/1.0s. 1초 초과는 규정 없음 → 선을 1.0s 에서 끝낸다.
            ITIC/CBEMA 하한 = 0%/20ms · 70%/0.5s · 80%/10s · 90% 연속. 삼성 POWER Vaccine 은 카탈로그 곡선(0% 1초 → 90%) 그대로. -->
       <svg class="tol" viewBox="0 0 520 300" aria-hidden="true">
-        <polygon class="ok" points="60,30 500,30 500,52 280,52 280,250 60,250"/>
+        <polygon class="ok" points="60,30 500,30 500,52 280,52 280,250 60,250"/><rect class="tsp" x="60" y="52" width="220" height="198"/>
         <line class="ax" x1="60" y1="30" x2="60" y2="250"/><line class="ax" x1="60" y1="250" x2="500" y2="250"/>
         <g class="grid"><line x1="170" y1="30" x2="170" y2="250"/><line x1="280" y1="30" x2="280" y2="250"/><line x1="390" y1="30" x2="390" y2="250"/>
           <line x1="60" y1="140" x2="500" y2="140"/><line x1="60" y1="96" x2="500" y2="96"/><line x1="60" y1="74" x2="500" y2="74"/><line x1="60" y1="52" x2="500" y2="52"/><line x1="60" y1="30" x2="500" y2="30"/></g>
@@ -911,18 +916,18 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
         <path class="itic" d="M60 250 H93 V96 H247 V74 H390 V52 H500"/>
         <path class="f47" d="M137 140 H203 V96 H247 V74 H280"/><circle class="f47d" cx="280" cy="74" r="3.5"/>
         <path class="pv" d="M60 250 H280 V52 H500"/>
-        <text class="lg pv" x="150" y="238">SAMSUNG POWER Vaccine</text>
+        <text class="lg tsp" x="68" y="176" data-i18n="ps.tspl1">TSP® 보상 영역</text><text class="lg tsp2" x="68" y="190" data-i18n="ps.tspl2">1초 · 잔여전압 0%(100% 정전)까지 — 규격 충족</text><circle class="pvd" cx="280" cy="250" r="4"/><text class="lg pv" x="66" y="224">SAMSUNG POWER Vaccine</text><text class="lg pv2" x="66" y="239" data-i18n="ps.pvl">규격 한계점: 1초 · 100% 정전 (오른쪽 아래 점)</text>
         <text class="lg f47" x="140" y="132">SEMI F47</text>
         <text class="lg itic" x="300" y="68">ITIC / CBEMA</text>
         <text class="lg ok" x="68" y="46" data-i18n="ps.okl">삼성 규격 — 이 영역의 어떤 순간정전도 견뎌야 한다</text>
-        <text class="lg ax" x="290" y="290" text-anchor="middle" data-i18n="ps.xl">지속시간(초)</text>
+        <text class="lg ax" x="290" y="290" text-anchor="middle" data-i18n="ps.xl">지속시간(초) — 순간정전이 지속된 시간</text><text class="lg ax" x="14" y="140" text-anchor="middle" transform="rotate(-90 14 140)" data-i18n="ps.yl">잔여 전압(정격 대비 %) · 0 = 완전 정전</text>
       </svg>
-      <p class="note" data-i18n="ps.svgnote">곡선 위쪽의 잔여 전압·지속시간이면 장비는 멈추지 않아야 합니다. SEMI F47(필수) · ITIC/CBEMA · IEC 61000-4-11 곡선은 서로 비슷하지만, 삼성의 POWER Vaccine 규격은 1초 완전 정전까지 요구합니다.</p>
+      <p class="note" data-i18n="ps.svgnote">세로축은 정격 대비 잔여 전압(0% = 완전 정전), 가로축은 지속시간입니다. 곡선 위쪽의 순간정전이면 장비는 멈추지 않아야 합니다. 삼성 POWER Vaccine 규격은 1초 · 100% 정전까지 요구하며, TSP®는 이 영역 전체를 보상해 규격을 충족합니다.</p>
     </div>
     <div class="pills" data-r style="--d:2">
       <div class="pill"><b>1</b><span data-i18n="ps.p1">사양서의 문장 <small data-i18n="ps.p1s">「장비는 SEMI F47 등 순간전압강하 규격에 정의된 전압강하·지속시간 조건에서 정상 작동을 유지해야 한다」 — 장비 발주의 공통 조건</small></span></div>
       <div class="pill"><b>2</b><span data-i18n="ps.p2">국제 규격보다 엄격한 자체 규격 <small data-i18n="ps.p2s">SEMI F47 · IEC 61000-4-11 · ITIC를 바탕으로, 삼성 등은 1초 완전 정전 내성까지 요구</small></span></div>
-      <div class="pill"><b>3</b><span data-i18n="ps.p4">해법 — TSP® 내장·탑재 <small data-i18n="ps.p4s">장비 앞단에 TSP®를 넣어 장비 스스로 1~3초 내성을 갖게 한다 — Smart POWER Vaccine® · SEMI F47 평가보고서 보유</small></span></div>
+      <div class="pill"><b>3</b><span data-i18n="ps.p4">해법 — TSP® 내장·탑재 <small data-i18n="ps.p4s">장비 앞단에 TSP®를 넣어 1초 · 100% 순간정전 규격을 충족(최대 3초 보상) — Smart POWER Vaccine® · SEMI F47 평가보고서 보유</small></span></div>
     </div>
   </div>
   <div class="band"><span data-i18n="ps.band">사양서가 요구하는 것은 「멈추지 않을 것」 — TSP®가 장비에 그 문장을 넣는다</span><span class="n">06</span></div>
@@ -1148,7 +1153,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
   <div class="mapwrap" data-r style="--d:1">
     <img class="map" src="images/world-map.png" alt="World">
     <svg class="netsvg" viewBox="0 0 1280 836" aria-hidden="true">
-      <g class="sup"><circle cx="265" cy="270" r="6"/><circle cx="240" cy="335" r="6"/><circle cx="660" cy="240" r="6"/><circle cx="677" cy="235" r="6"/><circle cx="670" cy="247" r="6"/><circle cx="679" cy="251" r="6"/><circle cx="680" cy="257" r="6"/><circle cx="735" cy="300" r="6"/><circle cx="905" cy="380" r="6"/><circle cx="1022" cy="490" r="6"/></g>
+      <g class="sup"><circle cx="265" cy="270" r="7"/><circle cx="240" cy="335" r="7"/><circle cx="660" cy="240" r="7"/><circle cx="677" cy="235" r="7"/><circle cx="670" cy="247" r="7"/><circle cx="679" cy="251" r="7"/><circle cx="680" cy="257" r="7"/><circle cx="735" cy="300" r="7"/><circle cx="905" cy="380" r="7"/><circle cx="1022" cy="490" r="7"/></g>
       <g class="ln"><path d="M1062 265 Q1080 284 1106 279"/><path d="M1062 265 Q1046 289 1057 315"/><path d="M1062 265 Q1038 302 1057 341"/><path d="M1062 265 Q1004 302 1005 370"/><path d="M1062 265 Q977 334 992 442"/><path d="M1062 265 Q978 343 1000 455"/></g>
       <g class="nd"><circle class="dl" cx="1106" cy="279" r="7"/><circle class="tc" cx="1057" cy="315" r="7"/><circle class="dl" cx="1057" cy="341" r="7"/><circle class="dl" cx="1005" cy="370" r="7"/><circle class="dl" cx="992" cy="442" r="7"/><circle class="dl" cx="1000" cy="455" r="7"/><circle class="hqr" cx="1062" cy="265" r="16"/><circle class="hq" cx="1062" cy="265" r="9"/></g>
       <g class="lb"><text class="hq" x="1046" y="251" text-anchor="end" data-i18n="p9.n0">대한민국 · 본사(안양) · 공장(이천)</text><text x="1122" y="285" text-anchor="start" data-i18n="p9.n1">일본</text><text x="1040" y="322" text-anchor="end" data-i18n="p9.n2">중국 상하이 · 기술지원센터</text><text x="1072" y="347" text-anchor="start" data-i18n="p9.n3">대만</text><text x="990" y="376" text-anchor="end" data-i18n="p9.n4">베트남</text><text x="977" y="448" text-anchor="end" data-i18n="p9.n5">말레이시아</text><text x="1014" y="468" text-anchor="start" data-i18n="p9.n6">싱가포르</text></g>
