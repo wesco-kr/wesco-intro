@@ -19,6 +19,24 @@
       },
       "items": [
         {
+          "id": "site",
+          "href": "https://www.wesco.co.kr",
+          "title": {
+            "ko": "회사 공식 홈페이지",
+            "en": "Official Website",
+            "cn": "公司官方网站",
+            "jp": "会社公式サイト",
+            "vn": "Trang web chính thức"
+          },
+          "desc": {
+            "ko": "www.wesco.co.kr",
+            "en": "www.wesco.co.kr",
+            "cn": "www.wesco.co.kr",
+            "jp": "www.wesco.co.kr",
+            "vn": "www.wesco.co.kr"
+          }
+        },
+        {
           "id": "intro",
           "href": "https://intro.wesco.works/",
           "title": {
@@ -76,18 +94,18 @@
           "id": "youtube",
           "href": "https://www.youtube.com/@WESCOTSP/videos",
           "title": {
-            "ko": "제품 영상",
-            "en": "Product Videos",
-            "cn": "产品视频",
-            "jp": "製品動画",
-            "vn": "Video sản phẩm"
+            "ko": "유튜브 채널",
+            "en": "YouTube Channel",
+            "cn": "YouTube 频道",
+            "jp": "YouTube チャンネル",
+            "vn": "Kênh YouTube"
           },
           "desc": {
-            "ko": "YouTube @WESCOTSP",
-            "en": "YouTube @WESCOTSP",
-            "cn": "YouTube @WESCOTSP",
-            "jp": "YouTube @WESCOTSP",
-            "vn": "YouTube @WESCOTSP"
+            "ko": "회사·제품 소개 영상 · @WESCOTSP",
+            "en": "Company & product videos · @WESCOTSP",
+            "cn": "公司·产品介绍视频 · @WESCOTSP",
+            "jp": "会社・製品紹介動画 · @WESCOTSP",
+            "vn": "Video giới thiệu công ty & sản phẩm · @WESCOTSP"
           }
         }
       ]
@@ -136,24 +154,6 @@
             "cn": "TSP 产品目录 PDF",
             "jp": "TSP カタログ PDF",
             "vn": "Catalog TSP (PDF)"
-          }
-        },
-        {
-          "id": "site",
-          "href": "https://www.wesco.co.kr",
-          "title": {
-            "ko": "회사 홈페이지",
-            "en": "Corporate Website",
-            "cn": "公司官网",
-            "jp": "会社ホームページ",
-            "vn": "Trang web công ty"
-          },
-          "desc": {
-            "ko": "www.wesco.co.kr",
-            "en": "www.wesco.co.kr",
-            "cn": "www.wesco.co.kr",
-            "jp": "www.wesco.co.kr",
-            "vn": "www.wesco.co.kr"
           }
         }
       ]
