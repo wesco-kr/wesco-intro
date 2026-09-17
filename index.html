@@ -685,6 +685,22 @@ html:not([lang="ko"]) .pg-adv .pill span small{font-size:10.5px}
 @media(max-width:760px){.fitbox{overflow:hidden}}
 @media(max-width:760px){.wrap{display:block;padding:12px 0}}
 html[lang="ko"] .page{word-break:keep-all;overflow-wrap:anywhere}
+/* 09 TSP vs UPS */
+.pg-ups table.cmp{margin-top:10px;font-size:13.5px}
+.pg-ups table.cmp th,.pg-ups table.cmp td{padding:14px 12px;line-height:1.6}
+.pg-ups table.cmp tbody th{width:110px}
+.pg-ups table.cmp thead th.a{color:var(--red)}
+.pg-ups table.cmp td.em{font-weight:700;color:var(--stone);background:var(--tint2)}
+.pg-ups table.cmp td{width:42%}
+.pg-ups .mix{margin-top:14px}
+html:not([lang="ko"]) .pg-ups table.cmp{font-size:11.5px}
+html:not([lang="ko"]) .pg-ups table.cmp th,html:not([lang="ko"]) .pg-ups table.cmp td{padding:8px 10px}
+html:not([lang="ko"]) .pg-ups .lead{font-size:13.5px}
+.pg-use .lead small{display:block;font-size:11.5px;color:var(--muted);margin-top:4px;font-weight:400}
+.back .cta{position:absolute;left:64px;right:64px;top:346px;margin:0;font-size:15px;line-height:1.6;color:var(--muted)}
+.back .cta b{color:var(--stone)}
+html:not([lang="ko"]) .back .cta{font-size:13.5px}
+
 /* 사이트 런처 — launcher.js(공용) 가 #sites-mount 에 버튼을 넣는다. 목록은 sites.json 한 곳 */
 #sites-mount .wl-btn{height:34px;border-radius:2px;font-family:inherit}
 .back .next{position:absolute;left:64px;right:64px;top:416px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;z-index:2}
@@ -720,7 +736,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
     <button type="button" id="fx" class="on" data-i18n="bar.fxOn">이펙트 ON</button>
     <span id="sites-mount"></span>
     <a class="btn" href="blog/" data-i18n="bar.blog">인사이트</a>
-    <a class="btn red" href="mailto:wesco@wesco.co.kr?subject=%5Bintro%5D%20TSP%20%EB%8F%84%EC%9E%85%20%EB%AC%B8%EC%9D%98" data-i18n="bar.contact">문의하기</a>
+    <a class="btn red" href="mailto:wesco@wesco.co.kr?subject=%5Bintro.wesco.works%5D%20TSP%20Inquiry" data-i18n="bar.contact">문의하기</a>
   </div>
 </div>
 
@@ -738,10 +754,10 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
       <h1 data-r style="--d:1" data-i18n="c.h1" data-i18n-html>순간정전이 와도<br>생산라인은 <em>멈추지 않습니다</em></h1>
       <div class="sl" data-r style="--d:2" data-i18n="c.sl">2001년부터 한 분야 — 순간정전 보상장치 TSP®</div>
       <div class="stats">
-        <div class="st" data-r style="--d:3"><b><span data-count="150000">0</span><i>+</i></b><span data-i18n="c.s1">UNITS</span></div>
-        <div class="st" data-r style="--d:4"><b><span data-count="900">0</span><i>+</i></b><span data-i18n="c.s2">COMPANIES</span></div>
-        <div class="st" data-r style="--d:5"><b><span data-count="15">0</span><i>+</i></b><span data-i18n="c.s3">COUNTRIES</span></div>
-        <div class="st" data-r style="--d:6"><b><span data-count="25">0</span><i>Y</i></b><span data-i18n="c.s4">SINCE 2001</span></div>
+        <div class="st" data-r style="--d:3"><b><span data-count="150000">150,000</span><i>+</i></b><span data-i18n="c.s1">UNITS</span></div>
+        <div class="st" data-r style="--d:4"><b><span data-count="900">900</span><i>+</i></b><span data-i18n="c.s2">COMPANIES</span></div>
+        <div class="st" data-r style="--d:5"><b><span data-count="15">15</span><i>+</i></b><span data-i18n="c.s3">COUNTRIES</span></div>
+        <div class="st" data-r style="--d:6"><b><span data-count="25">25</span><i>Y</i></b><span data-i18n="c.s4">SINCE 2001</span></div>
       </div>
     </div>
     <div class="ft"><span data-i18n="c.ft">WESCO Co., Ltd. · 안양 본사 · 이천 EMS 공장</span><span>www.wesco.co.kr</span></div>
@@ -769,8 +785,8 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
     <div data-r style="--d:2" class="pcol">
       <img class="photo" src="images/proof/install_semi_2026.jpg" alt="TSP 설치 현장">
       <div class="metrics" style="grid-template-columns:1fr">
-        <div class="m"><b><span data-count="150000">0</span><i>+</i></b><span data-i18n="p2.m1">누적 공급 대수</span></div>
-        <div class="m"><b><span data-count="900">0</span><i>+</i></b><span data-i18n="p2.m2">공급 기업 수</span></div>
+        <div class="m"><b><span data-count="150000">150,000</span><i>+</i></b><span data-i18n="p2.m1">누적 공급 대수</span></div>
+        <div class="m"><b><span data-count="900">900</span><i>+</i></b><span data-i18n="p2.m2">공급 기업 수</span></div>
       </div>
     </div>
   </div>
@@ -826,7 +842,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
 <section class="page pg-use" data-t="용도" data-tk="thumb.4">
   <div class="eyebrow">PRODUCT</div>
   <div class="h"><span class="no">03</span><span data-i18n="p4.h">용도 — 순간정전으로부터 설비 보호</span></div>
-  <p class="lead" data-i18n="p4.lead">순간정전(Voltage Sag)은 전압이 0.01~1초 동안 정격의 90% 이하로 떨어지는 현상입니다. 정전이 아니라 통계엔 없지만, 정밀 설비는 그 찰나에 멈춥니다. TSP®는 설비 앞단에서 그 찰나를 메웁니다.</p>
+  <p class="lead" data-i18n="p4.lead" data-i18n-html>순간정전(순간전압강하, Voltage Sag)은 계통 전압이 순간적으로 정상 범위 아래로 떨어지는 전력품질 현상입니다. 대부분 1초 안에 끝나지만, 정밀 설비는 그 찰나에 멈춥니다. TSP®는 설비 앞단에서 그 찰나를 메웁니다. <small>IEEE 1159: 실효전압이 정격의 10~90%로 0.5사이클~1분 지속되는 저하</small></p>
   <div class="rule"></div>
   <div class="grid2">
     <div data-r style="--d:1">
@@ -853,7 +869,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
         <span data-i18n="p4.i1">반도체</span><span data-i18n="p4.i2">디스플레이</span>
         <span data-i18n="p4.i3">이차전지</span><span data-i18n="p4.i4">자동차</span>
         <span data-i18n="p4.i5">PCB</span><span data-i18n="p4.i6">철강 · 금속</span>
-        <span data-i18n="p4.i7">타이어 · 화학</span><span data-i18n="p4.i8">국가 SOC</span>
+        <span data-i18n="p4.i7">타이어 · 화학</span><span data-i18n="p4.i8">국가 기반시설</span>
       </div>
       <p class="note" data-i18n="p4.note">※ 진공·온도·가스 시퀀스처럼 «한 번 멈추면 처음부터»인 공정일수록 효과가 큽니다.</p>
     </div>
@@ -943,9 +959,9 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
   <p class="lead" data-i18n="p5.lead">설비 한 대부터 라인 전체까지 — 단상 0.5kVA에서 삼상 2,400kVA까지 국내 유일 풀 라인업.</p>
   <div class="rule"></div>
   <div class="tiers">
-    <div class="tier" data-r style="--d:1"><div class="ph"><img src="images/product/single_phase_v2.png" alt="단상 TSP"></div><div class="k">SINGLE PHASE</div><b>0.5 ~ 20<i>kVA</i></b><p data-i18n="p5.t1">단상 220V · 미니·벽걸이·스탠드 · 설비 1대 단위</p></div>
-    <div class="tier em" data-r style="--d:2"><div class="ph"><img src="images/product/three_phase_main.png" alt="삼상 TSP"></div><div class="k">THREE PHASE</div><b>5 ~ 200<i>kVA</i></b><p data-i18n="p5.t2">삼상 380/400V · 캐비닛 · 설비군·소규모 라인</p></div>
-    <div class="tier" data-r style="--d:3"><div class="ph"><img src="images/product/large_v2.png" alt="대용량 TSP"></div><div class="k">LARGE</div><b>300 ~ 2,400<i>kVA</i></b><p data-i18n="p5.t3">삼상 · 대용량 · 라인 전체·수전 단위</p></div>
+    <div class="tier" data-r style="--d:1"><div class="ph"><img src="images/product/single_phase_v2.png" alt="단상 TSP"></div><div class="k">SINGLE PHASE</div><b>0.5 ~ 20<i>kVA</i></b><p data-i18n="p5.t1">단상 110·208·220V(모델별) · 미니·벽걸이·스탠드 · 설비 1대 단위</p></div>
+    <div class="tier em" data-r style="--d:2"><div class="ph"><img src="images/product/three_phase_main.png" alt="삼상 TSP"></div><div class="k">THREE PHASE</div><b>5 ~ 200<i>kVA</i></b><p data-i18n="p5.t2">삼상 208·220·380·440·480V(모델별) · 캐비닛 · 설비군·소규모 라인</p></div>
+    <div class="tier" data-r style="--d:3"><div class="ph"><img src="images/product/large_v2.png" alt="대용량 TSP"></div><div class="k">LARGE</div><b>300 ~ 2,400<i>kVA</i></b><p data-i18n="p5.t3">삼상 208~480V(모델별) · 대용량 · 라인 전체·수전 단위</p></div>
   </div>
   <div class="ways" data-r style="--d:4">
     <div class="way"><b><i>A</i><span data-i18n="p5.a">개별보상 방식</span></b><span data-i18n="p5.ad">핵심 설비 옆에 각각. 단계적 확대가 쉽고 전기실 공사가 없다.</span></div>
@@ -1026,7 +1042,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
     </div>
     <div class="pills" data-r style="grid-template-columns:1fr;--d:2">
       <div class="pill"><b>1</b><span data-i18n="p6.p1">2ms 보상 <small data-i18n="p6.p1s">감지 즉시 전환 · 정격 전압 100%</small></span></div>
-      <div class="pill"><b>2</b><span data-i18n="p6.p2">배터리 없음 <small data-i18n="p6.p2s">EDLC 커패시터 · 10년 이상 무교체 · 화재 위험 없음</small></span></div>
+      <div class="pill"><b>2</b><span data-i18n="p6.p2">배터리 없음 <small data-i18n="p6.p2s">EDLC 커패시터 · 10년 이상 무교체 · 배터리 대비 화재 위험 저감</small></span></div>
       <div class="pill"><b>3</b><span data-i18n="p6.p3">효율 98% · 냉각팬 없음(50kVA 이하) <small data-i18n="p6.p3s">평상시 바이패스 · 소음·먼지·팬 고장 원천 제거</small></span></div>
       <div class="pill"><b>4</b><span data-i18n="p6.p4">설비 옆 분산 설치 <small data-i18n="p6.p4s">전기실 개조 없이 라인 단위 도입</small></span></div>
       <div class="pill"><b>5</b><span data-i18n="p6.p5">보상 이력 자동 기록 <small data-i18n="p6.p5s">Sag-VIEWER™ — 시각·전압·지속시간이 데이터로 남는다</small></span></div>
@@ -1035,10 +1051,31 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
   <div class="band"><span data-i18n="p6.band">평상시엔 없는 듯 98%, 사고의 순간엔 2ms — 보상 장치의 두 얼굴</span><span class="n">08</span></div>
 </section>
 
+<!-- 09 TSP vs UPS — 「UPS 쓰면 되지 않나」에 답하는 쪽. 경쟁이 아니라 목적이 다름을 객관 비교로 (260918 외부 리뷰 반영) -->
+<section class="page pg-ups" data-t="TSP vs UPS" data-tk="thumb.ups">
+  <div class="eyebrow">PRODUCT</div>
+  <div class="h"><span class="no">08</span><span data-i18n="pu.h">TSP® 와 UPS — 목적이 다른 두 가지 전원 보호</span></div>
+  <p class="lead" data-i18n="pu.lead">처음 보시는 분은 대개 「UPS를 쓰면 되지 않나」라고 묻습니다. 둘은 경쟁 제품이 아니라 목적이 다른 장치입니다 — 장시간 정전에는 UPS, 생산설비의 순간전압강하 대응에는 TSP®가 맞습니다.</p>
+  <div class="rule"></div>
+  <table class="tb cmp" data-r style="--d:1">
+    <thead><tr><th data-i18n="pu.c0">구분</th><th class="a" data-i18n="pu.c1">TSP® 순간전압강하 보상장치</th><th data-i18n="pu.c2">UPS 무정전 전원장치</th></tr></thead>
+    <tbody>
+        <tr><th data-i18n="pu.r1k">핵심 목적</th><td class="em" data-i18n="pu.r1a">순간정전·순간전압강하 대응 — 0.5사이클에서 수 초의 전압 저하</td><td data-i18n="pu.r1b">정전 시 부하 유지(백업) · 전원 안정화</td></tr>
+        <tr><th data-i18n="pu.r2k">평상시</th><td class="em" data-i18n="pu.r2a">계통 전원을 그대로 통전(SCR 바이패스) — 효율 98%</td><td data-i18n="pu.r2b">일반적으로 상시 전력 변환(온라인형) — 변환 손실 상존</td></tr>
+        <tr><th data-i18n="pu.r3k">에너지 저장</th><td class="em" data-i18n="pu.r3a">EDLC(울트라커패시터)</td><td data-i18n="pu.r3b">배터리(납축·리튬)</td></tr>
+        <tr><th data-i18n="pu.r4k">보상 시간</th><td class="em" data-i18n="pu.r4a">1~3초</td><td data-i18n="pu.r4b">수 분 ~ 수십 분</td></tr>
+        <tr><th data-i18n="pu.r5k">대용량 적용</th><td class="em" data-i18n="pu.r5a">라인·수전 단위 2,400kVA까지 — 설치 면적·비용 유리</td><td data-i18n="pu.r5b">용량이 커질수록 배터리·설치 공간·비용이 급증</td></tr>
+        <tr><th data-i18n="pu.r6k">유지관리</th><td class="em" data-i18n="pu.r6a">배터리 없음 — 10년 이상 무교체 · 냉각팬 없음(50kVA 이하)</td><td data-i18n="pu.r6b">배터리 수명 관리 · 주기적 교체 필요</td></tr>
+    </tbody>
+  </table>
+  <div class="mix" data-r style="--d:2"><b data-i18n="pu.mix">TSP® + UPS</b><span data-i18n="pu.mixd">두 장치는 서로를 대체하지 않습니다. 정전 백업이 필요한 서버·제어계는 UPS, 라인의 정밀 설비는 TSP® — 이미 UPS를 쓰는 공장에서도 TSP®는 UPS가 감당하지 않는 나머지 설비를 지킵니다.</span></div>
+  <div class="band"><span data-i18n="pu.band">장시간 정전에는 UPS, 순간전압강하에는 TSP® — 목적이 다르니 함께 쓰면 서로를 보완한다</span><span class="n">09</span></div>
+</section>
+
 <!-- 9 개별보상 · 중앙보상 -->
 <section class="page pg-sol" data-t="개별·중앙 보상" data-tk="thumb.sol">
   <div class="eyebrow">PRODUCT</div>
-  <div class="h"><span class="no">08</span><span data-i18n="pc.h">개별보상 · 중앙보상 — 풀 라인업이 만드는 두 가지 해법</span></div>
+  <div class="h"><span class="no">09</span><span data-i18n="pc.h">개별보상 · 중앙보상 — 풀 라인업이 만드는 두 가지 해법</span></div>
   <p class="lead" data-i18n="pc.lead">단상 0.5kVA부터 삼상 2,400kVA까지 한 브랜드로 갖춘 곳은 국내에 WESCO뿐입니다. 그래서 설비 한 대씩 지키는 개별보상과 라인 전체를 한 대로 지키는 중앙보상을 현장 조건에 맞춰 골라, 또 섞어 제안할 수 있습니다.</p>
   <div class="rule"></div>
   <div class="grid2">
@@ -1098,13 +1135,13 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
     </div>
   </div>
   <div class="mix" data-r style="--d:3"><b data-i18n="pc.mix">A + B</b><span data-i18n="pc.mixd">설비 수 · 전기실 여유 · 투자 단계에 따라 두 방식을 조합합니다. 핵심 설비는 개별, 라인은 중앙 — 한 브랜드 안에서 설계되므로 감시(Sag-VIEWER™)도 하나로 묶입니다.</span></div>
-  <div class="band"><span data-i18n="pc.band">한 대씩도, 한 번에도 — 라인업이 넓어야 현장에 맞는 답을 고를 수 있다</span><span class="n">09</span></div>
+  <div class="band"><span data-i18n="pc.band">한 대씩도, 한 번에도 — 라인업이 넓어야 현장에 맞는 답을 고를 수 있다</span><span class="n">10</span></div>
 </section>
 
 <!-- 10 Sag-VIEWER -->
 <section class="page pg-hmi" data-t="Sag-VIEWER" data-tk="thumb.7">
   <div class="eyebrow">PRODUCT</div>
-  <div class="h"><span class="no">09</span><span data-i18n="p7.h">Sag-VIEWER™ — 제품 화면에서 이렇게 봅니다</span></div>
+  <div class="h"><span class="no">10</span><span data-i18n="p7.h">Sag-VIEWER™ — 제품 화면에서 이렇게 봅니다</span></div>
   <p class="lead" data-i18n="p7.lead">7인치 터치 패널에 실시간 계측과 사고 기록이 함께 뜹니다. 메뉴를 눌러보십시오.</p>
   <div class="rule"></div>
   <div class="grid2">
@@ -1126,13 +1163,13 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
       </div>
     </div>
   </div>
-  <div class="band"><span data-i18n="p7.band">사고가 데이터로 남는다 — 보상 이력·파형·전력량까지 한 화면에</span><span class="n">10</span></div>
+  <div class="band"><span data-i18n="p7.band">사고가 데이터로 남는다 — 보상 이력·파형·전력량까지 한 화면에</span><span class="n">11</span></div>
 </section>
 
 <!-- 8 글로벌 레퍼런스 -->
 <section class="page lg" data-t="글로벌 레퍼런스" data-tk="thumb.8">
   <div class="eyebrow">REFERENCE</div>
-  <div class="h"><span class="no">10</span><span data-i18n="p8.h">글로벌 레퍼런스</span></div>
+  <div class="h"><span class="no">11</span><span data-i18n="p8.h">글로벌 레퍼런스</span></div>
   <p class="lead" data-i18n="p8.lead">누적 150,000대 이상 · 900개사 이상 · 15개국 이상.</p>
   <div class="rule"></div>
   <!-- 고객사 CI. 정본 = 07-영업자료/07.제안자료/대표이사_출장_260609/실적 CI.pptx (3슬라이드 · 부문 구분은 원본 배치 그대로). 로고는 원색 유지 -->
@@ -1143,13 +1180,13 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
   <div class="cig" data-r style="--d:5"><h4 data-i18n="p8.g5">화학 · 2차전지</h4><div class="logos"><img src="images/ci/chem_01.png" alt="" loading="lazy"><img src="images/ci/chem_02.png" alt="" loading="lazy"><img src="images/ci/chem_03.png" alt="" loading="lazy"><img src="images/ci/chem_04.png" alt="" loading="lazy"><img src="images/ci/chem_05.png" alt="" loading="lazy"><img src="images/ci/chem_06.png" alt="" loading="lazy"><img src="images/ci/chem_07.png" alt="" loading="lazy"><img src="images/ci/chem_08.png" alt="" loading="lazy"></div></div>
   <div class="cig" data-r style="--d:6"><h4 data-i18n="p8.g6">다양한 산업 분야</h4><div class="logos"><img src="images/ci/misc_01.png" alt="" loading="lazy"><img src="images/ci/misc_02.png" alt="" loading="lazy"><img src="images/ci/misc_03.png" alt="" loading="lazy"><img src="images/ci/misc_05.png" alt="" loading="lazy"><img src="images/ci/misc_06.png" alt="" loading="lazy"><img src="images/ci/misc_07.png" alt="" loading="lazy"><img src="images/ci/misc_08.png" alt="" loading="lazy"><img src="images/ci/misc_09.png" alt="" loading="lazy"><img src="images/ci/misc_10.png" alt="" loading="lazy"><img src="images/ci/misc_11.png" alt="" loading="lazy"><img src="images/ci/misc_12.png" alt="" loading="lazy"><img src="images/ci/misc_13.png" alt="" loading="lazy"><img src="images/ci/misc_14.png" alt="" loading="lazy"><img src="images/ci/misc_15.png" alt="" loading="lazy"><img src="images/ci/misc_16.png" alt="" loading="lazy"><img src="images/ci/misc_17.png" alt="" loading="lazy"><img src="images/ci/misc_18.png" alt="" loading="lazy"><img src="images/ci/misc_19.png" alt="" loading="lazy"><img src="images/ci/misc_20.png" alt="" loading="lazy"><img src="images/ci/misc_21.png" alt="" loading="lazy"><img src="images/ci/misc_22.png" alt="" loading="lazy"><img src="images/ci/misc_23.png" alt="" loading="lazy"><img src="images/ci/misc_24.png" alt="" loading="lazy"><img src="images/ci/misc_25.png" alt="" loading="lazy"><img src="images/ci/misc_26.png" alt="" loading="lazy"><img src="images/ci/misc_27.png" alt="" loading="lazy"><img src="images/ci/misc_28.png" alt="" loading="lazy"><img src="images/ci/misc_29.png" alt="" loading="lazy"><img src="images/ci/misc_30.png" alt="" loading="lazy"></div></div>
   <p class="cinote" data-i18n="p8.note">고객사 로고는 별도의 순서 없이 기재되었습니다.</p>
-  <div class="band"><span data-i18n="p8.band">글로벌 Top-Tier 제조사가 검증한 25년</span><span class="n">11</span></div>
+  <div class="band"><span data-i18n="p8.band">글로벌 Top-Tier 제조사가 검증한 25년</span><span class="n">12</span></div>
 </section>
 
 <!-- 9 글로벌 네트워크 -->
 <section class="page net" data-t="글로벌 네트워크" data-tk="thumb.9">
   <div class="eyebrow">REFERENCE</div>
-  <div class="h"><span class="no">11</span><span data-i18n="p9.h">글로벌 네트워크</span></div>
+  <div class="h"><span class="no">12</span><span data-i18n="p9.h">글로벌 네트워크</span></div>
   <p class="lead" data-i18n="p9.lead">안양 본사 · 상하이 기술지원센터 · 6개국 해외 대리점 · 국내 공인 파트너 8개사 — 고객의 공장이 있는 곳에서 대응합니다.</p>
   <div class="rule"></div>
   <!-- 거점 정본 = 07-영업자료/13.대리점 관리/WESCO-대리점 LIST-V3.0.xlsx (2026-07-21). 대외 페이지엔 국가·도시만 표기(회사명·거래조건 비노출). 좌표는 world-map.png 픽셀 기준 -->
@@ -1170,7 +1207,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
     <b data-i18n="p9.k3">국내 공인 파트너 · 8개사</b>
     <b data-i18n="p9.k4">공급 실적 국가</b><span data-i18n="p9.c6">인도네시아</span><span data-i18n="p9.c7">인도</span><span data-i18n="p9.c8">미국</span><span data-i18n="p9.c9">멕시코</span><span data-i18n="p9.c10">독일</span><span data-i18n="p9.c11">폴란드</span><span data-i18n="p9.c12">체코</span><span data-i18n="p9.c13">슬로바키아</span><span data-i18n="p9.c14">헝가리</span><span data-i18n="p9.c15">터키</span>
   </div>
-  <div class="band"><span data-i18n="p9.band">고객의 해외 공장이 있는 곳에 WESCO 기술지원이 있다</span><span class="n">12</span></div>
+  <div class="band"><span data-i18n="p9.band">고객의 해외 공장이 있는 곳에 WESCO 기술지원이 있다</span><span class="n">13</span></div>
 </section>
 
 <!-- 10 뒷표지 -->
@@ -1182,10 +1219,11 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
     </div>
     <div class="ct" data-r style="--d:2">
       <div><b>CONTACT</b>WESCO Co., Ltd.<br><span data-i18n="b.a1">경기도 안양시 만안구 (본사·연구소)</span><br><span data-i18n="b.a2">경기도 이천시 (EMS 생산공장)</span></div>
-      <div><b>SALES</b><span data-i18n="b.s1">사업개발본부 한상현 이사</span><br><a href="tel:+82314600000">031-460-0000</a><br><a href="mailto:wesco@wesco.co.kr">wesco@wesco.co.kr</a> · <a href="https://www.wesco.co.kr" target="_blank" rel="noopener">www.wesco.co.kr</a></div>
+      <div><b>SALES</b><span data-i18n="b.s1">사업개발본부 한상현 이사</span><br><a href="tel:+82314600000" data-i18n="b.tel">031-460-0000</a><br><a href="mailto:wesco@wesco.co.kr">wesco@wesco.co.kr</a> · <a href="https://www.wesco.co.kr" target="_blank" rel="noopener">www.wesco.co.kr</a></div>
     </div>
+    <p class="cta" data-r style="--d:2" data-i18n="b.cta" data-i18n-html><b>TSP® 선정 문의</b> — 전압 · 상(단상/삼상) · 부하 kVA · 필요 보상시간, 네 가지만 알려주시면 적합한 모델을 제안드립니다.</p>
     <nav class="next" id="next" aria-label="next"></nav>
-    <a class="qr" href="https://www.youtube.com/@WESCOTSP/videos" target="_blank" rel="noopener" data-i18n="b.yt">유튜브 채널<br>회사·제품 영상</a>
+    <a class="qr" href="https://www.youtube.com/@WESCOTSP/videos" target="_blank" rel="noopener" data-i18n="b.yt" data-i18n-html>유튜브 채널<br>회사·제품 영상</a>
   </div>
 </section>
 
@@ -1232,6 +1270,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
     var to=parseFloat(el.dataset.count),dec=+(el.dataset.dec||0),t0=null,dur=1400;
     function fmt(v){return v.toLocaleString('en-US',{minimumFractionDigits:dec,maximumFractionDigits:dec})}
     if(instant||!fx||reduce){el.textContent=fmt(to);return}
+    el.textContent=fmt(0);
     function step(ts){if(!t0)t0=ts;var k=Math.min(1,(ts-t0)/dur);k=1-Math.pow(1-k,3);el.textContent=fmt(to*k);if(k<1)requestAnimationFrame(step)}
     requestAnimationFrame(step);
   }
