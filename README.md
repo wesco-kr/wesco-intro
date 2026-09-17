@@ -19,7 +19,7 @@
 | `tools/extract_i18n.py` | `index.html` → `i18n/ko.json` 키 추출 |
 | `tools/check_i18n.py` | 4개 언어 누락·잉여·한글 잔존·태그 검사 |
 | `tools/render_book.py` | 쪽별 PNG 렌더 + 넘침 검사 (`RENDER_BASE=http://127.0.0.1:8765` 로 http 경유 시 다국어) |
-| `images/ci/` | 글로벌 레퍼런스 고객사 CI 95종(반도체·디스플레이·자동차·PCB·화학·기타). 정본 `07-영업자료/07.제안자료/대표이사_출장_260609/실적 CI.pptx` 에서 추출, 흰 배경 투명화 |
+| `images/ci/` | 글로벌 레퍼런스 고객사 CI 101종(반도체·디스플레이·자동차·PCB·화학·2차전지·기타). 기본 `실적 CI.pptx`(2021-09) + 대표이사 Micron 브리프 2026 Ver 2.0E(2026-07)의 최신 10종(tsmc·UMC·Corning·Kia 신CI·HL Mando·Renault Korea·SK on·LG Energy Solution·SAMSUNG SDI·LG Innotek) 반영, 모두 `07-영업자료/07.제안자료/대표이사_출장_260609/`, 흰 배경 투명화 |
 | `images/world-map.png` | 글로벌 네트워크 지도 밑그림 — 본사→대리점 연결선·라벨은 `index.html` 안 SVG 오버레이(픽셀 실측 좌표) |
 | `blog/` | 인사이트 글 (별도 유지) |
 | `launcher.js` | 공용 사이트 런처. 다른 wesco.works 사이트도 `<script src="https://intro.wesco.works/launcher.js?v=1" defer data-mount="[data-wesco-launcher]">` 한 줄로 같은 서랍을 붙인다 |
