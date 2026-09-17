@@ -473,7 +473,10 @@ table.tb thead th{background:transparent;border-bottom:1px solid var(--stone)}
 .card .grid2{grid-template-columns:1fr 1.05fr}
 .card .intro{font-size:17px;line-height:1.8;margin-bottom:20px}
 .card .logo{height:32px;margin-bottom:20px}
-.card .photo{height:285px;object-position:center 58%}
+.card .pcol{display:flex;gap:14px;align-items:stretch}
+.card .pcol .photo{width:auto;height:400px;aspect-ratio:3/4;object-fit:cover;flex:none}
+.card .pcol .metrics{flex:1;align-content:center}
+.card .pcol .m b{font-size:32px;white-space:nowrap}
 .card .metrics{gap:0;margin-top:0!important;background:var(--tint2)}
 .card .metrics .m{padding:22px;border-top:0}
 .card .metrics .m+.m{border-left:1px solid var(--line)}
@@ -763,9 +766,9 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
         <tr><th data-i18n="p2.k5">해외</th><td data-i18n="p2.v5">15개국 이상 공급 · 천만불 수출의 탑(2018)</td></tr>
       </table>
     </div>
-    <div data-r style="--d:2">
+    <div data-r style="--d:2" class="pcol">
       <img class="photo" src="images/proof/install_semi_2026.jpg" alt="TSP 설치 현장">
-      <div class="metrics" style="grid-template-columns:repeat(2,1fr);margin-top:12px">
+      <div class="metrics" style="grid-template-columns:1fr">
         <div class="m"><b><span data-count="150000">0</span><i>+</i></b><span data-i18n="p2.m1">누적 공급 대수</span></div>
         <div class="m"><b><span data-count="900">0</span><i>+</i></b><span data-i18n="p2.m2">공급 기업 수</span></div>
       </div>
