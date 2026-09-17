@@ -24,11 +24,14 @@ with sync_playwright() as p:
     for i, el in enumerate(els, 1):
         el.scroll_into_view_if_needed(); pg.wait_for_timeout(300)
         el.screenshot(path=f"{out}/p{i:02d}.png")
-        ov = el.evaluate("""e=>{const r=e.getBoundingClientRect();const bad=[];
+        ov = el.evaluate(r"""e=>{const r=e.getBoundingClientRect();const bad=[];
           e.querySelectorAll('*').forEach(c=>{const s=getComputedStyle(c);if(s.position==='fixed'||s.display==='none')return;
           const q=c.getBoundingClientRect();if(q.width===0||q.height===0)return;
+          const band=e.querySelector('.band');const bt=band?band.getBoundingClientRect().top:Infinity;
+          const inBand=band&&(c===band||band.contains(c));
+          if(!inBand&&q.bottom>bt+1&&q.top<bt)bad.push('BAND '+c.tagName.toLowerCase()+(c.className&&typeof c.className==='string'?'.'+c.className.split(' ')[0]:'')+' +'+Math.round(q.bottom-bt)+'px');
           if(q.right>r.right+1||q.bottom>r.bottom+1)bad.push(c.tagName.toLowerCase()+(c.className&&typeof c.className==='string'?'.'+c.className.split(' ')[0]:'')+' +'+Math.round(Math.max(q.right-r.right,q.bottom-r.bottom))+'px')});
-          return bad.slice(0,5)}""")
+          return bad.filter(b=>!/^BAND section\b/.test(b)).slice(0,6)}""")
         if ov: print(f"p{i:02d} OVERFLOW: {ov}", file=sys.stderr)
     print(f"{len(els)} pages -> {out}")
     b.close()
