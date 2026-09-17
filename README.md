@@ -14,11 +14,13 @@
 ## 파일
 | 경로 | 역할 |
 |---|---|
-| `index.html` | 본체 — 스타일·10쪽·스크립트 단일 파일 |
+| `index.html` | 본체 — 스타일·13쪽·스크립트 단일 파일 |
 | `i18n.js`, `i18n/*.json` | 다국어 사전·적용기 |
 | `tools/extract_i18n.py` | `index.html` → `i18n/ko.json` 키 추출 |
 | `tools/check_i18n.py` | 4개 언어 누락·잉여·한글 잔존·태그 검사 |
 | `tools/render_book.py` | 쪽별 PNG 렌더 + 넘침 검사 (`RENDER_BASE=http://127.0.0.1:8765` 로 http 경유 시 다국어) |
+| `images/ci/` | 글로벌 레퍼런스 고객사 CI 95종(반도체·디스플레이·자동차·PCB·화학·기타). 정본 `07-영업자료/07.제안자료/대표이사_출장_260609/실적 CI.pptx` 에서 추출, 흰 배경 투명화 |
+| `images/world-map.png` | 글로벌 네트워크 지도 밑그림 — 본사→대리점 연결선·라벨은 `index.html` 안 SVG 오버레이(픽셀 실측 좌표) |
 | `blog/` | 인사이트 글 (별도 유지) |
 | `launcher.js` | 공용 사이트 런처. 다른 wesco.works 사이트도 `<script src="https://intro.wesco.works/launcher.js?v=1" defer data-mount="[data-wesco-launcher]">` 한 줄로 같은 서랍을 붙인다 |
 | `sites.json` | WESCO 공개 사이트 목록 — 상단 「WESCO 사이트」 서랍과 뒷표지 「다음 단계」 카드가 이 한 파일을 읽는다. 사이트가 늘면 여기만 고친다. 사내 시스템(quote·works)은 넣지 않는다 |
@@ -27,6 +29,7 @@
 
 ## 데이터 출처
 WESCO-사업소개서-2025-Ver3.5 · 검증 수치만 사용(150,000+ Units · 900+ Companies · 15+ Countries · 2001년 설립)
+글로벌 네트워크 거점은 `07-영업자료/13.대리점 관리/WESCO-대리점 LIST-V3.0.xlsx` 기준 — 대외 페이지에는 국가·도시만 표기하고 대리점 회사명은 넣지 않는다.
 
 ## Contact
 - 영업: sh.han@wesco.co.kr
