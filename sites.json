@@ -1,5 +1,5 @@
 {
-  "_comment": "WESCO 공개 사이트 목록 — 런처 서랍의 단일 정본. {lang} 은 ko/en/cn/jp/vn 로 치환(tsp는 jp가 없어 en으로). 사내 시스템(quote·works 대시보드)은 넣지 않는다.",
+  "_comment": "WESCO 공개 사이트 목록 — 런처 서랍의 단일 정본. {lang} 은 ko/en/cn/jp/vn 로 치환(tsp는 jp가 없어 en으로). 사내·거래처 전용 시스템(quote·works 대시보드·partner 포털·cs)은 넣지 않는다(260918 주인님 지시로 partner·cs 제거).",
   "label": {
     "ko": "WESCO 사이트",
     "en": "WESCO Sites",
@@ -136,54 +136,6 @@
             "cn": "TSP 产品目录 PDF",
             "jp": "TSP カタログ PDF",
             "vn": "Catalog TSP (PDF)"
-          }
-        },
-        {
-          "id": "partner",
-          "href": "https://partner.wesco.works/",
-          "title": {
-            "ko": "대리점 포털",
-            "en": "Partner Portal",
-            "cn": "经销商门户",
-            "jp": "代理店ポータル",
-            "vn": "Cổng đại lý"
-          },
-          "desc": {
-            "ko": "발주 요청 · 발주 내역 · 결제일 (대리점 전용)",
-            "en": "Orders, history, payment dates (partners only)",
-            "cn": "订购申请 · 订单记录 · 付款日（经销商专用）",
-            "jp": "発注依頼・発注履歴・支払日（代理店専用）",
-            "vn": "Đặt hàng, lịch sử, ngày thanh toán (đại lý)"
-          }
-        }
-      ]
-    },
-    {
-      "id": "support",
-      "title": {
-        "ko": "고객 지원",
-        "en": "Support",
-        "cn": "客户支持",
-        "jp": "サポート",
-        "vn": "Hỗ trợ"
-      },
-      "items": [
-        {
-          "id": "cs",
-          "href": "https://cs.wesco.works/",
-          "title": {
-            "ko": "CS 시스템",
-            "en": "CS System",
-            "cn": "CS 系统",
-            "jp": "CS システム",
-            "vn": "Hệ thống CS"
-          },
-          "desc": {
-            "ko": "설치 제품 점검 · A/S 접수",
-            "en": "Installed-unit checks and service requests",
-            "cn": "已装设备检查 · 售后受理",
-            "jp": "設置製品の点検・A/S受付",
-            "vn": "Kiểm tra thiết bị, tiếp nhận bảo hành"
           }
         },
         {

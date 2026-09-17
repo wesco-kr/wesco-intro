@@ -1316,7 +1316,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
     var next=document.getElementById('next');if(!next||!window.WescoLauncher)return;
     var L=window.WescoLauncher,data=null;
     function build(){if(!data)return;var all={};data.groups.forEach(function(g){g.items.forEach(function(it){all[it.id]=it})});
-      next.innerHTML=['tsp','inquiry','partner'].map(function(id){var it=all[id];return it?'<a href="'+L.href(it.href)+'" target="_blank" rel="noopener">'+L.t(it.title)+'</a>':''}).join('')}
+      next.innerHTML=['tsp','inquiry','catalog'].map(function(id){var it=all[id];return it?'<a href="'+L.href(it.href)+'" target="_blank" rel="noopener">'+L.t(it.title)+'</a>':''}).join('')}
     L.ready.then(function(d){data=d;build()}).catch(function(){});
     new MutationObserver(build).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
   })();
