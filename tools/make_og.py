@@ -19,6 +19,7 @@ STONE=(68,64,60,255); BROWN=(87,83,78,255); RED=(225,67,27,255); MUTE=(138,132,1
 x=62; y=86+wh+52
 d.text((x,y),'TSP',font=f40,fill=RED); tw=d.textlength('TSP',font=f40)
 d.text((x+tw+3,y-2),'®',font=fReg,fill=RED)
+fVS=ImageFont.truetype(DJ,20); d.text((x+tw+30,y+14),'Voltage Sag Protector',font=fVS,fill=BROWN)
 d.text((x,y+56),'순간정전·순간전압강하',font=f36,fill=STONE)
 d.text((x,y+106),'보상장치 전문기업',font=f36,fill=STONE)
 d.text((x,y+180),'배터리 없는 EDLC 방식',font=fR,fill=BROWN)
