@@ -5,7 +5,7 @@ W,H=1200,630
 bg=Image.new('RGBA',(W,H),(253,252,249,255))
 d=ImageDraw.Draw(bg)
 d.rectangle([0,H-10,W,H],fill=(225,67,27,255))
-p=Image.open(R+'product/lineup_wide.png').convert('RGBA')
+p=Image.open(R+'company/lineup_cover.png').convert('RGBA')
 pw=660; ph=int(p.height*pw/p.width); p=p.resize((pw,ph),Image.LANCZOS)
 bg.alpha_composite(p,(W-pw-24,(H-10-ph)//2+8))
 wm=Image.open(R+'wesco_wordmark.png').convert('RGBA')
