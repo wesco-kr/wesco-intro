@@ -1,0 +1,127 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>제어전원만 지켜도 라인이 산다 — 선택 보상이라는 접근</title><meta name="description" content="설비 전체가 아니라 정지의 실제 원인인 제어전원과 핵심 부하만 골라 순간전압강하를 보상하는 선택 보상 설계를 다룬다. 투자 규모를 낮추면서도 라인 정지를 막는 실무적 접근과 적용 기준을 설명한다."><link rel="canonical" href="https://intro.wesco.works/blog/control-power-protection/"><link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/control-power-protection/"><link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/control-power-protection/"><link rel="alternate" hreflang="x-default" href="https://intro.wesco.works/blog/control-power-protection/"><meta property="og:type" content="article"><meta property="og:title" content="제어전원만 지켜도 라인이 산다 — 선택 보상이라는 접근"><meta property="og:description" content="설비 전체가 아니라 정지의 실제 원인인 제어전원과 핵심 부하만 골라 순간전압강하를 보상하는 선택 보상 설계를 다룬다. 투자 규모를 낮추면서도 라인 정지를 막는 실무적 접근과 적용 기준을 설명한다."><meta property="og:url" content="https://intro.wesco.works/blog/control-power-protection/"><link rel="icon" type="image/x-icon" href="https://intro.wesco.works/favicon.ico"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"><style>
+:root{
+  --c-red:#C13816; --c-red-dk:#9C2C10; --c-red-lt:#FBEEE8;
+  --c-head:#2C2924; --c-text:#4A4641; --c-gray:#78716C; --c-gray-lt:#A8A29E;
+  --c-bg:#FDFCF9; --c-bg-soft:#F7F4EE; --c-divider:#E0DBD3; --c-accent:#4F6886;
+  --font-ko:'Noto Sans KR','맑은 고딕',sans-serif;
+  --font-en:'Inter',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font-ko);color:var(--c-text);background:var(--c-bg);
+  line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:var(--c-red);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+
+/* 상단바 */
+.topbar{border-bottom:1px solid var(--c-divider);background:var(--c-bg)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center}
+.brand img{height:22px;width:auto;display:block}
+.topnav a{color:var(--c-gray);font-size:14px;font-weight:500;margin-left:22px}
+.topnav a:hover{color:var(--c-red);text-decoration:none}
+
+/* 글 헤더 */
+.post-head{padding:56px 0 34px;border-bottom:1px solid var(--c-divider)}
+.post-head .kicker{font-family:var(--font-en);font-size:12px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--c-red)}
+.post-head h1{font-size:34px;line-height:1.32;color:var(--c-head);
+  font-weight:700;margin:14px 0 12px;letter-spacing:-.01em}
+.post-head .sub{font-size:18px;color:var(--c-gray);font-weight:400;line-height:1.6}
+.post-meta{margin-top:20px;font-size:13px;color:var(--c-gray-lt);
+  font-family:var(--font-en);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.post-meta .lang-toggle{border:1px solid var(--c-divider);border-radius:100px;
+  padding:3px 12px;font-weight:600;color:var(--c-gray)}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tags .tag{background:var(--c-bg-soft);color:var(--c-gray);border:1px solid var(--c-divider);
+  border-radius:100px;padding:3px 11px;font-size:12px;font-family:var(--font-ko)}
+
+/* 본문 */
+.post-body{padding:38px 0 10px}
+.post-body h2{font-size:23px;color:var(--c-head);font-weight:700;
+  margin:44px 0 16px;letter-spacing:-.01em;line-height:1.4}
+.post-body h3{font-size:19px;color:var(--c-head);font-weight:700;margin:30px 0 12px}
+.post-body p{margin:0 0 20px}
+.post-body ul,.post-body ol{margin:0 0 22px;padding-left:22px}
+.post-body li{margin:0 0 9px}
+.post-body strong{color:var(--c-head);font-weight:700}
+.post-body em{font-style:normal;color:var(--c-gray)}
+.post-body hr{border:0;border-top:1px solid var(--c-divider);margin:40px 0}
+.post-body blockquote{border-left:3px solid var(--c-red);padding:2px 0 2px 18px;
+  margin:0 0 22px;color:var(--c-gray)}
+.post-body img{max-width:100%;height:auto;border-radius:10px;margin:8px 0 24px}
+
+/* FAQ */
+.faq{margin-top:8px}
+.faq dt{font-weight:700;color:var(--c-head);margin:22px 0 8px}
+.faq dd{margin:0 0 8px;color:var(--c-text)}
+
+/* CTA */
+.cta{margin:44px 0 0;background:var(--c-bg-soft);border:1px solid var(--c-divider);
+  border-radius:14px;padding:28px 30px}
+.cta h4{font-size:18px;color:var(--c-head);margin-bottom:8px}
+.cta p{font-size:15px;color:var(--c-gray);margin-bottom:16px}
+.cta a.btn{display:inline-block;background:var(--c-red);color:#fff;font-weight:600;
+  font-size:15px;padding:11px 22px;border-radius:8px}
+.cta a.btn:hover{background:var(--c-red-dk);text-decoration:none}
+.cta a.btn-ghost{background:transparent;color:var(--c-red);border:1px solid var(--c-red);margin-left:8px}
+.cta a.btn-ghost:hover{background:var(--c-red);color:#fff}
+
+/* 푸터 */
+.foot{margin-top:64px;border-top:1px solid var(--c-divider);
+  padding:30px 0 60px;color:var(--c-gray-lt);font-size:13px;text-align:center}
+.foot a{color:var(--c-gray)}
+
+/* 목록 */
+.list-head{padding:56px 0 14px}
+.list-head h1{font-size:30px;color:var(--c-head);font-weight:700}
+.list-head p{color:var(--c-gray);margin-top:8px}
+.list-head .lang-toggle{display:inline-block;margin-top:14px;border:1px solid var(--c-divider);
+  border-radius:100px;padding:4px 14px;font-size:13px;font-weight:600;color:var(--c-gray)}
+.card{display:block;padding:26px 0;border-bottom:1px solid var(--c-divider)}
+.card:hover{text-decoration:none}
+.card .kicker{font-family:var(--font-en);font-size:11px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--c-red)}
+.card h2{font-size:22px;color:var(--c-head);font-weight:700;margin:8px 0 8px;line-height:1.4}
+.card p{color:var(--c-gray);font-size:15px}
+.card .date{font-family:var(--font-en);font-size:12px;color:var(--c-gray-lt);margin-top:10px}
+
+@media(max-width:600px){
+  body{font-size:16px}
+  .post-head h1{font-size:27px}
+  .post-head .sub{font-size:16px}
+  .post-body h2{font-size:20px}
+}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "제어전원만 지켜도 라인이 산다 — 선택 보상이라는 접근", "description": "설비 전체가 아니라 정지의 실제 원인인 제어전원과 핵심 부하만 골라 순간전압강하를 보상하는 선택 보상 설계를 다룬다. 투자 규모를 낮추면서도 라인 정지를 막는 실무적 접근과 적용 기준을 설명한다.", "datePublished": "2026-09-23", "dateModified": "2026-09-23", "inLanguage": "ko", "mainEntityOfPage": "https://intro.wesco.works/blog/control-power-protection/", "author": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}, "publisher": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "선택 보상은 어떤 설비에 적용하는 것이 적합한가요?", "acceptedAnswer": {"@type": "Answer", "text": "생산 라인 정지가 동력부가 아니라 PLC·릴레이·센서 등 제어 계통의 순단에서 시작되는 설비라면 선택 보상이 적합하다. 제어전원이 동력부보다 먼저 떨어지는 구조인지 먼저 확인해야 한다."}}, {"@type": "Question", "name": "선택 보상과 설비 전체 보상은 무엇이 다른가요?", "acceptedAnswer": {"@type": "Answer", "text": "설비 전체 보상은 모든 부하의 용량을 커버해야 하지만, 선택 보상은 정지를 유발하는 제어전원과 핵심 부하의 용량만 커버하면 된다. 그만큼 필요한 TSP 용량과 설치 범위가 줄어든다."}}, {"@type": "Question", "name": "왜 배터리 방식 대신 TSP 같은 배터리리스 설계가 선택 보상에 유리한가요?", "acceptedAnswer": {"@type": "Answer", "text": "TSP는 EDLC 울트라커패시터 기반 배터리리스 구조로 에너지저장부 설계수명이 10년이다. 제어전원처럼 상시 대기 상태로 운용되는 지점에 붙여도 주기적 배터리 교체 없이 장기간 안정적으로 유지할 수 있다."}}]}</script></head><body><header class="topbar"><div class="wrap"><a class="brand" href="https://intro.wesco.works/"><img src="https://intro.wesco.works/images/wesco_wordmark.png" alt="WESCO" width="119" height="22"></a><nav class="topnav"><a href="https://intro.wesco.works/">홈</a><a href="https://intro.wesco.works/blog/">인사이트</a></nav></div></header><section class="post-head"><div class="wrap"><div class="kicker">WESCO Insight</div><h1>제어전원만 지켜도 라인이 산다 — 선택 보상이라는 접근</h1><p class="sub">설비 전체가 아니라 제어전원과 핵심 부하만 골라 보상하는 설계로, 투자 규모를 낮추면서 순간정전 정지를 막는다</p><div class="post-meta"><span>2026-09-23</span><div class="tags"><span class="tag">제어전원</span><span class="tag">선택보상</span><span class="tag">순간전압강하</span><span class="tag">설비설계</span><span class="tag">TSP</span></div><a class="lang-toggle" href="https://intro.wesco.works/blog/en/control-power-protection/">English</a></div></div></section><article class="post-body"><div class="wrap"><p>선택 보상이란 설비 전체가 아니라 정지의 실제 원인이 되는 제어전원과 핵심 부하만 골라 순간전압강하 보상장치를 적용하는 설계 방식이다. 생산 라인이 멈추는 것은 대개 동력부 자체가 아니라 PLC, 릴레이, 센서 같은 제어전원이 먼저 순단되면서 제어 로직이 리셋되기 때문이다. 이 지점만 골라 보호하면 훨씬 적은 투자로도 동일한 정지 방지 효과를 얻을 수 있다.</p>
+<p>현장에서 흔히 보는 그림은 이렇다. 순간전압강하가 발생해도 모터나 히터 같은 동력부는 관성으로 버티는데, 정작 그 동력부를 제어하던 릴레이가 먼저 떨어지면서 인터록이 풀리고 설비 전체가 정지한다. 원인은 전력이 아니라 제어 신호의 순단이다. IEEE 조사에 따르면 일반적인 산업 현장에서는 연간 60~70건 수준의 순간전압강하가 발생하는 것으로 보고되는데, 설비 전체를 보상 범위에 넣지 않아도 이 지점만 지키면 정지의 상당 부분을 막을 수 있다.</p>
+<h2>왜 정지는 동력부가 아니라 제어전원에서 시작되는가</h2>
+<p>동력부는 순간전압강하 구간에서도 회전 관성이나 열 관성 덕분에 짧게는 버티는 경우가 많다. 반면 제어전원은 전압이 기준 이하로 떨어지는 즉시 릴레이가 개방되거나 PLC가 리셋되어 로직 자체가 끊긴다. 결국 라인 정지의 트리거는 동력이 아니라 제어 신호의 소실인 경우가 많고, 이 지점이 선택 보상의 첫 번째 타깃이 된다.</p>
+<h2>선택 보상 설계의 핵심 — 어떤 부하를 고를 것인가</h2>
+<p>선택 보상을 설계할 때는 설비 전체를 나열하기보다 정지에 직접 연결되는 부하부터 추린다.</p>
+<ul>
+<li>제어전원(PLC, 릴레이, 시퀀서, 인터록 회로)</li>
+<li>정지 시 복구 시간이 긴 핵심 센서·계측 장비</li>
+<li>재기동 자체가 손실로 이어지는 특정 공정 구간의 구동부</li>
+</ul>
+<p>이 목록에 들지 않는 부하는 순간전압강하를 그대로 겪어도 라인 정지로 이어지지 않는 경우가 많으므로, 보상 범위에서 제외해 투자 규모를 낮출 수 있다.</p>
+<h2>TSP 배터리리스 구조가 선택 보상에 맞는 이유</h2>
+<p>제어전원은 상시 대기 상태로 오래 운용되는 지점이라 보상장치의 유지보수 부담이 작아야 한다. WESCO TSP®는 EDLC 울트라커패시터 기반 배터리리스 구조로, 에너지저장부 설계수명이 10년이라 주기적인 배터리 교체 없이 장기간 운용할 수 있다. 보상 속도도 중소용량 기준 2ms 이내, 대용량 기준 4ms 이내로 제어전원이 리셋되기 전에 보상이 걸린다.</p>
+<h2>SEMI F47과 ITIC 커브, 보상 기준을 어떻게 잡을까</h2>
+<p>보상이 필요한 전압강하 깊이와 지속시간을 정할 때는 공인된 기준을 참고하는 것이 실무적이다. SEMI F47은 1초 지속 시 80%, 0.5초 지속 시 70%, 0.2초 지속 시 50%의 전압 유지 수준을 라이드스루 기준으로 제시한다. ITIC(CBEMA) 커브 역시 기기가 견딜 수 있는 전압·시간 범위를 보여주는 공개된 기준선이다. 제어전원 보상 설계는 이 기준선 아래로 떨어지는 구간을 커버하도록 잡으면 된다.</p>
+<h2>적용 절차 — 투자 규모를 낮추는 단계적 접근</h2>
+<ol>
+<li>최근 정지 이력을 검토해 정지가 동력부 때문인지 제어전원 때문인지 구분한다.</li>
+<li>정지에 직접 연결되는 제어전원·핵심 부하 목록을 만든다.</li>
+<li>해당 목록의 용량만 기준으로 TSP 적용 범위를 산정한다.</li>
+<li>필요하면 이후 공정 구간별로 단계적으로 확장한다.</li>
+</ol>
+<p>설비 전체를 한 번에 보상 범위에 넣는 대신 이 순서를 따르면, 정지 방지 효과를 유지하면서도 초기 투자 규모를 통제할 수 있다.</p>
+<h2>정리</h2>
+<ul>
+<li>라인 정지는 동력부가 아니라 제어전원의 순단에서 시작되는 경우가 많다.</li>
+<li>선택 보상은 설비 전체가 아니라 정지에 직접 연결되는 제어전원·핵심 부하만 골라 보상하는 설계다.</li>
+<li>SEMI F47 라이드스루 기준과 ITIC 커브는 보상이 필요한 전압·시간 구간을 정하는 실무 기준이 된다.</li>
+<li>WESCO TSP®는 EDLC 배터리리스 구조와 10년 설계수명, 2ms/4ms 이내 보상 속도로 제어전원처럼 상시 운용되는 지점에 적합하다.</li>
+<li>정지 이력 검토 → 핵심 부하 선별 → 용량 산정 → 단계적 확장의 순서로 접근하면 투자 규모를 통제하면서 정지를 막을 수 있다.</li>
+</ul><h2>자주 묻는 질문 (FAQ)</h2><dl class="faq"><dt>Q. 선택 보상은 어떤 설비에 적용하는 것이 적합한가요?</dt><dd>생산 라인 정지가 동력부가 아니라 PLC·릴레이·센서 등 제어 계통의 순단에서 시작되는 설비라면 선택 보상이 적합하다. 제어전원이 동력부보다 먼저 떨어지는 구조인지 먼저 확인해야 한다.</dd><dt>Q. 선택 보상과 설비 전체 보상은 무엇이 다른가요?</dt><dd>설비 전체 보상은 모든 부하의 용량을 커버해야 하지만, 선택 보상은 정지를 유발하는 제어전원과 핵심 부하의 용량만 커버하면 된다. 그만큼 필요한 TSP 용량과 설치 범위가 줄어든다.</dd><dt>Q. 왜 배터리 방식 대신 TSP 같은 배터리리스 설계가 선택 보상에 유리한가요?</dt><dd>TSP는 EDLC 울트라커패시터 기반 배터리리스 구조로 에너지저장부 설계수명이 10년이다. 제어전원처럼 상시 대기 상태로 운용되는 지점에 붙여도 주기적 배터리 교체 없이 장기간 안정적으로 유지할 수 있다.</dd></dl><div class="cta"><h4>순간전압강하 대응이 필요하신가요?</h4><p>WESCO는 25년간 전력 품질 분야에서 순간전압보상장치(TSP)를 제조해 왔습니다. 라인 환경에 맞는 용량 선정과 도입을 상담해 드립니다.</p><a class="btn" href="https://tsp.wesco.works/ko/?s=blog-control-power-protection">도입 문의하기</a><a class="btn btn-ghost" href="mailto:wesco@wesco.co.kr?subject=%5Bblog%3Acontrol-power-protection%5D%20TSP%20%EB%8F%84%EC%9E%85%20%EB%AC%B8%EC%9D%98">메일로 문의</a></div></div></article><footer class="foot"><div class="wrap">© WESCO Co., Ltd. · Voltage Sag Protector Manufacturer · <a href="https://www.wesco.co.kr">www.wesco.co.kr</a></div></footer></body></html>

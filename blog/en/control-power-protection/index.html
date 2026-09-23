@@ -1,0 +1,127 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Protect the Control Power, Save the Line: The Selective Compensation Approach</title><meta name="description" content="Selective compensation protects only the control power and critical loads that actually trigger line stoppages, instead of an entire facility. This article explains the design logic, applicable standards, and how it lowers investment while still preventing downtime."><link rel="canonical" href="https://intro.wesco.works/blog/en/control-power-protection/"><link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/control-power-protection/"><link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/control-power-protection/"><link rel="alternate" hreflang="x-default" href="https://intro.wesco.works/blog/control-power-protection/"><meta property="og:type" content="article"><meta property="og:title" content="Protect the Control Power, Save the Line: The Selective Compensation Approach"><meta property="og:description" content="Selective compensation protects only the control power and critical loads that actually trigger line stoppages, instead of an entire facility. This article explains the design logic, applicable standards, and how it lowers investment while still preventing downtime."><meta property="og:url" content="https://intro.wesco.works/blog/en/control-power-protection/"><link rel="icon" type="image/x-icon" href="https://intro.wesco.works/favicon.ico"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"><style>
+:root{
+  --c-red:#C13816; --c-red-dk:#9C2C10; --c-red-lt:#FBEEE8;
+  --c-head:#2C2924; --c-text:#4A4641; --c-gray:#78716C; --c-gray-lt:#A8A29E;
+  --c-bg:#FDFCF9; --c-bg-soft:#F7F4EE; --c-divider:#E0DBD3; --c-accent:#4F6886;
+  --font-ko:'Noto Sans KR','맑은 고딕',sans-serif;
+  --font-en:'Inter',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font-ko);color:var(--c-text);background:var(--c-bg);
+  line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:var(--c-red);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+
+/* 상단바 */
+.topbar{border-bottom:1px solid var(--c-divider);background:var(--c-bg)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center}
+.brand img{height:22px;width:auto;display:block}
+.topnav a{color:var(--c-gray);font-size:14px;font-weight:500;margin-left:22px}
+.topnav a:hover{color:var(--c-red);text-decoration:none}
+
+/* 글 헤더 */
+.post-head{padding:56px 0 34px;border-bottom:1px solid var(--c-divider)}
+.post-head .kicker{font-family:var(--font-en);font-size:12px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--c-red)}
+.post-head h1{font-size:34px;line-height:1.32;color:var(--c-head);
+  font-weight:700;margin:14px 0 12px;letter-spacing:-.01em}
+.post-head .sub{font-size:18px;color:var(--c-gray);font-weight:400;line-height:1.6}
+.post-meta{margin-top:20px;font-size:13px;color:var(--c-gray-lt);
+  font-family:var(--font-en);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.post-meta .lang-toggle{border:1px solid var(--c-divider);border-radius:100px;
+  padding:3px 12px;font-weight:600;color:var(--c-gray)}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tags .tag{background:var(--c-bg-soft);color:var(--c-gray);border:1px solid var(--c-divider);
+  border-radius:100px;padding:3px 11px;font-size:12px;font-family:var(--font-ko)}
+
+/* 본문 */
+.post-body{padding:38px 0 10px}
+.post-body h2{font-size:23px;color:var(--c-head);font-weight:700;
+  margin:44px 0 16px;letter-spacing:-.01em;line-height:1.4}
+.post-body h3{font-size:19px;color:var(--c-head);font-weight:700;margin:30px 0 12px}
+.post-body p{margin:0 0 20px}
+.post-body ul,.post-body ol{margin:0 0 22px;padding-left:22px}
+.post-body li{margin:0 0 9px}
+.post-body strong{color:var(--c-head);font-weight:700}
+.post-body em{font-style:normal;color:var(--c-gray)}
+.post-body hr{border:0;border-top:1px solid var(--c-divider);margin:40px 0}
+.post-body blockquote{border-left:3px solid var(--c-red);padding:2px 0 2px 18px;
+  margin:0 0 22px;color:var(--c-gray)}
+.post-body img{max-width:100%;height:auto;border-radius:10px;margin:8px 0 24px}
+
+/* FAQ */
+.faq{margin-top:8px}
+.faq dt{font-weight:700;color:var(--c-head);margin:22px 0 8px}
+.faq dd{margin:0 0 8px;color:var(--c-text)}
+
+/* CTA */
+.cta{margin:44px 0 0;background:var(--c-bg-soft);border:1px solid var(--c-divider);
+  border-radius:14px;padding:28px 30px}
+.cta h4{font-size:18px;color:var(--c-head);margin-bottom:8px}
+.cta p{font-size:15px;color:var(--c-gray);margin-bottom:16px}
+.cta a.btn{display:inline-block;background:var(--c-red);color:#fff;font-weight:600;
+  font-size:15px;padding:11px 22px;border-radius:8px}
+.cta a.btn:hover{background:var(--c-red-dk);text-decoration:none}
+.cta a.btn-ghost{background:transparent;color:var(--c-red);border:1px solid var(--c-red);margin-left:8px}
+.cta a.btn-ghost:hover{background:var(--c-red);color:#fff}
+
+/* 푸터 */
+.foot{margin-top:64px;border-top:1px solid var(--c-divider);
+  padding:30px 0 60px;color:var(--c-gray-lt);font-size:13px;text-align:center}
+.foot a{color:var(--c-gray)}
+
+/* 목록 */
+.list-head{padding:56px 0 14px}
+.list-head h1{font-size:30px;color:var(--c-head);font-weight:700}
+.list-head p{color:var(--c-gray);margin-top:8px}
+.list-head .lang-toggle{display:inline-block;margin-top:14px;border:1px solid var(--c-divider);
+  border-radius:100px;padding:4px 14px;font-size:13px;font-weight:600;color:var(--c-gray)}
+.card{display:block;padding:26px 0;border-bottom:1px solid var(--c-divider)}
+.card:hover{text-decoration:none}
+.card .kicker{font-family:var(--font-en);font-size:11px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--c-red)}
+.card h2{font-size:22px;color:var(--c-head);font-weight:700;margin:8px 0 8px;line-height:1.4}
+.card p{color:var(--c-gray);font-size:15px}
+.card .date{font-family:var(--font-en);font-size:12px;color:var(--c-gray-lt);margin-top:10px}
+
+@media(max-width:600px){
+  body{font-size:16px}
+  .post-head h1{font-size:27px}
+  .post-head .sub{font-size:16px}
+  .post-body h2{font-size:20px}
+}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Protect the Control Power, Save the Line: The Selective Compensation Approach", "description": "Selective compensation protects only the control power and critical loads that actually trigger line stoppages, instead of an entire facility. This article explains the design logic, applicable standards, and how it lowers investment while still preventing downtime.", "datePublished": "2026-09-23", "dateModified": "2026-09-23", "inLanguage": "en", "mainEntityOfPage": "https://intro.wesco.works/blog/en/control-power-protection/", "author": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}, "publisher": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which facilities are a good fit for selective compensation?", "acceptedAnswer": {"@type": "Answer", "text": "Facilities where line stoppages originate from a control power interruption rather than the power section itself — PLCs, relays, and sensors dropping before the motors or heaters do. Confirming that sequence is the first step."}}, {"@type": "Question", "name": "How does selective compensation differ from whole-facility compensation?", "acceptedAnswer": {"@type": "Answer", "text": "Whole-facility compensation must cover the capacity of every load, while selective compensation only needs to cover the control power and critical loads that actually cause stoppages, which reduces the required TSP capacity and installation scope."}}, {"@type": "Question", "name": "Why is a battery-free design like TSP well suited to selective compensation?", "acceptedAnswer": {"@type": "Answer", "text": "TSP uses an EDLC ultra-capacitor, battery-free design with a 10-year storage design life. Applied to a control power point that runs continuously on standby, it can operate long-term without periodic battery replacement."}}]}</script></head><body><header class="topbar"><div class="wrap"><a class="brand" href="https://intro.wesco.works/"><img src="https://intro.wesco.works/images/wesco_wordmark.png" alt="WESCO" width="119" height="22"></a><nav class="topnav"><a href="https://intro.wesco.works/">Home</a><a href="https://intro.wesco.works/blog/en/">Insights</a></nav></div></header><section class="post-head"><div class="wrap"><div class="kicker">WESCO Insight</div><h1>Protect the Control Power, Save the Line: The Selective Compensation Approach</h1><p class="sub">A design method that compensates only control power and critical loads instead of an entire facility, cutting investment while preventing line stoppages</p><div class="post-meta"><span>2026-09-23</span><div class="tags"><span class="tag">control power</span><span class="tag">selective compensation</span><span class="tag">voltage sag</span><span class="tag">facility design</span><span class="tag">TSP</span></div><a class="lang-toggle" href="https://intro.wesco.works/blog/control-power-protection/">한국어</a></div></div></section><article class="post-body"><div class="wrap"><p>Selective compensation is a design approach that applies a voltage sag protector only to the control power and critical loads that actually cause a line stoppage, rather than to an entire facility. Most production stoppages start not in the power section but in the control power feeding PLCs, relays, and sensors — when that circuit drops, the control logic resets and the line stops. Protecting only that point can deliver the same stoppage-prevention result at a fraction of the investment.</p>
+<p>The pattern is a familiar one on the plant floor. A voltage sag occurs, and the motors or heaters — the power section — ride through it on inertia. But the relay controlling that equipment drops first, the interlock releases, and the whole line halts. The root cause is a control signal interruption, not a power loss. IEEE studies report roughly 60-70 voltage sags per year at a typical industrial site, and protecting the control power point alone can prevent a large share of the stoppages those events would otherwise cause.</p>
+<h2>Why stoppages start at control power, not the power section</h2>
+<p>Motors and heaters often ride through a sag for a short period thanks to rotational or thermal inertia. Control power has no such buffer: the moment voltage drops below a threshold, relays open or PLCs reset, and the control logic is interrupted instantly. In most cases, the actual trigger for a line stoppage is a lost control signal rather than lost power — which is exactly the point selective compensation targets first.</p>
+<h2>Designing selective compensation — choosing which loads to cover</h2>
+<p>Rather than listing every load in the facility, selective compensation starts from the loads directly tied to a stoppage:</p>
+<ul>
+<li>Control power (PLCs, relays, sequencers, interlock circuits)</li>
+<li>Critical sensors or instrumentation with long recovery times</li>
+<li>Drive components where a restart itself causes process loss</li>
+</ul>
+<p>Loads outside this list can often ride through a voltage sag without triggering a stoppage, so excluding them from the compensation scope is what keeps the investment down.</p>
+<h2>Why TSP&rsquo;s battery-free design fits selective compensation</h2>
+<p>Control power points run continuously on standby, so the compensation device attached to them needs a low maintenance burden. WESCO TSP® uses an EDLC ultra-capacitor, battery-free design with a 10-year storage design life, so it can run long-term without periodic battery replacement. Its response speed — within 2ms for small/mid capacity units and within 4ms for large-capacity units — engages before control power has time to reset.</p>
+<h2>Setting the compensation threshold with SEMI F47 and the ITIC curve</h2>
+<p>Published standards are a practical reference for deciding how deep and how long a sag needs to be covered. SEMI F47 defines ride-through points of 80% voltage for 1 second, 70% for 0.5 seconds, and 50% for 0.2 seconds. The ITIC (CBEMA) curve is another published envelope describing the voltage and duration range equipment is expected to tolerate. Control power compensation should be sized to cover the region that falls below these reference lines.</p>
+<h2>A staged approach to controlling investment</h2>
+<ol>
+<li>Review recent stoppage history to determine whether the cause is the power section or control power.</li>
+<li>Build a list of the control power and critical loads directly tied to those stoppages.</li>
+<li>Size the TSP compensation scope to that load list only.</li>
+<li>Expand to additional process sections in stages if needed.</li>
+</ol>
+<p>Following this sequence instead of sizing for the whole facility at once keeps the stoppage-prevention benefit while controlling upfront investment.</p>
+<h2>Key takeaways</h2>
+<ul>
+<li>Line stoppages usually originate from a control power interruption, not the power section itself.</li>
+<li>Selective compensation covers only the control power and critical loads directly tied to stoppages, not the entire facility.</li>
+<li>SEMI F47 ride-through points and the ITIC curve are practical references for sizing the voltage and duration range to compensate.</li>
+<li>WESCO TSP®&rsquo;s EDLC battery-free design, 10-year storage design life, and sub-2ms/4ms response make it well suited to continuously running control power points.</li>
+<li>A staged sequence — review stoppage history, select critical loads, size capacity, expand later — prevents downtime while keeping investment under control.</li>
+</ul><h2>Frequently Asked Questions</h2><dl class="faq"><dt>Q. Which facilities are a good fit for selective compensation?</dt><dd>Facilities where line stoppages originate from a control power interruption rather than the power section itself — PLCs, relays, and sensors dropping before the motors or heaters do. Confirming that sequence is the first step.</dd><dt>Q. How does selective compensation differ from whole-facility compensation?</dt><dd>Whole-facility compensation must cover the capacity of every load, while selective compensation only needs to cover the control power and critical loads that actually cause stoppages, which reduces the required TSP capacity and installation scope.</dd><dt>Q. Why is a battery-free design like TSP well suited to selective compensation?</dt><dd>TSP uses an EDLC ultra-capacitor, battery-free design with a 10-year storage design life. Applied to a control power point that runs continuously on standby, it can operate long-term without periodic battery replacement.</dd></dl><div class="cta"><h4>Need protection against voltage sags?</h4><p>WESCO has manufactured battery-free voltage sag protectors (TSP&reg;) for 25 years. We can help you size and deploy the right unit for your line.</p><a class="btn" href="https://tsp.wesco.works/en/?s=blog-control-power-protection">Request a quote</a><a class="btn btn-ghost" href="mailto:wesco@wesco.co.kr?subject=%5Bblog%3Acontrol-power-protection%5D%20TSP%20inquiry">Email us</a></div></div></article><footer class="foot"><div class="wrap">© WESCO Co., Ltd. · Voltage Sag Protector Manufacturer · <a href="https://www.wesco.co.kr">www.wesco.co.kr</a></div></footer></body></html>
