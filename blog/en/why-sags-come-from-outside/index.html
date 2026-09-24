@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Why Well-Managed Plants Still Trip: Voltage Sags Come from Outside the Fence</title><meta name="description" content="Voltage sags start outside the fence: lightning, grid faults, nearby large-load starts. Why internal upkeep can&#x27;t stop them, and how to prepare."><link rel="canonical" href="https://intro.wesco.works/blog/en/why-sags-come-from-outside/"><link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/why-sags-come-from-outside/"><link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/why-sags-come-from-outside/"><link rel="alternate" hreflang="x-default" href="https://intro.wesco.works/blog/why-sags-come-from-outside/"><meta property="og:type" content="article"><meta property="og:title" content="Why Well-Managed Plants Still Trip: Voltage Sags Come from Outside the Fence"><meta property="og:description" content="Voltage sags start outside the fence: lightning, grid faults, nearby large-load starts. Why internal upkeep can&#x27;t stop them, and how to prepare."><meta property="og:url" content="https://intro.wesco.works/blog/en/why-sags-come-from-outside/"><link rel="icon" type="image/x-icon" href="https://intro.wesco.works/favicon.ico"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"><style>
+:root{
+  --c-red:#C13816; --c-red-dk:#9C2C10; --c-red-lt:#FBEEE8;
+  --c-head:#2C2924; --c-text:#4A4641; --c-gray:#78716C; --c-gray-lt:#A8A29E;
+  --c-bg:#FDFCF9; --c-bg-soft:#F7F4EE; --c-divider:#E0DBD3; --c-accent:#4F6886;
+  --font-ko:'Noto Sans KR','맑은 고딕',sans-serif;
+  --font-en:'Inter',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font-ko);color:var(--c-text);background:var(--c-bg);
+  line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:var(--c-red);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+
+/* 상단바 */
+.topbar{border-bottom:1px solid var(--c-divider);background:var(--c-bg)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center}
+.brand img{height:22px;width:auto;display:block}
+.topnav a{color:var(--c-gray);font-size:14px;font-weight:500;margin-left:22px}
+.topnav a:hover{color:var(--c-red);text-decoration:none}
+
+/* 글 헤더 */
+.post-head{padding:56px 0 34px;border-bottom:1px solid var(--c-divider)}
+.post-head .kicker{font-family:var(--font-en);font-size:12px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--c-red)}
+.post-head h1{font-size:34px;line-height:1.32;color:var(--c-head);
+  font-weight:700;margin:14px 0 12px;letter-spacing:-.01em}
+.post-head .sub{font-size:18px;color:var(--c-gray);font-weight:400;line-height:1.6}
+.post-meta{margin-top:20px;font-size:13px;color:var(--c-gray-lt);
+  font-family:var(--font-en);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.post-meta .lang-toggle{border:1px solid var(--c-divider);border-radius:100px;
+  padding:3px 12px;font-weight:600;color:var(--c-gray)}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tags .tag{background:var(--c-bg-soft);color:var(--c-gray);border:1px solid var(--c-divider);
+  border-radius:100px;padding:3px 11px;font-size:12px;font-family:var(--font-ko)}
+
+/* 본문 */
+.post-body{padding:38px 0 10px}
+.post-body h2{font-size:23px;color:var(--c-head);font-weight:700;
+  margin:44px 0 16px;letter-spacing:-.01em;line-height:1.4}
+.post-body h3{font-size:19px;color:var(--c-head);font-weight:700;margin:30px 0 12px}
+.post-body p{margin:0 0 20px}
+.post-body ul,.post-body ol{margin:0 0 22px;padding-left:22px}
+.post-body li{margin:0 0 9px}
+.post-body strong{color:var(--c-head);font-weight:700}
+.post-body em{font-style:normal;color:var(--c-gray)}
+.post-body hr{border:0;border-top:1px solid var(--c-divider);margin:40px 0}
+.post-body blockquote{border-left:3px solid var(--c-red);padding:2px 0 2px 18px;
+  margin:0 0 22px;color:var(--c-gray)}
+.post-body img{max-width:100%;height:auto;border-radius:10px;margin:8px 0 24px}
+
+/* FAQ */
+.faq{margin-top:8px}
+.faq dt{font-weight:700;color:var(--c-head);margin:22px 0 8px}
+.faq dd{margin:0 0 8px;color:var(--c-text)}
+
+/* CTA */
+.cta{margin:44px 0 0;background:var(--c-bg-soft);border:1px solid var(--c-divider);
+  border-radius:14px;padding:28px 30px}
+.cta h4{font-size:18px;color:var(--c-head);margin-bottom:8px}
+.cta p{font-size:15px;color:var(--c-gray);margin-bottom:16px}
+.cta a.btn{display:inline-block;background:var(--c-red);color:#fff;font-weight:600;
+  font-size:15px;padding:11px 22px;border-radius:8px}
+.cta a.btn:hover{background:var(--c-red-dk);text-decoration:none}
+.cta a.btn-ghost{background:transparent;color:var(--c-red);border:1px solid var(--c-red);margin-left:8px}
+.cta a.btn-ghost:hover{background:var(--c-red);color:#fff}
+
+/* 푸터 */
+.foot{margin-top:64px;border-top:1px solid var(--c-divider);
+  padding:30px 0 60px;color:var(--c-gray-lt);font-size:13px;text-align:center}
+.foot a{color:var(--c-gray)}
+
+/* 목록 */
+.list-head{padding:56px 0 14px}
+.list-head h1{font-size:30px;color:var(--c-head);font-weight:700}
+.list-head p{color:var(--c-gray);margin-top:8px}
+.list-head .lang-toggle{display:inline-block;margin-top:14px;border:1px solid var(--c-divider);
+  border-radius:100px;padding:4px 14px;font-size:13px;font-weight:600;color:var(--c-gray)}
+.card{display:block;padding:26px 0;border-bottom:1px solid var(--c-divider)}
+.card:hover{text-decoration:none}
+.card .kicker{font-family:var(--font-en);font-size:11px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--c-red)}
+.card h2{font-size:22px;color:var(--c-head);font-weight:700;margin:8px 0 8px;line-height:1.4}
+.card p{color:var(--c-gray);font-size:15px}
+.card .date{font-family:var(--font-en);font-size:12px;color:var(--c-gray-lt);margin-top:10px}
+
+@media(max-width:600px){
+  body{font-size:16px}
+  .post-head h1{font-size:27px}
+  .post-head .sub{font-size:16px}
+  .post-body h2{font-size:20px}
+}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Why Well-Managed Plants Still Trip: Voltage Sags Come from Outside the Fence", "description": "Voltage sags start outside the fence: lightning, grid faults, nearby large-load starts. Why internal upkeep can't stop them, and how to prepare.", "datePublished": "2026-09-25", "dateModified": "2026-09-25", "inLanguage": "en", "mainEntityOfPage": "https://intro.wesco.works/blog/en/why-sags-come-from-outside/", "author": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}, "publisher": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What causes voltage sags at industrial plants?", "acceptedAnswer": {"@type": "Answer", "text": "Most sags originate outside the plant: lightning strikes on utility lines, faults on the grid, and large loads starting up on the same distribution system. Each event pulls the supply voltage down briefly, and the disturbance reaches the plant through its incoming supply."}}, {"@type": "Question", "name": "Can good internal maintenance prevent voltage sags?", "acceptedAnswer": {"@type": "Answer", "text": "No. Internal maintenance reduces faults inside the plant, but it cannot change the voltage quality of the utility grid. Because the sources are external, the practical approach is to assume sags will occur and protect sensitive loads on the load side."}}, {"@type": "Question", "name": "What is a battery-free voltage sag protector?", "acceptedAnswer": {"@type": "Answer", "text": "It is a voltage sag compensator that stores energy without chemical batteries. WESCO TSP® (The Second Power) uses EDLC ultracapacitors, responds within 2 ms (small/mid capacity) or 4 ms (large capacity), and has a 10-year design life for its energy storage. It covers low-voltage systems up to 1 kV."}}]}</script></head><body><header class="topbar"><div class="wrap"><a class="brand" href="https://intro.wesco.works/"><img src="https://intro.wesco.works/images/wesco_wordmark.png" alt="WESCO" width="119" height="22"></a><nav class="topnav"><a href="https://intro.wesco.works/">Home</a><a href="https://intro.wesco.works/blog/en/">Insights</a></nav></div></header><section class="post-head"><div class="wrap"><div class="kicker">WESCO Insight</div><h1>Why Well-Managed Plants Still Trip: Voltage Sags Come from Outside the Fence</h1><p class="sub">Lightning, grid faults and nearby large-load starts: the external causes internal maintenance cannot reach</p><div class="post-meta"><span>2026-09-25</span><div class="tags"><span class="tag">Voltage Sag</span><span class="tag">Lightning</span><span class="tag">Grid Faults</span><span class="tag">Power Quality</span><span class="tag">Battery-Free</span></div><a class="lang-toggle" href="https://intro.wesco.works/blog/why-sags-come-from-outside/">한국어</a></div></div></section><article class="post-body"><div class="wrap"><p>A voltage sag is a brief drop in supply voltage, and most of the sags that stop production lines originate outside the plant fence: lightning strikes, faults on the utility grid, and large loads starting up nearby. Because the disturbance arrives through the incoming supply, even a facility with excellent maintenance cannot prevent it from the inside. The practical defense is to assume sags will happen and protect the load side with voltage sag compensation.</p>
+<p>Picture a plant with a spotless maintenance record. No alarms, no overdue inspections, no known faults. Then one afternoon a line stops, and the restart takes hours. The switchgear shows no fault. The power never went out; the voltage dipped for a moment and came back. Searching inside the plant for the cause leads nowhere.</p>
+<h2>Why a dip stops a line without a blackout</h2>
+<p>A sag is not an outage. The lights stay on, so the event is easy to miss. But drives, PLCs, relays and contactors can trip or misbehave on a short dip alone, and one tripped device can take down a whole process.</p>
+<p>In continuous processes such as semiconductor and display manufacturing, a momentary dip can turn into a long recovery. The equipment is undamaged, but the process still has to be brought back.</p>
+<h2>Three external sources</h2>
+<ol>
+<li><strong>Lightning.</strong> A strike on a transmission or distribution line causes a short-circuit fault. Until protection clears it, voltage stays depressed across the connected network. The strike can be far from your plant; being on the same network is enough.</li>
+<li><strong>Grid faults.</strong> Line-to-line and line-to-ground faults, or equipment failures on the utility system, pull voltage down until the fault is cleared. Reclosing attempts can repeat the dip.</li>
+<li><strong>Nearby large-load starts.</strong> A large motor or process load on the same distribution system draws heavy starting current, and voltage at the shared connection point sags. A neighbor&rsquo;s start-up can stop your line.</li>
+</ol>
+<p>In all three cases the origin is beyond your metering point, in territory you do not control.</p>
+<h2>Why internal management cannot close the gap</h2>
+<p>Good upkeep lowers the number of faults inside the plant. It does nothing about the quality of the voltage being delivered to the plant. The published references make the scale of the problem clear:</p>
+<ul>
+<li><strong>Frequency.</strong> IEEE studies report roughly 60-70 voltage sags per year at a typical industrial site. These are routine events, not rare accidents.</li>
+<li><strong>Equipment tolerance.</strong> The ITIC (CBEMA) curve is a published envelope of how much voltage deviation, for how long, equipment can generally tolerate.</li>
+<li><strong>Semiconductor ride-through.</strong> Per SEMI F47, tools should ride through 80% of nominal voltage for 1 s, 70% for 0.5 s, and 50% for 0.2 s.</li>
+</ul>
+<p>A production line mixes many devices with different tolerances. The weakest one sets the line&rsquo;s real ride-through. Even when the major tools meet the standard, a sag deeper or longer than the standard covers will still trip something.</p>
+<h2>How to prepare</h2>
+<p>Since the sources cannot be removed, plan around them:</p>
+<ol>
+<li><strong>Record.</strong> Log voltage at the incoming supply with a power quality analyzer and match timestamps against your stoppage history. Confirm that sags are the cause before spending money.</li>
+<li><strong>Rank the vulnerable loads.</strong> Identify the devices that trip most often and the lines where a stop costs the most. Compare them with the ITIC curve and SEMI F47 points.</li>
+<li><strong>Review settings.</strong> Check undervoltage detection thresholds and restart conditions for unnecessary sensitivity.</li>
+<li><strong>Compensate the critical loads.</strong> Install a voltage sag compensator upstream of the loads that matter most, so voltage is held through the dip.</li>
+</ol>
+<h2>A battery-free approach: WESCO TSP</h2>
+<p>WESCO TSP® (The Second Power) is a voltage sag protector for low-voltage systems up to 1 kV. Instead of lead-acid or lithium batteries, it stores energy in EDLC ultracapacitors, which makes it a battery-free voltage sag protector. Response time is within 2 ms for small and mid capacity units and within 4 ms for large capacity units.</p>
+<p>The energy storage section has a 10-year design life, so there are no periodic battery replacements to schedule. For fabs and plants that struggle to maintain battery-based systems, it is a maintenance-free alternative worth evaluating. Systems of 3.3 kV and above are outside its scope.</p>
+<p>WESCO has focused on power quality for 25 years, with more than 50,000 units delivered to over 900 companies in 15+ countries. The main industries are semiconductor, display, automotive, secondary battery and data centers.</p>
+<h2>Key takeaways</h2>
+<ul>
+<li>Voltage sags are driven mainly by lightning, grid faults and nearby large-load starts, all originating outside the plant.</li>
+<li>Internal maintenance reduces internal faults but cannot change the voltage the grid delivers.</li>
+<li>IEEE studies report roughly 60-70 sags per year at a typical industrial site, so plan for them as routine events.</li>
+<li>Match your stoppage history with voltage records, find the weakest loads, and compensate the critical ones.</li>
+<li>For low-voltage loads, an EDLC-based, battery-free voltage sag protector such as TSP® is worth evaluating.</li>
+</ul><h2>Frequently Asked Questions</h2><dl class="faq"><dt>Q. What causes voltage sags at industrial plants?</dt><dd>Most sags originate outside the plant: lightning strikes on utility lines, faults on the grid, and large loads starting up on the same distribution system. Each event pulls the supply voltage down briefly, and the disturbance reaches the plant through its incoming supply.</dd><dt>Q. Can good internal maintenance prevent voltage sags?</dt><dd>No. Internal maintenance reduces faults inside the plant, but it cannot change the voltage quality of the utility grid. Because the sources are external, the practical approach is to assume sags will occur and protect sensitive loads on the load side.</dd><dt>Q. What is a battery-free voltage sag protector?</dt><dd>It is a voltage sag compensator that stores energy without chemical batteries. WESCO TSP® (The Second Power) uses EDLC ultracapacitors, responds within 2 ms (small/mid capacity) or 4 ms (large capacity), and has a 10-year design life for its energy storage. It covers low-voltage systems up to 1 kV.</dd></dl><div class="cta"><h4>Need protection against voltage sags?</h4><p>WESCO has manufactured battery-free voltage sag protectors (TSP&reg;) for 25 years. We can help you size and deploy the right unit for your line.</p><a class="btn" href="https://tsp.wesco.works/en/?s=blog-why-sags-come-from-outside">Request a quote</a><a class="btn btn-ghost" href="mailto:wesco@wesco.co.kr?subject=%5Bblog%3Awhy-sags-come-from-outside%5D%20TSP%20inquiry">Email us</a></div></div></article><footer class="foot"><div class="wrap">© WESCO Co., Ltd. · Voltage Sag Protector Manufacturer · <a href="https://www.wesco.co.kr">www.wesco.co.kr</a></div></footer></body></html>

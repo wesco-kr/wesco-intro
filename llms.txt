@@ -7,6 +7,7 @@
 - [WESCO TSP Business Introduction](https://intro.wesco.works/): Company overview and TSP® product introduction.
 
 ## Latest blog posts
+- [관리 잘해도 라인이 멈추는 이유 — 순간전압강하는 공장 밖에서 온다](https://intro.wesco.works/blog/why-sags-come-from-outside/): 낙뢰·계통 사고·인근 대형 부하 기동 등 순간전압강하의 원인은 대부분 공장 밖에 있다. 내부 관리만으로는 라인 정지를 막기 어려운 이유와 순간정전에 대비하는 전압강하 보상 방법을 정리한다. ([English](https://intro.wesco.works/blog/en/why-sags-come-from-outside/))
 - [제어전원만 지켜도 라인이 산다 — 선택 보상이라는 접근](https://intro.wesco.works/blog/control-power-protection/): 설비 전체가 아니라 정지의 실제 원인인 제어전원과 핵심 부하만 골라 순간전압강하를 보상하는 선택 보상 설계를 다룬다. 투자 규모를 낮추면서도 라인 정지를 막는 실무적 접근과 적용 기준을 설명한다. ([English](https://intro.wesco.works/blog/en/control-power-protection/))
 - [순간전압강하 FAQ — 현장에서 가장 많이 받는 질문 총정리](https://intro.wesco.works/blog/faq-voltage-sag-basics/): 순간전압강하의 정의, 발생 원인, 정전과의 차이, 대응장비 선택 기준까지 현장 엔지니어가 가장 자주 묻는 질문을 팩트 중심으로 정리했다. ([English](https://intro.wesco.works/blog/en/faq-voltage-sag-basics/))
 - [ITIC 커브 읽는 법: 우리 장비가 견디는 전압 범위 확인하기](https://intro.wesco.works/blog/itic-curve-guide/): ITIC(CBEMA) 커브의 가로축·세로축과 세 가지 영역을 읽는 법을 정리하고, 우리 설비가 견디는 전압 범위를 확인해 순간전압강하 보상장치 적용 여부를 판단하는 기준을 설명한다. ([English](https://intro.wesco.works/blog/en/itic-curve-guide/))
@@ -16,7 +17,6 @@
 - [10년 무교체의 계산 — 에너지저장부 설계수명이 TCO를 바꾼다](https://intro.wesco.works/blog/10-year-maintenance-free/): 배터리 기반 순간정전 보상장치는 정기 교체가 필요하지만, EDLC 울트라커패시터 기반 WESCO TSP는 설계수명 10년으로 유지보수 구조 자체가 다르다. TCO 관점에서 두 방식의 차이를 비교한다. ([English](https://intro.wesco.works/blog/en/10-year-maintenance-free/))
 - [순간전압강하 손실은 세 겹으로 쌓인다 — 재가동·재공품·납기](https://intro.wesco.works/blog/voltage-sag-cost-structure/): 순간전압강하 한 번이 재가동 지연, 재공품 폐기, 납기 지연으로 번지는 손실의 구조를 분석하고, 배터리 없는 EDLC 기반 TSP 보상 방식이 이 연쇄를 어떻게 끊어내는지 짚어본다. ([English](https://intro.wesco.works/blog/en/voltage-sag-cost-structure/))
 - [15개국, 15만 대 — 순간전압강하 보상장치가 세계 공장에 놓인 이유](https://intro.wesco.works/blog/global-track-record/): WESCO TSP는 25년간 15개국 이상에 15만 대 넘게 공급됐다. 순간전압강하가 산업별로 반복되는 이유와 배터리리스 보상 방식을 정리했다. ([English](https://intro.wesco.works/blog/en/global-track-record/))
-- [순간전압보상장치 용량 선정, 부하 조사에서 시작한다](https://intro.wesco.works/blog/selecting-sag-protector-capacity/): TSP 용량은 수전용량이 아니라 보호가 필요한 부하 기준으로 정한다. 부하 조사→용량 산정→설치 위치 결정 순서와 과대·과소 선정의 문제를 정리한다. ([English](https://intro.wesco.works/blog/en/selecting-sag-protector-capacity/))
 
 ## Key facts
 - Product: TSP® (The Second Power) — battery-free voltage sag protector / power conditioner

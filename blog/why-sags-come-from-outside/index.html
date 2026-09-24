@@ -1,0 +1,136 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>관리 잘해도 라인이 멈추는 이유 — 순간전압강하는 공장 밖에서 온다</title><meta name="description" content="낙뢰·계통 사고·인근 대형 부하 기동 등 순간전압강하의 원인은 대부분 공장 밖에 있다. 내부 관리만으로는 라인 정지를 막기 어려운 이유와 순간정전에 대비하는 전압강하 보상 방법을 정리한다."><link rel="canonical" href="https://intro.wesco.works/blog/why-sags-come-from-outside/"><link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/why-sags-come-from-outside/"><link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/why-sags-come-from-outside/"><link rel="alternate" hreflang="x-default" href="https://intro.wesco.works/blog/why-sags-come-from-outside/"><meta property="og:type" content="article"><meta property="og:title" content="관리 잘해도 라인이 멈추는 이유 — 순간전압강하는 공장 밖에서 온다"><meta property="og:description" content="낙뢰·계통 사고·인근 대형 부하 기동 등 순간전압강하의 원인은 대부분 공장 밖에 있다. 내부 관리만으로는 라인 정지를 막기 어려운 이유와 순간정전에 대비하는 전압강하 보상 방법을 정리한다."><meta property="og:url" content="https://intro.wesco.works/blog/why-sags-come-from-outside/"><link rel="icon" type="image/x-icon" href="https://intro.wesco.works/favicon.ico"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"><style>
+:root{
+  --c-red:#C13816; --c-red-dk:#9C2C10; --c-red-lt:#FBEEE8;
+  --c-head:#2C2924; --c-text:#4A4641; --c-gray:#78716C; --c-gray-lt:#A8A29E;
+  --c-bg:#FDFCF9; --c-bg-soft:#F7F4EE; --c-divider:#E0DBD3; --c-accent:#4F6886;
+  --font-ko:'Noto Sans KR','맑은 고딕',sans-serif;
+  --font-en:'Inter',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font-ko);color:var(--c-text);background:var(--c-bg);
+  line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:var(--c-red);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+
+/* 상단바 */
+.topbar{border-bottom:1px solid var(--c-divider);background:var(--c-bg)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center}
+.brand img{height:22px;width:auto;display:block}
+.topnav a{color:var(--c-gray);font-size:14px;font-weight:500;margin-left:22px}
+.topnav a:hover{color:var(--c-red);text-decoration:none}
+
+/* 글 헤더 */
+.post-head{padding:56px 0 34px;border-bottom:1px solid var(--c-divider)}
+.post-head .kicker{font-family:var(--font-en);font-size:12px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--c-red)}
+.post-head h1{font-size:34px;line-height:1.32;color:var(--c-head);
+  font-weight:700;margin:14px 0 12px;letter-spacing:-.01em}
+.post-head .sub{font-size:18px;color:var(--c-gray);font-weight:400;line-height:1.6}
+.post-meta{margin-top:20px;font-size:13px;color:var(--c-gray-lt);
+  font-family:var(--font-en);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.post-meta .lang-toggle{border:1px solid var(--c-divider);border-radius:100px;
+  padding:3px 12px;font-weight:600;color:var(--c-gray)}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tags .tag{background:var(--c-bg-soft);color:var(--c-gray);border:1px solid var(--c-divider);
+  border-radius:100px;padding:3px 11px;font-size:12px;font-family:var(--font-ko)}
+
+/* 본문 */
+.post-body{padding:38px 0 10px}
+.post-body h2{font-size:23px;color:var(--c-head);font-weight:700;
+  margin:44px 0 16px;letter-spacing:-.01em;line-height:1.4}
+.post-body h3{font-size:19px;color:var(--c-head);font-weight:700;margin:30px 0 12px}
+.post-body p{margin:0 0 20px}
+.post-body ul,.post-body ol{margin:0 0 22px;padding-left:22px}
+.post-body li{margin:0 0 9px}
+.post-body strong{color:var(--c-head);font-weight:700}
+.post-body em{font-style:normal;color:var(--c-gray)}
+.post-body hr{border:0;border-top:1px solid var(--c-divider);margin:40px 0}
+.post-body blockquote{border-left:3px solid var(--c-red);padding:2px 0 2px 18px;
+  margin:0 0 22px;color:var(--c-gray)}
+.post-body img{max-width:100%;height:auto;border-radius:10px;margin:8px 0 24px}
+
+/* FAQ */
+.faq{margin-top:8px}
+.faq dt{font-weight:700;color:var(--c-head);margin:22px 0 8px}
+.faq dd{margin:0 0 8px;color:var(--c-text)}
+
+/* CTA */
+.cta{margin:44px 0 0;background:var(--c-bg-soft);border:1px solid var(--c-divider);
+  border-radius:14px;padding:28px 30px}
+.cta h4{font-size:18px;color:var(--c-head);margin-bottom:8px}
+.cta p{font-size:15px;color:var(--c-gray);margin-bottom:16px}
+.cta a.btn{display:inline-block;background:var(--c-red);color:#fff;font-weight:600;
+  font-size:15px;padding:11px 22px;border-radius:8px}
+.cta a.btn:hover{background:var(--c-red-dk);text-decoration:none}
+.cta a.btn-ghost{background:transparent;color:var(--c-red);border:1px solid var(--c-red);margin-left:8px}
+.cta a.btn-ghost:hover{background:var(--c-red);color:#fff}
+
+/* 푸터 */
+.foot{margin-top:64px;border-top:1px solid var(--c-divider);
+  padding:30px 0 60px;color:var(--c-gray-lt);font-size:13px;text-align:center}
+.foot a{color:var(--c-gray)}
+
+/* 목록 */
+.list-head{padding:56px 0 14px}
+.list-head h1{font-size:30px;color:var(--c-head);font-weight:700}
+.list-head p{color:var(--c-gray);margin-top:8px}
+.list-head .lang-toggle{display:inline-block;margin-top:14px;border:1px solid var(--c-divider);
+  border-radius:100px;padding:4px 14px;font-size:13px;font-weight:600;color:var(--c-gray)}
+.card{display:block;padding:26px 0;border-bottom:1px solid var(--c-divider)}
+.card:hover{text-decoration:none}
+.card .kicker{font-family:var(--font-en);font-size:11px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--c-red)}
+.card h2{font-size:22px;color:var(--c-head);font-weight:700;margin:8px 0 8px;line-height:1.4}
+.card p{color:var(--c-gray);font-size:15px}
+.card .date{font-family:var(--font-en);font-size:12px;color:var(--c-gray-lt);margin-top:10px}
+
+@media(max-width:600px){
+  body{font-size:16px}
+  .post-head h1{font-size:27px}
+  .post-head .sub{font-size:16px}
+  .post-body h2{font-size:20px}
+}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "관리 잘해도 라인이 멈추는 이유 — 순간전압강하는 공장 밖에서 온다", "description": "낙뢰·계통 사고·인근 대형 부하 기동 등 순간전압강하의 원인은 대부분 공장 밖에 있다. 내부 관리만으로는 라인 정지를 막기 어려운 이유와 순간정전에 대비하는 전압강하 보상 방법을 정리한다.", "datePublished": "2026-09-25", "dateModified": "2026-09-25", "inLanguage": "ko", "mainEntityOfPage": "https://intro.wesco.works/blog/why-sags-come-from-outside/", "author": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}, "publisher": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "순간전압강하와 순간정전은 어떻게 다른가?", "acceptedAnswer": {"@type": "Answer", "text": "순간전압강하는 전압이 짧은 시간 동안 정격보다 낮아졌다가 회복되는 현상이고, 순간정전은 전원이 완전히 끊기는 현상이다. 순간전압강하는 조명이 꺼지지 않아 눈에 띄지 않지만, 인버터·PLC·접촉기 같은 제어·구동 기기는 이 짧은 저하만으로도 정지할 수 있다."}}, {"@type": "Question", "name": "순간전압강하는 공장 내부 관리로 막을 수 없는가?", "acceptedAnswer": {"@type": "Answer", "text": "주된 원인이 낙뢰, 계통 사고, 인근 대형 부하 기동처럼 수용가 인입점 바깥에 있으므로 내부 점검과 예방정비만으로는 발생 자체를 막을 수 없다. 발생을 막을 수 없는 만큼, 부하 쪽에서 전압강하 보상 수단으로 대비하는 것이 현실적인 방법이다."}}, {"@type": "Question", "name": "WESCO TSP는 배터리를 사용하는가?", "acceptedAnswer": {"@type": "Answer", "text": "TSP®(The Second Power)는 EDLC 울트라커패시터로 에너지를 저장하는 배터리리스 방식의 순간전압강하 보상장치다. 에너지저장부 설계수명이 10년이어서 주기적인 배터리 교체가 필요 없으며, 적용 범위는 저압(1kV 이하)이다."}}]}</script></head><body><header class="topbar"><div class="wrap"><a class="brand" href="https://intro.wesco.works/"><img src="https://intro.wesco.works/images/wesco_wordmark.png" alt="WESCO" width="119" height="22"></a><nav class="topnav"><a href="https://intro.wesco.works/">홈</a><a href="https://intro.wesco.works/blog/">인사이트</a></nav></div></header><section class="post-head"><div class="wrap"><div class="kicker">WESCO Insight</div><h1>관리 잘해도 라인이 멈추는 이유 — 순간전압강하는 공장 밖에서 온다</h1><p class="sub">낙뢰·계통 사고·인근 대형 부하 기동이 만드는 외부 리스크와 대비 방법</p><div class="post-meta"><span>2026-09-25</span><div class="tags"><span class="tag">낙뢰</span><span class="tag">계통사고</span><span class="tag">Voltage Sag</span><span class="tag">전력품질</span><span class="tag">순간전압강하</span></div><a class="lang-toggle" href="https://intro.wesco.works/blog/en/why-sags-come-from-outside/">English</a></div></div></section><article class="post-body"><div class="wrap"><p>순간전압강하의 원인은 대부분 공장 안이 아니라 밖에 있다. 낙뢰, 송배전 계통 사고, 인근 대형 부하의 기동이 공급 전압을 순간적으로 끌어내리고, 그 영향은 수용가의 설비 관리 수준과 관계없이 인입점까지 전달된다. 그래서 점검과 예방정비를 충실히 해도 라인이 멈출 수 있으며, 이 위험은 부하 쪽에서 전압강하 보상으로 대비해야 한다.</p>
+<p>가상의 상황을 생각해 보자. 설비 점검 이력은 완벽하고 사전 경보도 없었다. 그런데 오후에 라인이 한 번 멈췄고, 복구에 긴 시간이 걸렸다. 사내 배전반에는 고장 기록이 남아 있지 않다. 전원이 끊긴 것이 아니라 전압이 잠깐 내려갔다 돌아온 것이기 때문이다. 원인을 사내에서만 찾으면 답이 나오지 않는다.</p>
+<h2>정전이 아닌데 왜 라인이 서는가</h2>
+<p>순간전압강하는 전압이 짧은 시간 동안 정격보다 낮아졌다가 회복되는 현상이다. 전원이 완전히 끊기는 순간정전과 달리 불이 꺼지지 않으므로 현장에서 잘 인지되지 않는다.</p>
+<p>그러나 인버터, PLC, 릴레이, 전자접촉기 같은 제어·구동 기기는 이 짧은 저하만으로 보호 동작에 들어가거나 오동작할 수 있다. 설비가 멀쩡해도 공정은 멈추고, 반도체·디스플레이처럼 연속 공정이 많은 산업에서는 짧은 저하가 긴 복구 작업으로 이어진다.</p>
+<h2>외부 원인 세 가지</h2>
+<p>순간전압강하를 만드는 대표적인 외부 원인은 다음과 같다.</p>
+<ol>
+<li><strong>낙뢰</strong>: 송전선·배전선에 낙뢰가 떨어지면 계통에 단락 고장이 생긴다. 보호계전기가 고장 구간을 차단할 때까지 인근 계통의 전압이 함께 낮아진다. 낙뢰 지점이 공장에서 멀어도 같은 계통에 연결되어 있으면 영향을 받는다.</li>
+<li><strong>계통 사고</strong>: 선로의 단락·지락이나 기기 고장도 같은 방식으로 전압을 끌어내린다. 고장이 제거될 때까지 저하가 이어지고, 재폐로 과정에서 저하가 반복되기도 한다.</li>
+<li><strong>인근 대형 부하 기동</strong>: 같은 배전 계통을 공유하는 대형 전동기나 설비가 기동하면 큰 기동 전류가 흐르고, 공통 접속점의 전압이 순간적으로 내려간다. 이웃 사업장의 기동이 우리 라인을 세울 수도 있다.</li>
+</ol>
+<p>세 원인 모두 발생 지점이 수용가의 인입점 바깥이다. 사내에서 통제할 수 있는 영역이 아니다.</p>
+<h2>내부 관리만으로 막을 수 없는 이유</h2>
+<p>내부 관리는 사내 고장을 줄이는 데 효과가 있다. 하지만 외부 계통의 전압 품질을 바꾸지는 못한다. 근거가 되는 자료는 다음과 같다.</p>
+<ul>
+<li><strong>빈도</strong>: IEEE 조사에 따르면 일반적인 산업 사업장에서는 연간 약 60~70회의 순간전압강하가 발생한다. 드문 사고가 아니라 반복되는 현상이다.</li>
+<li><strong>장비 내성</strong>: ITIC(CBEMA) 곡선은 전압 저하의 크기와 지속시간에 따라 장비가 견디는 영역을 나타내는, 공개된 장비 내성 기준선이다.</li>
+<li><strong>반도체 기준</strong>: SEMI F47은 정격전압의 80%에서 1초, 70%에서 0.5초, 50%에서 0.2초 동안 장비가 견뎌야 하는 지점을 제시한다.</li>
+</ul>
+<p>라인에는 장비가 여러 종류 섞여 있고 내성도 제각각이다. 가장 약한 기기 하나가 라인 전체 정지의 출발점이 될 수 있다. 내성 기준을 만족하는 장비만 골라 쓰더라도, 기준을 벗어나는 깊이나 길이의 저하가 오면 같은 문제가 반복된다.</p>
+<h2>대비 방법</h2>
+<p>외부 원인은 막을 수 없으므로, 발생을 전제로 피해를 줄이는 순서로 접근한다.</p>
+<ol>
+<li><strong>기록 확보</strong>: 전력품질 분석기로 인입점 전압을 기록하고, 정지 이력과 시각을 대조한다. 정지 원인이 순간전압강하인지 먼저 확인해야 한다.</li>
+<li><strong>취약 부하 식별</strong>: 정지가 잦은 기기와 정지 손실이 큰 라인을 골라 ITIC 곡선, SEMI F47 지점과 비교한다.</li>
+<li><strong>설정 재검토</strong>: 저전압 검출 설정과 재기동 조건이 지나치게 민감하지 않은지 확인한다.</li>
+<li><strong>보상장치 적용</strong>: 핵심 부하 앞단에 전압강하 보상장치를 설치해 저하 구간의 전압을 유지한다.</li>
+</ol>
+<h2>배터리 없이 보상하는 방식 — WESCO TSP</h2>
+<p>WESCO TSP®(The Second Power)는 저압(1kV 이하) 전용 순간전압강하 보상장치다. 납축·리튬 배터리 대신 EDLC 울트라커패시터에 에너지를 저장하는 배터리리스 방식이다. 보상 속도는 중소용량 2ms 이내, 대용량 4ms 이내다.</p>
+<p>에너지저장부의 설계수명은 10년이어서 주기적인 배터리 교체가 필요 없고, 유지보수 부담을 줄일 수 있다. 배터리 UPS를 유지하기 어려운 공장에서 검토할 수 있는 배터리리스 대안이다. 3.3kV 이상 고압은 적용 범위 밖이다.</p>
+<p>WESCO는 25년간 전력품질 개선을 해 왔고, 누적 50,000대 이상을 납품했다. 거래 고객사는 900개사 이상이며 15개국 이상에 공급했다. 주요 산업은 반도체, 디스플레이, 자동차, 2차전지, 데이터센터다.</p>
+<h2>정리</h2>
+<ul>
+<li>순간전압강하의 주된 원인은 낙뢰, 계통 사고, 인근 대형 부하 기동이며 모두 공장 밖에서 발생한다.</li>
+<li>내부 관리는 사내 고장을 줄일 뿐 외부 계통의 전압 품질은 바꾸지 못한다.</li>
+<li>IEEE 조사에 따르면 일반 산업 사업장에서 연간 약 60~70회 발생하므로, 발생을 전제로 대비해야 한다.</li>
+<li>정지 이력과 전압 기록을 대조해 취약 부하를 찾고, 핵심 부하에는 전압강하 보상장치를 적용한다.</li>
+<li>저압 부하에는 EDLC 기반 배터리리스 방식의 TSP®를 검토할 수 있다.</li>
+</ul><h2>자주 묻는 질문 (FAQ)</h2><dl class="faq"><dt>Q. 순간전압강하와 순간정전은 어떻게 다른가?</dt><dd>순간전압강하는 전압이 짧은 시간 동안 정격보다 낮아졌다가 회복되는 현상이고, 순간정전은 전원이 완전히 끊기는 현상이다. 순간전압강하는 조명이 꺼지지 않아 눈에 띄지 않지만, 인버터·PLC·접촉기 같은 제어·구동 기기는 이 짧은 저하만으로도 정지할 수 있다.</dd><dt>Q. 순간전압강하는 공장 내부 관리로 막을 수 없는가?</dt><dd>주된 원인이 낙뢰, 계통 사고, 인근 대형 부하 기동처럼 수용가 인입점 바깥에 있으므로 내부 점검과 예방정비만으로는 발생 자체를 막을 수 없다. 발생을 막을 수 없는 만큼, 부하 쪽에서 전압강하 보상 수단으로 대비하는 것이 현실적인 방법이다.</dd><dt>Q. WESCO TSP는 배터리를 사용하는가?</dt><dd>TSP®(The Second Power)는 EDLC 울트라커패시터로 에너지를 저장하는 배터리리스 방식의 순간전압강하 보상장치다. 에너지저장부 설계수명이 10년이어서 주기적인 배터리 교체가 필요 없으며, 적용 범위는 저압(1kV 이하)이다.</dd></dl><div class="cta"><h4>순간전압강하 대응이 필요하신가요?</h4><p>WESCO는 25년간 전력 품질 분야에서 순간전압보상장치(TSP)를 제조해 왔습니다. 라인 환경에 맞는 용량 선정과 도입을 상담해 드립니다.</p><a class="btn" href="https://tsp.wesco.works/ko/?s=blog-why-sags-come-from-outside">도입 문의하기</a><a class="btn btn-ghost" href="mailto:wesco@wesco.co.kr?subject=%5Bblog%3Awhy-sags-come-from-outside%5D%20TSP%20%EB%8F%84%EC%9E%85%20%EB%AC%B8%EC%9D%98">메일로 문의</a></div></div></article><footer class="foot"><div class="wrap">© WESCO Co., Ltd. · Voltage Sag Protector Manufacturer · <a href="https://www.wesco.co.kr">www.wesco.co.kr</a></div></footer></body></html>
