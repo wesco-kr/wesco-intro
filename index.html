@@ -702,15 +702,16 @@ body.reflow .card .pcol{display:block}body.reflow .card .pcol .photo{width:100%;
 body.reflow .page svg,body.reflow .page img{max-width:100%}
 body.reflow .pg-line .tier .ph{height:180px}
 body.reflow .lg .cig .logos img{height:16px;max-width:90px}
-body.reflow .net .mapwrap{position:static;width:100%;margin:8px 0 12px}body.reflow .net .ctry{position:static;width:auto}body.reflow .net .leg{position:static;margin-top:12px}
+body.reflow .net .mapwrap{position:relative;left:auto;top:auto;width:100%;margin:8px 0 12px}body.reflow .net .ctry{position:static;width:auto}body.reflow .net .leg{position:static;margin-top:12px}
 body.reflow .pg-ups table.cmp{font-size:12px}body.reflow .pg-ups table.cmp th,body.reflow .pg-ups table.cmp td{padding:8px 6px}
 body.reflow .cover{padding:0}body.reflow .cover::before,body.reflow .cover::after{display:none}
 body.reflow .cover .inner{position:static;padding:30px 20px 22px}body.reflow .cover .eyebrow{margin-top:26px!important}
 body.reflow .cover h1{font-size:30px;max-width:none;letter-spacing:-.04em}body.reflow .cover .sl{margin-top:14px;max-width:none}
 body.reflow .cover .stats{position:static;grid-template-columns:1fr 1fr;gap:16px 12px;margin-top:24px}body.reflow .cover .st b{font-size:28px}
 body.reflow .cover .ft{margin-top:24px;flex-direction:column;align-items:flex-start;gap:4px}
-body.reflow .cover .prod{position:static;display:block;width:calc(100% - 40px);margin:0 20px 26px;filter:none}
-body.reflow .cover .eng{display:none}
+body.reflow .cover .prod{position:static;display:block;width:300px;margin:0 20px 26px auto;filter:none}
+/* 모바일 표지 인물 — 라인업 300px 기준 최대 캐비닛 ≈181px → 175cm = 159px. 데스크톱과 같은 비율로 캐비닛 왼쪽 문에 살짝 겹친다 */
+body.reflow .cover .eng{display:block;position:absolute;left:31px;right:auto;bottom:26px;height:159px}
 body.reflow .back{padding:0}body.reflow .back::after{display:none}body.reflow .back .inner{position:static;padding:30px 20px 22px}
 body.reflow .back .cta,body.reflow .back .next{position:static;margin-top:16px}body.reflow .back .next{gap:10px}
 body.reflow .back .ct{position:static;padding:24px 20px;grid-template-columns:1fr;gap:18px}body.reflow .back .qr{position:static;margin:14px auto 0;background:#292524;color:var(--ivory);border-color:#292524}
