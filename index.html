@@ -87,7 +87,7 @@
 }
 </script>
 <style>
-:root{--red:#E1431B;--stone:#44403C;--body:#57534E;--muted:#8A847D;--ivory:#FDFCF9;--line:#E7E2DA;--tint:#FBEAE4;--tint2:#F6F1EA;--page-w:1120px;--page-h:720px}
+:root{--red:#E1431B;--stone:#44403C;--body:#57534E;--muted:#736D66;--ivory:#FDFCF9;--line:#E7E2DA;--tint:#FBEAE4;--tint2:#F6F1EA;--page-w:1120px;--page-h:720px}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:#E7E2DA;font-family:"Malgun Gothic","Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;color:var(--body);font-size:15px;line-height:1.6;letter-spacing:-.01em}
@@ -98,7 +98,7 @@ img{max-width:100%;display:block}
 .bar .t span{font-size:13px;color:var(--muted)}
 .bar .btns{display:flex;gap:8px}
 .bar button{height:34px;padding:0 14px;border:1px solid var(--line);background:#FDFCF9;border-radius:6px;color:var(--stone);font-size:13px;cursor:pointer;font-family:inherit}
-.bar button.on{background:var(--red);border-color:var(--red);color:#FDFCF9}
+.bar button.on{background:var(--tint2);border-color:var(--stone);color:var(--stone);font-weight:700}
 .bar .pg{font-size:12px;color:var(--muted);margin-right:12px;font-variant-numeric:tabular-nums}
 .wrap{display:flex;gap:28px;justify-content:center;padding:34px 20px 100px}
 .pages{display:flex;flex-direction:column;gap:34px}
@@ -445,7 +445,9 @@ table.tb thead th{background:transparent;border-bottom:1px solid var(--stone)}
 .cover .sl{font-size:14px;line-height:1.7;max-width:455px;margin-top:24px;color:var(--line);opacity:1}
 html[lang="ko"] .cover h1{font-size:47px}
 .cover .prod{width:520px;right:20px;bottom:166px;opacity:1;z-index:1;filter:drop-shadow(0 18px 20px rgba(28,25,23,.25))}
-.cover .stats{position:absolute;left:64px;right:64px;bottom:69px;margin:0;display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr;gap:30px}
+/* 260924 표지 엔지니어 — 키 175cm 기준. 라인업 최대 캐비닛(약 2,000mm)이 316px 로 그려지므로 175cm = 275px, 발은 바닥선(bottom:166px)에 맞춘다 */
+.cover .eng{position:absolute;right:432px;bottom:166px;height:275px;width:auto;z-index:2;filter:drop-shadow(0 14px 16px rgba(28,25,23,.3))}
+.cover .stats{position:absolute;left:64px;right:64px;bottom:86px;margin:0;display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr;gap:30px}
 .cover .st b{font-size:38px;line-height:1.4;font-weight:700}
 .cover .st b i{color:var(--red)}
 .cover .st>span{font-size:10px;letter-spacing:.15em;color:var(--line)}
@@ -685,6 +687,34 @@ html:not([lang="ko"]) .pg-adv .pill span small{font-size:10.5px}
 .fitbox{width:100%}
 @media(max-width:760px){.fitbox{overflow:hidden}}
 @media(max-width:760px){.wrap{display:block;padding:12px 0}}
+/* 260924 모바일 세로 재배치 — 1120×720 판형을 축소하지 않고(글자 5px) 한 열로 흐르게 한다. fit() 이 폭 760 이하에서 body.reflow 를 켠다. 발표 모드는 제외. */
+@media(max-width:760px){
+body.reflow .pages{gap:16px}
+body.reflow .page{width:auto!important;height:auto!important;min-height:0;padding:30px 20px 76px;box-shadow:0 4px 18px rgba(68,64,60,.10);scroll-margin-top:110px}
+body.reflow .page:not(.cover):not(.div):not(.back)::before{left:20px}
+body.reflow .h{font-size:24px;line-height:1.3}body.reflow .h .no{margin-right:8px}
+body.reflow .lead{font-size:14px}
+body.reflow .band{height:auto;min-height:44px;padding:10px 20px;font-size:12px;line-height:1.4;gap:12px}body.reflow .band .n{white-space:nowrap;flex:none}
+body.reflow .grid2,body.reflow .grid3,body.reflow .cols,body.reflow .flows,body.reflow .two,body.reflow .hist .tl,body.reflow .pg-line .tiers,body.reflow .pg-line .ways,body.reflow .back .ct,body.reflow .back .next,body.reflow .lg .cig{grid-template-columns:1fr!important;gap:18px}
+body.reflow .hist .tl{gap:22px}body.reflow .hist li{font-size:12.5px}
+body.reflow .chain{grid-template-columns:1fr;gap:18px}body.reflow .chain .ch{margin-right:0}body.reflow .chain .ch::after{right:auto;left:50%;top:auto;bottom:-15px;border:6px solid transparent;border-top:8px solid #736D66;transform:translateX(-50%)}
+body.reflow .card .pcol{display:block}body.reflow .card .pcol .photo{width:100%;height:auto;aspect-ratio:4/3;margin-bottom:14px}
+body.reflow .page svg,body.reflow .page img{max-width:100%}
+body.reflow .pg-line .tier .ph{height:180px}
+body.reflow .lg .cig .logos img{height:16px;max-width:90px}
+body.reflow .net .mapwrap{position:static;width:100%;margin:8px 0 12px}body.reflow .net .ctry{position:static;width:auto}body.reflow .net .leg{position:static;margin-top:12px}
+body.reflow .pg-ups table.cmp{font-size:12px}body.reflow .pg-ups table.cmp th,body.reflow .pg-ups table.cmp td{padding:8px 6px}
+body.reflow .cover{padding:0}body.reflow .cover::before,body.reflow .cover::after{display:none}
+body.reflow .cover .inner{position:static;padding:30px 20px 22px}body.reflow .cover .eyebrow{margin-top:26px!important}
+body.reflow .cover h1{font-size:30px;max-width:none;letter-spacing:-.04em}body.reflow .cover .sl{margin-top:14px;max-width:none}
+body.reflow .cover .stats{position:static;grid-template-columns:1fr 1fr;gap:16px 12px;margin-top:24px}body.reflow .cover .st b{font-size:28px}
+body.reflow .cover .ft{margin-top:24px;flex-direction:column;align-items:flex-start;gap:4px}
+body.reflow .cover .prod{position:static;display:block;width:calc(100% - 40px);margin:0 20px 26px;filter:none}
+body.reflow .cover .eng{display:none}
+body.reflow .back{padding:0}body.reflow .back::after{display:none}body.reflow .back .inner{position:static;padding:30px 20px 22px}
+body.reflow .back .cta,body.reflow .back .next{position:static;margin-top:16px}body.reflow .back .next{gap:10px}
+body.reflow .back .ct{position:static;padding:24px 20px;grid-template-columns:1fr;gap:18px}body.reflow .back .qr{position:static;margin:14px auto 0;background:#292524;color:var(--ivory);border-color:#292524}
+}
 html[lang="ko"] .page{word-break:keep-all;overflow-wrap:anywhere}
 /* 09 TSP vs UPS */
 .pg-ups table.cmp{margin-top:10px;font-size:13.5px}
@@ -764,12 +794,13 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
     <div class="ft"><span data-i18n="c.ft">WESCO Co., Ltd. · 안양 본사 · 이천 EMS 공장</span><span>www.wesco.co.kr</span></div>
   </div>
   <img class="prod" src="images/company/lineup_cover.png" alt="TSP 제품 라인업 — 대용량 · 삼상 캐비닛 · 단상" data-r style="--d:4">
+  <img class="eng" src="images/company/engineer_cover.png" alt="WESCO 엔지니어(키 175cm 기준) — 제품 크기 비교" data-r style="--d:5">
 </section>
 
 <!-- 2 회사 소개 -->
 <section class="page card" data-t="회사 소개" data-tk="thumb.2">
   <div class="eyebrow">WESCO</div>
-  <div class="h"><span class="no">01</span><span data-i18n="p2.h">회사 소개</span></div>
+  <div class="h"><span class="no">02</span><span data-i18n="p2.h">회사 소개</span></div>
   <div class="rule"></div>
   <div class="grid2">
     <div data-r style="--d:1">
@@ -797,7 +828,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
 <!-- 3 연혁 -->
 <section class="page hist" data-t="연혁" data-tk="thumb.3">
   <div class="eyebrow">WESCO</div>
-  <div class="h"><span class="no">02</span><span data-i18n="p3.h">연혁</span></div>
+  <div class="h"><span class="no">03</span><span data-i18n="p3.h">연혁</span></div>
   <p class="lead" data-i18n="p3.lead">국내 최초로 순간정전 보상장치 사업을 시작해, 자체 개발한 TSP®로 15개국 이상에 공급하기까지.</p>
   <div class="rule"></div>
   <div class="tl">
@@ -830,11 +861,11 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
       <li data-i18n="p3.e4d">LG-TORAY(헝가리) 수출</li>
       <li data-i18n="p3.e4e">현대·기아 3년 독점 공급</li>
       <li data-i18n="p3.e4f">롯데 잠실 · 삼성 에버랜드 공급</li></ul></div>
-    <div class="era now" data-r style="--d:5"><div class="y">2025<small data-i18n="p3.e5">25주년 · 2026 현재</small></div><ul>
-      <li data-i18n="p3.e5a">Nanya Technology · Mosel Vitelic(대만) 공급</li>
-      <li data-i18n="p3.e4g">US NRTL 인증 획득 · Sag-VIEWER™ 업그레이드</li>
+    <div class="era now" data-r style="--d:5"><div class="y">2026<small data-i18n="p3.e5">25주년 · 현재 (2025~)</small></div><ul>
       <li data-i18n="p3.e5b">창립 25주년(2026)</li>
-      <li data-i18n="p3.e4h">누적 공급 50,000대 · 900개사 · 15개국 이상</li></ul></div>
+      <li data-i18n="p3.e4h">누적 공급 50,000대 · 900개사 · 15개국 이상</li>
+      <li data-i18n="p3.e4g">US NRTL 인증 획득 · Sag-VIEWER™ 업그레이드</li>
+      <li data-i18n="p3.e5a">Nanya Technology · Mosel Vitelic(대만) 공급</li></ul></div>
   </div>
   <div class="band"><span data-i18n="p3.band">2001년 설립 — 2026년 25주년</span><span class="n">03</span></div>
 </section>
@@ -842,7 +873,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
 <!-- 4 제품 용도 -->
 <section class="page pg-use" data-t="용도" data-tk="thumb.4">
   <div class="eyebrow">PRODUCT</div>
-  <div class="h"><span class="no">03</span><span data-i18n="p4.h">용도 — 순간정전으로부터 설비 보호</span></div>
+  <div class="h"><span class="no">04</span><span data-i18n="p4.h">용도 — 순간정전으로부터 설비 보호</span></div>
   <p class="lead" data-i18n="p4.lead" data-i18n-html>순간정전(순간전압강하, Voltage Sag)은 계통 전압이 순간적으로 정상 범위 아래로 떨어지는 전력품질 현상입니다. 대부분 1초 안에 끝나지만, 정밀 설비는 그 찰나에 멈춥니다. TSP®는 설비 앞단에서 그 찰나를 메웁니다. <small>IEEE 1159: 실효전압이 정격의 10~90%로 0.5사이클~1분 지속되는 저하</small></p>
   <div class="rule"></div>
   <div class="grid2">
@@ -881,7 +912,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
 <!-- 5 순간정전 사고가 미치는 손실 -->
 <section class="page pg-loss" data-t="사고 손실" data-tk="thumb.loss">
   <div class="eyebrow">PRODUCT</div>
-  <div class="h"><span class="no">04</span><span data-i18n="pl.h">순간정전 사고가 미치는 손실</span></div>
+  <div class="h"><span class="no">05</span><span data-i18n="pl.h">순간정전 사고가 미치는 손실</span></div>
   <p class="lead" data-i18n="pl.lead">순간정전은 고객의 의지와 무관하게 발생합니다. 설비가 멈추는 순간, 손실은 제품 한 장에서 끝나지 않고 다섯 단계로 번집니다.</p>
   <div class="rule"></div>
   <!-- 손실의 다섯 단계. 정본 = TSP 카탈로그 p.7 「Sag의 발생피해」 -->
@@ -918,7 +949,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
 <!-- 6 장비 공통 사양서의 순간정전 내성 요구 -->
 <section class="page pg-spec" data-t="사양서 요구" data-tk="thumb.spec">
   <div class="eyebrow">PRODUCT</div>
-  <div class="h"><span class="no">05</span><span data-i18n="ps.h">장비 공통 사양서에 명기되는 순간정전 내성</span></div>
+  <div class="h"><span class="no">06</span><span data-i18n="ps.h">장비 공통 사양서에 명기되는 순간정전 내성</span></div>
   <p class="lead" data-i18n="ps.lead">반도체·디스플레이·2차전지 대기업은 장비를 발주할 때 순간정전 내성을 장비 공통 사양서에 명기합니다. 장비 제조사는 이 요구를 충족하는 조건으로 장비를 공급합니다.</p>
   <div class="rule"></div>
   <div class="grid2">
@@ -956,7 +987,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
 <!-- 7 라인업 -->
 <section class="page pg-line" data-t="라인업" data-tk="thumb.5">
   <div class="eyebrow">PRODUCT</div>
-  <div class="h"><span class="no">06</span><span data-i18n="p5.h">제품 라인업</span></div>
+  <div class="h"><span class="no">07</span><span data-i18n="p5.h">제품 라인업</span></div>
   <p class="lead" data-i18n="p5.lead">설비 한 대부터 라인 전체까지 — 단상 0.5kVA에서 삼상 2,400kVA까지 국내 유일 풀 라인업.</p>
   <div class="rule"></div>
   <div class="tiers">
@@ -974,7 +1005,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
 <!-- 8 장점 -->
 <section class="page pg-adv key" data-t="장점" data-tk="thumb.6">
   <div class="eyebrow">PRODUCT</div>
-  <div class="h"><span class="no">07</span><span data-i18n="p6.h">장점</span></div>
+  <div class="h"><span class="no">08</span><span data-i18n="p6.h">장점</span></div>
   <p class="lead" data-i18n="p6.lead">평상시엔 SCR 정적 스위치로 전원을 그대로 통전하며 대기(오프라인)합니다. 순간정전을 감지한 순간 SCR을 끊고, EDLC(울트라커패시터)에 저장된 에너지를 인버터·변압기로 2ms 안에 부하에 공급합니다. 보상이 끝나면 다시 대기 상태로 돌아옵니다.</p>
   <div class="rule"></div>
   <div class="grid2">
@@ -1055,7 +1086,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
 <!-- 09 TSP vs UPS — 「UPS 쓰면 되지 않나」에 답하는 쪽. 경쟁이 아니라 목적이 다름을 객관 비교로 (260918 외부 리뷰 반영) -->
 <section class="page pg-ups" data-t="TSP vs UPS" data-tk="thumb.ups">
   <div class="eyebrow">PRODUCT</div>
-  <div class="h"><span class="no">08</span><span data-i18n="pu.h">TSP® 와 UPS — 목적이 다른 두 가지 전원 보호</span></div>
+  <div class="h"><span class="no">09</span><span data-i18n="pu.h">TSP® 와 UPS — 목적이 다른 두 가지 전원 보호</span></div>
   <p class="lead" data-i18n="pu.lead">처음 보시는 분은 대개 「UPS를 쓰면 되지 않나」라고 묻습니다. 둘은 경쟁 제품이 아니라 목적이 다른 장치입니다 — 장시간 정전에는 UPS, 생산설비의 순간전압강하 대응에는 TSP®가 맞습니다.</p>
   <div class="rule"></div>
   <table class="tb cmp" data-r style="--d:1">
@@ -1076,7 +1107,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
 <!-- 9 개별보상 · 중앙보상 -->
 <section class="page pg-sol" data-t="개별·중앙 보상" data-tk="thumb.sol">
   <div class="eyebrow">PRODUCT</div>
-  <div class="h"><span class="no">09</span><span data-i18n="pc.h">개별보상 · 중앙보상 — 풀 라인업이 만드는 두 가지 해법</span></div>
+  <div class="h"><span class="no">10</span><span data-i18n="pc.h">개별보상 · 중앙보상 — 풀 라인업이 만드는 두 가지 해법</span></div>
   <p class="lead" data-i18n="pc.lead">단상 0.5kVA부터 삼상 2,400kVA까지 한 브랜드로 갖춘 곳은 국내에 WESCO뿐입니다. 그래서 설비 한 대씩 지키는 개별보상과 라인 전체를 한 대로 지키는 중앙보상을 현장 조건에 맞춰 골라, 또 섞어 제안할 수 있습니다.</p>
   <div class="rule"></div>
   <div class="grid2">
@@ -1142,7 +1173,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
 <!-- 10 Sag-VIEWER -->
 <section class="page pg-hmi" data-t="Sag-VIEWER" data-tk="thumb.7">
   <div class="eyebrow">PRODUCT</div>
-  <div class="h"><span class="no">10</span><span data-i18n="p7.h">Sag-VIEWER™ — 제품 화면에서 이렇게 봅니다</span></div>
+  <div class="h"><span class="no">11</span><span data-i18n="p7.h">Sag-VIEWER™ — 제품 화면에서 이렇게 봅니다</span></div>
   <p class="lead" data-i18n="p7.lead">7인치 터치 패널에 실시간 계측과 사고 기록이 함께 뜹니다. 메뉴를 눌러보십시오.</p>
   <div class="rule"></div>
   <div class="grid2">
@@ -1170,7 +1201,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
 <!-- 8 글로벌 레퍼런스 -->
 <section class="page lg" data-t="글로벌 레퍼런스" data-tk="thumb.8">
   <div class="eyebrow">REFERENCE</div>
-  <div class="h"><span class="no">11</span><span data-i18n="p8.h">글로벌 레퍼런스</span></div>
+  <div class="h"><span class="no">12</span><span data-i18n="p8.h">글로벌 레퍼런스</span></div>
   <p class="lead" data-i18n="p8.lead">누적 50,000대 이상 · 900개사 이상 · 15개국 이상.</p>
   <div class="rule"></div>
   <!-- 고객사 CI. 정본 = 07-영업자료/07.제안자료/대표이사_출장_260609/실적 CI.pptx (3슬라이드 · 부문 구분은 원본 배치 그대로). 로고는 원색 유지 -->
@@ -1187,7 +1218,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
 <!-- 9 글로벌 네트워크 -->
 <section class="page net" data-t="글로벌 네트워크" data-tk="thumb.9">
   <div class="eyebrow">REFERENCE</div>
-  <div class="h"><span class="no">12</span><span data-i18n="p9.h">글로벌 네트워크</span></div>
+  <div class="h"><span class="no">13</span><span data-i18n="p9.h">글로벌 네트워크</span></div>
   <p class="lead" data-i18n="p9.lead">안양 본사 · 상하이 기술지원센터 · 6개국 해외 대리점 · 국내 공인 파트너 8개사 — 고객의 공장이 있는 곳에서 대응합니다.</p>
   <div class="rule"></div>
   <!-- 거점 정본 = 07-영업자료/13.대리점 관리/WESCO-대리점 LIST-V3.0.xlsx (2026-07-21). 대외 페이지엔 국가·도시만 표기(회사명·거래조건 비노출). 좌표는 world-map.png 픽셀 기준 -->
@@ -1288,17 +1319,16 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
   // 화면 폭에 맞춰 축소 (모바일)
   function fit(){
     if(document.body.classList.contains('present')){
-      wrap.style.transform='';document.getElementById('fitbox').style.height='';var s=Math.min(innerWidth/1120,(innerHeight-56)/720);wrap.style.zoom=s;return;
+      document.body.classList.remove('reflow');wrap.style.transform='';document.getElementById('fitbox').style.height='';var s=Math.min(innerWidth/1120,(innerHeight-56)/720);wrap.style.zoom=s;return;
     }
     var box=document.getElementById('fitbox');
     if(innerWidth<=760){
       // 모바일: zoom 은 글리프 위치를 픽셀 단위로 반올림해 「CO UNTRIES」처럼 글자가 끊긴다.
       // transform 은 1120px 로 배치한 뒤 통째로 축소하므로 자간이 보존된다. 클립 상자로 문서 폭 확장(iOS 뷰포트 팽창)을 막는다.
-      wrap.style.zoom='';var s=(innerWidth-16)/1120;
-      wrap.style.transformOrigin='0 0';wrap.style.transform='translateX(8px) scale('+s+')';
-      box.style.height=Math.round(wrap.offsetHeight*s+24)+'px';return;
+      // 260924: 축소하면 글자가 5px 로 읽히지 않아 «세로 재배치»로 바꿈 — body.reflow 에 CSS @media(760) 규칙이 걸린다. 발표 모드는 위 분기에서 여전히 zoom 축소.
+      wrap.style.zoom='';wrap.style.transform='';box.style.height='';document.body.classList.add('reflow');return;
     }
-    wrap.style.transform='';box.style.height='';
+    wrap.style.transform='';box.style.height='';document.body.classList.remove('reflow');
     // 데스크톱: 폭에 맞추되, 화면 높이가 허락하면 한 쪽이 화면을 채우도록 키운다(최대 1.6배). 작은 노트북에서 줄어들지는 않는다
     var w=innerWidth-(innerWidth>1300?230:24),byW=w/1120,byH=(innerHeight-130)/720;
     wrap.style.zoom=Math.max(Math.min(1,byW),Math.min(byW,byH,1.6));
