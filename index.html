@@ -310,6 +310,16 @@ body.effects-off .sld .rb-a1,body.effects-off .sld .rb-a2,body.effects-off .sld 
 .tol text.in{font-size:14px;font-weight:700;fill:var(--red)}
 .tol text.dot{font-size:12.5px;font-weight:700;fill:var(--red)}
 html[lang="zh"] .tol text{font-family:"Noto Sans SC",sans-serif}html[lang="ja"] .tol text{font-family:"Noto Sans JP",sans-serif}
+/* 261003 SEMI F47 강하율별 조건표 (근거: F47-0706 Table 1 = 80%/1s·70%/0.5s·50%/0.2s, 삼성 POWER Vaccine 0%/1s — 그래프와 같은 값) */
+.f47{margin-top:2px}.f47h{font-size:13px;font-weight:700;color:var(--stone);margin-bottom:6px}
+.f47t{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+.f47t th,.f47t td{border-bottom:1px solid var(--line);padding:5px 8px;text-align:center;color:var(--body)}
+.f47t thead th{background:var(--tint2);color:var(--stone);font-weight:700;font-size:12.5px}
+.f47t tbody th{font-weight:700;color:var(--stone);text-align:left;white-space:nowrap}
+.f47t .pv{color:var(--red);font-weight:700;background:#FBEAE4}
+.f47t thead th:first-child{background:transparent}
+.pg-spec .pills{gap:8px}.pg-spec .pill{padding:10px 16px}
+.f47n{margin:6px 0 0;font-size:12.5px;color:var(--red);font-weight:700}
 /* 261003 범례는 그래프 밖 — 선 위에 글자를 얹지 않는다 */
 .tolg{list-style:none;margin:0;padding:10px 14px 12px;border:1px solid var(--line);border-top:0;border-radius:0 0 6px 6px;background:#FDFCF9;display:grid;grid-template-columns:auto auto 1fr;gap:6px 18px}
 .tolg li{display:flex;align-items:center;gap:8px;font-size:12.5px;line-height:1.35;color:var(--body)}
@@ -1040,8 +1050,18 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
     </div>
     <div class="pills" data-r style="--d:2">
       <div class="pill"><b>1</b><span data-i18n="ps.p1">사양서의 문장 <small data-i18n="ps.p1s">「장비는 SEMI F47 등 순간전압강하 규격에 정의된 전압강하·지속시간 조건에서 정상 작동을 유지해야 한다」 — 장비 발주의 공통 조건</small></span></div>
-      <div class="pill"><b>2</b><span data-i18n="ps.p2">국제 규격보다 엄격한 자체 규격 <small data-i18n="ps.p2s">SEMI F47 · IEC 61000-4-11 · ITIC를 바탕으로, 삼성 등은 1초 완전 정전 내성까지 요구</small></span></div>
-      <div class="pill"><b>3</b><span data-i18n="ps.p4">해법 — TSP® 내장·탑재 <small data-i18n="ps.p4s">장비 앞단에 TSP®를 넣어 1초 · 100% 순간정전 규격을 충족(최대 3초 보상) — Smart POWER Vaccine® · SEMI F47 평가보고서 보유</small></span></div>
+      <div class="f47">
+        <div class="f47h" data-i18n="f47.h">강하율별 조건 — SEMI F47 · 삼성 규격</div>
+        <table class="f47t">
+          <thead><tr><th></th><th colspan="3">SEMI F47</th><th class="pv" data-i18n="f47.pv">삼성 POWER Vaccine</th></tr></thead>
+          <tbody>
+            <tr><th data-i18n="f47.c1">잔여 전압</th><td>80%</td><td>70%</td><td>50%</td><td class="pv">0%</td></tr>
+            <tr><th data-i18n="f47.c2">강하율</th><td>20%</td><td>30%</td><td>50%</td><td class="pv">100%</td></tr>
+            <tr><th data-i18n="f47.c3">지속시간</th><td data-i18n="f47.t3">1초</td><td data-i18n="f47.t2">0.5초</td><td data-i18n="f47.t1">0.2초</td><td class="pv" data-i18n="f47.t3">1초</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pill"><b>2</b><span data-i18n="ps.p4">해법 — TSP® 내장·탑재 <small data-i18n="ps.p4s">장비 앞단에 TSP®를 넣어 1초 · 100% 순간정전 규격을 충족(최대 3초 보상) — Smart POWER Vaccine® · SEMI F47 평가보고서 보유</small></span></div>
     </div>
   </div>
   <div class="band"><span data-i18n="ps.band">사양서가 요구하는 것은 「멈추지 않을 것」 — TSP®가 장비에 그 문장을 넣는다</span><span class="n">06</span></div>

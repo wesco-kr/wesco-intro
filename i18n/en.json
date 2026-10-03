@@ -268,5 +268,13 @@
  "b.cta": "<b>TSP® selection inquiry</b> — tell us four things: voltage, phase (single/three), load kVA and required ride-through time, and we will propose the right model.",
  "b.yt": "YouTube Channel<br>Company & product videos",
  "bar.fxOff": "Effects OFF",
- "bar.rotate": "Rotate to landscape for a larger view"
+ "bar.rotate": "Rotate to landscape for a larger view",
+ "f47.h": "Conditions by sag depth — SEMI F47 · Samsung spec",
+ "f47.c1": "Residual voltage",
+ "f47.c2": "Sag depth",
+ "f47.c3": "Duration",
+ "f47.pv": "Samsung POWER Vaccine",
+ "f47.t1": "0.2 s",
+ "f47.t2": "0.5 s",
+ "f47.t3": "1 s"
 }
