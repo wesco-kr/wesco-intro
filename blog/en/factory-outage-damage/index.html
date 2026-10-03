@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Momentary Outage Damage in Factories: Cases and Equipment Trip Thresholds</title><meta name="description" content="Momentary outage damage depends on which equipment trips first. Inverters, servo drives, and PLCs stop early, and scrap, restarts, and delays follow."><link rel="canonical" href="https://intro.wesco.works/blog/en/factory-outage-damage/"><link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/factory-outage-damage/"><link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/factory-outage-damage/"><link rel="alternate" hreflang="x-default" href="https://intro.wesco.works/blog/factory-outage-damage/"><meta property="og:type" content="article"><meta property="og:title" content="Momentary Outage Damage in Factories: Cases and Equipment Trip Thresholds"><meta property="og:description" content="Momentary outage damage depends on which equipment trips first. Inverters, servo drives, and PLCs stop early, and scrap, restarts, and delays follow."><meta property="og:url" content="https://intro.wesco.works/blog/en/factory-outage-damage/"><meta property="og:image" content="https://intro.wesco.works/images/og-image.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Momentary Outage Damage in Factories: Cases and Equipment Trip Thresholds"><meta name="twitter:description" content="Momentary outage damage depends on which equipment trips first. Inverters, servo drives, and PLCs stop early, and scrap, restarts, and delays follow."><meta name="twitter:image" content="https://intro.wesco.works/images/og-image.jpg"><link rel="icon" type="image/x-icon" href="https://intro.wesco.works/favicon.ico"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"><style>
+:root{
+  --c-red:#C13816; --c-red-dk:#9C2C10; --c-red-lt:#FBEEE8;
+  --c-head:#2C2924; --c-text:#4A4641; --c-gray:#78716C; --c-gray-lt:#A8A29E;
+  --c-bg:#FDFCF9; --c-bg-soft:#F7F4EE; --c-divider:#E0DBD3; --c-accent:#4F6886;
+  --font-ko:'Noto Sans KR','맑은 고딕',sans-serif;
+  --font-en:'Inter',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font-ko);color:var(--c-text);background:var(--c-bg);
+  line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:var(--c-red);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+
+/* 상단바 */
+.topbar{border-bottom:1px solid var(--c-divider);background:var(--c-bg)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center}
+.brand img{height:22px;width:auto;display:block}
+.topnav a{color:var(--c-gray);font-size:14px;font-weight:500;margin-left:22px}
+.topnav a:hover{color:var(--c-red);text-decoration:none}
+
+/* 글 헤더 */
+.post-head{padding:56px 0 34px;border-bottom:1px solid var(--c-divider)}
+.post-head .kicker{font-family:var(--font-en);font-size:12px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--c-red)}
+.post-head h1{font-size:34px;line-height:1.32;color:var(--c-head);
+  font-weight:700;margin:14px 0 12px;letter-spacing:-.01em}
+.post-head .sub{font-size:18px;color:var(--c-gray);font-weight:400;line-height:1.6}
+.post-meta{margin-top:20px;font-size:13px;color:var(--c-gray-lt);
+  font-family:var(--font-en);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.post-meta .lang-toggle{border:1px solid var(--c-divider);border-radius:100px;
+  padding:3px 12px;font-weight:600;color:var(--c-gray)}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tags .tag{background:var(--c-bg-soft);color:var(--c-gray);border:1px solid var(--c-divider);
+  border-radius:100px;padding:3px 11px;font-size:12px;font-family:var(--font-ko)}
+
+/* 본문 */
+.post-body{padding:38px 0 10px}
+.post-body h2{font-size:23px;color:var(--c-head);font-weight:700;
+  margin:44px 0 16px;letter-spacing:-.01em;line-height:1.4}
+.post-body h3{font-size:19px;color:var(--c-head);font-weight:700;margin:30px 0 12px}
+.post-body p{margin:0 0 20px}
+.post-body ul,.post-body ol{margin:0 0 22px;padding-left:22px}
+.post-body li{margin:0 0 9px}
+.post-body strong{color:var(--c-head);font-weight:700}
+.post-body em{font-style:normal;color:var(--c-gray)}
+.post-body hr{border:0;border-top:1px solid var(--c-divider);margin:40px 0}
+.post-body blockquote{border-left:3px solid var(--c-red);padding:2px 0 2px 18px;
+  margin:0 0 22px;color:var(--c-gray)}
+.post-body img{max-width:100%;height:auto;border-radius:10px;margin:8px 0 24px}
+
+/* FAQ */
+.faq{margin-top:8px}
+.faq dt{font-weight:700;color:var(--c-head);margin:22px 0 8px}
+.faq dd{margin:0 0 8px;color:var(--c-text)}
+
+/* CTA */
+.cta{margin:44px 0 0;background:var(--c-bg-soft);border:1px solid var(--c-divider);
+  border-radius:14px;padding:28px 30px}
+.cta h4{font-size:18px;color:var(--c-head);margin-bottom:8px}
+.cta p{font-size:15px;color:var(--c-gray);margin-bottom:16px}
+.cta a.btn{display:inline-block;background:var(--c-red);color:#fff;font-weight:600;
+  font-size:15px;padding:11px 22px;border-radius:8px}
+.cta a.btn:hover{background:var(--c-red-dk);text-decoration:none}
+.cta a.btn-ghost{background:transparent;color:var(--c-red);border:1px solid var(--c-red);margin-left:8px}
+.cta a.btn-ghost:hover{background:var(--c-red);color:#fff}
+
+/* 영상 · 관련 글 */
+.video{position:relative;padding-top:56.25%;margin:8px 0 28px;border-radius:10px;overflow:hidden;background:var(--c-bg-soft)}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.related{margin-top:44px}
+.related h2{font-size:20px;color:var(--c-head);margin-bottom:6px}
+.related a.rel{display:block;padding:12px 0;border-bottom:1px solid var(--c-divider);color:var(--c-head);font-weight:500}
+.related .product{margin-top:16px;font-size:15px;color:var(--c-gray)}
+
+/* 푸터 */
+.foot{margin-top:64px;border-top:1px solid var(--c-divider);
+  padding:30px 0 60px;color:var(--c-gray-lt);font-size:13px;text-align:center}
+.foot a{color:var(--c-gray)}
+
+/* 목록 */
+.list-head{padding:56px 0 14px}
+.list-head h1{font-size:30px;color:var(--c-head);font-weight:700}
+.list-head p{color:var(--c-gray);margin-top:8px}
+.list-head .lang-toggle{display:inline-block;margin-top:14px;border:1px solid var(--c-divider);
+  border-radius:100px;padding:4px 14px;font-size:13px;font-weight:600;color:var(--c-gray)}
+.card{display:block;padding:26px 0;border-bottom:1px solid var(--c-divider)}
+.card:hover{text-decoration:none}
+.card .kicker{font-family:var(--font-en);font-size:11px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--c-red)}
+.card h2{font-size:22px;color:var(--c-head);font-weight:700;margin:8px 0 8px;line-height:1.4}
+.card p{color:var(--c-gray);font-size:15px}
+.card .date{font-family:var(--font-en);font-size:12px;color:var(--c-gray-lt);margin-top:10px}
+
+@media(max-width:600px){
+  body{font-size:16px}
+  .post-head h1{font-size:27px}
+  .post-head .sub{font-size:16px}
+  .post-body h2{font-size:20px}
+}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Momentary Outage Damage in Factories: Cases and Equipment Trip Thresholds", "description": "Momentary outage damage depends on which equipment trips first. Inverters, servo drives, and PLCs stop early, and scrap, restarts, and delays follow.", "datePublished": "2026-10-03", "dateModified": "2026-10-03", "inLanguage": "en", "mainEntityOfPage": "https://intro.wesco.works/blog/en/factory-outage-damage/", "author": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}, "publisher": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What does momentary outage damage cost a factory beyond the stop itself?", "acceptedAnswer": {"@type": "Answer", "text": "The stop is usually the smallest part of the loss. Work in progress may be scrapped, restarts take time, product quality can drop, and delivery schedules can slip."}}, {"@type": "Question", "name": "Why do some machines stop during a voltage sag while others keep running?", "acceptedAnswer": {"@type": "Answer", "text": "Each machine's power conversion circuits, control circuits, and protection settings define its ride-through capability. Inverters and servo drives often trip first, followed by PLCs and control power."}}, {"@type": "Question", "name": "What is a battery-free voltage sag protector?", "acceptedAnswer": {"@type": "Answer", "text": "It is a compensator that supplies energy to the load during a voltage sag so equipment keeps running. WESCO TSP® uses EDLC ultra-capacitors instead of batteries and is designed for low-voltage systems up to 1 kV."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoObject", "name": "순간정전보상장치 TSP® 소개 영상 | 웨스코(WESCO) 순간전압강하 완벽 해결", "description": "Momentary outage damage depends on which equipment trips first. Inverters, servo drives, and PLCs stop early, and scrap, restarts, and delays follow.", "thumbnailUrl": "https://i.ytimg.com/vi/say1HOvU-a0/hqdefault.jpg", "uploadDate": "2021-02-18", "embedUrl": "https://www.youtube.com/embed/say1HOvU-a0", "contentUrl": "https://www.youtube.com/watch?v=say1HOvU-a0"}</script></head><body><header class="topbar"><div class="wrap"><a class="brand" href="https://intro.wesco.works/"><img src="https://intro.wesco.works/images/wesco_wordmark.png" alt="WESCO" width="119" height="22"></a><nav class="topnav"><a href="https://intro.wesco.works/">Home</a><a href="https://intro.wesco.works/blog/en/">Insights</a></nav></div></header><section class="post-head"><div class="wrap"><div class="kicker">WESCO Insight</div><h1>Momentary Outage Damage in Factories: Cases and Equipment Trip Thresholds</h1><p class="sub">Why inverters, servo drives, and PLCs stop first, and how losses extend past the trip</p><div class="post-meta"><span>2026-10-03</span><div class="tags"><span class="tag">momentary outage</span><span class="tag">voltage sag</span><span class="tag">EDLC</span><span class="tag">equipment trip</span><span class="tag">manufacturing</span></div><a class="lang-toggle" href="https://intro.wesco.works/blog/factory-outage-damage/">한국어</a></div></div></section><article class="post-body"><div class="wrap"><p>Momentary outage damage is the production loss that occurs when a voltage sag or brief interruption trips factory equipment. A voltage sag is a short drop in supply voltage, while a momentary interruption is the deeper case where voltage nearly disappears. Both often come from the same grid events, and equipment responds differently depending on depth and duration. In most plants, the damage does not end when the line stops. Scrap, restarts, quality losses, and delivery delays follow.</p>
+<p>Consider a line running at 2 p.m. when a fault on a nearby feeder pulls supply voltage down for a moment. The dip is brief. An inverter trips first, the PLC resets soon after, and by the time operators begin recovery, work in progress has already been scrapped. This scenario is illustrative, but the pattern is common.</p>
+<h2>Voltage sags are more frequent than most plants expect</h2>
+<p>IEEE studies report roughly 60 to 70 voltage sags per year at a typical industrial site. Most originate outside the plant, from faults on neighboring feeders or from the starting of large loads on the same network. Many sags are too short to notice, yet sensitive equipment reacts to them anyway.</p>
+<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/say1HOvU-a0" title="순간정전보상장치 TSP® 소개 영상 | 웨스코(WESCO) 순간전압강하 완벽 해결" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div><h2>Equipment does not respond to the same sag in the same way</h2>
+<p>Ride-through capability depends on power electronics, control circuits, and protection settings. The ITIC (CBEMA) curve is widely used as a published tolerance envelope. Operation inside the curve is generally expected, while events outside it are likely to cause trips. Semiconductor tools are typically specified against SEMI F47, which defines voltage sag ride-through points. Exact limits vary by machine, so the manufacturer&rsquo;s data sheet should be the reference for each installation.</p>
+<h2>Trip order: drives first, then controls</h2>
+<p>Under the same sag, trips usually follow a recognizable sequence:</p>
+<ol>
+<li>Inverters and servo drives: undervoltage protection on the DC bus typically trips first.</li>
+<li>PLCs and control power supplies: unstable control voltage can reset I/O and restart programs.</li>
+<li>Contactors and relays: they drop out when coil voltage falls below its holding level.</li>
+<li>Motors and fans: they coast for a while, then decelerate and stop.</li>
+</ol>
+<p>This order helps set priorities in a site audit. Check drive undervoltage settings first, then confirm the margin of the control power supply.</p>
+<h2>How momentary outage damage grows by industry</h2>
+<ul>
+<li>Semiconductor: an interrupted process step can scrap wafers or lots, and tool recovery and process stabilization add further time.</li>
+<li>Paper: a high-speed web can break during a sudden stop, requiring roll changes and rethreading.</li>
+<li>Printing: each stoppage wastes stock, and registration and ink density must be reset before good output resumes.</li>
+<li>Chemical: interrupted reactions may need purging and restart, with contamination risk in the lines.</li>
+</ul>
+<p>In each case, the stop itself is the smallest cost. Restarts, quality checks, and missed delivery windows usually add more.</p>
+<h2>Reducing the damage: check equipment limits, then consider compensation</h2>
+<p>Start by mapping each critical machine&rsquo;s tolerance and trip settings. Then decide whether to compensate the sag at the point of use. A voltage sag compensator supplies energy to the load while supply voltage dips, so equipment keeps running. WESCO TSP® is a battery-free voltage sag protector that uses EDLC ultra-capacitors as its energy store. Its storage design life is 10 years, and it is intended for low-voltage systems up to 1 kV. Switchover time is within 2 ms, and compensation lasts 1 to 3 seconds depending on capacity. For plants seeking a maintenance-free alternative to battery UPS systems, TSP® is worth evaluating against the equipment map. Its value depends on how each machine trips, so the equipment review should come first.</p>
+<h2>Key takeaways</h2>
+<ul>
+<li>Momentary outage damage starts with the trip but grows through scrap, restarts, quality loss, and delays.</li>
+<li>The same voltage sag affects equipment differently. Inverters and servo drives usually trip first, followed by PLCs and control power.</li>
+<li>Industry impact varies. Semiconductor lots, paper webs, printed stock, and chemical processes each carry distinct costs.</li>
+<li>Map equipment tolerance before choosing a mitigation. Where battery maintenance is a concern, evaluate a battery-free option such as WESCO TSP®.</li>
+</ul><h2>Frequently Asked Questions</h2><dl class="faq"><dt>Q. What does momentary outage damage cost a factory beyond the stop itself?</dt><dd>The stop is usually the smallest part of the loss. Work in progress may be scrapped, restarts take time, product quality can drop, and delivery schedules can slip.</dd><dt>Q. Why do some machines stop during a voltage sag while others keep running?</dt><dd>Each machine&#x27;s power conversion circuits, control circuits, and protection settings define its ride-through capability. Inverters and servo drives often trip first, followed by PLCs and control power.</dd><dt>Q. What is a battery-free voltage sag protector?</dt><dd>It is a compensator that supplies energy to the load during a voltage sag so equipment keeps running. WESCO TSP® uses EDLC ultra-capacitors instead of batteries and is designed for low-voltage systems up to 1 kV.</dd></dl><div class="cta"><h4>Need protection against voltage sags?</h4><p>WESCO has manufactured battery-free voltage sag protectors (TSP&reg;) for 25 years. We can help you size and deploy the right unit for your line.</p><a class="btn" href="https://tsp.wesco.works/en/?s=blog-factory-outage-damage">Request a quote</a><a class="btn btn-ghost" href="mailto:wesco@wesco.co.kr?subject=%5Bblog%3Afactory-outage-damage%5D%20TSP%20inquiry">Email us</a></div><div class="related"><h2>Related posts</h2><a class="rel" href="https://intro.wesco.works/blog/en/outage-vs-voltage-sag/">Voltage Sag vs Momentary Outage Difference: How to Tell Them Apart in the Field</a><a class="rel" href="https://intro.wesco.works/blog/en/ups-vs-outage-compensator/">Momentary outage UPS difference: Battery Backup vs. Voltage Sag Compensation</a><a class="rel" href="https://intro.wesco.works/blog/en/momentary-outage-compensator-guide/">Momentary Outage Compensator: Types and Selection Criteria</a><p class="product">TSP® principle and specifications: <a href="https://intro.wesco.works/battery-free-voltage-sag-protection.html">Battery-free voltage sag protection (TSP®)</a></p></div></div></article><footer class="foot"><div class="wrap">© WESCO Co., Ltd. · Voltage Sag Protector Manufacturer · <a href="https://www.wesco.co.kr">www.wesco.co.kr</a></div></footer></body></html>

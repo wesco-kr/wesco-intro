@@ -28,6 +28,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://intro.wesco.works/blog/factory-outage-damage/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/factory-outage-damage/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/factory-outage-damage/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://intro.wesco.works/blog/factory-outage-damage/"/>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://intro.wesco.works/blog/en/factory-outage-damage/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/factory-outage-damage/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/factory-outage-damage/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://intro.wesco.works/blog/factory-outage-damage/"/>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://intro.wesco.works/blog/outage-vs-voltage-sag/</loc>
     <xhtml:link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/outage-vs-voltage-sag/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/outage-vs-voltage-sag/"/>
