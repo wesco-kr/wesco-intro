@@ -20,6 +20,7 @@
     + '.wl-scrim{position:fixed;inset:0;z-index:9998;background:rgba(28,25,23,.42)}'
     + '.wl-drawer{position:fixed;top:0;right:0;bottom:0;z-index:9999;width:360px;max-width:92vw;background:#FDFCF9;border-left:1px solid #E7E2DA;box-shadow:-16px 0 40px rgba(41,37,36,.18);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .28s;font-family:"Malgun Gothic","Noto Sans KR",Arial,sans-serif;color:#44403C;text-align:left}'
     + '.wl-drawer.wl-open{transform:none}'
+    + '.wl-drawer:not(.wl-open){box-shadow:none}' // 닫힌 서랍이 화면 밖에서 그림자를 남겨 모바일 오른쪽에 회색 띠가 보였다(261003)
     + '.wl-hd{display:flex;align-items:center;justify-content:space-between;padding:18px 20px 16px;border-bottom:1px solid #E7E2DA;font-size:13px;font-weight:700;letter-spacing:.06em}'
     + '.wl-hd button{all:unset;cursor:pointer;font-size:24px;line-height:1;color:#8A847D;padding:0 4px}'
     + '.wl-list{overflow-y:auto;padding:8px 0 24px}'

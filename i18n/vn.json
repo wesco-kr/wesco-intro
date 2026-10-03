@@ -121,7 +121,7 @@
  "ps.lead": "Các tập đoàn bán dẫn · màn hình · pin ghi yêu cầu chịu sụt áp thoáng qua vào spec chung khi đặt hàng thiết bị. Nhà sản xuất thiết bị cung cấp thiết bị với điều kiện đáp ứng yêu cầu này.",
  "ps.tspl1": "Vùng bù của TSP®",
  "ps.tspl2": "Đến 1 giây · điện áp còn lại 0% (mất điện 100%) — đạt quy cách",
- "ps.pvl": "Giới hạn quy cách: 1 giây · mất điện 100% (chấm dưới bên phải)",
+ "ps.pvd": "1 giây · mất điện 100%",
  "ps.okl": "Spec Samsung — phải chịu được mọi sụt áp trong vùng này",
  "ps.xl": "Thời gian (giây) — độ dài của sụt áp",
  "ps.yl": "Điện áp còn lại (% định mức) · 0 = mất điện hoàn toàn",

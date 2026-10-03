@@ -268,26 +268,31 @@ table.tb td.em{color:var(--red);font-weight:700}
 .meas .two span{display:block;font-size:14px;color:var(--muted);margin-top:6px}
 .meas .note{margin-top:14px;font-size:14px;color:var(--stone);line-height:1.55}
 /* ---- 사양서 곡선 ---- */
-.tol{width:100%;height:auto;display:block;border:1px solid var(--line);background:#FDFCF9;border-radius:6px;padding:8px}
+.tol{width:100%;height:auto;display:block;border:1px solid var(--line);background:#FDFCF9;border-radius:6px 6px 0 0;padding:8px 8px 2px}
 .tol .ok{fill:#F6F1EA}
-.tol .ax{stroke:var(--stone);stroke-width:1.5;fill:none}
+.tol .axis{stroke:var(--stone);stroke-width:1.5;fill:none}
 .tol .grid line{stroke:#E7E2DA;stroke-width:1}
-.tol .tk text{font-family:Arial,sans-serif;font-size:13px;fill:var(--muted)}
+.tol text{font-family:"Noto Sans KR",sans-serif;fill:var(--muted);stroke:none}
+.tol .tk text{font-family:Arial,sans-serif;font-size:12.5px;fill:#736D66}
 .tol path.itic{fill:none;stroke:#8A847D;stroke-width:1.5;stroke-dasharray:4 3}
 .tol path.f47{fill:none;stroke:var(--stone);stroke-width:2.5}
 .tol .f47d{fill:var(--stone)}
 .tol .tsp{fill:#FBEAE4}
 .tol .pvd{fill:var(--red)}
-.tol text.lg.tsp{fill:var(--red)}
-.tol text.lg.tsp2{fill:var(--red);font-weight:400;font-size:12.5px}
 .tol path.pv{fill:none;stroke:var(--red);stroke-width:2.5}
-.tol text.lg{font-family:Arial,"Noto Sans KR",sans-serif;font-size:14px;font-weight:700}
-.tol text.lg.pv{fill:var(--red)}
-.tol text.lg.pv2{fill:var(--red);font-weight:400;font-size:12.5px}
-.tol text.lg.f47{fill:var(--stone)}
-.tol text.lg.itic{fill:#8A847D;font-weight:400}
-.tol text.lg.ok{fill:#8A847D;font-weight:400;font-size:13px}
-.tol text.lg.ax{fill:var(--muted);font-weight:400;font-size:13px}
+.tol text.ttl{font-size:12.5px;fill:#736D66}
+.tol text.in{font-size:14px;font-weight:700;fill:var(--red)}
+.tol text.dot{font-size:12.5px;font-weight:700;fill:var(--red)}
+html[lang="zh"] .tol text{font-family:"Noto Sans SC",sans-serif}html[lang="ja"] .tol text{font-family:"Noto Sans JP",sans-serif}
+/* 261003 범례는 그래프 밖 — 선 위에 글자를 얹지 않는다 */
+.tolg{list-style:none;margin:0;padding:10px 14px 12px;border:1px solid var(--line);border-top:0;border-radius:0 0 6px 6px;background:#FDFCF9;display:grid;grid-template-columns:auto auto 1fr;gap:6px 18px}
+.tolg li{display:flex;align-items:center;gap:8px;font-size:12.5px;line-height:1.35;color:var(--body)}
+.tolg li.w{grid-column:1/-1}
+html[lang="vi"] .tolg+.note{font-size:12px;margin-top:8px}
+html[lang="vi"] .pg-spec .h{font-size:31px}
+.tolg i{flex:none;width:22px;height:12px;border-radius:2px}
+.tolg .s-tsp{background:#FBEAE4;border:1px solid #F0C9BC}.tolg .s-ok{background:#F6F1EA;border:1px solid #E7E2DA}
+.tolg .s-pv{height:0;border-top:2.5px solid var(--red);border-radius:0}.tolg .s-f47{height:0;border-top:2.5px solid var(--stone);border-radius:0}.tolg .s-itic{height:0;border-top:1.5px dashed #8A847D;border-radius:0}
 .pg-spec .pills{grid-template-columns:1fr;gap:12px}
 .pg-spec .pill{border-radius:10px;align-items:flex-start;padding:14px 18px}
 .pg-spec .pill b{margin-top:2px}
@@ -712,7 +717,7 @@ body.reflow .page{width:auto!important;height:auto!important;min-height:0;paddin
 body.reflow .page:not(.cover):not(.div):not(.back)::before{left:20px}
 body.reflow .h{font-size:24px;line-height:1.3}body.reflow .h .no{margin-right:8px}
 body.reflow .lead{font-size:14px}
-body.reflow .band{height:auto;min-height:44px;padding:10px 20px;font-size:12px;line-height:1.4;gap:12px}body.reflow .band .n{white-space:nowrap;flex:none}
+body.reflow .band{left:20px;right:20px;height:auto;min-height:44px;padding:10px 0;font-size:12px;line-height:1.4;gap:12px}body.reflow .band .n{white-space:nowrap;flex:none}
 body.reflow .grid2,body.reflow .grid3,body.reflow .cols,body.reflow .flows,body.reflow .two,body.reflow .hist .tl,body.reflow .pg-line .tiers,body.reflow .pg-line .ways,body.reflow .back .ct,body.reflow .back .next,body.reflow .lg .cig{grid-template-columns:1fr!important;gap:18px}
 body.reflow .hist .tl{gap:22px}body.reflow .hist li{font-size:12.5px}
 body.reflow .chain{grid-template-columns:1fr;gap:18px}body.reflow .chain .ch{margin-right:0}body.reflow .chain .ch::after{right:auto;left:50%;top:auto;bottom:-15px;border:6px solid transparent;border-top:8px solid #736D66;transform:translateX(-50%)}
@@ -983,22 +988,28 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
       <!-- 전압 내성 곡선. 정본 = TSP 카탈로그 p.7 「순간전압강하 보상 표준규격」. x=시간(log), y=정격 대비 잔여 전압(%).
            SEMI F47-0706 Table 1(필수) = 50%/0.2s · 70%/0.5s · 80%/1.0s. 1초 초과는 규정 없음 → 선을 1.0s 에서 끝낸다.
            ITIC/CBEMA 하한 = 0%/20ms · 70%/0.5s · 80%/10s · 90% 연속. 삼성 POWER Vaccine 은 카탈로그 곡선(0% 1초 → 90%) 그대로. -->
-      <svg class="tol" viewBox="0 0 520 300" aria-hidden="true">
+      <svg class="tol" viewBox="0 0 520 284" aria-hidden="true">
+        <text class="ttl" x="60" y="14" data-i18n="ps.yl">잔여 전압(정격 대비 %) · 0 = 완전 정전</text>
         <polygon class="ok" points="60,30 500,30 500,52 280,52 280,250 60,250"/><rect class="tsp" x="60" y="52" width="220" height="198"/>
-        <line class="ax" x1="60" y1="30" x2="60" y2="250"/><line class="ax" x1="60" y1="250" x2="500" y2="250"/>
         <g class="grid"><line x1="170" y1="30" x2="170" y2="250"/><line x1="280" y1="30" x2="280" y2="250"/><line x1="390" y1="30" x2="390" y2="250"/>
           <line x1="60" y1="140" x2="500" y2="140"/><line x1="60" y1="96" x2="500" y2="96"/><line x1="60" y1="74" x2="500" y2="74"/><line x1="60" y1="52" x2="500" y2="52"/><line x1="60" y1="30" x2="500" y2="30"/></g>
-        <g class="tk"><text x="60" y="268" text-anchor="middle">0.01</text><text x="170" y="268" text-anchor="middle">0.1</text><text x="280" y="268" text-anchor="middle">1</text><text x="390" y="268" text-anchor="middle">10</text><text x="500" y="268" text-anchor="middle">100 s</text>
-          <text x="52" y="254" text-anchor="end">0</text><text x="52" y="144" text-anchor="end">50</text><text x="52" y="100" text-anchor="end">70</text><text x="52" y="78" text-anchor="end">80</text><text x="52" y="56" text-anchor="end">90</text><text x="52" y="34" text-anchor="end">100%</text></g>
+        <line class="axis" x1="60" y1="30" x2="60" y2="250"/><line class="axis" x1="60" y1="250" x2="500" y2="250"/>
+        <g class="tk"><text x="60" y="267" text-anchor="middle">0.01</text><text x="170" y="267" text-anchor="middle">0.1</text><text x="280" y="267" text-anchor="middle">1</text><text x="390" y="267" text-anchor="middle">10</text><text x="500" y="267" text-anchor="end">100</text>
+          <text x="52" y="254" text-anchor="end">0</text><text x="52" y="144" text-anchor="end">50</text><text x="52" y="100" text-anchor="end">70</text><text x="52" y="78" text-anchor="end">80</text><text x="52" y="56" text-anchor="end">90</text><text x="52" y="34" text-anchor="end">100</text></g>
         <path class="itic" d="M60 250 H93 V96 H247 V74 H390 V52 H500"/>
         <path class="f47" d="M137 140 H203 V96 H247 V74 H280"/><circle class="f47d" cx="280" cy="74" r="3.5"/>
-        <path class="pv" d="M60 250 H280 V52 H500"/>
-        <text class="lg tsp" x="68" y="176" data-i18n="ps.tspl1">TSP® 보상 영역</text><text class="lg tsp2" x="68" y="190" data-i18n="ps.tspl2">1초 · 잔여전압 0%(100% 정전)까지 — 규격 충족</text><circle class="pvd" cx="280" cy="250" r="4"/><text class="lg pv" x="66" y="224">SAMSUNG POWER Vaccine</text><text class="lg pv2" x="66" y="239" data-i18n="ps.pvl">규격 한계점: 1초 · 100% 정전 (오른쪽 아래 점)</text>
-        <text class="lg f47" x="140" y="132">SEMI F47</text>
-        <text class="lg itic" x="300" y="68">ITIC / CBEMA</text>
-        <text class="lg ok" x="68" y="46" data-i18n="ps.okl">삼성 규격 — 이 영역의 어떤 순간정전도 견뎌야 한다</text>
-        <text class="lg ax" x="290" y="290" text-anchor="middle" data-i18n="ps.xl">지속시간(초) — 순간정전이 지속된 시간</text><text class="lg ax" x="14" y="140" text-anchor="middle" transform="rotate(-90 14 140)" data-i18n="ps.yl">잔여 전압(정격 대비 %) · 0 = 완전 정전</text>
+        <path class="pv" d="M60 250 H280 V52 H500"/><circle class="pvd" cx="280" cy="250" r="4.5"/>
+        <text class="in" x="104" y="226" data-i18n="ps.tspl1">TSP® 보상 영역</text>
+        <text class="dot" x="290" y="240" data-i18n="ps.pvd">1초 · 100% 정전</text>
+        <text class="ttl" x="500" y="282" text-anchor="end" data-i18n="ps.xl">지속시간(초) — 순간정전이 지속된 시간</text>
       </svg>
+      <ul class="tolg">
+        <li class="w"><i class="s-tsp"></i><span data-i18n="ps.tspl2">1초 · 잔여전압 0%(100% 정전)까지 — 규격 충족</span></li>
+        <li class="w"><i class="s-ok"></i><span data-i18n="ps.okl">삼성 규격 — 이 영역의 어떤 순간정전도 견뎌야 한다</span></li>
+        <li><i class="s-pv"></i><span>SAMSUNG POWER Vaccine</span></li>
+        <li><i class="s-f47"></i><span>SEMI F47</span></li>
+        <li><i class="s-itic"></i><span>ITIC / CBEMA</span></li>
+      </ul>
       <p class="note" data-i18n="ps.svgnote">세로축은 정격 대비 잔여 전압(0% = 완전 정전), 가로축은 지속시간입니다. 곡선 위쪽의 순간정전이면 장비는 멈추지 않아야 합니다. 삼성 POWER Vaccine 규격은 1초 · 100% 정전까지 요구하며, TSP®는 이 영역 전체를 보상해 규격을 충족합니다.</p>
     </div>
     <div class="pills" data-r style="--d:2">
@@ -1028,7 +1039,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
     </tbody>
   </table>
   <div class="mix" data-r style="--d:2"><b data-i18n="pu.mix">TSP® + UPS</b><span data-i18n="pu.mixd">두 장치는 서로를 대체하지 않습니다. 정전 백업이 필요한 서버·제어계는 UPS, 라인의 정밀 설비는 TSP® — 이미 UPS를 쓰는 공장에서도 TSP®는 UPS가 감당하지 않는 나머지 설비를 지킵니다.</span></div>
-  <div class="band"><span data-i18n="pu.band">장시간 정전에는 UPS, 순간전압강하에는 TSP® — 목적이 다르니 함께 쓰면 서로를 보완한다</span><span class="n">09</span></div>
+  <div class="band"><span data-i18n="pu.band">장시간 정전에는 UPS, 순간전압강하에는 TSP® — 목적이 다르니 함께 쓰면 서로를 보완한다</span><span class="n">07</span></div>
 </section>
 
 <!-- 08 장점 -->
@@ -1127,7 +1138,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
     <div class="way"><b><i>A</i><span data-i18n="p5.a">개별보상 방식</span></b><span data-i18n="p5.ad">핵심 설비 옆에 각각. 단계적 확대가 쉽고 전기실 공사가 없다.</span></div>
     <div class="way"><b><i>B</i><span data-i18n="p5.b">중앙보상 방식</span></b><span data-i18n="p5.bd">분전반·MCC 단위로 대용량 1대. 신설 라인·FAB에 유리.</span></div>
   </div>
-  <div class="band"><span data-i18n="p5.band">단상 0.5kVA부터 삼상 2,400kVA까지 — 자체 설계·생산</span><span class="n">07</span></div>
+  <div class="band"><span data-i18n="p5.band">단상 0.5kVA부터 삼상 2,400kVA까지 — 자체 설계·생산</span><span class="n">09</span></div>
 </section>
 
 <!-- 10 Sag-VIEWER -->
@@ -1155,7 +1166,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
       </div>
     </div>
   </div>
-  <div class="band"><span data-i18n="p7.band">사고가 데이터로 남는다 — 보상 이력·파형·전력량까지 한 화면에</span><span class="n">11</span></div>
+  <div class="band"><span data-i18n="p7.band">사고가 데이터로 남는다 — 보상 이력·파형·전력량까지 한 화면에</span><span class="n">10</span></div>
 </section>
 
 <!-- 11 개별보상 · 중앙보상 -->
@@ -1221,7 +1232,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
     </div>
   </div>
   <div class="mix" data-r style="--d:3"><b data-i18n="pc.mix">A + B</b><span data-i18n="pc.mixd">설비 수 · 전기실 여유 · 투자 단계에 따라 두 방식을 조합합니다. 핵심 설비는 개별, 라인은 중앙 — 한 브랜드 안에서 설계되므로 감시(Sag-VIEWER™)도 하나로 묶입니다.</span></div>
-  <div class="band"><span data-i18n="pc.band">한 대씩도, 한 번에도 — 라인업이 넓어야 현장에 맞는 답을 고를 수 있다</span><span class="n">10</span></div>
+  <div class="band"><span data-i18n="pc.band">한 대씩도, 한 번에도 — 라인업이 넓어야 현장에 맞는 답을 고를 수 있다</span><span class="n">11</span></div>
 </section>
 
 <!-- 12 글로벌 레퍼런스 -->
@@ -1294,7 +1305,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
 <div class="pnav" id="pnav"><button type="button" id="pprev" aria-label="prev">‹</button><span id="ppg">1 / 13</span><button type="button" id="pnext" aria-label="next">›</button><button type="button" id="pexit" aria-label="exit">ESC</button></div>
 
 
-<script src="launcher.js?v=1" data-mount="#sites-mount"></script>
+<script src="launcher.js?v=2" data-mount="#sites-mount"></script>
 <script>
 (function(){
   var pages=[].slice.call(document.querySelectorAll('.page'));

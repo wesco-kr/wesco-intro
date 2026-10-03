@@ -121,7 +121,7 @@
  "ps.lead": "Major semiconductor, display and battery makers write sag immunity into their common equipment specifications. Tool makers supply their equipment on the condition that it meets this requirement.",
  "ps.tspl1": "TSP® coverage",
  "ps.tspl2": "Up to 1 s at 0 % residual (100 % outage) — spec met",
- "ps.pvl": "Spec limit: 1 s · 100 % outage (dot at lower right)",
+ "ps.pvd": "1 s · 100 % outage",
  "ps.okl": "Samsung spec — any sag in this area must be ridden through",
  "ps.xl": "Duration (s) — how long the sag lasts",
  "ps.yl": "Residual voltage (% of nominal) · 0 = full outage",
