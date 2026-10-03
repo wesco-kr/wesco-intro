@@ -270,6 +270,27 @@ body.effects-off .sld .rb-a1,body.effects-off .sld .rb-a2,body.effects-off .sld 
 .sld .rb-msg.c{fill:var(--red);opacity:0}
 .sld[data-phase="comp"] .rb-msg{opacity:0}.sld[data-phase="comp"] .rb-msg.c{opacity:1}
 .sld .slow{letter-spacing:0}
+/* 하나의 경로를 글로우와 입자가 공유: EDLC → 인버터 → TR → MC → 모선 → OUT → 로봇. */
+.sld .energy{visibility:hidden;pointer-events:none}
+.sld[data-phase="comp"] .energy{visibility:visible}
+.sld .energy-halo{fill:none;stroke:#E1431B;stroke-width:12;stroke-linejoin:round;stroke-linecap:round;opacity:.14}
+.sld .energy-line{fill:none;stroke:#E1431B;stroke-width:3;opacity:.4}
+.sld .energy-dot{fill:#E1431B;stroke:#FDFCF9;stroke-width:1.5;filter:drop-shadow(0 0 4px #E1431B);offset-path:url(#sld-energy-route);offset-rotate:0deg;opacity:0}
+/* offset-path:url() 미지원 브라우저(Chrome<116·iOS<17)에선 입자가 (0,0)에 뜨므로 지원할 때만 움직인다 — 글로우·맥동은 그대로 */
+@supports (offset-path:url(#sld-energy-route)){
+.sld[data-phase="comp"] .energy-dot{animation:sld-energy 1.2s linear .2s infinite}
+.sld[data-phase="comp"] .energy-dot.second{animation-delay:.8s}
+}
+@keyframes sld-energy{0%{offset-distance:0%;opacity:0}5%,95%{opacity:1}100%{offset-distance:100%;opacity:0}}
+.sld .energy-arrival{fill:#E1431B;fill-opacity:.08;stroke:#E1431B;stroke-width:2;stroke-opacity:.5}
+/* 첫 입자는 .2 + 1.2초에 도착하고, 이후 .6초 간격으로 받침에 에너지를 전달한다. 팔의 transform에는 관여하지 않는다. */
+.sld[data-phase="comp"] .energy-arrival{animation:sld-arrival .6s ease-out 1.4s infinite}
+@keyframes sld-arrival{0%{fill-opacity:.32;stroke-opacity:1;filter:drop-shadow(0 0 5px #E1431B)}100%{fill-opacity:.08;stroke-opacity:.5;filter:drop-shadow(0 0 0 transparent)}}
+.sld[data-phase="comp"] .cap{filter:drop-shadow(0 0 4px #E1431B)}
+.sld .sld-caption{display:none}
+body.effects-off .sld .energy-dot{animation:none;opacity:0}
+body.effects-off .sld .energy-arrival{animation:none}
+@media(prefers-reduced-motion:reduce){.sld .energy-dot{animation:none;opacity:0}.sld .energy-arrival{animation:none}}
 /* ---- HMI 목업 ---- */
 /* ---- 라인업 ---- */
 .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -764,6 +785,19 @@ body.reflow .hist .tl{gap:22px}body.reflow .hist li{font-size:12.5px}
 body.reflow .chain{grid-template-columns:1fr;gap:18px}body.reflow .chain .ch{margin-right:0}body.reflow .chain .ch::after{right:auto;left:50%;top:auto;bottom:-15px;border:6px solid transparent;border-top:8px solid #736D66;transform:translateX(-50%)}
 body.reflow .card .pcol{display:block}body.reflow .card .pcol .photo{width:100%;height:auto;aspect-ratio:4/3;margin-bottom:14px}
 body.reflow .page svg,body.reflow .page img{max-width:100%}
+/* 8쪽 단선도: 실제 CSS px로 읽는 핵심 정보. 발표 판형에는 적용하지 않는다. */
+body.reflow:not(.present) #sld{min-width:0;min-height:0;padding:14px 6px 12px}
+body.reflow:not(.present) #sld .state{position:static;width:fit-content;max-width:100%;margin:0 6px 10px;padding:5px 8px;font-size:13px;line-height:1.5;letter-spacing:0;overflow-wrap:anywhere}
+body.reflow:not(.present) #sld svg .rb-msg,body.reflow:not(.present) #sld svg .badge,body.reflow:not(.present) #sld svg .slow,body.reflow:not(.present) #sld svg .sld-note,body.reflow:not(.present) #sld svg .lv,body.reflow:not(.present) #sld svg .lv-bg{display:none}
+body.reflow:not(.present) #sld .sld-caption{display:grid;gap:8px;padding:10px 6px 0;border-top:1px solid var(--line);color:var(--stone);font-size:13px;line-height:1.5;overflow-wrap:anywhere}
+#sld .sld-load{font-size:14px;font-weight:700}
+#sld .sld-charge{display:flex;align-items:center;flex-wrap:wrap;gap:6px 10px}
+#sld .sld-meter{display:inline-block;width:72px;height:10px;padding:2px;border:1px solid #8A847D;flex:none}
+#sld .sld-meter-fill{display:block;width:100%;height:100%;background:var(--stone);transform-origin:left center;transition:transform 1.6s ease-out}
+#sld[data-phase="comp"] .sld-meter-fill{background:#E1431B;transform:scaleX(.3);transition:transform 3s linear}
+#sld[data-phase="comp"] .sld-load,#sld[data-phase="comp"] .sld-edlc{color:#E1431B}
+#sld .sld-spec{font-size:13px;font-weight:700}
+#sld .sld-timing{font-size:12px;color:var(--muted)}
 body.reflow .pg-line .tier .ph{height:180px}
 body.reflow .lg .cig .logos img{height:16px;max-width:90px}
 body.reflow .net .mapwrap{position:relative;left:auto;top:auto;width:100%;margin:8px 0 12px}body.reflow .net .ctry{position:static;width:auto}body.reflow .net .leg{position:static;margin-top:12px}
@@ -1107,6 +1141,8 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
            보상경로는 부하측 모선에 붙는다: UC(EDLC) → 인버터 → TR → MC → 모선. 정전 시 SCR OFF 후 인버터가 부하를 맡는다.
            수동 바이패스(MCCB)는 정비용으로 SCR 위에 병렬. 블록도가 아니라 전기 심볼로 그린다. -->
       <svg viewBox="0 0 640 330">
+        <defs><path id="sld-energy-route" d="M330 277 V100 H576 V118"/></defs>
+        <g class="energy" aria-hidden="true"><use class="energy-halo" href="#sld-energy-route"/><use class="energy-line" href="#sld-energy-route"/></g>
         <!-- 전원 -->
         <circle class="pulse" cx="34" cy="100" r="15"/><circle class="pulse p2" cx="34" cy="100" r="15"/>
         <circle class="sym srcc" cx="34" cy="100" r="15"/>
@@ -1173,8 +1209,19 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
         <path class="ctl" d="M230 230 H300"/><text class="lbl sm" x="265" y="226" text-anchor="middle">PWM</text>
         <!-- 상태 표시 -->
         <g class="badge"><rect x="372" y="156" width="232" height="28" rx="14" fill="#E1431B"/><text x="488" y="175" text-anchor="middle" fill="#FDFCF9" font-size="12.5" font-weight="700" font-family="Arial" data-i18n="p6.badge">2ms 절체 · 1~3초 보상</text></g>
-        <text class="lbl" x="18" y="322" data-i18n="p6.svgnote">평상시 SCR 통전(바이패스)  ·  정전 시 SCR 차단 → EDLC · 인버터 · TR 로 부하 공급</text>
+        <text class="lbl sld-note" x="18" y="322" data-i18n="p6.svgnote">평상시 SCR 통전(바이패스)  ·  정전 시 SCR 차단 → EDLC · 인버터 · TR 로 부하 공급</text>
+        <g class="energy" aria-hidden="true">
+          <rect class="energy-arrival" x="563" y="91" width="26" height="40" rx="4"/>
+          <circle class="energy-dot" r="4.5"/><circle class="energy-dot second" r="4.5"/>
+        </g>
       </svg>
+      <div class="sld-caption">
+        <div class="sld-load" id="sldload" data-i18n="p6.load">설비 정상 가동</div>
+        <div class="sld-charge"><span data-i18n="p6.level">EDLC 잔량(예시)</span><span class="sld-meter" aria-hidden="true"><i class="sld-meter-fill"></i></span></div>
+        <div class="sld-edlc" id="sldedlc" data-i18n="p6.edlcReady">EDLC 충전 완료 · 대기</div>
+        <div class="sld-spec" data-i18n="p6.badge">2ms 절체 · 1~3초 보상</div>
+        <div class="sld-timing" data-i18n="p6.slow">동작 이해를 위한 시간 확대</div>
+      </div>
     </div>
     <div class="pills" data-r style="grid-template-columns:1fr;--d:2">
       <div class="pill"><b>1</b><span data-i18n="p6.p1">2ms 절체 · 1~3초 보상 <small data-i18n="p6.p1s">SCR 차단→EDLC 전환, 복전 후 바이패스 복귀 모두 2ms 이내 · 정격 전압 100%</small></span></div>
@@ -1474,7 +1521,13 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
     var WN='M23 100 q5.5 -10 11 0 t11 0',WS='M23 100 q5.5 -2.5 11 0 t11 0';
     var P=[['normal',3600,'p6.st1','평상시 · SCR 통전(바이패스)',WN],['sag',1100,'p6.st2','전압 강하 감지',WS],['comp',3000,'p6.st3','SCR 차단 → EDLC 보상',WS],['recover',1600,'p6.st4','계통 복귀 · EDLC 재충전',WN]];
     var i=0,timer=null,seen=false;
-    function label(){var d=window.__dict||{},p=P[i];st.textContent=d[p[2]]||p[3]}
+    var load=document.getElementById('sldload'),edlc=document.getElementById('sldedlc');
+    var E=[['p6.edlcReady','EDLC 충전 완료 · 대기'],['p6.edlcReady','EDLC 충전 완료 · 대기'],['p6.edlcDischarge','EDLC 방전 중 → 부하설비에 공급'],['p6.edlcRecharge','계통 전원 → EDLC 재충전 중']];
+    function label(){
+      var d=window.__dict||{},p=P[i],lk=i===2?'p6.loadc':'p6.load';st.textContent=d[p[2]]||p[3];
+      load.setAttribute('data-i18n',lk);load.textContent=d[lk]||(i===2?'정전 중에도 계속 가동':'설비 정상 가동');
+      edlc.setAttribute('data-i18n',E[i][0]);edlc.textContent=d[E[i][0]]||E[i][1];
+    }
     function set(k){i=k;var p=P[k];sld.setAttribute('data-phase',p[0]);w.setAttribute('d',p[4]);label()}
     var fixed=new URLSearchParams(location.search).get('phase'),fi=P.map(function(p){return p[0]}).indexOf(fixed);
     function stop(){clearTimeout(timer);timer=null}
