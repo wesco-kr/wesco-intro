@@ -1,0 +1,149 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Momentary Outage Compensator: Types and Selection Criteria</title><meta name="description" content="A momentary outage compensator (voltage sag protector) bridges short voltage dips to protect sensitive loads. Compare UPS, DVR and battery-free TSP by energy storage, operation mode and maintenance, then choose by load class and installation level."><link rel="canonical" href="https://intro.wesco.works/blog/en/momentary-outage-compensator-guide/"><link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/momentary-outage-compensator-guide/"><link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/momentary-outage-compensator-guide/"><link rel="alternate" hreflang="x-default" href="https://intro.wesco.works/blog/momentary-outage-compensator-guide/"><meta property="og:type" content="article"><meta property="og:title" content="Momentary Outage Compensator: Types and Selection Criteria"><meta property="og:description" content="A momentary outage compensator (voltage sag protector) bridges short voltage dips to protect sensitive loads. Compare UPS, DVR and battery-free TSP by energy storage, operation mode and maintenance, then choose by load class and installation level."><meta property="og:url" content="https://intro.wesco.works/blog/en/momentary-outage-compensator-guide/"><meta property="og:image" content="https://intro.wesco.works/images/og-image.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Momentary Outage Compensator: Types and Selection Criteria"><meta name="twitter:description" content="A momentary outage compensator (voltage sag protector) bridges short voltage dips to protect sensitive loads. Compare UPS, DVR and battery-free TSP by energy storage, operation mode and maintenance, then choose by load class and installation level."><meta name="twitter:image" content="https://intro.wesco.works/images/og-image.jpg"><link rel="icon" type="image/x-icon" href="https://intro.wesco.works/favicon.ico"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"><style>
+:root{
+  --c-red:#C13816; --c-red-dk:#9C2C10; --c-red-lt:#FBEEE8;
+  --c-head:#2C2924; --c-text:#4A4641; --c-gray:#78716C; --c-gray-lt:#A8A29E;
+  --c-bg:#FDFCF9; --c-bg-soft:#F7F4EE; --c-divider:#E0DBD3; --c-accent:#4F6886;
+  --font-ko:'Noto Sans KR','맑은 고딕',sans-serif;
+  --font-en:'Inter',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font-ko);color:var(--c-text);background:var(--c-bg);
+  line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:var(--c-red);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+
+/* 상단바 */
+.topbar{border-bottom:1px solid var(--c-divider);background:var(--c-bg)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center}
+.brand img{height:22px;width:auto;display:block}
+.topnav a{color:var(--c-gray);font-size:14px;font-weight:500;margin-left:22px}
+.topnav a:hover{color:var(--c-red);text-decoration:none}
+
+/* 글 헤더 */
+.post-head{padding:56px 0 34px;border-bottom:1px solid var(--c-divider)}
+.post-head .kicker{font-family:var(--font-en);font-size:12px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--c-red)}
+.post-head h1{font-size:34px;line-height:1.32;color:var(--c-head);
+  font-weight:700;margin:14px 0 12px;letter-spacing:-.01em}
+.post-head .sub{font-size:18px;color:var(--c-gray);font-weight:400;line-height:1.6}
+.post-meta{margin-top:20px;font-size:13px;color:var(--c-gray-lt);
+  font-family:var(--font-en);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.post-meta .lang-toggle{border:1px solid var(--c-divider);border-radius:100px;
+  padding:3px 12px;font-weight:600;color:var(--c-gray)}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tags .tag{background:var(--c-bg-soft);color:var(--c-gray);border:1px solid var(--c-divider);
+  border-radius:100px;padding:3px 11px;font-size:12px;font-family:var(--font-ko)}
+
+/* 본문 */
+.post-body{padding:38px 0 10px}
+.post-body h2{font-size:23px;color:var(--c-head);font-weight:700;
+  margin:44px 0 16px;letter-spacing:-.01em;line-height:1.4}
+.post-body h3{font-size:19px;color:var(--c-head);font-weight:700;margin:30px 0 12px}
+.post-body p{margin:0 0 20px}
+.post-body ul,.post-body ol{margin:0 0 22px;padding-left:22px}
+.post-body li{margin:0 0 9px}
+.post-body strong{color:var(--c-head);font-weight:700}
+.post-body em{font-style:normal;color:var(--c-gray)}
+.post-body hr{border:0;border-top:1px solid var(--c-divider);margin:40px 0}
+.post-body blockquote{border-left:3px solid var(--c-red);padding:2px 0 2px 18px;
+  margin:0 0 22px;color:var(--c-gray)}
+.post-body img{max-width:100%;height:auto;border-radius:10px;margin:8px 0 24px}
+
+/* FAQ */
+.faq{margin-top:8px}
+.faq dt{font-weight:700;color:var(--c-head);margin:22px 0 8px}
+.faq dd{margin:0 0 8px;color:var(--c-text)}
+
+/* CTA */
+.cta{margin:44px 0 0;background:var(--c-bg-soft);border:1px solid var(--c-divider);
+  border-radius:14px;padding:28px 30px}
+.cta h4{font-size:18px;color:var(--c-head);margin-bottom:8px}
+.cta p{font-size:15px;color:var(--c-gray);margin-bottom:16px}
+.cta a.btn{display:inline-block;background:var(--c-red);color:#fff;font-weight:600;
+  font-size:15px;padding:11px 22px;border-radius:8px}
+.cta a.btn:hover{background:var(--c-red-dk);text-decoration:none}
+.cta a.btn-ghost{background:transparent;color:var(--c-red);border:1px solid var(--c-red);margin-left:8px}
+.cta a.btn-ghost:hover{background:var(--c-red);color:#fff}
+
+/* 영상 · 관련 글 */
+.video{position:relative;padding-top:56.25%;margin:8px 0 28px;border-radius:10px;overflow:hidden;background:var(--c-bg-soft)}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.related{margin-top:44px}
+.related h2{font-size:20px;color:var(--c-head);margin-bottom:6px}
+.related a.rel{display:block;padding:12px 0;border-bottom:1px solid var(--c-divider);color:var(--c-head);font-weight:500}
+.related .product{margin-top:16px;font-size:15px;color:var(--c-gray)}
+
+/* 푸터 */
+.foot{margin-top:64px;border-top:1px solid var(--c-divider);
+  padding:30px 0 60px;color:var(--c-gray-lt);font-size:13px;text-align:center}
+.foot a{color:var(--c-gray)}
+
+/* 목록 */
+.list-head{padding:56px 0 14px}
+.list-head h1{font-size:30px;color:var(--c-head);font-weight:700}
+.list-head p{color:var(--c-gray);margin-top:8px}
+.list-head .lang-toggle{display:inline-block;margin-top:14px;border:1px solid var(--c-divider);
+  border-radius:100px;padding:4px 14px;font-size:13px;font-weight:600;color:var(--c-gray)}
+.card{display:block;padding:26px 0;border-bottom:1px solid var(--c-divider)}
+.card:hover{text-decoration:none}
+.card .kicker{font-family:var(--font-en);font-size:11px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--c-red)}
+.card h2{font-size:22px;color:var(--c-head);font-weight:700;margin:8px 0 8px;line-height:1.4}
+.card p{color:var(--c-gray);font-size:15px}
+.card .date{font-family:var(--font-en);font-size:12px;color:var(--c-gray-lt);margin-top:10px}
+
+@media(max-width:600px){
+  body{font-size:16px}
+  .post-head h1{font-size:27px}
+  .post-head .sub{font-size:16px}
+  .post-body h2{font-size:20px}
+}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Momentary Outage Compensator: Types and Selection Criteria", "description": "A momentary outage compensator (voltage sag protector) bridges short voltage dips to protect sensitive loads. Compare UPS, DVR and battery-free TSP by energy storage, operation mode and maintenance, then choose by load class and installation level.", "datePublished": "2026-10-03", "dateModified": "2026-10-03", "inLanguage": "en", "mainEntityOfPage": "https://intro.wesco.works/blog/en/momentary-outage-compensator-guide/", "author": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}, "publisher": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How is a momentary outage compensator different from a UPS?", "acceptedAnswer": {"@type": "Answer", "text": "A UPS supplies the whole load from batteries during an outage, while a momentary outage compensator targets short voltage sags and carries the load only through the dip. WESCO's TSP is a voltage sag compensator, not a UPS, and uses EDLC ultracapacitors instead of batteries."}}, {"@type": "Question", "name": "Where should a momentary outage compensator be installed?", "acceptedAnswer": {"@type": "Answer", "text": "Installation can be at whole-plant level, panel level, equipment level, or built into the equipment control section. Panel-level protection often gives the best balance of coverage and management effort for a zone with several voltage-sensitive machines."}}, {"@type": "Question", "name": "What voltage range does the TSP cover?", "acceptedAnswer": {"@type": "Answer", "text": "TSP is designed for low-voltage (LV) systems at 1 kV and below. Systems at 3.3 kV and above are outside WESCO's scope, so the system voltage should be confirmed at the design stage."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoObject", "name": "순간정전보상장치 TSP® 제품소개 FULL 3D | 웨스코(WESCO) 순간전압강하 완벽 해결", "description": "A momentary outage compensator (voltage sag protector) bridges short voltage dips to protect sensitive loads. Compare UPS, DVR and battery-free TSP by energy storage, operation mode and maintenance, then choose by load class and installation level.", "thumbnailUrl": "https://i.ytimg.com/vi/Qmalmk-D_A8/hqdefault.jpg", "uploadDate": "2021-11-03", "embedUrl": "https://www.youtube.com/embed/Qmalmk-D_A8", "contentUrl": "https://www.youtube.com/watch?v=Qmalmk-D_A8"}</script></head><body><header class="topbar"><div class="wrap"><a class="brand" href="https://intro.wesco.works/"><img src="https://intro.wesco.works/images/wesco_wordmark.png" alt="WESCO" width="119" height="22"></a><nav class="topnav"><a href="https://intro.wesco.works/">Home</a><a href="https://intro.wesco.works/blog/en/">Insights</a></nav></div></header><section class="post-head"><div class="wrap"><div class="kicker">WESCO Insight</div><h1>Momentary Outage Compensator: Types and Selection Criteria</h1><p class="sub">Voltage sag mitigation is not only about UPS. Here is how the main approaches differ and how to choose by load class</p><div class="post-meta"><span>2026-10-03</span><div class="tags"><span class="tag">momentary outage compensator</span><span class="tag">voltage sag</span><span class="tag">battery-free voltage sag protector</span><span class="tag">EDLC</span><span class="tag">power quality</span></div><a class="lang-toggle" href="https://intro.wesco.works/blog/momentary-outage-compensator-guide/">한국어</a></div></div></section><article class="post-body"><div class="wrap"><p>A momentary outage compensator, also called a voltage sag protector, supplies energy during a short voltage sag so that sensitive equipment does not drop out. Common approaches include UPS, DVR, and WESCO&rsquo;s TSP®, which differ in how they store energy, how they operate in normal conditions, and how much maintenance they require. The right choice starts with knowing which voltage disturbances your load can tolerate, not with the device name.</p>
+<p>Voltage sags occur more often than many plants expect. Grid faults, lightning, and large loads switching on nearby can drop voltage for a few cycles to a few hundred milliseconds. In semiconductor or precision control equipment, that brief event can halt a process or scrap product. An IEEE study reports roughly 60 to 70 voltage sags per year at a typical industrial site.</p>
+<h2>Three common approaches to sag mitigation</h2>
+<p>Most plants evaluate three options: UPS, DVR, and TSP. All three address voltage disturbances, but each covers a different scope.</p>
+<ul>
+<li><strong>UPS (uninterruptible power supply)</strong>: Supplies the full load from batteries. It can carry long outages, so its protection scope is the widest, but batteries need regular inspection and replacement.</li>
+<li><strong>DVR (dynamic voltage restorer)</strong>: Injects the missing voltage to hold the load voltage. Its storage design and capacity determine both coverage and maintenance burden.</li>
+<li><strong>TSP® (The Second Power)</strong>: A voltage sag compensator that uses EDLC ultracapacitors as its energy store. It runs without batteries, and its energy storage is designed for a 10-year service life, so routine battery replacement is not required.</li>
+</ul>
+<p>TSP is not a substitute for UPS. It is designed to compensate voltage sags, not to ride through long outages. Compensation lasts 1 to 3 seconds for small and medium capacities and about 3 seconds for large capacities. Transfer time is within 2 ms: the SCR disconnects from the grid and the EDLC takes over, then the unit returns to standby bypass after power restores.</p>
+<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/Qmalmk-D_A8" title="순간정전보상장치 TSP® 제품소개 FULL 3D | 웨스코(WESCO) 순간전압강하 완벽 해결" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div><h2>Operating mode and maintenance compared</h2>
+<p>The differences show up most clearly in normal operation and in what must be serviced over time.</p>
+<ol>
+<li><strong>Energy storage</strong>: UPS uses batteries, whose life shortens with temperature and cycling. TSP uses EDLC ultracapacitors.</li>
+<li><strong>Normal operation</strong>: TSP keeps the SCR conducting in bypass, passing grid power straight to the load. When a sag is detected, it separates from the grid and switches to EDLC discharge.</li>
+<li><strong>Maintenance</strong>: UPS batteries need periodic checks and replacement. With a 10-year design life for the EDLC storage, TSP has no battery replacement cycle, which reduces long-term operating burden.</li>
+</ol>
+<p>In fabs where battery replacement itself is a significant task, this difference feeds directly into total cost of ownership.</p>
+<h2>Selection criteria: grouping loads by class</h2>
+<p>Not every machine needs the same device. Sorting loads into classes separates the ones that need UPS from the ones where sag compensation is the core requirement.</p>
+<ul>
+<li><strong>Class 1: Loads that must run through long outages</strong>: Servers and critical control systems typically need a UPS to cover sustained interruptions.</li>
+<li><strong>Class 2: Loads sensitive to sags but tolerant of brief outages</strong>: Precision control equipment and process control units are usually well matched to a momentary outage compensator.</li>
+<li><strong>Class 3: Loads with limited impact</strong>: Equipment that tolerates voltage dips can run without added compensation, or be protected selectively.</li>
+</ul>
+<p>A plant with many Class 2 loads often gets better value from sag compensation combined with targeted UPS than from a full UPS rollout.</p>
+<h2>Choosing the installation level</h2>
+<p>Protection scope depends on where the device sits. Consider both how the loads are distributed and how the site is managed.</p>
+<ul>
+<li><strong>Whole plant</strong>: Protects everything at the service entrance. Fewer units, but each one is larger and covers more load.</li>
+<li><strong>Panel level</strong>: Groups voltage-sensitive equipment on a distribution board. It balances management effort and cost, and is the most common starting point.</li>
+<li><strong>Equipment level</strong>: Installs directly on a single machine. Scope is clear, but more units mean more points to manage.</li>
+<li><strong>Built into the equipment control section</strong>: Adds compensation inside the machine to strengthen its own sag tolerance. This requires coordination with the equipment manufacturer.</li>
+</ul>
+<p>For sites with distributed equipment, a common path is to start with panel-level protection and add equipment-level units only where sensitivity is highest.</p>
+<h2>Checking the equipment&rsquo;s tolerance</h2>
+<p>Start from what the equipment can tolerate, not from device specifications. For semiconductor tools, SEMI F47 defines sag ride-through points: 80% voltage for 1 second, 70% for 0.5 seconds, and 50% for 0.2 seconds. The ITIC (CBEMA) curve publishes a broader tolerance envelope for equipment voltage over time.</p>
+<p>If the equipment specification includes these limits, compare the compensator&rsquo;s hold-up time against the equipment&rsquo;s required ride-through. If the device cannot cover the required duration, consider a larger unit or added control-side protection.</p>
+<h2>Key takeaways</h2>
+<ul>
+<li>A momentary outage compensator bridges short voltage sags. Its purpose and coverage differ from a UPS.</li>
+<li>UPS, DVR, and TSP differ in energy storage, normal-mode operation, and maintenance burden.</li>
+<li>Sort loads by sensitivity to sags versus need for long-outage backup before choosing a device.</li>
+<li>Match the installation level (whole plant, panel, equipment, or built-in) to where the sensitive loads are.</li>
+<li>TSP is a low-voltage (1 kV and below) product, so confirm the system voltage before specifying it.</li>
+</ul><h2>Frequently Asked Questions</h2><dl class="faq"><dt>Q. How is a momentary outage compensator different from a UPS?</dt><dd>A UPS supplies the whole load from batteries during an outage, while a momentary outage compensator targets short voltage sags and carries the load only through the dip. WESCO&#x27;s TSP is a voltage sag compensator, not a UPS, and uses EDLC ultracapacitors instead of batteries.</dd><dt>Q. Where should a momentary outage compensator be installed?</dt><dd>Installation can be at whole-plant level, panel level, equipment level, or built into the equipment control section. Panel-level protection often gives the best balance of coverage and management effort for a zone with several voltage-sensitive machines.</dd><dt>Q. What voltage range does the TSP cover?</dt><dd>TSP is designed for low-voltage (LV) systems at 1 kV and below. Systems at 3.3 kV and above are outside WESCO&#x27;s scope, so the system voltage should be confirmed at the design stage.</dd></dl><div class="cta"><h4>Need protection against voltage sags?</h4><p>WESCO has manufactured battery-free voltage sag protectors (TSP&reg;) for 25 years. We can help you size and deploy the right unit for your line.</p><a class="btn" href="https://tsp.wesco.works/en/?s=blog-momentary-outage-compensator-guide">Request a quote</a><a class="btn btn-ghost" href="mailto:wesco@wesco.co.kr?subject=%5Bblog%3Amomentary-outage-compensator-guide%5D%20TSP%20inquiry">Email us</a></div><div class="related"><h2>Related posts</h2><a class="rel" href="https://intro.wesco.works/blog/en/momentary-power-outage/">Momentary Power Outage: Causes, Damage, and Factory Countermeasures</a><a class="rel" href="https://intro.wesco.works/blog/en/summer-lightning-season/">Lightning Season Prep: What Factories Should Do Before Summer Storms</a><a class="rel" href="https://intro.wesco.works/blog/en/faq-voltage-sag-basics/">Voltage Sag FAQ: The Questions Engineers Ask Most</a><p class="product">TSP® principle and specifications: <a href="https://intro.wesco.works/battery-free-voltage-sag-protection.html">Battery-free voltage sag protection (TSP®)</a></p></div></div></article><footer class="foot"><div class="wrap">© WESCO Co., Ltd. · Voltage Sag Protector Manufacturer · <a href="https://www.wesco.co.kr">www.wesco.co.kr</a></div></footer></body></html>
