@@ -1,0 +1,174 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Voltage Sag vs Momentary Outage Difference: How to Tell Them Apart in the Field</title><meta name="description" content="A voltage sag is a short drop in voltage magnitude that recovers, while a momentary outage takes voltage to near zero. This guide compares duration, perception, frequency and equipment impact to tell them apart."><link rel="canonical" href="https://intro.wesco.works/blog/en/outage-vs-voltage-sag/"><link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/outage-vs-voltage-sag/"><link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/outage-vs-voltage-sag/"><link rel="alternate" hreflang="x-default" href="https://intro.wesco.works/blog/outage-vs-voltage-sag/"><meta property="og:type" content="article"><meta property="og:title" content="Voltage Sag vs Momentary Outage Difference: How to Tell Them Apart in the Field"><meta property="og:description" content="A voltage sag is a short drop in voltage magnitude that recovers, while a momentary outage takes voltage to near zero. This guide compares duration, perception, frequency and equipment impact to tell them apart."><meta property="og:url" content="https://intro.wesco.works/blog/en/outage-vs-voltage-sag/"><meta property="og:image" content="https://intro.wesco.works/images/og-image.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Voltage Sag vs Momentary Outage Difference: How to Tell Them Apart in the Field"><meta name="twitter:description" content="A voltage sag is a short drop in voltage magnitude that recovers, while a momentary outage takes voltage to near zero. This guide compares duration, perception, frequency and equipment impact to tell them apart."><meta name="twitter:image" content="https://intro.wesco.works/images/og-image.jpg"><link rel="icon" type="image/x-icon" href="https://intro.wesco.works/favicon.ico"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"><style>
+:root{
+  --c-red:#C13816; --c-red-dk:#9C2C10; --c-red-lt:#FBEEE8;
+  --c-head:#2C2924; --c-text:#4A4641; --c-gray:#78716C; --c-gray-lt:#A8A29E;
+  --c-bg:#FDFCF9; --c-bg-soft:#F7F4EE; --c-divider:#E0DBD3; --c-accent:#4F6886;
+  --font-ko:'Noto Sans KR','맑은 고딕',sans-serif;
+  --font-en:'Inter',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font-ko);color:var(--c-text);background:var(--c-bg);
+  line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:var(--c-red);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+
+/* 상단바 */
+.topbar{border-bottom:1px solid var(--c-divider);background:var(--c-bg)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center}
+.brand img{height:22px;width:auto;display:block}
+.topnav a{color:var(--c-gray);font-size:14px;font-weight:500;margin-left:22px}
+.topnav a:hover{color:var(--c-red);text-decoration:none}
+
+/* 글 헤더 */
+.post-head{padding:56px 0 34px;border-bottom:1px solid var(--c-divider)}
+.post-head .kicker{font-family:var(--font-en);font-size:12px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--c-red)}
+.post-head h1{font-size:34px;line-height:1.32;color:var(--c-head);
+  font-weight:700;margin:14px 0 12px;letter-spacing:-.01em}
+.post-head .sub{font-size:18px;color:var(--c-gray);font-weight:400;line-height:1.6}
+.post-meta{margin-top:20px;font-size:13px;color:var(--c-gray-lt);
+  font-family:var(--font-en);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.post-meta .lang-toggle{border:1px solid var(--c-divider);border-radius:100px;
+  padding:3px 12px;font-weight:600;color:var(--c-gray)}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tags .tag{background:var(--c-bg-soft);color:var(--c-gray);border:1px solid var(--c-divider);
+  border-radius:100px;padding:3px 11px;font-size:12px;font-family:var(--font-ko)}
+
+/* 본문 */
+.post-body{padding:38px 0 10px}
+.post-body h2{font-size:23px;color:var(--c-head);font-weight:700;
+  margin:44px 0 16px;letter-spacing:-.01em;line-height:1.4}
+.post-body h3{font-size:19px;color:var(--c-head);font-weight:700;margin:30px 0 12px}
+.post-body p{margin:0 0 20px}
+.post-body ul,.post-body ol{margin:0 0 22px;padding-left:22px}
+.post-body li{margin:0 0 9px}
+.post-body strong{color:var(--c-head);font-weight:700}
+.post-body em{font-style:normal;color:var(--c-gray)}
+.post-body hr{border:0;border-top:1px solid var(--c-divider);margin:40px 0}
+.post-body blockquote{border-left:3px solid var(--c-red);padding:2px 0 2px 18px;
+  margin:0 0 22px;color:var(--c-gray)}
+.post-body img{max-width:100%;height:auto;border-radius:10px;margin:8px 0 24px}
+
+/* FAQ */
+.faq{margin-top:8px}
+.faq dt{font-weight:700;color:var(--c-head);margin:22px 0 8px}
+.faq dd{margin:0 0 8px;color:var(--c-text)}
+
+/* CTA */
+.cta{margin:44px 0 0;background:var(--c-bg-soft);border:1px solid var(--c-divider);
+  border-radius:14px;padding:28px 30px}
+.cta h4{font-size:18px;color:var(--c-head);margin-bottom:8px}
+.cta p{font-size:15px;color:var(--c-gray);margin-bottom:16px}
+.cta a.btn{display:inline-block;background:var(--c-red);color:#fff;font-weight:600;
+  font-size:15px;padding:11px 22px;border-radius:8px}
+.cta a.btn:hover{background:var(--c-red-dk);text-decoration:none}
+.cta a.btn-ghost{background:transparent;color:var(--c-red);border:1px solid var(--c-red);margin-left:8px}
+.cta a.btn-ghost:hover{background:var(--c-red);color:#fff}
+
+/* 영상 · 관련 글 */
+.video{position:relative;padding-top:56.25%;margin:8px 0 28px;border-radius:10px;overflow:hidden;background:var(--c-bg-soft)}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.related{margin-top:44px}
+.related h2{font-size:20px;color:var(--c-head);margin-bottom:6px}
+.related a.rel{display:block;padding:12px 0;border-bottom:1px solid var(--c-divider);color:var(--c-head);font-weight:500}
+.related .product{margin-top:16px;font-size:15px;color:var(--c-gray)}
+
+/* 푸터 */
+.foot{margin-top:64px;border-top:1px solid var(--c-divider);
+  padding:30px 0 60px;color:var(--c-gray-lt);font-size:13px;text-align:center}
+.foot a{color:var(--c-gray)}
+
+/* 목록 */
+.list-head{padding:56px 0 14px}
+.list-head h1{font-size:30px;color:var(--c-head);font-weight:700}
+.list-head p{color:var(--c-gray);margin-top:8px}
+.list-head .lang-toggle{display:inline-block;margin-top:14px;border:1px solid var(--c-divider);
+  border-radius:100px;padding:4px 14px;font-size:13px;font-weight:600;color:var(--c-gray)}
+.card{display:block;padding:26px 0;border-bottom:1px solid var(--c-divider)}
+.card:hover{text-decoration:none}
+.card .kicker{font-family:var(--font-en);font-size:11px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--c-red)}
+.card h2{font-size:22px;color:var(--c-head);font-weight:700;margin:8px 0 8px;line-height:1.4}
+.card p{color:var(--c-gray);font-size:15px}
+.card .date{font-family:var(--font-en);font-size:12px;color:var(--c-gray-lt);margin-top:10px}
+
+@media(max-width:600px){
+  body{font-size:16px}
+  .post-head h1{font-size:27px}
+  .post-head .sub{font-size:16px}
+  .post-body h2{font-size:20px}
+}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Voltage Sag vs Momentary Outage Difference: How to Tell Them Apart in the Field", "description": "A voltage sag is a short drop in voltage magnitude that recovers, while a momentary outage takes voltage to near zero. This guide compares duration, perception, frequency and equipment impact to tell them apart.", "datePublished": "2026-10-03", "dateModified": "2026-10-03", "inLanguage": "en", "mainEntityOfPage": "https://intro.wesco.works/blog/en/outage-vs-voltage-sag/", "author": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}, "publisher": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the difference between a voltage sag and a momentary outage?", "acceptedAnswer": {"@type": "Answer", "text": "A voltage sag is a short reduction of voltage to a fraction of nominal, typically from a few cycles to a few seconds, and power remains connected. A momentary outage is a near-complete loss of voltage, so the supply is interrupted."}}, {"@type": "Question", "name": "Why does equipment stop during a voltage sag if power is not lost?", "acceptedAnswer": {"@type": "Answer", "text": "When voltage drops below the operating range of control circuits, drives, or power supplies, protective functions can trip the equipment even though the supply never fully disconnects."}}, {"@type": "Question", "name": "How can a facility protect against voltage sags?", "acceptedAnswer": {"@type": "Answer", "text": "Utilities and designers reduce sag sources at the system level, and facilities can add compensation at the load side to ride through short dips. For low-voltage equipment, an EDLC-based voltage sag compensator such as WESCO TSP® can be evaluated."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoObject", "name": "순간정전보상장치 TSP® 데모 시뮬레이션 영상 | 웨스코(WESCO) 순간전압강하 자동 보상", "description": "A voltage sag is a short drop in voltage magnitude that recovers, while a momentary outage takes voltage to near zero. This guide compares duration, perception, frequency and equipment impact to tell them apart.", "thumbnailUrl": "https://i.ytimg.com/vi/M1QejBSbeYc/hqdefault.jpg", "uploadDate": "2021-09-14", "embedUrl": "https://www.youtube.com/embed/M1QejBSbeYc", "contentUrl": "https://www.youtube.com/watch?v=M1QejBSbeYc"}</script></head><body><header class="topbar"><div class="wrap"><a class="brand" href="https://intro.wesco.works/"><img src="https://intro.wesco.works/images/wesco_wordmark.png" alt="WESCO" width="119" height="22"></a><nav class="topnav"><a href="https://intro.wesco.works/">Home</a><a href="https://intro.wesco.works/blog/en/">Insights</a></nav></div></header><section class="post-head"><div class="wrap"><div class="kicker">WESCO Insight</div><h1>Voltage Sag vs Momentary Outage Difference: How to Tell Them Apart in the Field</h1><p class="sub">A voltage sag keeps power on while dropping in magnitude, and an outage removes it. Here is how to separate the two.</p><div class="post-meta"><span>2026-10-03</span><div class="tags"><span class="tag">voltage sag</span><span class="tag">momentary outage</span><span class="tag">power quality</span><span class="tag">EDLC</span><span class="tag">battery-free voltage sag protector</span></div><a class="lang-toggle" href="https://intro.wesco.works/blog/outage-vs-voltage-sag/">한국어</a></div></div></section><article class="post-body"><div class="wrap"><p>A voltage sag and a momentary outage differ in one key respect: a voltage sag reduces voltage to a fraction of nominal and then recovers, so power stays connected, while a momentary outage drops voltage to nearly zero and interrupts supply. Both can originate from the same fault on the distribution network, yet they affect equipment in very different ways. Plant staff often see a process stop with no outage record and assume a supply failure that never occurred.</p>
+<p>Consider a fault on a feeder shared by two customers. The customer nearest the fault loses power outright. A neighbor on the same network sees only a brief dip, and its drives or control relays trip anyway. The neighbor&rsquo;s logs show no outage, so the stoppage looks unexplained. That pattern is the signature of a voltage sag.</p>
+<h2>Defining the two phenomena</h2>
+<ul>
+<li><strong>Voltage sag</strong>: a reduction of voltage to a fraction of nominal, lasting from a few cycles to a few seconds, after which voltage recovers. Power remains connected.</li>
+<li><strong>Momentary outage</strong>: a near-complete loss of voltage, interrupting supply until service is restored.</li>
+</ul>
+<p>The deciding factor is how far voltage falls. A partial reduction is a sag. A drop to near zero is an outage.</p>
+<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/M1QejBSbeYc" title="순간정전보상장치 TSP® 데모 시뮬레이션 영상 | 웨스코(WESCO) 순간전압강하 자동 보상" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div><h2>Comparing duration, perception, frequency and equipment impact</h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Voltage sag</th>
+<th>Momentary outage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Voltage level</td>
+<td>Partial reduction from nominal</td>
+<td>Near zero</td>
+</tr>
+<tr>
+<td>Supply</td>
+<td>Maintained</td>
+<td>Interrupted</td>
+</tr>
+<tr>
+<td>Duration</td>
+<td>Cycles to a few seconds</td>
+<td>Until service returns, typically short</td>
+</tr>
+<tr>
+<td>Human perception</td>
+<td>Often unnoticed, or a light flicker</td>
+<td>Obvious, lights and displays go dark</td>
+</tr>
+<tr>
+<td>Frequency</td>
+<td>Far more common</td>
+<td>Comparatively rare</td>
+</tr>
+<tr>
+<td>Equipment impact</td>
+<td>Control circuit and drive trips, process stops</td>
+<td>Complete loss of supply, shutdown if prolonged</td>
+</tr>
+</tbody>
+</table>
+<p>IEEE studies report roughly 60 to 70 voltage sags per year at a typical industrial site. The implication is that short voltage dips are a routine event for most facilities, while outages are the exception.</p>
+<h2>Why neighbors stop without an outage</h2>
+<p>Sags spread across a network in a way outages do not. A fault close to one customer produces an outage there, while customers further along the same feeder see only a sag. Those customers have no outage to point to, which makes the root cause hard to trace.</p>
+<p>The practical lesson is to read the event data before replacing equipment. A stoppage with no outage record usually points to a sag that tripped sensitive loads.</p>
+<h2>Field checkpoints for telling them apart</h2>
+<ol>
+<li><strong>Check outage records</strong>: Confirm with the utility or meter data whether an interruption occurred at that time. No record suggests a sag.</li>
+<li><strong>Log the voltage</strong>: Use a power quality analyzer to capture the magnitude and duration of the dip. A drop to 70 to 90 percent of nominal that recovers is a sag.</li>
+<li><strong>Compare the stopped equipment</strong>: If several loads stopped at the same moment, the cause is likely on the supply side. If only one stopped, check its own control settings first.</li>
+<li><strong>Compare against a tolerance curve</strong>: Per SEMI F47, semiconductor tools should ride through specified dips, including 80 percent for 1 second, 70 percent for 0.5 seconds and 50 percent for 0.2 seconds. The ITIC (CBEMA) curve gives a published envelope for equipment tolerance to voltage variation.</li>
+</ol>
+<h2>Response options</h2>
+<p>System-side measures reduce how often sags occur, but a facility cannot control the fault that causes them. Load-side measures keep equipment running through the dip.</p>
+<p>WESCO TSP® is a battery-free voltage sag compensator built on EDLC ultracapacitors. Its transfer time is within 2 ms, and it compensates for 1 to 3 seconds depending on capacity. The energy storage has a 10-year design life, so periodic battery replacement is not required. It is designed for low-voltage systems up to 1 kV.</p>
+<h2>Key takeaways</h2>
+<ul>
+<li>A voltage sag keeps power connected while voltage drops by a fraction of nominal; a momentary outage takes voltage to near zero.</li>
+<li>The same network fault can cause an outage at the fault site and only a sag at nearby customers.</li>
+<li>A stoppage without an outage record should be investigated as a possible sag, verified with voltage logging.</li>
+<li>Compare equipment against a tolerance standard such as SEMI F47 before choosing a remedy; for low-voltage loads, a battery-free compensator such as TSP® is one option to evaluate.</li>
+</ul><h2>Frequently Asked Questions</h2><dl class="faq"><dt>Q. What is the difference between a voltage sag and a momentary outage?</dt><dd>A voltage sag is a short reduction of voltage to a fraction of nominal, typically from a few cycles to a few seconds, and power remains connected. A momentary outage is a near-complete loss of voltage, so the supply is interrupted.</dd><dt>Q. Why does equipment stop during a voltage sag if power is not lost?</dt><dd>When voltage drops below the operating range of control circuits, drives, or power supplies, protective functions can trip the equipment even though the supply never fully disconnects.</dd><dt>Q. How can a facility protect against voltage sags?</dt><dd>Utilities and designers reduce sag sources at the system level, and facilities can add compensation at the load side to ride through short dips. For low-voltage equipment, an EDLC-based voltage sag compensator such as WESCO TSP® can be evaluated.</dd></dl><div class="cta"><h4>Need protection against voltage sags?</h4><p>WESCO has manufactured battery-free voltage sag protectors (TSP&reg;) for 25 years. We can help you size and deploy the right unit for your line.</p><a class="btn" href="https://tsp.wesco.works/en/?s=blog-outage-vs-voltage-sag">Request a quote</a><a class="btn btn-ghost" href="mailto:wesco@wesco.co.kr?subject=%5Bblog%3Aoutage-vs-voltage-sag%5D%20TSP%20inquiry">Email us</a></div><div class="related"><h2>Related posts</h2><a class="rel" href="https://intro.wesco.works/blog/en/ups-vs-outage-compensator/">Momentary outage UPS difference: Battery Backup vs. Voltage Sag Compensation</a><a class="rel" href="https://intro.wesco.works/blog/en/momentary-outage-compensator-guide/">Momentary Outage Compensator: Types and Selection Criteria</a><a class="rel" href="https://intro.wesco.works/blog/en/momentary-power-outage/">Momentary Power Outage: Causes, Damage, and Factory Countermeasures</a><p class="product">TSP® principle and specifications: <a href="https://intro.wesco.works/battery-free-voltage-sag-protection.html">Battery-free voltage sag protection (TSP®)</a></p></div></div></article><footer class="foot"><div class="wrap">© WESCO Co., Ltd. · Voltage Sag Protector Manufacturer · <a href="https://www.wesco.co.kr">www.wesco.co.kr</a></div></footer></body></html>
