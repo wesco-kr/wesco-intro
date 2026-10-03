@@ -215,7 +215,7 @@ table.tb td.em{color:var(--red);font-weight:700}
 .sld .inv{fill:none;stroke:var(--red);stroke-width:2.5;stroke-dasharray:6 6;opacity:.18;transition:opacity .6s}
 .sld .badge{opacity:0;transition:opacity .2s}
 .sld[data-phase="comp"] .live.byp{opacity:.15;animation:none}
-.sld[data-phase="comp"] .inv{opacity:1;animation:dash .5s linear infinite}
+.sld[data-phase="comp"] .inv{opacity:1;animation:dash .5s linear .2s infinite reverse;transition-delay:.2s}/* 경로 d 는 모선→EDLC 순이라 reverse 해야 EDLC→모선으로 흐른다. 차단 표시(.cut 0.2초) 뒤에 흐름 시작 */
 .sld[data-phase="comp"] .badge{opacity:1}
 .sld[data-phase="comp"] .box.edlc{stroke:var(--red);stroke-width:2.5}
 @keyframes dash{to{stroke-dashoffset:-24}}
@@ -265,6 +265,11 @@ body.effects-off .sld .rb-a1,body.effects-off .sld .rb-a2,body.effects-off .sld 
 .sld .wave.src{stroke:#8A847D}
 .sld .state{position:absolute;right:18px;top:12px;font-size:14px;letter-spacing:.12em;font-family:Arial,sans-serif;color:var(--muted);border:1px solid var(--line);padding:3px 10px;border-radius:20px;background:#FDFCF9}
 .sld[data-phase="comp"] .state{color:#FDFCF9;background:var(--red);border-color:var(--red)}
+/* 261003 로봇 무정지 메시지 — 평상시 「설비 정상 가동」, 보상 중엔 레드로 「정전 중에도 계속 가동」 */
+.sld .rb-msg{letter-spacing:0;fill:var(--stone);font-weight:700;transition:opacity .2s}
+.sld .rb-msg.c{fill:var(--red);opacity:0}
+.sld[data-phase="comp"] .rb-msg{opacity:0}.sld[data-phase="comp"] .rb-msg.c{opacity:1}
+.sld .slow{letter-spacing:0}
 /* ---- HMI 목업 ---- */
 /* ---- 라인업 ---- */
 .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -1142,7 +1147,9 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
           <circle class="rb-j" cx="576" cy="92" r="6"/>
           <rect class="rb-work" x="606" y="116" width="18" height="12"/>
         </g>
-        <text class="lbl" x="590" y="150" text-anchor="middle">LOAD</text>
+        <text class="lbl rb-msg" x="634" y="150" text-anchor="end" data-i18n="p6.load">설비 정상 가동</text>
+        <text class="lbl rb-msg c" x="634" y="150" text-anchor="end" data-i18n="p6.loadc">정전 중에도 계속 가동</text>
+        <text class="lbl sm slow" x="6" y="18" data-i18n="p6.slow">동작 이해를 위한 시간 확대</text>
         <!-- 보상 경로: 모선 → MC → TR → INVERTER → UC(EDLC) -->
         <path class="inv" d="M330 100 V125"/>
         <path class="sym" d="M330 145 L341 128"/><text class="lbl" x="348" y="140">MC</text>
@@ -1461,18 +1468,29 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
   addEventListener('touchend',function(e){if(tx==null||!document.body.classList.contains('present'))return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)show(cur+(dx<0?1:-1));tx=null});
 
   // SLD: 평상시 감시 → 순간정전 감지 → SCR 차단·울트라커패시터 보상 → 계통 복귀(바이패스) 반복. ?phase= 로 한 단계에 멈춤(검수용)
+  // 261003 Astra 검토 반영: 정지 조건(OFF·reduced-motion)이 ?phase 보다 먼저, OFF 즉시 정상 복귀, 화면에 들어올 때 normal 부터 시작
   (function(){
     var sld=document.getElementById('sld'),st=document.getElementById('sldst'),w=document.getElementById('wsrc');if(!sld)return;
     var WN='M23 100 q5.5 -10 11 0 t11 0',WS='M23 100 q5.5 -2.5 11 0 t11 0';
-    var P=[['normal',3600,'NORMAL · SCR ON (BYPASS)',WN],['sag',700,'SAG DETECTED',WS],['comp',3000,'SAG · SCR OFF → INVERTER',WS],['recover',1600,'RECOVERED · SCR ON (BYPASS)',WN]];
-    function set(i){var p=P[i];sld.setAttribute('data-phase',p[0]);st.textContent=p[2];w.setAttribute('d',p[3])}
+    var P=[['normal',3600,'p6.st1','평상시 · SCR 통전(바이패스)',WN],['sag',1100,'p6.st2','전압 강하 감지',WS],['comp',3000,'p6.st3','SCR 차단 → EDLC 보상',WS],['recover',1600,'p6.st4','계통 복귀 · EDLC 재충전',WN]];
+    var i=0,timer=null,seen=false;
+    function label(){var d=window.__dict||{},p=P[i];st.textContent=d[p[2]]||p[3]}
+    function set(k){i=k;var p=P[k];sld.setAttribute('data-phase',p[0]);w.setAttribute('d',p[4]);label()}
     var fixed=new URLSearchParams(location.search).get('phase'),fi=P.map(function(p){return p[0]}).indexOf(fixed);
-    if(fi>-1){set(fi);return}
-    var i=0;set(0);
-    (function tick(){
-      if(!fx||reduce){if(i){i=0;set(0)}return setTimeout(tick,1000)}
-      setTimeout(function(){i=(i+1)%P.length;set(i);tick()},P[i][1]);
-    })();
+    function stop(){clearTimeout(timer);timer=null}
+    function sync(){
+      stop();
+      if(!fx||reduce)return set(0);
+      if(fi>-1)return set(fi);
+      if(!seen)return set(0);
+      set(0);(function tick(){timer=setTimeout(function(){if(!fx||reduce)return sync();set((i+1)%P.length);tick()},P[i][1])})();
+    }
+    var mq=matchMedia('(prefers-reduced-motion: reduce)');
+    (mq.addEventListener?mq.addEventListener.bind(mq,'change'):mq.addListener.bind(mq))(function(){reduce=mq.matches;sync()});
+    btn.addEventListener('click',sync);
+    document.addEventListener('wesco:i18n',label);
+    new IntersectionObserver(function(es){es.forEach(function(e){var v=e.intersectionRatio>=.3;if(v!==seen){seen=v;sync()}})},{threshold:[0,.3]}).observe(sld);
+    sync();
   })();
 
   // Sag-VIEWER 탭 — 화면 캡처 교체
