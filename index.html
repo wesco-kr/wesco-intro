@@ -288,6 +288,11 @@ body.effects-off .sld .rb-a1,body.effects-off .sld .rb-a2,body.effects-off .sld 
 @keyframes sld-arrival{0%{fill-opacity:.32;stroke-opacity:1;filter:drop-shadow(0 0 5px #E1431B)}100%{fill-opacity:.08;stroke-opacity:.5;filter:drop-shadow(0 0 0 transparent)}}
 .sld[data-phase="comp"] .cap{filter:drop-shadow(0 0 4px #E1431B)}
 .sld .sld-caption{display:none}
+/* 보상 중 MC·OUT 접점 닫힘 — 입자 경로(x=330, y=100)와 일치. MC 는 보상 중 붙어 있어야 한다(낙하 시 인버터 OC, 260903 삼화양행 회의) */
+.sld .blade{transform-box:view-box;transition:transform .15s ease-out}
+.sld .b-mc{transform-origin:330px 145px}.sld .b-out{transform-origin:470px 100px}
+.sld[data-phase="comp"] .b-mc{transform:rotate(-32.9deg);stroke:var(--red)}
+.sld[data-phase="comp"] .b-out{transform:rotate(31.4deg);stroke:var(--red)}
 body.effects-off .sld .energy-dot{animation:none;opacity:0}
 body.effects-off .sld .energy-arrival{animation:none}
 @media(prefers-reduced-motion:reduce){.sld .energy-dot{animation:none;opacity:0}.sld .energy-arrival{animation:none}}
@@ -1171,7 +1176,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
         <!-- 부하측 모선 → 출력 개폐기 → 부하 -->
         <path class="live out" d="M330 100 H470"/>
         <circle class="node" cx="430" cy="100" r="3.5"/>
-        <path class="sym" d="M470 100 L488 89"/><path class="live out" d="M490 100 H566"/>
+        <path class="sym blade b-out" d="M470 100 L488 89"/><path class="live out" d="M490 100 H566"/>
         <text class="lbl" x="480" y="82" text-anchor="middle">OUT</text>
         <!-- 부하 = 자동화 설비(산업용 로봇). 보상 중에도 멈추지 않고 움직인다 — 이 그림의 핵심 메시지 -->
         <g class="robot">
@@ -1188,7 +1193,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
         <text class="lbl sm slow" x="6" y="18" data-i18n="p6.slow">동작 이해를 위한 시간 확대</text>
         <!-- 보상 경로: 모선 → MC → TR → INVERTER → UC(EDLC) -->
         <path class="inv" d="M330 100 V125"/>
-        <path class="sym" d="M330 145 L341 128"/><text class="lbl" x="348" y="140">MC</text>
+        <path class="sym blade b-mc" d="M330 145 L341 128"/><text class="lbl" x="348" y="140">MC</text>
         <path class="inv" d="M330 145 V167"/>
         <circle class="sym" cx="330" cy="178" r="11"/><circle class="sym" cx="330" cy="194" r="11"/>
         <text class="lbl" x="348" y="190">TR</text>
