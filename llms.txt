@@ -20,7 +20,7 @@
 
 ## Key facts
 - Product: TSP® (The Second Power) — battery-free voltage sag protector / power conditioner
-- Technology: EDLC ultra-capacitor energy storage (no batteries); ~2 ms response; ~10-year storage life
+- Technology: EDLC ultra-capacitor energy storage (no batteries); transfer within 2 ms, 1–3 s compensation; ~10-year storage life
 - Scope: low-voltage (LV, ≤1kV) industrial loads
 - Applications: semiconductor fabs, display panel lines, EV battery plants, data centers
 - Track record: 25 years, 50,000+ installations, 15+ countries
