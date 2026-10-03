@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>순간정전이란? 원인·피해·공장 대책 총정리</title><meta name="description" content="순간정전은 전기가 완전히 끊기지 않고 짧게 떨어졌다 회복되는 현상이다. 낙뢰, 지락·단락 고장, 차단기 동작, 대형 부하 기동이 원인이며, 인버터와 PLC를 먼저 멈춰 세운다. 부하 등급을 나눈 뒤 민감 부하만 보상하는 것이 공장 대책의 출발점이다."><link rel="canonical" href="https://intro.wesco.works/blog/momentary-power-outage/"><link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/momentary-power-outage/"><link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/momentary-power-outage/"><link rel="alternate" hreflang="x-default" href="https://intro.wesco.works/blog/momentary-power-outage/"><meta property="og:type" content="article"><meta property="og:title" content="순간정전이란? 원인·피해·공장 대책 총정리"><meta property="og:description" content="순간정전은 전기가 완전히 끊기지 않고 짧게 떨어졌다 회복되는 현상이다. 낙뢰, 지락·단락 고장, 차단기 동작, 대형 부하 기동이 원인이며, 인버터와 PLC를 먼저 멈춰 세운다. 부하 등급을 나눈 뒤 민감 부하만 보상하는 것이 공장 대책의 출발점이다."><meta property="og:url" content="https://intro.wesco.works/blog/momentary-power-outage/"><meta property="og:image" content="https://intro.wesco.works/images/og-image.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="순간정전이란? 원인·피해·공장 대책 총정리"><meta name="twitter:description" content="순간정전은 전기가 완전히 끊기지 않고 짧게 떨어졌다 회복되는 현상이다. 낙뢰, 지락·단락 고장, 차단기 동작, 대형 부하 기동이 원인이며, 인버터와 PLC를 먼저 멈춰 세운다. 부하 등급을 나눈 뒤 민감 부하만 보상하는 것이 공장 대책의 출발점이다."><meta name="twitter:image" content="https://intro.wesco.works/images/og-image.jpg"><link rel="icon" type="image/x-icon" href="https://intro.wesco.works/favicon.ico"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"><style>
+:root{
+  --c-red:#C13816; --c-red-dk:#9C2C10; --c-red-lt:#FBEEE8;
+  --c-head:#2C2924; --c-text:#4A4641; --c-gray:#78716C; --c-gray-lt:#A8A29E;
+  --c-bg:#FDFCF9; --c-bg-soft:#F7F4EE; --c-divider:#E0DBD3; --c-accent:#4F6886;
+  --font-ko:'Noto Sans KR','맑은 고딕',sans-serif;
+  --font-en:'Inter',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font-ko);color:var(--c-text);background:var(--c-bg);
+  line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:var(--c-red);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+
+/* 상단바 */
+.topbar{border-bottom:1px solid var(--c-divider);background:var(--c-bg)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center}
+.brand img{height:22px;width:auto;display:block}
+.topnav a{color:var(--c-gray);font-size:14px;font-weight:500;margin-left:22px}
+.topnav a:hover{color:var(--c-red);text-decoration:none}
+
+/* 글 헤더 */
+.post-head{padding:56px 0 34px;border-bottom:1px solid var(--c-divider)}
+.post-head .kicker{font-family:var(--font-en);font-size:12px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--c-red)}
+.post-head h1{font-size:34px;line-height:1.32;color:var(--c-head);
+  font-weight:700;margin:14px 0 12px;letter-spacing:-.01em}
+.post-head .sub{font-size:18px;color:var(--c-gray);font-weight:400;line-height:1.6}
+.post-meta{margin-top:20px;font-size:13px;color:var(--c-gray-lt);
+  font-family:var(--font-en);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.post-meta .lang-toggle{border:1px solid var(--c-divider);border-radius:100px;
+  padding:3px 12px;font-weight:600;color:var(--c-gray)}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tags .tag{background:var(--c-bg-soft);color:var(--c-gray);border:1px solid var(--c-divider);
+  border-radius:100px;padding:3px 11px;font-size:12px;font-family:var(--font-ko)}
+
+/* 본문 */
+.post-body{padding:38px 0 10px}
+.post-body h2{font-size:23px;color:var(--c-head);font-weight:700;
+  margin:44px 0 16px;letter-spacing:-.01em;line-height:1.4}
+.post-body h3{font-size:19px;color:var(--c-head);font-weight:700;margin:30px 0 12px}
+.post-body p{margin:0 0 20px}
+.post-body ul,.post-body ol{margin:0 0 22px;padding-left:22px}
+.post-body li{margin:0 0 9px}
+.post-body strong{color:var(--c-head);font-weight:700}
+.post-body em{font-style:normal;color:var(--c-gray)}
+.post-body hr{border:0;border-top:1px solid var(--c-divider);margin:40px 0}
+.post-body blockquote{border-left:3px solid var(--c-red);padding:2px 0 2px 18px;
+  margin:0 0 22px;color:var(--c-gray)}
+.post-body img{max-width:100%;height:auto;border-radius:10px;margin:8px 0 24px}
+
+/* FAQ */
+.faq{margin-top:8px}
+.faq dt{font-weight:700;color:var(--c-head);margin:22px 0 8px}
+.faq dd{margin:0 0 8px;color:var(--c-text)}
+
+/* CTA */
+.cta{margin:44px 0 0;background:var(--c-bg-soft);border:1px solid var(--c-divider);
+  border-radius:14px;padding:28px 30px}
+.cta h4{font-size:18px;color:var(--c-head);margin-bottom:8px}
+.cta p{font-size:15px;color:var(--c-gray);margin-bottom:16px}
+.cta a.btn{display:inline-block;background:var(--c-red);color:#fff;font-weight:600;
+  font-size:15px;padding:11px 22px;border-radius:8px}
+.cta a.btn:hover{background:var(--c-red-dk);text-decoration:none}
+.cta a.btn-ghost{background:transparent;color:var(--c-red);border:1px solid var(--c-red);margin-left:8px}
+.cta a.btn-ghost:hover{background:var(--c-red);color:#fff}
+
+/* 영상 · 관련 글 */
+.video{position:relative;padding-top:56.25%;margin:8px 0 28px;border-radius:10px;overflow:hidden;background:var(--c-bg-soft)}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.related{margin-top:44px}
+.related h2{font-size:20px;color:var(--c-head);margin-bottom:6px}
+.related a.rel{display:block;padding:12px 0;border-bottom:1px solid var(--c-divider);color:var(--c-head);font-weight:500}
+.related .product{margin-top:16px;font-size:15px;color:var(--c-gray)}
+
+/* 푸터 */
+.foot{margin-top:64px;border-top:1px solid var(--c-divider);
+  padding:30px 0 60px;color:var(--c-gray-lt);font-size:13px;text-align:center}
+.foot a{color:var(--c-gray)}
+
+/* 목록 */
+.list-head{padding:56px 0 14px}
+.list-head h1{font-size:30px;color:var(--c-head);font-weight:700}
+.list-head p{color:var(--c-gray);margin-top:8px}
+.list-head .lang-toggle{display:inline-block;margin-top:14px;border:1px solid var(--c-divider);
+  border-radius:100px;padding:4px 14px;font-size:13px;font-weight:600;color:var(--c-gray)}
+.card{display:block;padding:26px 0;border-bottom:1px solid var(--c-divider)}
+.card:hover{text-decoration:none}
+.card .kicker{font-family:var(--font-en);font-size:11px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--c-red)}
+.card h2{font-size:22px;color:var(--c-head);font-weight:700;margin:8px 0 8px;line-height:1.4}
+.card p{color:var(--c-gray);font-size:15px}
+.card .date{font-family:var(--font-en);font-size:12px;color:var(--c-gray-lt);margin-top:10px}
+
+@media(max-width:600px){
+  body{font-size:16px}
+  .post-head h1{font-size:27px}
+  .post-head .sub{font-size:16px}
+  .post-body h2{font-size:20px}
+}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "순간정전이란? 원인·피해·공장 대책 총정리", "description": "순간정전은 전기가 완전히 끊기지 않고 짧게 떨어졌다 회복되는 현상이다. 낙뢰, 지락·단락 고장, 차단기 동작, 대형 부하 기동이 원인이며, 인버터와 PLC를 먼저 멈춰 세운다. 부하 등급을 나눈 뒤 민감 부하만 보상하는 것이 공장 대책의 출발점이다.", "datePublished": "2026-10-03", "dateModified": "2026-10-03", "inLanguage": "ko", "mainEntityOfPage": "https://intro.wesco.works/blog/momentary-power-outage/", "author": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}, "publisher": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "순간정전과 순간전압강하는 같은 현상인가요?", "acceptedAnswer": {"@type": "Answer", "text": "그렇다. 순간정전, 순시전압저하, 순간전압강하는 같은 현상을 부르는 여러 이름이다. 전압이 정격의 일부로 짧게 떨어졌다가 회복되는 현상이며, 전기가 완전히 끊기는 정전과는 다르다."}}, {"@type": "Question", "name": "순간정전의 주요 원인은 무엇인가요?", "acceptedAnswer": {"@type": "Answer", "text": "낙뢰, 지락 및 단락 고장, 차단기와 리클로저의 동작, 대형 부하의 기동이 주요 원인이다. 사고가 계통 어딘가에서 발생하면 같은 공급선에 연결된 공장도 함께 영향을 받는다."}}, {"@type": "Question", "name": "공장에서 순간정전 대책은 어떤 순서로 세우나요?", "acceptedAnswer": {"@type": "Answer", "text": "먼저 설비를 부하 등급별로 나눈다. 인버터, 서보, PLC처럼 짧은 강하에도 멈추는 민감 부하를 식별한 뒤, 그 부하에만 보상장치를 적용하는 것이 비용과 효과 모두에서 합리적이다."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoObject", "name": "순간정전보상장치 TSP® 소개 영상 | 웨스코(WESCO) 순간전압강하 완벽 해결", "description": "순간정전은 전기가 완전히 끊기지 않고 짧게 떨어졌다 회복되는 현상이다. 낙뢰, 지락·단락 고장, 차단기 동작, 대형 부하 기동이 원인이며, 인버터와 PLC를 먼저 멈춰 세운다. 부하 등급을 나눈 뒤 민감 부하만 보상하는 것이 공장 대책의 출발점이다.", "thumbnailUrl": "https://i.ytimg.com/vi/say1HOvU-a0/hqdefault.jpg", "uploadDate": "2021-02-18", "embedUrl": "https://www.youtube.com/embed/say1HOvU-a0", "contentUrl": "https://www.youtube.com/watch?v=say1HOvU-a0"}</script></head><body><header class="topbar"><div class="wrap"><a class="brand" href="https://intro.wesco.works/"><img src="https://intro.wesco.works/images/wesco_wordmark.png" alt="WESCO" width="119" height="22"></a><nav class="topnav"><a href="https://intro.wesco.works/">홈</a><a href="https://intro.wesco.works/blog/">인사이트</a></nav></div></header><section class="post-head"><div class="wrap"><div class="kicker">WESCO Insight</div><h1>순간정전이란? 원인·피해·공장 대책 총정리</h1><p class="sub">순간전압강하가 설비를 멈추는 과정과, 민감 부하만 보상하는 대책 설계 순서</p><div class="post-meta"><span>2026-10-03</span><div class="tags"><span class="tag">순간정전</span><span class="tag">순간전압강하</span><span class="tag">전력품질</span><span class="tag">공장 대책</span><span class="tag">전압강하 보상</span></div><a class="lang-toggle" href="https://intro.wesco.works/blog/en/momentary-power-outage/">English</a></div></div></section><article class="post-body"><div class="wrap"><p>순간정전이란 전기가 완전히 끊기지 않고, 정격 전압의 일부로 짧은 시간 떨어졌다가 곧 회복되는 현상이다. 업계에서는 순간전압강하, 순시전압저하라고도 부른다. 같은 현상을 가리키는 이름이 여럿인 것이다. 대부분 수 사이클에서 수 초 사이에 끝나지만, 이 짧은 시간 동안 공장 설비는 멈출 수 있다.</p>
+<p>현장에서는 이런 장면이 자주 나온다. 밤 11시 야간 근무 중 생산 라인의 로봇이 갑자기 멈추고 HMI 화면이 꺼진다. 전원을 확인해 보면 정전 기록은 없다. 외부 계통에서 낙뢰로 짧은 고장이 발생했고, 차단기가 동작했다가 다시 붙은 것이 원인이다. 사람은 깜빡임을 느끼지 못했지만 제어계는 그 순간을 놓치지 않았다.</p>
+<h2>순간정전의 주요 원인</h2>
+<p>순간정전은 대부분 계통 바깥에서 시작된다. 원인을 알면 어느 설비가 취약한지도 가늠할 수 있다.</p>
+<ul>
+<li><strong>낙뢰</strong>: 송전선이나 배전선에 벼락이 떨어지면 순간적으로 전압이 무너진다.</li>
+<li><strong>지락 및 단락 고장</strong>: 전선이 접촉하거나 절연이 깨지면 고장 전류가 흐르고, 전압이 짧게 내려간다.</li>
+<li><strong>차단기와 리클로저 동작</strong>: 고장을 격리하기 위해 차단기가 끊었다가 다시 投入하는 과정에서 전압이 흔들린다.</li>
+<li><strong>대형 부하 기동</strong>: 대용량 전동기나 용접기가 한꺼번에 켜지면 같은 선로의 전압이 일시적으로 떨어진다.</li>
+</ul>
+<p>IEEE 조사에 따르면 일반적인 산업 현장은 연간 약 60~70회의 전압 강하를 겪는 것으로 보고된다. 한 달에 몇 차례씩 설비가 흔들리고 있을 수 있다는 뜻이다.</p>
+<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/say1HOvU-a0" title="순간정전보상장치 TSP® 소개 영상 | 웨스코(WESCO) 순간전압강하 완벽 해결" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div><h2>사람은 못 느끼고 설비만 멈춘다</h2>
+<p>순간정전의 피해는 눈에 잘 띄지 않는다. 조명은 깜빡이는 정도로 끝나고, 사람은 대부분 알아채지 못한다. 문제는 전력 변환에 민감한 장비다.</p>
+<ul>
+<li><strong>인버터</strong>: DC 링크 전압이 허용 범위를 벗어나면 보호 기능이 작동해 트립된다.</li>
+<li><strong>서보와 PLC</strong>: 제어 전원이 잠깐 끊기면 프로그램이 초기화되거나 알람이 발생한다.</li>
+<li><strong>재가동 지연</strong>: 장비를 다시 켜고 원점 복귀, 라인 검증, 공정 조건 재설정을 거치면 수십 분이 걸린다.</li>
+</ul>
+<p>반도체나 디스플레이 공정처럼 한 번 중단되면 공정 중이던 소재를 폐기해야 하는 현장에서는 이 재가동 시간이 훨씬 큰 손실로 이어진다. 전압 강하를 얼마나 견딜지는 장비마다 다르다. SEMI F47은 반도체 장비에 대해 전압이 80%로 떨어진 상태를 1초, 70%를 0.5초, 50%를 0.2초 견디도록 요구한다. ITIC(CBEMA) 곡선은 많은 장비가 견디는 전압 허용 범위를 시간별로 보여주는 기준이다. 설비의 허용 범위를 모르면 대책의 크기도 정할 수 없다.</p>
+<h2>공장 대책은 부하 등급 분류부터</h2>
+<p>순간정전 대책을 세울 때 가장 흔한 실수는 공장 전체를 한꺼번에 보호하려는 것이다. 비용이 크게 늘고, 효과는 민감 부하에서만 나온다. 순서를 나누면 설계가 간결해진다.</p>
+<ol>
+<li><strong>부하 목록을 만든다</strong>: 설비별 정격, 제어 전원, 재가동에 걸리는 시간을 적는다.</li>
+<li><strong>민감도로 등급을 나눈다</strong>: 짧은 강하에도 멈추는 부하와 그렇지 않은 부하를 구분한다.</li>
+<li><strong>보상이 필요한 부하만 묶는다</strong>: 인버터, 서보, PLC, 제어반처럼 등급이 높은 부하를 별도 회로로 묶는다.</li>
+<li><strong>보상 용량과 시간을 정한다</strong>: 강하 깊이와 지속 시간에 맞춰 보상장치를 고른다.</li>
+</ol>
+<p>WESCO TSP®는 이 등급 분류 구조에 맞춰 쓰는 순간전압강하 보상장치다. 저압(LV, 1kV 이하) 계통에서, 민감 부하가 몰린 회로에 설치한다. EDLC 울트라커패시터 기반이라 배터리 없이 작동하며, 에너지저장부 설계수명은 10년이다. 절체 시간은 중소용량 2ms 이내, 대용량 4ms 이내이고, 보상은 1~3초 동안 이어진다. 배터리 UPS 대신 검토할 수 있는 무(無)배터리 대안이며, UPS 자체는 아니다.</p>
+<h2>정리</h2>
+<ul>
+<li>순간정전은 전기가 완전히 끊기지 않고 짧게 떨어졌다 회복되는 현상이며, 순간전압강하와 같은 말이다.</li>
+<li>원인은 낙뢰, 지락·단락 고장, 차단기 동작, 대형 부하 기동이다.</li>
+<li>피해는 사람이 아닌 인버터, 서보, PLC에서 먼저 나타나며, 재가동에 긴 시간이 걸린다.</li>
+<li>대책은 부하 등급을 먼저 나누고, 민감 부하에만 전압강하 보상을 적용하는 것이다.</li>
+</ul><h2>자주 묻는 질문 (FAQ)</h2><dl class="faq"><dt>Q. 순간정전과 순간전압강하는 같은 현상인가요?</dt><dd>그렇다. 순간정전, 순시전압저하, 순간전압강하는 같은 현상을 부르는 여러 이름이다. 전압이 정격의 일부로 짧게 떨어졌다가 회복되는 현상이며, 전기가 완전히 끊기는 정전과는 다르다.</dd><dt>Q. 순간정전의 주요 원인은 무엇인가요?</dt><dd>낙뢰, 지락 및 단락 고장, 차단기와 리클로저의 동작, 대형 부하의 기동이 주요 원인이다. 사고가 계통 어딘가에서 발생하면 같은 공급선에 연결된 공장도 함께 영향을 받는다.</dd><dt>Q. 공장에서 순간정전 대책은 어떤 순서로 세우나요?</dt><dd>먼저 설비를 부하 등급별로 나눈다. 인버터, 서보, PLC처럼 짧은 강하에도 멈추는 민감 부하를 식별한 뒤, 그 부하에만 보상장치를 적용하는 것이 비용과 효과 모두에서 합리적이다.</dd></dl><div class="cta"><h4>순간전압강하 대응이 필요하신가요?</h4><p>WESCO는 25년간 전력 품질 분야에서 순간전압보상장치(TSP)를 제조해 왔습니다. 라인 환경에 맞는 용량 선정과 도입을 상담해 드립니다.</p><a class="btn" href="https://tsp.wesco.works/ko/?s=blog-momentary-power-outage">도입 문의하기</a><a class="btn btn-ghost" href="mailto:wesco@wesco.co.kr?subject=%5Bblog%3Amomentary-power-outage%5D%20TSP%20%EB%8F%84%EC%9E%85%20%EB%AC%B8%EC%9D%98">메일로 문의</a></div><div class="related"><h2>관련 글</h2><a class="rel" href="https://intro.wesco.works/blog/summer-lightning-season/">여름 낙뢰철, 공장 전기는 무엇을 준비해야 하나</a><a class="rel" href="https://intro.wesco.works/blog/why-sags-come-from-outside/">관리 잘해도 라인이 멈추는 이유 — 순간전압강하는 공장 밖에서 온다</a><a class="rel" href="https://intro.wesco.works/blog/faq-voltage-sag-basics/">순간전압강하 FAQ — 현장에서 가장 많이 받는 질문 총정리</a><p class="product">TSP® 제품 원리와 사양은 <a href="https://intro.wesco.works/battery-free-voltage-sag-protection.html">배터리 없는 순간전압강하 보상장치 TSP® 상세 보기 (영문)</a></p></div></div></article><footer class="foot"><div class="wrap">© WESCO Co., Ltd. · Voltage Sag Protector Manufacturer · <a href="https://www.wesco.co.kr">www.wesco.co.kr</a></div></footer></body></html>

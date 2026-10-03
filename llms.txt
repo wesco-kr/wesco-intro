@@ -7,6 +7,7 @@
 - [WESCO TSP Business Introduction](https://intro.wesco.works/): Company overview and TSP® product introduction.
 
 ## Latest blog posts
+- [순간정전이란? 원인·피해·공장 대책 총정리](https://intro.wesco.works/blog/momentary-power-outage/): 순간정전은 전기가 완전히 끊기지 않고 짧게 떨어졌다 회복되는 현상이다. 낙뢰, 지락·단락 고장, 차단기 동작, 대형 부하 기동이 원인이며, 인버터와 PLC를 먼저 멈춰 세운다. 부하 등급을 나눈 뒤 민감 부하만 보상하는 것이 공장 대책의 출발점이다. ([English](https://intro.wesco.works/blog/en/momentary-power-outage/))
 - [여름 낙뢰철, 공장 전기는 무엇을 준비해야 하나](https://intro.wesco.works/blog/summer-lightning-season/): 여름 낙뢰철에는 순간전압강하와 순간정전이 늘어날 수 있다. 여름 전 접지·서지보호·계측 로그를 점검하고, 설비의 허용 강하 범위를 확인하는 것이 출발점이다. 보상장치는 절체 시간과 보상 시간을 구분해 선택해야 한다. ([English](https://intro.wesco.works/blog/en/summer-lightning-season/))
 - [관리 잘해도 라인이 멈추는 이유 — 순간전압강하는 공장 밖에서 온다](https://intro.wesco.works/blog/why-sags-come-from-outside/): 낙뢰·계통 사고·인근 대형 부하 기동 등 순간전압강하의 원인은 대부분 공장 밖에 있다. 내부 관리만으로는 라인 정지를 막기 어려운 이유와 순간정전에 대비하는 전압강하 보상 방법을 정리한다. ([English](https://intro.wesco.works/blog/en/why-sags-come-from-outside/))
 - [제어전원만 지켜도 라인이 산다 — 선택 보상이라는 접근](https://intro.wesco.works/blog/control-power-protection/): 설비 전체가 아니라 정지의 실제 원인인 제어전원과 핵심 부하만 골라 순간전압강하를 보상하는 선택 보상 설계를 다룬다. 투자 규모를 낮추면서도 라인 정지를 막는 실무적 접근과 적용 기준을 설명한다. ([English](https://intro.wesco.works/blog/en/control-power-protection/))
@@ -16,7 +17,6 @@
 - [자동화될수록 취약해진다 — 스마트팩토리와 전력품질의 역설](https://intro.wesco.works/blog/smart-factory-power-quality/): 스마트팩토리는 로봇과 서보모터, PLC가 촘촘히 연결될수록 순간전압강하 한 번에도 전체 라인이 멈출 위험이 커진다. 배터리 없는 TSP 보상장치로 자동화 투자와 전력품질 투자의 균형을 맞추는 방법을 정리한다. ([English](https://intro.wesco.works/blog/en/smart-factory-power-quality/))
 - [저압(LV) 전용이라는 것 — 순간전압보상장치는 어디에 설치하는가](https://intro.wesco.works/blog/lv-scope-explained/): TSP는 1kV 이하 저압 전용 순간전압강하 보상장치로, 수전단이 아닌 전압강하에 민감한 부하 바로 앞단에 설치해 해당 설비를 직접 보호한다. 저압 전용 설치 위치의 원리를 설명한다. ([English](https://intro.wesco.works/blog/en/lv-scope-explained/))
 - [10년 무교체의 계산 — 에너지저장부 설계수명이 TCO를 바꾼다](https://intro.wesco.works/blog/10-year-maintenance-free/): 배터리 기반 순간정전 보상장치는 정기 교체가 필요하지만, EDLC 울트라커패시터 기반 WESCO TSP는 설계수명 10년으로 유지보수 구조 자체가 다르다. TCO 관점에서 두 방식의 차이를 비교한다. ([English](https://intro.wesco.works/blog/en/10-year-maintenance-free/))
-- [순간전압강하 손실은 세 겹으로 쌓인다 — 재가동·재공품·납기](https://intro.wesco.works/blog/voltage-sag-cost-structure/): 순간전압강하 한 번이 재가동 지연, 재공품 폐기, 납기 지연으로 번지는 손실의 구조를 분석하고, 배터리 없는 EDLC 기반 TSP 보상 방식이 이 연쇄를 어떻게 끊어내는지 짚어본다. ([English](https://intro.wesco.works/blog/en/voltage-sag-cost-structure/))
 
 ## Key facts
 - Product: TSP® (The Second Power) — battery-free voltage sag protector / power conditioner
