@@ -205,19 +205,19 @@ table.tb td.em{color:var(--red);font-weight:700}
 .step small{display:block;font-weight:400;color:var(--muted);font-size:13.5px}
 /* ---- SLD ---- */
 .sld{border:1px solid var(--line);background:#FDFCF9;border-radius:8px;padding:16px 18px 10px;position:relative}
-.sld svg{width:100%;height:auto;display:block}
+.sld svg{width:100%;height:auto;display:block;overflow:visible}
 .sld .lbl{font-family:Arial,sans-serif;font-size:14px;fill:var(--muted);letter-spacing:.08em}
 .sld .box{fill:#FDFCF9;stroke:var(--stone);stroke-width:1.5}
 .sld .box.hi{stroke:var(--red)}
 .sld .bt{font-size:15px;font-weight:700;fill:var(--stone);font-family:Arial,"Noto Sans KR",sans-serif}
 .sld .wire{fill:none;stroke:#8A847D;stroke-width:2}
 .sld .live{fill:none;stroke:var(--stone);stroke-width:2.5;stroke-dasharray:6 6;animation:dash 1.2s linear infinite}
-.sld .inv{fill:none;stroke:var(--red);stroke-width:2.5;stroke-dasharray:6 6;opacity:.18;transition:opacity .2s}
+.sld .inv{fill:none;stroke:var(--red);stroke-width:2.5;stroke-dasharray:6 6;opacity:.18;transition:opacity .6s}
 .sld .badge{opacity:0;transition:opacity .2s}
-.sld.sag .live.byp{opacity:.15;animation:none}
-.sld.sag .inv{opacity:1;animation:dash .5s linear infinite}
-.sld.sag .badge{opacity:1}
-.sld.sag .box.edlc{stroke:var(--red);stroke-width:2.5}
+.sld[data-phase="comp"] .live.byp{opacity:.15;animation:none}
+.sld[data-phase="comp"] .inv{opacity:1;animation:dash .5s linear infinite}
+.sld[data-phase="comp"] .badge{opacity:1}
+.sld[data-phase="comp"] .box.edlc{stroke:var(--red);stroke-width:2.5}
 @keyframes dash{to{stroke-dashoffset:-24}}
 .sld .sym{fill:none;stroke:var(--stone);stroke-width:1.8}
 .sld .thin{stroke-width:1.2;stroke:#8A847D}
@@ -231,14 +231,40 @@ table.tb td.em{color:var(--red);font-weight:700}
 .sld .cut{opacity:0;transition:opacity .2s}
 .sld .cut path{fill:none;stroke:var(--red);stroke-width:3}
 .sld .cut text{fill:var(--red);font-family:Arial,sans-serif;font-size:13px;font-weight:700;letter-spacing:.1em}
-.sld.sag .cut{opacity:1}
-.sld.sag .live.out{stroke:var(--red);animation-duration:.5s}
-.sld.sag .cap{stroke:var(--red)}
-.sld.sag .thy path{fill:#8A847D;opacity:.5}
+.sld[data-phase="comp"] .cut{opacity:1}
+.sld[data-phase="comp"] .live.out{stroke:var(--red);animation-duration:.5s}
+.sld[data-phase="comp"] .cap{stroke:var(--red)}
+.sld[data-phase="comp"] .thy path{fill:#8A847D;opacity:.5}
+/* 261003 단선도 4단계 모션 — 정본 5단계(오프라인 대기→감지→SCR 차단→울트라커패시터 보상→계통 복귀) */
+.sld .pulse{fill:none;stroke:var(--red);stroke-width:2;opacity:0;transform-box:fill-box;transform-origin:center}
+.sld[data-phase="sag"] .pulse{animation:sld-pulse .7s ease-out infinite}.sld[data-phase="sag"] .pulse.p2{animation-delay:.3s}
+@keyframes sld-pulse{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(2.8)}}
+.sld .srcc,.sld .wave.src{transition:stroke .2s}
+.sld[data-phase="sag"] .srcc,.sld[data-phase="comp"] .srcc,.sld[data-phase="sag"] .wave.src,.sld[data-phase="comp"] .wave.src{stroke:var(--red)}
+.sld .sagtx{font-family:Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;fill:var(--red);opacity:0;transition:opacity .2s}
+.sld[data-phase="sag"] .sagtx,.sld[data-phase="comp"] .sagtx{opacity:1}
+.sld[data-phase="sag"] .live.byp{animation:none;opacity:.35}
+.sld[data-phase="sag"] .state{color:#FDFCF9;background:var(--red);border-color:var(--red)}
+.sld[data-phase="recover"] .state{color:var(--stone);border-color:var(--stone)}
+.sld[data-phase="recover"] .inv{opacity:.45}
+.sld .lv-bg{fill:none;stroke:#8A847D;stroke-width:1}
+.sld .lv{fill:var(--stone);transform-box:fill-box;transform-origin:left center;transition:transform 1.6s ease-out}
+.sld[data-phase="comp"] .lv{fill:var(--red);transform:scaleX(.3);transition:transform 3s linear}
+.sld .robot{fill:none;stroke:var(--stone);stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round}
+.sld .rb-floor{fill:#D6D0C8;stroke:none}.sld .rb-ped{fill:#FDFCF9}.sld .rb-link{stroke-width:7;stroke:var(--stone)}
+.sld .rb-grip{stroke-width:2.2}.sld .rb-j{fill:var(--red);stroke:#FDFCF9;stroke-width:1.5}.sld .rb-work{fill:#F6F1EA}
+.sld .rb-led{fill:var(--red);stroke:none;animation:sld-led 1s steps(2) infinite}
+.sld .rb-a1{transform-box:view-box;transform-origin:576px 92px;animation:sld-a1 2.6s ease-in-out infinite alternate}
+.sld .rb-a2{transform-box:view-box;transform-origin:598px 60px;animation:sld-a2 2.6s ease-in-out infinite alternate}
+@keyframes sld-a1{from{transform:rotate(-16deg)}to{transform:rotate(12deg)}}
+@keyframes sld-a2{from{transform:rotate(26deg)}to{transform:rotate(-14deg)}}
+@keyframes sld-led{50%{opacity:.25}}
+body.effects-off .sld .rb-a1,body.effects-off .sld .rb-a2,body.effects-off .sld .rb-led{animation:none}
+@media(prefers-reduced-motion:reduce){.sld .rb-a1,.sld .rb-a2,.sld .rb-led,.sld .pulse{animation:none}}
 .sld .wave{fill:none;stroke:var(--stone);stroke-width:1.5}
 .sld .wave.src{stroke:#8A847D}
 .sld .state{position:absolute;right:18px;top:12px;font-size:14px;letter-spacing:.12em;font-family:Arial,sans-serif;color:var(--muted);border:1px solid var(--line);padding:3px 10px;border-radius:20px;background:#FDFCF9}
-.sld.sag .state{color:#FDFCF9;background:var(--red);border-color:var(--red)}
+.sld[data-phase="comp"] .state{color:#FDFCF9;background:var(--red);border-color:var(--red)}
 /* ---- HMI 목업 ---- */
 /* ---- 라인업 ---- */
 .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -1055,9 +1081,11 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
            주경로: 전원 → IN → SCR(정적 스위치, 평상시 ON=바이패스) → OUT → 부하.
            보상경로는 부하측 모선에 붙는다: UC(EDLC) → 인버터 → TR → MC → 모선. 정전 시 SCR OFF 후 인버터가 부하를 맡는다.
            수동 바이패스(MCCB)는 정비용으로 SCR 위에 병렬. 블록도가 아니라 전기 심볼로 그린다. -->
-      <svg viewBox="0 0 600 330">
+      <svg viewBox="0 0 640 330">
         <!-- 전원 -->
-        <circle class="sym" cx="34" cy="100" r="15"/>
+        <circle class="pulse" cx="34" cy="100" r="15"/><circle class="pulse p2" cx="34" cy="100" r="15"/>
+        <circle class="sym srcc" cx="34" cy="100" r="15"/>
+        <text class="sagtx" x="10" y="64">VOLTAGE SAG</text>
         <path class="wave src" d="M23 100 q5.5 -10 11 0 t11 0" id="wsrc"/>
         <text class="lbl" x="34" y="130" text-anchor="middle">SOURCE</text>
         <path class="wire" d="M49 100 H80"/>
@@ -1082,11 +1110,19 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
         <!-- 부하측 모선 → 출력 개폐기 → 부하 -->
         <path class="live out" d="M330 100 H470"/>
         <circle class="node" cx="430" cy="100" r="3.5"/>
-        <path class="sym" d="M470 100 L488 89"/><path class="live out" d="M490 100 H545"/>
+        <path class="sym" d="M470 100 L488 89"/><path class="live out" d="M490 100 H566"/>
         <text class="lbl" x="480" y="82" text-anchor="middle">OUT</text>
-        <circle class="sym" cx="560" cy="100" r="15"/>
-        <path class="wave" d="M549 100 q5.5 -10 11 0 t11 0"/>
-        <text class="lbl" x="560" y="130" text-anchor="middle">LOAD</text>
+        <!-- 부하 = 자동화 설비(산업용 로봇). 보상 중에도 멈추지 않고 움직인다 — 이 그림의 핵심 메시지 -->
+        <g class="robot">
+          <rect class="rb-floor" x="546" y="128" width="88" height="4"/>
+          <rect class="rb-ped" x="566" y="94" width="20" height="34" rx="2"/><circle class="rb-led" cx="576" cy="118" r="2.6"/>
+          <g class="rb-a1"><path class="rb-link" d="M576 92 L598 60"/>
+            <g class="rb-a2"><path class="rb-link" d="M598 60 L624 74"/><path class="rb-grip" d="M624 74 l7 -5 M624 74 l7 5"/></g>
+            <circle class="rb-j" cx="598" cy="60" r="5"/></g>
+          <circle class="rb-j" cx="576" cy="92" r="6"/>
+          <rect class="rb-work" x="606" y="116" width="18" height="12"/>
+        </g>
+        <text class="lbl" x="590" y="150" text-anchor="middle">LOAD</text>
         <!-- 보상 경로: 모선 → MC → TR → INVERTER → UC(EDLC) -->
         <path class="inv" d="M330 100 V125"/>
         <path class="sym" d="M330 145 L341 128"/><text class="lbl" x="348" y="140">MC</text>
@@ -1102,13 +1138,14 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
         <path class="cap" d="M314 272 H346 M314 281 H346"/>
         <path class="inv" d="M330 281 V296"/>
         <text class="lbl" x="352" y="284">UC · EDLC</text>
+        <rect class="lv-bg" x="462" y="275" width="58" height="10"/><rect class="lv" x="464" y="277" width="54" height="6"/>
         <!-- 제어: SCR 게이트 · PWM -->
         <rect class="box" x="140" y="205" width="90" height="36"/>
         <text class="bt" x="185" y="228" text-anchor="middle">DSP · CPU</text>
         <path class="ctl" d="M185 205 V150 H245 V128"/><text class="lbl sm" x="190" y="164">GATE</text>
         <path class="ctl" d="M230 230 H300"/><text class="lbl sm" x="265" y="226" text-anchor="middle">PWM</text>
         <!-- 상태 표시 -->
-        <g class="badge"><rect x="405" y="150" width="175" height="28" rx="14" fill="#E1431B"/><text x="492" y="169" text-anchor="middle" fill="#FDFCF9" font-size="13.5" font-weight="700" font-family="Arial" data-i18n="p6.badge">2ms · 100% 보상</text></g>
+        <g class="badge"><rect x="380" y="150" width="175" height="28" rx="14" fill="#E1431B"/><text x="467" y="169" text-anchor="middle" fill="#FDFCF9" font-size="13.5" font-weight="700" font-family="Arial" data-i18n="p6.badge">2ms · 100% 보상</text></g>
         <text class="lbl" x="18" y="322" data-i18n="p6.svgnote">평상시 SCR 통전(바이패스)  ·  정전 시 SCR 차단 → EDLC · 인버터 · TR 로 부하 공급</text>
       </svg>
     </div>
@@ -1403,14 +1440,20 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
   var tx=null;addEventListener('touchstart',function(e){tx=e.touches[0].clientX});
   addEventListener('touchend',function(e){if(tx==null||!document.body.classList.contains('present'))return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)show(cur+(dx<0?1:-1));tx=null});
 
-  // SLD: 6초마다 순간정전 발생 → 1.6초 보상 모드
-  var sld=document.getElementById('sld'),st=document.getElementById('sldst'),w=document.getElementById('wsrc');
-  var normal='M23 100 q5.5 -10 11 0 t11 0',sag='M23 100 q5.5 -10 11 0 q5.5 -3 11 0';
-  setInterval(function(){
-    if(!fx||reduce)return;
-    sld.classList.add('sag');st.textContent='SAG · SCR OFF → INVERTER';w.setAttribute('d',sag);
-    setTimeout(function(){sld.classList.remove('sag');st.textContent='NORMAL · SCR ON (BYPASS)';w.setAttribute('d',normal)},1600);
-  },6000);
+  // SLD: 평상시 감시 → 순간정전 감지 → SCR 차단·울트라커패시터 보상 → 계통 복귀(바이패스) 반복. ?phase= 로 한 단계에 멈춤(검수용)
+  (function(){
+    var sld=document.getElementById('sld'),st=document.getElementById('sldst'),w=document.getElementById('wsrc');if(!sld)return;
+    var WN='M23 100 q5.5 -10 11 0 t11 0',WS='M23 100 q5.5 -2.5 11 0 t11 0';
+    var P=[['normal',3600,'NORMAL · SCR ON (BYPASS)',WN],['sag',700,'SAG DETECTED',WS],['comp',3000,'SAG · SCR OFF → INVERTER',WS],['recover',1600,'RECOVERED · SCR ON (BYPASS)',WN]];
+    function set(i){var p=P[i];sld.setAttribute('data-phase',p[0]);st.textContent=p[2];w.setAttribute('d',p[3])}
+    var fixed=new URLSearchParams(location.search).get('phase'),fi=P.map(function(p){return p[0]}).indexOf(fixed);
+    if(fi>-1){set(fi);return}
+    var i=0;set(0);
+    (function tick(){
+      if(!fx||reduce){if(i){i=0;set(0)}return setTimeout(tick,1000)}
+      setTimeout(function(){i=(i+1)%P.length;set(i);tick()},P[i][1]);
+    })();
+  })();
 
   // Sag-VIEWER 탭 — 화면 캡처 교체
   (function(){
