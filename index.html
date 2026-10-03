@@ -386,8 +386,12 @@ body.present .bar{display:none}
 body.present .wrap{padding:0;height:100vh;height:100dvh;display:flex;align-items:center;justify-content:center}
 body.present .pnav{opacity:.35;transition:opacity .2s}body.present .pnav:hover,body.present .pnav:focus-within{opacity:1}
 .rot{display:none}
+/* 폰 발표 — 이동 버튼을 슬라이드 위가 아니라 오른쪽 여백에 세로로 (fit 이 좌우 60px 를 비워 둔다) */
+@media (pointer:coarse){body.present .pnav{right:6px;bottom:50%;transform:translateY(50%);flex-direction:column;padding:6px 4px;opacity:.6}body.present .pnav span{padding:4px 0;font-size:10px}}
 @media (orientation:portrait) and (pointer:coarse){body.present .rot{display:block;position:fixed;left:50%;top:18px;transform:translateX(-50%);z-index:21;background:rgba(41,37,36,.9);color:#E7E2DA;font-size:13px;padding:8px 14px;border-radius:8px;white-space:nowrap;pointer-events:none}}
 body.present .pages{gap:0}
+/* 261003 발표 축소는 zoom 이 아니라 transform — zoom 으로 0.4배 줄인 글자를 아이폰·카카오 인앱 브라우저가 «최소 글자 크기»로 다시 키워 판형 밖으로 넘쳤다. transform 은 1120×720 으로 배치한 뒤 그림만 줄인다 */
+body.present #pages{position:fixed;left:50%;top:50%;width:1120px;height:720px;transform:translate(-50%,-50%) scale(var(--ps,1));transform-origin:center center}
 body.present .page{display:none;box-shadow:0 20px 60px rgba(28,25,23,.5)}
 body.present .page.cur{display:block}
 body.present .pnav{display:flex;position:fixed;right:18px;bottom:16px;gap:6px;align-items:center;z-index:20;background:rgba(41,37,36,.9);border-radius:8px;padding:6px 8px;color:#E7E2DA;font-size:12px}
@@ -652,7 +656,7 @@ body.effects-off .page *{animation:none!important;transition:none!important}
  .bars .tr i{width:var(--w)!important}
 }
 
-html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html,body{-webkit-text-size-adjust:100%!important;text-size-adjust:100%!important}
 /* History: four eras on one spread. */
 .hist .tl{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:6px}
 .hist .era{border-top:2px solid var(--stone);padding-top:16px}
@@ -722,6 +726,11 @@ body.reflow .back .cta,body.reflow .back .next{position:static;margin-top:16px}b
 body.reflow .back .ct{position:static;padding:24px 20px;grid-template-columns:1fr;gap:18px}body.reflow .back .qr{position:static;margin:14px auto 0;background:#292524;color:var(--ivory);border-color:#292524}
 }
 html[lang="ko"] .page{word-break:keep-all;overflow-wrap:anywhere}
+/* 261003 중·일문 전용 글꼴 — i18n.js loadCjkFont 가 불러온다. 없으면 기기 글꼴로 대체돼 아이폰에서 판형 밖으로 넘쳤다 */
+html[lang="zh"] body,html[lang="zh"] button,html[lang="zh"] .eyebrow,html[lang="zh"] .m b,html[lang="zh"] .stat-big b,html[lang="zh"] .sld .bt{font-family:Arial,"Noto Sans SC",sans-serif}
+html[lang="zh"] body{font-family:"Noto Sans SC",sans-serif}
+html[lang="ja"] body,html[lang="ja"] button,html[lang="ja"] .eyebrow,html[lang="ja"] .m b,html[lang="ja"] .stat-big b,html[lang="ja"] .sld .bt{font-family:Arial,"Noto Sans JP",sans-serif}
+html[lang="ja"] body{font-family:"Noto Sans JP",sans-serif}
 /* 09 TSP vs UPS */
 .pg-ups table.cmp{margin-top:10px;font-size:13.5px}
 .pg-ups table.cmp th,.pg-ups table.cmp td{padding:14px 12px;line-height:1.6}
@@ -1327,7 +1336,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
   var REFLOW=matchMedia('(max-width:760px),(pointer:coarse) and (max-height:520px)');
   function fit(){
     if(document.body.classList.contains('present')){
-      document.body.classList.remove('reflow');wrap.style.transform='';document.getElementById('fitbox').style.height='';var s=Math.min(innerWidth/1120,innerHeight/720);wrap.style.zoom=s;return;
+      document.body.classList.remove('reflow');wrap.style.transform='';document.getElementById('fitbox').style.height='';var side=matchMedia('(pointer:coarse)').matches?120:0;var s=Math.min((innerWidth-side)/1120,innerHeight/720);wrap.style.zoom='';wrap.style.setProperty('--ps',s);return;
     }
     var box=document.getElementById('fitbox');
     // 261003: 가로로 돌린 폰(폭 761~1000·높이 520 이하)도 재배치 — 축소 판형은 글자가 작고, 폭 계산이 화면을 넓히는 순환으로 옆이 잘렸다
@@ -1351,7 +1360,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
   // 261003: 발표 버튼(사용자 동작)일 때 전체화면 + 폰이면 가로 고정(안드로이드 크롬만 지원, 아이폰은 조용히 실패 → 「가로로 돌리세요」 안내가 대신한다)
   function full(){var d=document.documentElement;if(document.fullscreenElement||!d.requestFullscreen)return;d.requestFullscreen().then(function(){if(screen.orientation&&screen.orientation.lock&&matchMedia('(pointer:coarse)').matches)return screen.orientation.lock('landscape')}).catch(function(){})}
   function enter(fs){var i=visibleIndex();document.body.classList.add('present');if(fs)full();fit();show(i);}
-  function exit(){document.body.classList.remove('present');if(document.fullscreenElement&&document.exitFullscreen)document.exitFullscreen().catch(function(){});wrap.style.zoom='';fit();pages.forEach(function(p){p.classList.remove('cur')});if(pages[cur])pages[cur].scrollIntoView()}
+  function exit(){document.body.classList.remove('present');wrap.style.removeProperty('--ps');if(document.fullscreenElement&&document.exitFullscreen)document.exitFullscreen().catch(function(){});wrap.style.zoom='';fit();pages.forEach(function(p){p.classList.remove('cur')});if(pages[cur])pages[cur].scrollIntoView()}
   function visibleIndex(){var m=0,mi=0;pages.forEach(function(p,i){var r=p.getBoundingClientRect();var v=Math.min(innerHeight,r.bottom)-Math.max(0,r.top);if(v>m){m=v;mi=i}});return mi}
   pres.onclick=function(){enter(true)};document.getElementById('pexit').onclick=exit;
   document.getElementById('pnext').onclick=function(){show(cur+1)};document.getElementById('pprev').onclick=function(){show(cur-1)};

@@ -27,6 +27,19 @@
     return DEFAULT_LANG;
   }
 
+  // 261003: Noto Sans KR 에 없는 간체자·일본 한자는 기기 글꼴(아이폰 PingFang 등)로 대체돼 글자가 커지고
+  // 판형(1120×720) 밖으로 넘쳤다. 중·일문은 전용 글꼴을 받아 기기와 무관하게 같은 폭으로 그린다.
+  const CJK_FONT = { cn: 'Noto+Sans+SC', jp: 'Noto+Sans+JP' };
+  function loadCjkFont(lang) {
+    const fam = CJK_FONT[lang];
+    if (!fam || document.getElementById('font-' + lang)) return;
+    const l = document.createElement('link');
+    l.id = 'font-' + lang;
+    l.rel = 'stylesheet';
+    l.href = `https://fonts.googleapis.com/css2?family=${fam}:wght@400;500;700;900&display=swap`;
+    document.head.appendChild(l);
+  }
+
   async function loadDict(lang) {
     if (dicts[lang]) return dicts[lang];
     try {
@@ -86,6 +99,7 @@
 
     // Update <html lang>
     document.documentElement.lang = lang === 'cn' ? 'zh' : (lang === 'jp' ? 'ja' : (lang === 'vn' ? 'vi' : lang));
+    loadCjkFont(lang);
 
     // Toggle UI state
     document.querySelectorAll('[data-lang-btn]').forEach((btn) => {
