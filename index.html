@@ -381,7 +381,12 @@ body.present{background:#1c1917;overflow:hidden}
 body.present .bar{background:#292524;border-color:#44403C}
 body.present .bar .t span,body.present .bar .pg{color:#E7E2DA}
 body.present .thumbs{display:none}
-body.present .wrap{padding:0;height:calc(100vh - 56px);display:flex;align-items:center;justify-content:center}
+/* 261003 발표 모드는 상단 바를 숨기고 화면 전체를 슬라이드에 준다 — 바가 남으면 56px(세로 폰 120px)만큼 슬라이드가 줄고 잘렸다 */
+body.present .bar{display:none}
+body.present .wrap{padding:0;height:100vh;height:100dvh;display:flex;align-items:center;justify-content:center}
+body.present .pnav{opacity:.35;transition:opacity .2s}body.present .pnav:hover,body.present .pnav:focus-within{opacity:1}
+.rot{display:none}
+@media (orientation:portrait) and (pointer:coarse){body.present .rot{display:block;position:fixed;left:50%;top:18px;transform:translateX(-50%);z-index:21;background:rgba(41,37,36,.9);color:#E7E2DA;font-size:13px;padding:8px 14px;border-radius:8px;white-space:nowrap;pointer-events:none}}
 body.present .pages{gap:0}
 body.present .page{display:none;box-shadow:0 20px 60px rgba(28,25,23,.5)}
 body.present .page.cur{display:block}
@@ -389,7 +394,7 @@ body.present .pnav{display:flex;position:fixed;right:18px;bottom:16px;gap:6px;al
 body.present .pnav button{border:0;border-radius:5px;background:#44403C;color:#FDFCF9;width:30px;height:28px;font-size:16px;cursor:pointer}
 body.present .pnav #pexit{width:auto;padding:0 8px;font-size:11px}
 body.present .pnav span{padding:0 8px;font-variant-numeric:tabular-nums}
-@media (max-width:760px){.bar{flex-wrap:wrap;height:auto;padding:8px 12px;gap:6px}.bar .btns{flex-wrap:wrap}.bar .t span{display:none}.wrap{padding:12px}}
+@media (max-width:760px),(pointer:coarse) and (max-height:520px){.bar{flex-wrap:wrap;height:auto;padding:8px 12px;gap:6px}.bar .btns{flex-wrap:wrap}.bar .t span{display:none}.wrap{padding:12px}}
 </style>
 
 <style>
@@ -633,7 +638,7 @@ body.effects-off .page *{animation:none!important;transition:none!important}
  .page,.page [data-r],.step {opacity:1!important;transform:none!important}
  .bars .tr i{width:var(--w)!important}
 }
-@media(max-width:760px){html,body{overflow-x:hidden}.thumbs{display:none}.bar{height:auto;padding:8px 12px}.bar a.btn:not(.red){display:none}.bar .btns{gap:5px}.bar .pg{margin-right:4px}.wrap{padding:12px}.pages{gap:20px}}
+@media (max-width:760px),(pointer:coarse) and (max-height:520px){html,body{overflow-x:hidden}.thumbs{display:none}.bar{height:auto;padding:8px 12px}.bar a.btn:not(.red){display:none}.bar .btns{gap:5px}.bar .pg{margin-right:4px}.wrap{padding:12px}.pages{gap:20px}}
 @page{size:1120px 720px;margin:0}
 @media print{
  html,body,body.present{margin:0!important;padding:0!important;background:var(--ivory);overflow:visible!important;width:1120px;print-color-adjust:exact;-webkit-print-color-adjust:exact}
@@ -685,11 +690,11 @@ html:not([lang="ko"]) .uses span{font-size:12.5px}
 html:not([lang="ko"]) .pg-adv .pill span{font-size:13px}
 html:not([lang="ko"]) .pg-adv .pill span small{font-size:10.5px}
 .fitbox{width:100%}
-@media(max-width:760px){.fitbox{overflow:hidden}}
-@media(max-width:760px){.wrap{display:block;padding:12px 0}}
+@media (max-width:760px),(pointer:coarse) and (max-height:520px){.fitbox{overflow:hidden}}
+@media (max-width:760px),(pointer:coarse) and (max-height:520px){.wrap{display:block;padding:12px 0}}
 /* 260924 모바일 세로 재배치 — 1120×720 판형을 축소하지 않고(글자 5px) 한 열로 흐르게 한다. fit() 이 폭 760 이하에서 body.reflow 를 켠다. 발표 모드는 제외. */
-@media(max-width:760px){
-body.reflow .pages{gap:16px}
+@media (max-width:760px),(pointer:coarse) and (max-height:520px){
+body.reflow .pages{gap:16px;max-width:720px;margin:0 auto}
 body.reflow .page{width:auto!important;height:auto!important;min-height:0;padding:30px 20px 76px;box-shadow:0 4px 18px rgba(68,64,60,.10);scroll-margin-top:110px}
 body.reflow .page:not(.cover):not(.div):not(.back)::before{left:20px}
 body.reflow .h{font-size:24px;line-height:1.3}body.reflow .h .no{margin-right:8px}
@@ -703,7 +708,7 @@ body.reflow .page svg,body.reflow .page img{max-width:100%}
 body.reflow .pg-line .tier .ph{height:180px}
 body.reflow .lg .cig .logos img{height:16px;max-width:90px}
 body.reflow .net .mapwrap{position:relative;left:auto;top:auto;width:100%;margin:8px 0 12px}body.reflow .net .ctry{position:static;width:auto}body.reflow .net .leg{position:static;margin-top:12px}
-body.reflow .pg-ups table.cmp{font-size:12px}body.reflow .pg-ups table.cmp th,body.reflow .pg-ups table.cmp td{padding:8px 6px}
+body.reflow .pg-ups table.cmp{font-size:12px;table-layout:fixed;width:100%}body.reflow .pg-ups table.cmp tr>*{width:auto;overflow-wrap:anywhere;white-space:normal}body.reflow .pg-ups table.cmp tr>:first-child{width:64px}body.reflow .pg-ups table.cmp th,body.reflow .pg-ups table.cmp td{padding:8px 6px}
 body.reflow .cover{padding:0}body.reflow .cover::before,body.reflow .cover::after{display:none}
 body.reflow .cover .inner{position:static;padding:30px 20px 22px}body.reflow .cover .eyebrow{margin-top:26px!important}
 body.reflow .cover h1{font-size:30px;max-width:none;letter-spacing:-.04em}body.reflow .cover .sl{margin-top:14px;max-width:none}
@@ -1267,6 +1272,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
 </div>
 
 <div class="pnav" id="pnav"><button type="button" id="pprev" aria-label="prev">‹</button><span id="ppg">1 / 13</span><button type="button" id="pnext" aria-label="next">›</button><button type="button" id="pexit" aria-label="exit">ESC</button></div>
+<div class="rot" data-i18n="bar.rotate">화면을 가로로 돌리면 크게 보입니다</div>
 
 <script src="launcher.js?v=1" data-mount="#sites-mount"></script>
 <script>
@@ -1317,13 +1323,15 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
   },{threshold:.45});
   pages.forEach(function(p){io.observe(p)});
 
-  // 화면 폭에 맞춰 축소 (모바일)
+  // 화면 폭에 맞춰 축소 (모바일) — REFLOW 는 CSS 재배치 @media 와 같은 조건이어야 한다
+  var REFLOW=matchMedia('(max-width:760px),(pointer:coarse) and (max-height:520px)');
   function fit(){
     if(document.body.classList.contains('present')){
-      document.body.classList.remove('reflow');wrap.style.transform='';document.getElementById('fitbox').style.height='';var s=Math.min(innerWidth/1120,(innerHeight-56)/720);wrap.style.zoom=s;return;
+      document.body.classList.remove('reflow');wrap.style.transform='';document.getElementById('fitbox').style.height='';var s=Math.min(innerWidth/1120,innerHeight/720);wrap.style.zoom=s;return;
     }
     var box=document.getElementById('fitbox');
-    if(innerWidth<=760){
+    // 261003: 가로로 돌린 폰(폭 761~1000·높이 520 이하)도 재배치 — 축소 판형은 글자가 작고, 폭 계산이 화면을 넓히는 순환으로 옆이 잘렸다
+    if(REFLOW.matches){
       // 모바일: zoom 은 글리프 위치를 픽셀 단위로 반올림해 「CO UNTRIES」처럼 글자가 끊긴다.
       // transform 은 1120px 로 배치한 뒤 통째로 축소하므로 자간이 보존된다. 클립 상자로 문서 폭 확장(iOS 뷰포트 팽창)을 막는다.
       // 260924: 축소하면 글자가 5px 로 읽히지 않아 «세로 재배치»로 바꿈 — body.reflow 에 CSS @media(760) 규칙이 걸린다. 발표 모드는 위 분기에서 여전히 zoom 축소.
@@ -1331,7 +1339,8 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
     }
     wrap.style.transform='';box.style.height='';document.body.classList.remove('reflow');
     // 데스크톱: 폭에 맞추되, 화면 높이가 허락하면 한 쪽이 화면을 채우도록 키운다(최대 1.6배). 작은 노트북에서 줄어들지는 않는다
-    var w=innerWidth-(innerWidth>1300?230:24),byW=w/1120,byH=(innerHeight-130)/720;
+    // .wrap 좌우 패딩(20+20)보다 덜 빼면 판형이 화면보다 넓어지고, 모바일은 그만큼 뷰포트를 키워 다시 계산하는 순환이 생긴다
+    var w=innerWidth-(innerWidth>1300?230:48),byW=w/1120,byH=(innerHeight-130)/720;
     wrap.style.zoom=Math.max(Math.min(1,byW),Math.min(byW,byH,1.6));
   }
   addEventListener('resize',fit);fit();
@@ -1339,10 +1348,12 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
   // 발표 모드 — 한 쪽씩
   var cur=0,pres=document.getElementById('present');
   function show(i){cur=Math.max(0,Math.min(pages.length-1,i));pages.forEach(function(p,j){p.classList.toggle('cur',j===cur);if(j===cur){p.classList.add('in');countAll(p)}});setCur(cur)}
-  function enter(){var i=visibleIndex();document.body.classList.add('present');fit();show(i);}
-  function exit(){document.body.classList.remove('present');wrap.style.zoom='';fit();pages.forEach(function(p){p.classList.remove('cur')});if(pages[cur])pages[cur].scrollIntoView()}
+  // 261003: 발표 버튼(사용자 동작)일 때 전체화면 + 폰이면 가로 고정(안드로이드 크롬만 지원, 아이폰은 조용히 실패 → 「가로로 돌리세요」 안내가 대신한다)
+  function full(){var d=document.documentElement;if(document.fullscreenElement||!d.requestFullscreen)return;d.requestFullscreen().then(function(){if(screen.orientation&&screen.orientation.lock&&matchMedia('(pointer:coarse)').matches)return screen.orientation.lock('landscape')}).catch(function(){})}
+  function enter(fs){var i=visibleIndex();document.body.classList.add('present');if(fs)full();fit();show(i);}
+  function exit(){document.body.classList.remove('present');if(document.fullscreenElement&&document.exitFullscreen)document.exitFullscreen().catch(function(){});wrap.style.zoom='';fit();pages.forEach(function(p){p.classList.remove('cur')});if(pages[cur])pages[cur].scrollIntoView()}
   function visibleIndex(){var m=0,mi=0;pages.forEach(function(p,i){var r=p.getBoundingClientRect();var v=Math.min(innerHeight,r.bottom)-Math.max(0,r.top);if(v>m){m=v;mi=i}});return mi}
-  pres.onclick=enter;document.getElementById('pexit').onclick=exit;
+  pres.onclick=function(){enter(true)};document.getElementById('pexit').onclick=exit;
   document.getElementById('pnext').onclick=function(){show(cur+1)};document.getElementById('pprev').onclick=function(){show(cur-1)};
   addEventListener('keydown',function(e){
     var on=document.body.classList.contains('present');

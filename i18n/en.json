@@ -267,5 +267,6 @@
  "b.tel": "+82-31-460-0000",
  "b.cta": "<b>TSP® selection inquiry</b> — tell us four things: voltage, phase (single/three), load kVA and required ride-through time, and we will propose the right model.",
  "b.yt": "YouTube Channel<br>Company & product videos",
- "bar.fxOff": "Effects OFF"
+ "bar.fxOff": "Effects OFF",
+ "bar.rotate": "Rotate to landscape for a larger view"
 }
