@@ -91,6 +91,24 @@
           }
         },
         {
+          "id": "videos",
+          "href": "https://intro.wesco.works/videos/",
+          "title": {
+            "ko": "TSP 제품·회사 영상",
+            "en": "TSP & Company Videos",
+            "cn": "TSP 产品与公司视频",
+            "jp": "TSP製品・会社動画",
+            "vn": "Video TSP và công ty"
+          },
+          "desc": {
+            "ko": "한국어·영어 제품소개 · 실제 데모 · WESCO 소개",
+            "en": "Korean & English: product, demo and WESCO introduction",
+            "cn": "韩语·英语：产品介绍、实际演示与 WESCO 介绍",
+            "jp": "韓国語・英語：製品紹介、実演、WESCO紹介",
+            "vn": "Tiếng Hàn và tiếng Anh: sản phẩm, demo và WESCO"
+          }
+        },
+        {
           "id": "youtube",
           "href": "https://www.youtube.com/@WESCOTSP/videos",
           "title": {
