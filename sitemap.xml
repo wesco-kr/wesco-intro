@@ -393,4 +393,32 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://intro.wesco.works/videos/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://intro.wesco.works/videos/tsp-product/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://intro.wesco.works/videos/tsp-demo/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://intro.wesco.works/videos/wesco-company/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://intro.wesco.works/en/videos/tsp-product/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://intro.wesco.works/en/videos/tsp-demo/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://intro.wesco.works/en/videos/wesco-company/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>
