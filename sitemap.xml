@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://intro.wesco.works/</loc>
     <xhtml:link rel="alternate" hreflang="ko" href="https://intro.wesco.works/"/>
@@ -399,26 +400,86 @@
   </url>
   <url>
     <loc>https://intro.wesco.works/videos/tsp-product/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://intro.wesco.works/videos/tsp-product/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://intro.wesco.works/en/videos/tsp-product/"/>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/Qmalmk-D_A8/sddefault.jpg</video:thumbnail_loc>
+      <video:title>순간정전보상장치 TSP® 제품소개 | 3D 애니메이션 | WESCO 웨스코</video:title>
+      <video:description>웨스코(WESCO)의 순간정전보상장치 TSP®를 3D 애니메이션으로 소개하는 제품 영상입니다.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/Qmalmk-D_A8</video:player_loc>
+      <video:duration>229</video:duration>
+      <video:publication_date>2021-11-04T05:00:35Z</video:publication_date>
+    </video:video>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://intro.wesco.works/videos/tsp-demo/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://intro.wesco.works/videos/tsp-demo/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://intro.wesco.works/en/videos/tsp-demo/"/>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/M1QejBSbeYc/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>순간정전보상장치 TSP® 데모 시연 | 순간전압강하 보상 | WESCO 웨스코</video:title>
+      <video:description>웨스코(WESCO)의 순간정전보상장치 TSP® 데모 시연 영상입니다. 자동화 공장 부하를 데모 시스템으로 재현하고 순간전압강하 보상 동작을 시연합니다.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/M1QejBSbeYc</video:player_loc>
+      <video:duration>401</video:duration>
+      <video:publication_date>2021-09-14T08:12:41Z</video:publication_date>
+    </video:video>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://intro.wesco.works/videos/wesco-company/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://intro.wesco.works/videos/wesco-company/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://intro.wesco.works/en/videos/wesco-company/"/>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/FNYa6lJiMLo/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>웨스코 WESCO 기업소개 | 순간정전보상장치 TSP® 제조사</video:title>
+      <video:description>순간정전보상장치 TSP®를 제조하는 웨스코(WESCO)의 기업소개 영상입니다.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/FNYa6lJiMLo</video:player_loc>
+      <video:duration>179</video:duration>
+      <video:publication_date>2021-09-24T01:33:26Z</video:publication_date>
+    </video:video>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://intro.wesco.works/en/videos/tsp-product/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://intro.wesco.works/videos/tsp-product/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://intro.wesco.works/en/videos/tsp-product/"/>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/WwtopBZZnlY/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>TSP® Voltage Sag Protector | 3D Product Introduction | WESCO</video:title>
+      <video:description>A 3D product introduction to the WESCO TSP® Voltage Sag Protector.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/WwtopBZZnlY</video:player_loc>
+      <video:duration>236</video:duration>
+      <video:publication_date>2021-10-12T04:54:56Z</video:publication_date>
+    </video:video>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://intro.wesco.works/en/videos/tsp-demo/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://intro.wesco.works/videos/tsp-demo/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://intro.wesco.works/en/videos/tsp-demo/"/>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/9tfSm4NkVmo/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>TSP® Voltage Sag Protector | Demo Simulation | WESCO</video:title>
+      <video:description>A demo simulation of the WESCO TSP® Voltage Sag Protector, showing its voltage sag compensation operation.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/9tfSm4NkVmo</video:player_loc>
+      <video:duration>401</video:duration>
+      <video:publication_date>2021-09-24T05:33:02Z</video:publication_date>
+    </video:video>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://intro.wesco.works/en/videos/wesco-company/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://intro.wesco.works/videos/wesco-company/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://intro.wesco.works/en/videos/wesco-company/"/>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/H6lKww-6AJI/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>WESCO Company Introduction | TSP® Voltage Sag Protector Manufacturer</video:title>
+      <video:description>An introduction to WESCO, the South Korean manufacturer of the TSP® Voltage Sag Protector.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/H6lKww-6AJI</video:player_loc>
+      <video:duration>179</video:duration>
+      <video:publication_date>2021-09-24T01:40:03Z</video:publication_date>
+    </video:video>
     <changefreq>monthly</changefreq>
   </url>
 </urlset>

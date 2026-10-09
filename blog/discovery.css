@@ -1,0 +1,16 @@
+/* Shared additions for the existing static insights pages. */
+.topbar .wrap{height:auto;min-height:62px;gap:16px;padding-top:16px;padding-bottom:16px;flex-wrap:wrap}
+.topnav{display:flex;flex-wrap:wrap;gap:16px}
+.topnav a{margin-left:0}
+.discovery-hub{margin-top:20px;margin-bottom:20px}
+.discovery-hub h2{font-size:22px;color:var(--c-head);margin-bottom:16px}
+.topic-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.topic-grid section,.discovery-watch{padding:18px;border:1px solid var(--c-divider);border-radius:10px;background:var(--c-bg-soft)}
+.topic-grid section:first-child{grid-column:1/-1}
+.discovery-hub h3{font-size:17px;line-height:1.5;color:var(--c-head);margin-bottom:8px}
+.discovery-hub ul{padding-left:20px;font-size:15px}
+.discovery-hub li{margin:6px 0}
+.discovery-watch{margin-top:14px}
+.discovery-hub a,.discovery-video{word-break:keep-all;overflow-wrap:anywhere}
+.discovery-hub a:focus-visible,.topnav a:focus-visible{outline:2px solid var(--c-accent);outline-offset:4px}
+@media(max-width:480px){.topic-grid{grid-template-columns:1fr}.discovery-hub h2{font-size:20px}}
