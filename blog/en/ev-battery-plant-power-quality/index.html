@@ -1,0 +1,124 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Power Quality in EV Battery Plants: Why Sags on Electrode and Assembly Lines Turn Into Batch Losses</title><meta name="description" content="EV battery plants run electrode coating and assembly as continuous lines, so one voltage sag can turn into coil- or lot-wide scrap. This article explains why, and how battery-free TSP protection responds."><link rel="canonical" href="https://intro.wesco.works/blog/en/ev-battery-plant-power-quality/"><link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/ev-battery-plant-power-quality/"><link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/ev-battery-plant-power-quality/"><link rel="alternate" hreflang="x-default" href="https://intro.wesco.works/blog/ev-battery-plant-power-quality/"><meta property="og:type" content="article"><meta property="og:title" content="Power Quality in EV Battery Plants: Why Sags on Electrode and Assembly Lines Turn Into Batch Losses"><meta property="og:description" content="EV battery plants run electrode coating and assembly as continuous lines, so one voltage sag can turn into coil- or lot-wide scrap. This article explains why, and how battery-free TSP protection responds."><meta property="og:url" content="https://intro.wesco.works/blog/en/ev-battery-plant-power-quality/"><meta property="og:image" content="https://intro.wesco.works/images/og-image.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Power Quality in EV Battery Plants: Why Sags on Electrode and Assembly Lines Turn Into Batch Losses"><meta name="twitter:description" content="EV battery plants run electrode coating and assembly as continuous lines, so one voltage sag can turn into coil- or lot-wide scrap. This article explains why, and how battery-free TSP protection responds."><meta name="twitter:image" content="https://intro.wesco.works/images/og-image.jpg"><link rel="icon" type="image/x-icon" href="https://intro.wesco.works/favicon.ico"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"><style>
+:root{
+  --c-red:#C13816; --c-red-dk:#9C2C10; --c-red-lt:#FBEEE8;
+  --c-head:#2C2924; --c-text:#4A4641; --c-gray:#78716C; --c-gray-lt:#A8A29E;
+  --c-bg:#FDFCF9; --c-bg-soft:#F7F4EE; --c-divider:#E0DBD3; --c-accent:#4F6886;
+  --font-ko:'Noto Sans KR','맑은 고딕',sans-serif;
+  --font-en:'Inter',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font-ko);color:var(--c-text);background:var(--c-bg);
+  line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:var(--c-red);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+
+/* 상단바 */
+.topbar{border-bottom:1px solid var(--c-divider);background:var(--c-bg)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center}
+.brand img{height:22px;width:auto;display:block}
+.topnav a{color:var(--c-gray);font-size:14px;font-weight:500;margin-left:22px}
+.topnav a:hover{color:var(--c-red);text-decoration:none}
+
+/* 글 헤더 */
+.post-head{padding:56px 0 34px;border-bottom:1px solid var(--c-divider)}
+.post-head .kicker{font-family:var(--font-en);font-size:12px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--c-red)}
+.post-head h1{font-size:34px;line-height:1.32;color:var(--c-head);
+  font-weight:700;margin:14px 0 12px;letter-spacing:-.01em}
+.post-head .sub{font-size:18px;color:var(--c-gray);font-weight:400;line-height:1.6}
+.post-meta{margin-top:20px;font-size:13px;color:var(--c-gray-lt);
+  font-family:var(--font-en);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.post-meta .lang-toggle{border:1px solid var(--c-divider);border-radius:100px;
+  padding:3px 12px;font-weight:600;color:var(--c-gray)}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tags .tag{background:var(--c-bg-soft);color:var(--c-gray);border:1px solid var(--c-divider);
+  border-radius:100px;padding:3px 11px;font-size:12px;font-family:var(--font-ko)}
+
+/* 본문 */
+.post-body{padding:38px 0 10px}
+.post-body h2{font-size:23px;color:var(--c-head);font-weight:700;
+  margin:44px 0 16px;letter-spacing:-.01em;line-height:1.4}
+.post-body h3{font-size:19px;color:var(--c-head);font-weight:700;margin:30px 0 12px}
+.post-body p{margin:0 0 20px}
+.post-body ul,.post-body ol{margin:0 0 22px;padding-left:22px}
+.post-body li{margin:0 0 9px}
+.post-body strong{color:var(--c-head);font-weight:700}
+.post-body em{font-style:normal;color:var(--c-gray)}
+.post-body hr{border:0;border-top:1px solid var(--c-divider);margin:40px 0}
+.post-body blockquote{border-left:3px solid var(--c-red);padding:2px 0 2px 18px;
+  margin:0 0 22px;color:var(--c-gray)}
+.post-body img{max-width:100%;height:auto;border-radius:10px;margin:8px 0 24px}
+
+/* FAQ */
+.faq{margin-top:8px}
+.faq dt{font-weight:700;color:var(--c-head);margin:22px 0 8px}
+.faq dd{margin:0 0 8px;color:var(--c-text)}
+
+/* CTA */
+.cta{margin:44px 0 0;background:var(--c-bg-soft);border:1px solid var(--c-divider);
+  border-radius:14px;padding:28px 30px}
+.cta h4{font-size:18px;color:var(--c-head);margin-bottom:8px}
+.cta p{font-size:15px;color:var(--c-gray);margin-bottom:16px}
+.cta a.btn{display:inline-block;background:var(--c-red);color:#fff;font-weight:600;
+  font-size:15px;padding:11px 22px;border-radius:8px}
+.cta a.btn:hover{background:var(--c-red-dk);text-decoration:none}
+.cta a.btn-ghost{background:transparent;color:var(--c-red);border:1px solid var(--c-red);margin-left:8px}
+.cta a.btn-ghost:hover{background:var(--c-red);color:#fff}
+
+/* 영상 · 관련 글 */
+.video{position:relative;padding-top:56.25%;margin:8px 0 28px;border-radius:10px;overflow:hidden;background:var(--c-bg-soft)}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.related{margin-top:44px}
+.related h2{font-size:20px;color:var(--c-head);margin-bottom:6px}
+.related a.rel{display:block;padding:12px 0;border-bottom:1px solid var(--c-divider);color:var(--c-head);font-weight:500}
+.related .product{margin-top:16px;font-size:15px;color:var(--c-gray)}
+
+/* 푸터 */
+.foot{margin-top:64px;border-top:1px solid var(--c-divider);
+  padding:30px 0 60px;color:var(--c-gray-lt);font-size:13px;text-align:center}
+.foot a{color:var(--c-gray)}
+
+/* 목록 */
+.list-head{padding:56px 0 14px}
+.list-head h1{font-size:30px;color:var(--c-head);font-weight:700}
+.list-head p{color:var(--c-gray);margin-top:8px}
+.list-head .lang-toggle{display:inline-block;margin-top:14px;border:1px solid var(--c-divider);
+  border-radius:100px;padding:4px 14px;font-size:13px;font-weight:600;color:var(--c-gray)}
+.card{display:block;padding:26px 0;border-bottom:1px solid var(--c-divider)}
+.card:hover{text-decoration:none}
+.card .kicker{font-family:var(--font-en);font-size:11px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--c-red)}
+.card h2{font-size:22px;color:var(--c-head);font-weight:700;margin:8px 0 8px;line-height:1.4}
+.card p{color:var(--c-gray);font-size:15px}
+.card .date{font-family:var(--font-en);font-size:12px;color:var(--c-gray-lt);margin-top:10px}
+
+@media(max-width:600px){
+  body{font-size:16px}
+  .post-head h1{font-size:27px}
+  .post-head .sub{font-size:16px}
+  .post-body h2{font-size:20px}
+}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Power Quality in EV Battery Plants: Why Sags on Electrode and Assembly Lines Turn Into Batch Losses", "description": "EV battery plants run electrode coating and assembly as continuous lines, so one voltage sag can turn into coil- or lot-wide scrap. This article explains why, and how battery-free TSP protection responds.", "datePublished": "2026-10-09", "dateModified": "2026-10-09", "inLanguage": "en", "mainEntityOfPage": "https://intro.wesco.works/blog/en/ev-battery-plant-power-quality/", "author": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}, "publisher": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why do voltage sags matter so much in EV battery plants?", "acceptedAnswer": {"@type": "Answer", "text": "Electrode coating and assembly run as continuous lines, so even a brief voltage sag can disturb servo motors and precision control enough that the entire affected segment is classified as defective."}}, {"@type": "Question", "name": "Isn't a standard UPS enough to protect these lines?", "acceptedAnswer": {"@type": "Answer", "text": "Battery-based UPS systems handle full outages well, but their transfer logic can be too slow or may not engage for shallow, short-duration sags, and the batteries themselves add a periodic maintenance burden."}}, {"@type": "Question", "name": "Can TSP protect medium- or high-voltage circuits in a battery plant?", "acceptedAnswer": {"@type": "Answer", "text": "TSP is designed for low-voltage systems at or below 1kV; protection on medium- or high-voltage circuits above 3.3kV falls outside WESCO TSP's scope."}}]}</script><link rel="stylesheet" href="/blog/discovery.css"></head><body><header class="topbar"><div class="wrap"><a class="brand" href="https://intro.wesco.works/"><img src="https://intro.wesco.works/images/wesco_wordmark.png" alt="WESCO" width="119" height="22"></a><nav class="topnav"><a href="https://intro.wesco.works/">Home</a><a href="https://intro.wesco.works/blog/en/">Insights</a><a href="/videos/">Product videos</a></nav></div></header><section class="post-head"><div class="wrap"><div class="kicker">WESCO Insight</div><h1>Power Quality in EV Battery Plants: Why Sags on Electrode and Assembly Lines Turn Into Batch Losses</h1><p class="sub">How continuous coating and assembly processes raise sensitivity to voltage sags</p><div class="post-meta"><span>2026-10-09</span><div class="tags"><span class="tag">EV Battery</span><span class="tag">Battery Manufacturing</span><span class="tag">Power Quality</span><span class="tag">Voltage Sag</span><span class="tag">EDLC</span></div><a class="lang-toggle" href="https://intro.wesco.works/blog/ev-battery-plant-power-quality/">한국어</a></div></div></section><article class="post-body"><div class="wrap"><p>EV battery plants run electrode coating, drying, and assembly as continuous lines, so a single voltage sag can throw off coating thickness, tension, or alignment across an entire coil or lot rather than stopping one machine. Servo motors on coating heads and winding or stacking equipment must hold precise speed and position even through momentary voltage dips, making them more sensitive to short disturbances than typical industrial equipment. As a result, power quality strategy for battery manufacturing lines needs to address brief voltage sags, not just full outages.</p>
+<h2>Electrode Process: Continuous Coating Raises Sensitivity</h2>
+<p>The electrode process runs as a roll-to-roll line: slurry coating, drying, calendaring, and slitting. Servo motors driving the coating head and rollers must maintain constant speed and web tension to keep coating thickness uniform. A voltage dip lasting only tens or hundreds of milliseconds can disturb servo torque enough to shift coating thickness — and that disturbance runs the length of the coil, not just a single point. Everything from the moment of the sag to the next inspection point can be flagged as defective, making the affected zone far larger than one machine stoppage.</p>
+<h2>Assembly Process: Precision Control in Winding and Stacking</h2>
+<p>Winding and stacking equipment layers electrodes and separators with micrometer-level alignment. Vision cameras and servo drives both respond to voltage fluctuations, so a voltage sag can translate directly into misalignment or cell-shape defects. Assembly lines run slower than electrode lines, but their tighter alignment tolerance often makes them even more sensitive to momentary voltage disturbances.</p>
+<h2>Why Losses Spread to the Batch Level</h2>
+<p>Battery manufacturing stages are tightly linked. A disturbance during electrode coating either gets scrapped before reaching assembly, or passes through and gets caught as a defect downstream. Either way, the loss extends beyond the instant of the sag to the entire coil or lot that contains it. It isn&rsquo;t one machine going down — it&rsquo;s an entire process segment becoming rework or scrap.</p>
+<h2>The Gap Between Equipment Ride-Through and Real Sags</h2>
+<p>Per SEMI F47, semiconductor and precision manufacturing equipment is expected to ride through 80% voltage for 1 second, 70% for 0.5 seconds, and 50% for 0.2 seconds. The ITIC (CBEMA) curve similarly defines a tolerance envelope for how industrial and electronic equipment should behave during brief voltage sags. In practice, however, servo motors and vision systems on battery lines often react to disturbances shorter than these published envelopes, so process output can still be affected even when equipment technically meets ride-through standards.</p>
+<h2>Where Standard UPS Falls Short</h2>
+<p>Battery-based UPS systems are built for full outages, but their transfer logic can be too slow — or may not engage at all — for shallow, short-duration sags. Lead-acid and lithium batteries also require periodic replacement and inspection, which becomes a maintenance risk on battery lines that run continuously around the clock.</p>
+<h2>How WESCO TSP Addresses This</h2>
+<p>WESCO&rsquo;s TSP® (The Second Power) is a battery-free voltage sag protector built on EDLC ultra-capacitors. It normally stays in bypass, passing grid power through an SCR switch; when a sag is detected, it switches to EDLC discharge within 2 ms, fast enough that servo motors and control systems on electrode and assembly lines don&rsquo;t register the disturbance. Compensation lasts 1 to 3 seconds depending on capacity, with large units holding up to 3 seconds. Because the EDLC energy storage has a 10-year design life, it avoids the periodic battery replacement that continuous battery lines would otherwise need. TSP is designed for low-voltage (≤1kV) systems; protection on medium- or high-voltage circuits falls outside its scope.</p>
+<h2>Key takeaways</h2>
+<ul>
+<li>Electrode coating runs as a roll-to-roll process, so one voltage sag can turn an entire coil segment into scrap rather than stopping a single machine.</li>
+<li>Winding and stacking require micrometer-level alignment, making assembly lines highly sensitive to momentary voltage disturbances.</li>
+<li>Losses extend to the batch or lot level, not just the instant of the sag.</li>
+<li>Real-world servo and vision systems can react to disturbances shorter than published tolerance envelopes like SEMI F47 and the ITIC curve.</li>
+<li>WESCO TSP&rsquo;s battery-free EDLC design switches within 2 ms and compensates for 1-3 seconds, suited to continuous battery manufacturing lines.</li>
+</ul><h2>Frequently Asked Questions</h2><dl class="faq"><dt>Q. Why do voltage sags matter so much in EV battery plants?</dt><dd>Electrode coating and assembly run as continuous lines, so even a brief voltage sag can disturb servo motors and precision control enough that the entire affected segment is classified as defective.</dd><dt>Q. Isn&#x27;t a standard UPS enough to protect these lines?</dt><dd>Battery-based UPS systems handle full outages well, but their transfer logic can be too slow or may not engage for shallow, short-duration sags, and the batteries themselves add a periodic maintenance burden.</dd><dt>Q. Can TSP protect medium- or high-voltage circuits in a battery plant?</dt><dd>TSP is designed for low-voltage systems at or below 1kV; protection on medium- or high-voltage circuits above 3.3kV falls outside WESCO TSP&#x27;s scope.</dd></dl><div class="cta"><h4>Need protection against voltage sags?</h4><p>WESCO has manufactured battery-free voltage sag protectors (TSP&reg;) for 25 years. We can help you size and deploy the right unit for your line.</p><a class="btn" href="https://tsp.wesco.works/en/?s=blog-ev-battery-plant-power-quality">Request a quote</a><a class="btn btn-ghost" href="mailto:wesco@wesco.co.kr?subject=%5Bblog%3Aev-battery-plant-power-quality%5D%20TSP%20inquiry">Email us</a></div><div class="related"><h2>Related posts</h2><a class="rel" href="https://intro.wesco.works/blog/en/outage-vs-voltage-sag/">Voltage Sag vs Momentary Outage Difference: How to Tell Them Apart in the Field</a><a class="rel" href="https://intro.wesco.works/blog/en/momentary-outage-compensator-guide/">Momentary Outage Compensator: Types and Selection Criteria</a><a class="rel" href="https://intro.wesco.works/blog/en/semiconductor-fab-voltage-sag/">Voltage Sags in Semiconductor Fabs: Why Chipmaking Is the Most Sensitive Industry</a><a class="rel discovery-video" href="/en/videos/tsp-product/">Watch: TSP® Voltage Sag Protector | 3D Product Introduction | WESCO</a><p class="product">TSP® principle and specifications: <a href="https://intro.wesco.works/battery-free-voltage-sag-protection.html">Battery-free voltage sag protection (TSP®)</a></p></div></div></article><footer class="foot"><div class="wrap">© WESCO Co., Ltd. · Voltage Sag Protector Manufacturer · <a href="https://www.wesco.co.kr">www.wesco.co.kr</a></div></footer></body></html>

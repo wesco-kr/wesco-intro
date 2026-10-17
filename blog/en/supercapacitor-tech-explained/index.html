@@ -1,0 +1,123 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>How Ultracapacitors (EDLC) Replace Batteries in Sag Protection</title><meta name="description" content="EDLCs store energy by physically arranging ions rather than through chemical reactions, enabling millisecond-scale response. This explains why that storage principle fits short, high-power voltage sag compensation better than batteries."><link rel="canonical" href="https://intro.wesco.works/blog/en/supercapacitor-tech-explained/"><link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/supercapacitor-tech-explained/"><link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/supercapacitor-tech-explained/"><link rel="alternate" hreflang="x-default" href="https://intro.wesco.works/blog/supercapacitor-tech-explained/"><meta property="og:type" content="article"><meta property="og:title" content="How Ultracapacitors (EDLC) Replace Batteries in Sag Protection"><meta property="og:description" content="EDLCs store energy by physically arranging ions rather than through chemical reactions, enabling millisecond-scale response. This explains why that storage principle fits short, high-power voltage sag compensation better than batteries."><meta property="og:url" content="https://intro.wesco.works/blog/en/supercapacitor-tech-explained/"><meta property="og:image" content="https://intro.wesco.works/images/og-image.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="How Ultracapacitors (EDLC) Replace Batteries in Sag Protection"><meta name="twitter:description" content="EDLCs store energy by physically arranging ions rather than through chemical reactions, enabling millisecond-scale response. This explains why that storage principle fits short, high-power voltage sag compensation better than batteries."><meta name="twitter:image" content="https://intro.wesco.works/images/og-image.jpg"><link rel="icon" type="image/x-icon" href="https://intro.wesco.works/favicon.ico"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"><style>
+:root{
+  --c-red:#C13816; --c-red-dk:#9C2C10; --c-red-lt:#FBEEE8;
+  --c-head:#2C2924; --c-text:#4A4641; --c-gray:#78716C; --c-gray-lt:#A8A29E;
+  --c-bg:#FDFCF9; --c-bg-soft:#F7F4EE; --c-divider:#E0DBD3; --c-accent:#4F6886;
+  --font-ko:'Noto Sans KR','맑은 고딕',sans-serif;
+  --font-en:'Inter',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font-ko);color:var(--c-text);background:var(--c-bg);
+  line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:var(--c-red);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+
+/* 상단바 */
+.topbar{border-bottom:1px solid var(--c-divider);background:var(--c-bg)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center}
+.brand img{height:22px;width:auto;display:block}
+.topnav a{color:var(--c-gray);font-size:14px;font-weight:500;margin-left:22px}
+.topnav a:hover{color:var(--c-red);text-decoration:none}
+
+/* 글 헤더 */
+.post-head{padding:56px 0 34px;border-bottom:1px solid var(--c-divider)}
+.post-head .kicker{font-family:var(--font-en);font-size:12px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--c-red)}
+.post-head h1{font-size:34px;line-height:1.32;color:var(--c-head);
+  font-weight:700;margin:14px 0 12px;letter-spacing:-.01em}
+.post-head .sub{font-size:18px;color:var(--c-gray);font-weight:400;line-height:1.6}
+.post-meta{margin-top:20px;font-size:13px;color:var(--c-gray-lt);
+  font-family:var(--font-en);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.post-meta .lang-toggle{border:1px solid var(--c-divider);border-radius:100px;
+  padding:3px 12px;font-weight:600;color:var(--c-gray)}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tags .tag{background:var(--c-bg-soft);color:var(--c-gray);border:1px solid var(--c-divider);
+  border-radius:100px;padding:3px 11px;font-size:12px;font-family:var(--font-ko)}
+
+/* 본문 */
+.post-body{padding:38px 0 10px}
+.post-body h2{font-size:23px;color:var(--c-head);font-weight:700;
+  margin:44px 0 16px;letter-spacing:-.01em;line-height:1.4}
+.post-body h3{font-size:19px;color:var(--c-head);font-weight:700;margin:30px 0 12px}
+.post-body p{margin:0 0 20px}
+.post-body ul,.post-body ol{margin:0 0 22px;padding-left:22px}
+.post-body li{margin:0 0 9px}
+.post-body strong{color:var(--c-head);font-weight:700}
+.post-body em{font-style:normal;color:var(--c-gray)}
+.post-body hr{border:0;border-top:1px solid var(--c-divider);margin:40px 0}
+.post-body blockquote{border-left:3px solid var(--c-red);padding:2px 0 2px 18px;
+  margin:0 0 22px;color:var(--c-gray)}
+.post-body img{max-width:100%;height:auto;border-radius:10px;margin:8px 0 24px}
+
+/* FAQ */
+.faq{margin-top:8px}
+.faq dt{font-weight:700;color:var(--c-head);margin:22px 0 8px}
+.faq dd{margin:0 0 8px;color:var(--c-text)}
+
+/* CTA */
+.cta{margin:44px 0 0;background:var(--c-bg-soft);border:1px solid var(--c-divider);
+  border-radius:14px;padding:28px 30px}
+.cta h4{font-size:18px;color:var(--c-head);margin-bottom:8px}
+.cta p{font-size:15px;color:var(--c-gray);margin-bottom:16px}
+.cta a.btn{display:inline-block;background:var(--c-red);color:#fff;font-weight:600;
+  font-size:15px;padding:11px 22px;border-radius:8px}
+.cta a.btn:hover{background:var(--c-red-dk);text-decoration:none}
+.cta a.btn-ghost{background:transparent;color:var(--c-red);border:1px solid var(--c-red);margin-left:8px}
+.cta a.btn-ghost:hover{background:var(--c-red);color:#fff}
+
+/* 영상 · 관련 글 */
+.video{position:relative;padding-top:56.25%;margin:8px 0 28px;border-radius:10px;overflow:hidden;background:var(--c-bg-soft)}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.related{margin-top:44px}
+.related h2{font-size:20px;color:var(--c-head);margin-bottom:6px}
+.related a.rel{display:block;padding:12px 0;border-bottom:1px solid var(--c-divider);color:var(--c-head);font-weight:500}
+.related .product{margin-top:16px;font-size:15px;color:var(--c-gray)}
+
+/* 푸터 */
+.foot{margin-top:64px;border-top:1px solid var(--c-divider);
+  padding:30px 0 60px;color:var(--c-gray-lt);font-size:13px;text-align:center}
+.foot a{color:var(--c-gray)}
+
+/* 목록 */
+.list-head{padding:56px 0 14px}
+.list-head h1{font-size:30px;color:var(--c-head);font-weight:700}
+.list-head p{color:var(--c-gray);margin-top:8px}
+.list-head .lang-toggle{display:inline-block;margin-top:14px;border:1px solid var(--c-divider);
+  border-radius:100px;padding:4px 14px;font-size:13px;font-weight:600;color:var(--c-gray)}
+.card{display:block;padding:26px 0;border-bottom:1px solid var(--c-divider)}
+.card:hover{text-decoration:none}
+.card .kicker{font-family:var(--font-en);font-size:11px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--c-red)}
+.card h2{font-size:22px;color:var(--c-head);font-weight:700;margin:8px 0 8px;line-height:1.4}
+.card p{color:var(--c-gray);font-size:15px}
+.card .date{font-family:var(--font-en);font-size:12px;color:var(--c-gray-lt);margin-top:10px}
+
+@media(max-width:600px){
+  body{font-size:16px}
+  .post-head h1{font-size:27px}
+  .post-head .sub{font-size:16px}
+  .post-body h2{font-size:20px}
+}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How Ultracapacitors (EDLC) Replace Batteries in Sag Protection", "description": "EDLCs store energy by physically arranging ions rather than through chemical reactions, enabling millisecond-scale response. This explains why that storage principle fits short, high-power voltage sag compensation better than batteries.", "datePublished": "2026-10-16", "dateModified": "2026-10-16", "inLanguage": "en", "mainEntityOfPage": "https://intro.wesco.works/blog/en/supercapacitor-tech-explained/", "author": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}, "publisher": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the main difference between EDLCs and conventional batteries?", "acceptedAnswer": {"@type": "Answer", "text": "An EDLC stores energy by physically adsorbing ions onto an electrode surface, while a battery stores energy through a chemical reaction inside the electrode material. Without a chemical reaction, an EDLC charges and discharges faster and suffers almost no material degradation from repeated cycling."}}, {"@type": "Question", "name": "How often does an EDLC-based TSP need to be replaced?", "acceptedAnswer": {"@type": "Answer", "text": "The EDLC energy storage in WESCO TSP has a design life of 10 years, so it does not require periodic replacement the way battery-based systems do. This is one of the key reasons TSP uses a battery-free architecture."}}, {"@type": "Question", "name": "How long can an EDLC compensate for a voltage sag?", "acceptedAnswer": {"@type": "Answer", "text": "TSP switches from the grid to the EDLC discharge path within a transfer time of 2 ms. After that, the EDLC supplies power to the load for a compensation duration of 1 to 3 seconds depending on capacity, with large-capacity units sustaining up to 3 seconds."}}]}</script><link rel="stylesheet" href="/blog/discovery.css"></head><body><header class="topbar"><div class="wrap"><a class="brand" href="https://intro.wesco.works/"><img src="https://intro.wesco.works/images/wesco_wordmark.png" alt="WESCO" width="119" height="22"></a><nav class="topnav"><a href="https://intro.wesco.works/">Home</a><a href="https://intro.wesco.works/blog/en/">Insights</a><a href="/videos/">Product videos</a></nav></div></header><section class="post-head"><div class="wrap"><div class="kicker">WESCO Insight</div><h1>How Ultracapacitors (EDLC) Replace Batteries in Sag Protection</h1><p class="sub">Why a charge-storage mechanism with no chemical reaction is uniquely suited to short, powerful voltage sag events</p><div class="post-meta"><span>2026-10-16</span><div class="tags"><span class="tag">EDLC</span><span class="tag">Ultracapacitor</span><span class="tag">Supercapacitor</span><span class="tag">Battery-Free</span><span class="tag">Voltage Sag</span></div><a class="lang-toggle" href="https://intro.wesco.works/blog/supercapacitor-tech-explained/">한국어</a></div></div></section><article class="post-body"><div class="wrap"><p>An EDLC (Electric Double Layer Capacitor, or ultracapacitor) stores energy by physically adsorbing ions from an electrolyte onto an electrode surface, rather than through a chemical reaction inside the electrode material as a battery does. Because there is no chemical reaction to drive, an EDLC can charge and discharge on a millisecond timescale and respond immediately to a short, high-power demand such as a voltage sag. WESCO&rsquo;s TSP® uses an EDLC as its energy storage element, giving it a battery-free architecture that compensates for voltage sags without a conventional battery.</p>
+<p>On a semiconductor line, a few hundred milliseconds of voltage drop and recovery is often enough to stop equipment before an operator even notices. A battery UPS has to stand ready for exactly this kind of short event, but it carries two built-in constraints: response speed and cycle-life management. EDLC storage offers a different answer to the same problem.</p>
+<h2>How an EDLC stores energy</h2>
+<p>An EDLC&rsquo;s storage mechanism is the electric double layer. Ions physically arrange themselves at the interface between the electrode and the electrolyte during charging, and separate again during discharge, releasing the stored charge. This is a physical process of ion movement and arrangement, not an electrochemical oxidation-reduction reaction that alters the electrode material. As a result, EDLCs respond to charge and discharge demands very quickly and can deliver large currents over short intervals.</p>
+<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/Qmalmk-D_A8" title="순간정전보상장치 TSP® 제품소개 FULL 3D | 웨스코(WESCO) 순간전압강하 완벽 해결" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div><h2>Why batteries respond more slowly</h2>
+<p>A battery stores energy through an electrochemical reaction in which ions insert into and extract from the electrode material. That chemical process is inherently slower than the physical ion movement in an EDLC, and it requires a battery management system (BMS) to monitor voltage and temperature. Repeated charge-discharge cycling also gradually degrades the electrode material, reducing usable capacity over time. Batteries are optimized for sustained discharge over minutes to hours, not for frequent, short, high-power bursts.</p>
+<h2>Why EDLCs fit short, high-power sags</h2>
+<p>Most voltage sags last from a few hundred milliseconds to a few seconds, but during that brief window the load still needs its full rated power instantly. Per SEMI F47, semiconductor manufacturing equipment must continue operating through voltage drops to 80% for 1 second, 70% for 0.5 seconds, and 50% for 0.2 seconds. The ITIC (CBEMA) curve is another widely referenced standard describing the voltage-versus-time tolerance envelope equipment is expected to withstand. In this &ldquo;short but deep&rdquo; voltage-time region, an EDLC that can deliver high power instantly, without a chemical reaction, is structurally better matched to the event. Using a battery to absorb the same repeated sags turns each event into a partial charge-discharge cycle, accelerating battery wear over time.</p>
+<h2>A storage medium that doesn&rsquo;t wear out from cycling</h2>
+<p>Because there is no chemical phase change involved, an EDLC experiences almost no material degradation from repeated charge-discharge cycling. This is why the EDLC energy storage in WESCO TSP carries a 10-year design life, eliminating the periodic battery replacement that battery-based UPS systems typically require. Lower maintenance also translates into a lower total cost of ownership for the equipment it protects.</p>
+<h2>How WESCO TSP applies this in practice</h2>
+<p>WESCO TSP is a voltage sag protector designed for low-voltage (LV, up to 1kV) applications. Under normal conditions, it stays in bypass, passing grid power through SCRs. When a sag is detected, the SCRs disconnect from the grid and switch to the EDLC discharge path within a transfer time of 2 ms. From there, the EDLC supplies the load for a compensation duration of 1 to 3 seconds depending on capacity, with large-capacity units sustaining up to 3 seconds. Built on this architecture, WESCO has supplied more than 50,000 units to over 900 companies across more than 15 countries over 25 years, serving industries where power quality is critical: semiconductor, display, automotive, battery manufacturing, and data centers.</p>
+<h2>Key takeaways</h2>
+<ul>
+<li>EDLCs store and release energy by physically moving and arranging ions, enabling millisecond-scale response.</li>
+<li>Batteries rely on a chemical reaction, which is inherently slower and loses capacity with repeated cycling.</li>
+<li>Voltage sags are short, high-power events, and that profile structurally favors EDLC storage over battery storage.</li>
+<li>Because EDLCs don&rsquo;t degrade chemically, WESCO TSP achieves a 10-year storage design life with no battery replacement required.</li>
+<li>WESCO TSP implements this principle in an LV-rated device with a 2 ms transfer time and 1-3 second compensation.</li>
+</ul><h2>Frequently Asked Questions</h2><dl class="faq"><dt>Q. What is the main difference between EDLCs and conventional batteries?</dt><dd>An EDLC stores energy by physically adsorbing ions onto an electrode surface, while a battery stores energy through a chemical reaction inside the electrode material. Without a chemical reaction, an EDLC charges and discharges faster and suffers almost no material degradation from repeated cycling.</dd><dt>Q. How often does an EDLC-based TSP need to be replaced?</dt><dd>The EDLC energy storage in WESCO TSP has a design life of 10 years, so it does not require periodic replacement the way battery-based systems do. This is one of the key reasons TSP uses a battery-free architecture.</dd><dt>Q. How long can an EDLC compensate for a voltage sag?</dt><dd>TSP switches from the grid to the EDLC discharge path within a transfer time of 2 ms. After that, the EDLC supplies power to the load for a compensation duration of 1 to 3 seconds depending on capacity, with large-capacity units sustaining up to 3 seconds.</dd></dl><div class="cta"><h4>Need protection against voltage sags?</h4><p>WESCO has manufactured battery-free voltage sag protectors (TSP&reg;) for 25 years. We can help you size and deploy the right unit for your line.</p><a class="btn" href="https://tsp.wesco.works/en/?s=blog-supercapacitor-tech-explained">Request a quote</a><a class="btn btn-ghost" href="mailto:wesco@wesco.co.kr?subject=%5Bblog%3Asupercapacitor-tech-explained%5D%20TSP%20inquiry">Email us</a></div><div class="related"><h2>Related posts</h2><a class="rel" href="https://intro.wesco.works/blog/en/ev-battery-plant-power-quality/">Power Quality in EV Battery Plants: Why Sags on Electrode and Assembly Lines Turn Into Batch Losses</a><a class="rel" href="https://intro.wesco.works/blog/en/factory-outage-damage/">Momentary Outage Damage in Factories: Cases and Equipment Trip Thresholds</a><a class="rel" href="https://intro.wesco.works/blog/en/outage-vs-voltage-sag/">Voltage Sag vs Momentary Outage Difference: How to Tell Them Apart in the Field</a><a class="rel discovery-video" href="/en/videos/tsp-product/">Watch: TSP® Voltage Sag Protector | 3D Product Introduction | WESCO</a><p class="product">TSP® principle and specifications: <a href="https://intro.wesco.works/battery-free-voltage-sag-protection.html">Battery-free voltage sag protection (TSP®)</a></p></div></div></article><footer class="foot"><div class="wrap">© WESCO Co., Ltd. · Voltage Sag Protector Manufacturer · <a href="https://www.wesco.co.kr">www.wesco.co.kr</a></div></footer></body></html>

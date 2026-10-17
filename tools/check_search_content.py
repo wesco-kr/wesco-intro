@@ -104,12 +104,14 @@ def main():
         if is_blog:
             check(not schemas(page, 'VideoObject'), f'Unverified supplementary-video metadata: {rel}')
             check(any(x.get('href') == '/videos/' for x in page.links), f'No video navigation: {rel}')
+            check('/blog/discovery.css' in page.styles, f'Missing discovery stylesheet: {rel}')
             if not is_hub:
                 expected_prefix = '/en/videos/' if rel.startswith('blog/en/') else '/videos/'
                 matches = [x for x in page.links if x.get('class') == 'rel discovery-video']
                 check(len(matches) == 1 and matches[0]['href'].startswith(expected_prefix), f'Wrong related video language: {rel}')
                 check(len(schemas(page, 'Article')) == 1, f'Missing article metadata: {rel}')
-        if args.base:
+        # Pages first published after the base (new posts) have nothing to preserve.
+        if args.base and subprocess.run(['git', 'cat-file', '-e', f'{args.base}:{rel}'], cwd=ROOT, stderr=subprocess.DEVNULL).returncode == 0:
             old = subprocess.check_output(['git', 'show', f'{args.base}:{rel}'], cwd=ROOT).decode('utf-8')
             before = Page(old)
             check(page.frames == before.frames, f'Embedded video changed: {rel}')
@@ -117,10 +119,11 @@ def main():
             if is_blog and not is_hub:
                 for kind in ('Article', 'FAQPage'):
                     check(schemas(page, kind) == schemas(before, kind), f'{kind} changed: {rel}')
-                # Ignore only the newly inserted related-video anchor. All article
-                # prose, source dates, and existing recommendations stay intact.
+                # Ignore the related-video anchor only when the base predates it. All article
+                # prose, source dates, related-video targets and existing recommendations stay intact.
                 body = re.search(r'<article\b.*?</article>', contents, re.S).group(0)
-                body = re.sub(r'<a class="rel discovery-video"[^>]*>.*?</a>', '', body)
+                if 'class="rel discovery-video"' not in old:
+                    body = re.sub(r'<a class="rel discovery-video"[^>]*>.*?</a>', '', body)
                 old_body = re.search(r'<article\b.*?</article>', old, re.S).group(0)
                 check(body == old_body, f'Article body changed: {rel}')
                 preserved_articles += 1

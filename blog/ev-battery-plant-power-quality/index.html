@@ -1,0 +1,124 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>이차전지 공장의 순간전압강하 — 전극 코팅부터 조립까지, 왜 한 번의 흔들림이 배치 전체를 날리는가</title><meta name="description" content="이차전지 공장의 전극 코팅과 조립 공정은 연속 라인 구조라 순간전압강하 한 번에도 코일·로트 단위로 불량이 확산될 수 있다. 전압 민감도의 원인과 TSP의 배터리리스 대응 방식을 정리한다."><link rel="canonical" href="https://intro.wesco.works/blog/ev-battery-plant-power-quality/"><link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/ev-battery-plant-power-quality/"><link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/ev-battery-plant-power-quality/"><link rel="alternate" hreflang="x-default" href="https://intro.wesco.works/blog/ev-battery-plant-power-quality/"><meta property="og:type" content="article"><meta property="og:title" content="이차전지 공장의 순간전압강하 — 전극 코팅부터 조립까지, 왜 한 번의 흔들림이 배치 전체를 날리는가"><meta property="og:description" content="이차전지 공장의 전극 코팅과 조립 공정은 연속 라인 구조라 순간전압강하 한 번에도 코일·로트 단위로 불량이 확산될 수 있다. 전압 민감도의 원인과 TSP의 배터리리스 대응 방식을 정리한다."><meta property="og:url" content="https://intro.wesco.works/blog/ev-battery-plant-power-quality/"><meta property="og:image" content="https://intro.wesco.works/images/og-image.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="이차전지 공장의 순간전압강하 — 전극 코팅부터 조립까지, 왜 한 번의 흔들림이 배치 전체를 날리는가"><meta name="twitter:description" content="이차전지 공장의 전극 코팅과 조립 공정은 연속 라인 구조라 순간전압강하 한 번에도 코일·로트 단위로 불량이 확산될 수 있다. 전압 민감도의 원인과 TSP의 배터리리스 대응 방식을 정리한다."><meta name="twitter:image" content="https://intro.wesco.works/images/og-image.jpg"><link rel="icon" type="image/x-icon" href="https://intro.wesco.works/favicon.ico"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"><style>
+:root{
+  --c-red:#C13816; --c-red-dk:#9C2C10; --c-red-lt:#FBEEE8;
+  --c-head:#2C2924; --c-text:#4A4641; --c-gray:#78716C; --c-gray-lt:#A8A29E;
+  --c-bg:#FDFCF9; --c-bg-soft:#F7F4EE; --c-divider:#E0DBD3; --c-accent:#4F6886;
+  --font-ko:'Noto Sans KR','맑은 고딕',sans-serif;
+  --font-en:'Inter',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font-ko);color:var(--c-text);background:var(--c-bg);
+  line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:var(--c-red);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+
+/* 상단바 */
+.topbar{border-bottom:1px solid var(--c-divider);background:var(--c-bg)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center}
+.brand img{height:22px;width:auto;display:block}
+.topnav a{color:var(--c-gray);font-size:14px;font-weight:500;margin-left:22px}
+.topnav a:hover{color:var(--c-red);text-decoration:none}
+
+/* 글 헤더 */
+.post-head{padding:56px 0 34px;border-bottom:1px solid var(--c-divider)}
+.post-head .kicker{font-family:var(--font-en);font-size:12px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--c-red)}
+.post-head h1{font-size:34px;line-height:1.32;color:var(--c-head);
+  font-weight:700;margin:14px 0 12px;letter-spacing:-.01em}
+.post-head .sub{font-size:18px;color:var(--c-gray);font-weight:400;line-height:1.6}
+.post-meta{margin-top:20px;font-size:13px;color:var(--c-gray-lt);
+  font-family:var(--font-en);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.post-meta .lang-toggle{border:1px solid var(--c-divider);border-radius:100px;
+  padding:3px 12px;font-weight:600;color:var(--c-gray)}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tags .tag{background:var(--c-bg-soft);color:var(--c-gray);border:1px solid var(--c-divider);
+  border-radius:100px;padding:3px 11px;font-size:12px;font-family:var(--font-ko)}
+
+/* 본문 */
+.post-body{padding:38px 0 10px}
+.post-body h2{font-size:23px;color:var(--c-head);font-weight:700;
+  margin:44px 0 16px;letter-spacing:-.01em;line-height:1.4}
+.post-body h3{font-size:19px;color:var(--c-head);font-weight:700;margin:30px 0 12px}
+.post-body p{margin:0 0 20px}
+.post-body ul,.post-body ol{margin:0 0 22px;padding-left:22px}
+.post-body li{margin:0 0 9px}
+.post-body strong{color:var(--c-head);font-weight:700}
+.post-body em{font-style:normal;color:var(--c-gray)}
+.post-body hr{border:0;border-top:1px solid var(--c-divider);margin:40px 0}
+.post-body blockquote{border-left:3px solid var(--c-red);padding:2px 0 2px 18px;
+  margin:0 0 22px;color:var(--c-gray)}
+.post-body img{max-width:100%;height:auto;border-radius:10px;margin:8px 0 24px}
+
+/* FAQ */
+.faq{margin-top:8px}
+.faq dt{font-weight:700;color:var(--c-head);margin:22px 0 8px}
+.faq dd{margin:0 0 8px;color:var(--c-text)}
+
+/* CTA */
+.cta{margin:44px 0 0;background:var(--c-bg-soft);border:1px solid var(--c-divider);
+  border-radius:14px;padding:28px 30px}
+.cta h4{font-size:18px;color:var(--c-head);margin-bottom:8px}
+.cta p{font-size:15px;color:var(--c-gray);margin-bottom:16px}
+.cta a.btn{display:inline-block;background:var(--c-red);color:#fff;font-weight:600;
+  font-size:15px;padding:11px 22px;border-radius:8px}
+.cta a.btn:hover{background:var(--c-red-dk);text-decoration:none}
+.cta a.btn-ghost{background:transparent;color:var(--c-red);border:1px solid var(--c-red);margin-left:8px}
+.cta a.btn-ghost:hover{background:var(--c-red);color:#fff}
+
+/* 영상 · 관련 글 */
+.video{position:relative;padding-top:56.25%;margin:8px 0 28px;border-radius:10px;overflow:hidden;background:var(--c-bg-soft)}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.related{margin-top:44px}
+.related h2{font-size:20px;color:var(--c-head);margin-bottom:6px}
+.related a.rel{display:block;padding:12px 0;border-bottom:1px solid var(--c-divider);color:var(--c-head);font-weight:500}
+.related .product{margin-top:16px;font-size:15px;color:var(--c-gray)}
+
+/* 푸터 */
+.foot{margin-top:64px;border-top:1px solid var(--c-divider);
+  padding:30px 0 60px;color:var(--c-gray-lt);font-size:13px;text-align:center}
+.foot a{color:var(--c-gray)}
+
+/* 목록 */
+.list-head{padding:56px 0 14px}
+.list-head h1{font-size:30px;color:var(--c-head);font-weight:700}
+.list-head p{color:var(--c-gray);margin-top:8px}
+.list-head .lang-toggle{display:inline-block;margin-top:14px;border:1px solid var(--c-divider);
+  border-radius:100px;padding:4px 14px;font-size:13px;font-weight:600;color:var(--c-gray)}
+.card{display:block;padding:26px 0;border-bottom:1px solid var(--c-divider)}
+.card:hover{text-decoration:none}
+.card .kicker{font-family:var(--font-en);font-size:11px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--c-red)}
+.card h2{font-size:22px;color:var(--c-head);font-weight:700;margin:8px 0 8px;line-height:1.4}
+.card p{color:var(--c-gray);font-size:15px}
+.card .date{font-family:var(--font-en);font-size:12px;color:var(--c-gray-lt);margin-top:10px}
+
+@media(max-width:600px){
+  body{font-size:16px}
+  .post-head h1{font-size:27px}
+  .post-head .sub{font-size:16px}
+  .post-body h2{font-size:20px}
+}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "이차전지 공장의 순간전압강하 — 전극 코팅부터 조립까지, 왜 한 번의 흔들림이 배치 전체를 날리는가", "description": "이차전지 공장의 전극 코팅과 조립 공정은 연속 라인 구조라 순간전압강하 한 번에도 코일·로트 단위로 불량이 확산될 수 있다. 전압 민감도의 원인과 TSP의 배터리리스 대응 방식을 정리한다.", "datePublished": "2026-10-09", "dateModified": "2026-10-09", "inLanguage": "ko", "mainEntityOfPage": "https://intro.wesco.works/blog/ev-battery-plant-power-quality/", "author": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}, "publisher": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "이차전지 공장에서 순간전압강하가 왜 문제가 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "전극 코팅과 조립 공정이 연속 라인으로 이어져 있어, 짧은 전압강하에도 서보모터와 정밀 제어가 흔들려 해당 구간 전체가 불량으로 분류될 수 있기 때문이다."}}, {"@type": "Question", "name": "일반 UPS로는 충분하지 않나요?", "acceptedAnswer": {"@type": "Answer", "text": "배터리 기반 UPS는 완전한 정전 대응에는 유효하지만, 짧고 얕은 순간전압강하 구간에서는 전환이 늦거나 개입하지 않는 경우가 있고 배터리 유지보수 부담도 있다."}}, {"@type": "Question", "name": "TSP는 고압 계통에도 적용할 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "TSP는 저압(1kV 이하) 계통을 대상으로 설계된 장비이며, 고압(3.3kV 이상) 계통 보호는 WESCO TSP의 적용 범위 밖이다."}}]}</script><link rel="stylesheet" href="/blog/discovery.css"></head><body><header class="topbar"><div class="wrap"><a class="brand" href="https://intro.wesco.works/"><img src="https://intro.wesco.works/images/wesco_wordmark.png" alt="WESCO" width="119" height="22"></a><nav class="topnav"><a href="https://intro.wesco.works/">홈</a><a href="https://intro.wesco.works/blog/">인사이트</a><a href="/videos/">제품 영상</a></nav></div></header><section class="post-head"><div class="wrap"><div class="kicker">WESCO Insight</div><h1>이차전지 공장의 순간전압강하 — 전극 코팅부터 조립까지, 왜 한 번의 흔들림이 배치 전체를 날리는가</h1><p class="sub">연속 공정 구조가 전압품질 민감도를 끌어올리는 이유와 대응 방안</p><div class="post-meta"><span>2026-10-09</span><div class="tags"><span class="tag">2차전지</span><span class="tag">EV 배터리</span><span class="tag">전력품질</span><span class="tag">전압강하보상</span><span class="tag">이차전지 공장</span></div><a class="lang-toggle" href="https://intro.wesco.works/blog/en/ev-battery-plant-power-quality/">English</a></div></div></section><article class="post-body"><div class="wrap"><p>이차전지 공장은 전극 코팅·건조·조립이 끊김 없이 이어지는 연속 공정으로 구성돼, 순간전압강하(voltage sag) 한 번에도 코팅 두께·장력·정렬이 흐트러져 해당 구간 전체가 불량으로 분류될 수 있다. 전극 공정의 서보모터와 비전 검사 장비, 조립 공정의 와인딩·스태킹 설비는 모두 전압이 잠시 떨어지는 순간에도 정밀도를 유지해야 하므로, 일반 산업 설비보다 전압 변동에 더 민감하게 반응한다. 따라서 이차전지 제조라인의 전력품질 관리는 단순한 정전 대응을 넘어, 짧은 전압강하까지 포괄하는 설계가 필요하다.</p>
+<h2>전극 공정: 연속 코팅이 만드는 민감도</h2>
+<p>전극 공정은 슬러리 코팅 → 건조 → 압연 → 슬리팅으로 이어지는 롤투롤(roll-to-roll) 방식이다. 코팅 헤드와 롤러의 서보모터가 일정한 속도·장력을 유지해야 코팅 두께가 균일하게 나오는데, 전압이 수십~수백 밀리초만 떨어져도 서보 구동이 흔들리고 토크가 변해 코팅막 두께가 어긋난다. 문제는 이 흔들림이 코일 전체 길이에 걸쳐 나타난다는 점이다. 전압강하가 발생한 시점부터 다음 검사 지점까지의 구간이 통째로 불량 판정을 받을 수 있어, 단일 설비 정지보다 손실 범위가 훨씬 넓다.</p>
+<h2>조립 공정: 와인딩·스태킹의 정밀 제어</h2>
+<p>조립 공정의 와인딩(권취)·스태킹(적층) 설비는 전극과 분리막을 겹겹이 쌓으며 위치 정렬을 마이크로미터 단위로 맞춘다. 비전 카메라와 서보 구동계가 동시에 전압의 영향을 받으므로, 순간전압강하가 생기면 정렬 오차나 셀 형태 불량으로 이어질 수 있다. 조립 라인은 전극 공정보다 공정 속도는 느리지만, 정렬 정밀도 요구가 높아 전압 흔들림에 대한 민감도는 오히려 더 크다.</p>
+<h2>배치 단위로 번지는 이유</h2>
+<p>이차전지 제조는 공정 간 연계가 강하다. 전극 공정에서 흔들림이 생기면 그 구간의 코일은 조립 공정으로 넘어가기 전 폐기되거나, 넘어간 뒤 조립 단계에서 불량으로 다시 걸러진다. 어느 쪽이든 손실은 전압강하가 발생한 &lsquo;순간&rsquo;이 아니라 그 순간을 포함한 코일·로트 전체로 확장된다. 설비 한 대가 멈춘 것이 아니라 공정 구간 전체가 재작업 또는 폐기 대상이 되는 구조다.</p>
+<h2>설비 허용범위와 전압강하의 간극</h2>
+<p>SEMI F47 기준에 따르면 반도체·정밀 제조 장비는 정격전압의 80% 수준 전압을 1초, 70%를 0.5초, 50%를 0.2초까지는 견뎌야 한다. ITIC(CBEMA) 곡선 역시 일반 산업·전자장비가 짧은 전압강하에 대해 어느 범위까지 정상 동작해야 하는지를 보여주는 표준 허용범위로 쓰인다. 그러나 실제 현장의 서보모터·비전시스템은 이 기준보다 훨씬 짧은 순간의 전압 변동에도 반응하는 경우가 많아, 설비 자체 내압 설계와 무관하게 공정 결과물에 영향이 남는다.</p>
+<h2>일반 UPS가 놓치는 지점</h2>
+<p>배터리 기반 UPS는 완전한 정전에는 대응하지만, 순간전압강하처럼 짧고 얕은 전압 변동 구간에서는 전환 로직이 늦게 걸리거나 아예 개입하지 않는 경우가 있다. 또한 납축·리튬 배터리는 주기적인 교체와 점검이 필요해, 24시간 연속 가동되는 이차전지 라인에서는 유지보수 자체가 리스크로 작용할 수 있다.</p>
+<h2>WESCO TSP의 대응 방식</h2>
+<p>WESCO의 TSP®(The Second Power)는 EDLC 울트라커패시터를 사용하는 배터리리스(battery-free) 방식의 순간전압강하 보상장치다. 평상시에는 SCR을 통해 계통 전원을 그대로 통과시키는 바이패스 상태를 유지하다가, 전압강하가 감지되면 2ms 이내에 EDLC 방전으로 전환해 전극·조립 라인의 서보모터와 제어계가 전압 흔들림을 인지하지 못하도록 한다. 보상 지속 시간은 용량에 따라 1~3초이며, 대용량 모델은 3초까지 유지한다. 에너지저장부인 EDLC는 설계수명이 10년이라 배터리처럼 주기적으로 교체할 필요가 없어, 연속 가동이 핵심인 이차전지 공정에 적합하다. 다만 TSP는 저압(1kV 이하) 계통에 적용되는 장비로, 고압 계통의 보호는 별도로 설계해야 한다.</p>
+<h2>정리</h2>
+<ul>
+<li>이차전지 전극 공정은 롤투롤 연속 코팅 구조라 순간전압강하 한 번이 코일 전체 구간의 불량으로 번질 수 있다.</li>
+<li>조립 공정은 와인딩·스태킹의 정밀 정렬 요구가 높아 전압 흔들림에 민감하게 반응한다.</li>
+<li>손실은 설비 단위가 아니라 공정 구간·로트 단위로 확장되는 구조적 특성이 있다.</li>
+<li>SEMI F47·ITIC 같은 표준 허용범위보다 짧은 전압 변동에도 실제 설비는 반응할 수 있다.</li>
+<li>WESCO TSP는 배터리리스 EDLC 방식으로 2ms 이내 절체, 1~3초 보상을 제공해 연속 공정 보호에 적합하다.</li>
+</ul><h2>자주 묻는 질문 (FAQ)</h2><dl class="faq"><dt>Q. 이차전지 공장에서 순간전압강하가 왜 문제가 되나요?</dt><dd>전극 코팅과 조립 공정이 연속 라인으로 이어져 있어, 짧은 전압강하에도 서보모터와 정밀 제어가 흔들려 해당 구간 전체가 불량으로 분류될 수 있기 때문이다.</dd><dt>Q. 일반 UPS로는 충분하지 않나요?</dt><dd>배터리 기반 UPS는 완전한 정전 대응에는 유효하지만, 짧고 얕은 순간전압강하 구간에서는 전환이 늦거나 개입하지 않는 경우가 있고 배터리 유지보수 부담도 있다.</dd><dt>Q. TSP는 고압 계통에도 적용할 수 있나요?</dt><dd>TSP는 저압(1kV 이하) 계통을 대상으로 설계된 장비이며, 고압(3.3kV 이상) 계통 보호는 WESCO TSP의 적용 범위 밖이다.</dd></dl><div class="cta"><h4>순간전압강하 대응이 필요하신가요?</h4><p>WESCO는 25년간 전력 품질 분야에서 순간전압보상장치(TSP)를 제조해 왔습니다. 라인 환경에 맞는 용량 선정과 도입을 상담해 드립니다.</p><a class="btn" href="https://tsp.wesco.works/ko/?s=blog-ev-battery-plant-power-quality">도입 문의하기</a><a class="btn btn-ghost" href="mailto:wesco@wesco.co.kr?subject=%5Bblog%3Aev-battery-plant-power-quality%5D%20TSP%20%EB%8F%84%EC%9E%85%20%EB%AC%B8%EC%9D%98">메일로 문의</a></div><div class="related"><h2>관련 글</h2><a class="rel" href="https://intro.wesco.works/blog/outage-vs-voltage-sag/">순간전압강하 순간정전 차이, 지속시간과 설비 영향으로 구분하는 법</a><a class="rel" href="https://intro.wesco.works/blog/momentary-power-outage/">순간정전이란? 원인·피해·공장 대책 총정리</a><a class="rel" href="https://intro.wesco.works/blog/why-sags-come-from-outside/">관리 잘해도 라인이 멈추는 이유 — 순간전압강하는 공장 밖에서 온다</a><a class="rel discovery-video" href="/videos/tsp-product/">영상으로 확인: 순간정전보상장치 TSP® 제품소개 | 3D 애니메이션 | WESCO 웨스코</a><p class="product">TSP® 제품 원리와 사양은 <a href="https://intro.wesco.works/battery-free-voltage-sag-protection.html">배터리 없는 순간전압강하 보상장치 TSP® 상세 보기 (영문)</a></p></div></div></article><footer class="foot"><div class="wrap">© WESCO Co., Ltd. · Voltage Sag Protector Manufacturer · <a href="https://www.wesco.co.kr">www.wesco.co.kr</a></div></footer></body></html>
