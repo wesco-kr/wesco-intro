@@ -715,9 +715,14 @@ html[lang="ko"] .cover h1{font-size:47px}
 .back .ct a:hover{color:var(--tint);border-color:var(--red)}
 .back .qr{right:64px;bottom:56px;width:116px;height:116px;border:1px solid var(--muted);border-radius:0;background:transparent;color:var(--ivory);font-size:12px;line-height:1.7;transition:background .2s}
 .back .qr:hover{background:var(--red);border-color:var(--red)}
-.back .qr{width:auto;height:auto;border:0;border-bottom:1px solid var(--muted);padding:0 0 2px;background:transparent;line-height:1.5;text-decoration:none}
-.back .qr::after{content:" \2192";color:var(--red);font-family:Arial,sans-serif}
-.back .qr:hover{background:transparent;color:var(--tint);border-color:var(--red)}
+/* 261017 유튜브 — 글자 링크 대신 아이콘 버튼(누르면 바로 채널) */
+.back .qr.yt{width:auto;height:auto;display:flex;align-items:center;gap:12px;padding:10px 16px 10px 12px;border:1px solid #57534E;border-radius:10px;background:transparent;text-align:left;text-decoration:none;color:var(--ivory)}
+.back .qr.yt svg{flex:none;width:40px;height:28px}
+.back .qr.yt .t{display:flex;flex-direction:column;line-height:1.35}
+.back .qr.yt .t b{font-size:13.5px;font-weight:700;color:var(--ivory);letter-spacing:0;margin:0}
+.back .qr.yt .t small{font-size:11.5px;color:#A8A29E}
+.back .qr.yt::after{content:"\2192";margin-left:6px;color:var(--red);font-family:Arial,sans-serif}
+.back .qr.yt:hover{background:#3A3633;border-color:var(--red)}
 .thumbs{width:150px;gap:0;padding:0;scrollbar-width:thin;scrollbar-color:var(--muted) transparent}
 .thumbs a{border:0;border-left:2px solid transparent;border-bottom:1px solid var(--line);border-radius:0;background:var(--tint2);padding:9px 10px;display:grid;grid-template-columns:23px 1fr;gap:6px;font-size:10px;line-height:1.45}
 .thumbs a b{font-size:10px;font-weight:400;color:var(--muted)}
@@ -833,7 +838,9 @@ body.reflow .cover .prod{position:static;display:block;width:310px;margin:0 20px
 body.reflow .cover .eng{display:block;position:absolute;left:auto;right:282px;bottom:27px;height:164px}
 body.reflow .back{padding:0}body.reflow .back::after{display:none}body.reflow .back .inner{position:static;padding:30px 20px 22px}
 body.reflow .back .cta,body.reflow .back .next{position:static;margin-top:16px}body.reflow .back .next{gap:10px}
-body.reflow .back .ct{position:static;padding:24px 20px;grid-template-columns:1fr;gap:18px}body.reflow .back .qr{position:static;align-self:flex-start;margin:16px 0 0;background:transparent;color:var(--stone);border-color:var(--line)}
+body.reflow .back .ct{position:static;padding:24px 20px;grid-template-columns:1fr;gap:18px}body.reflow .back .qr.yt{position:static;margin:10px 0 0;padding:14px 16px;border:1px solid var(--stone);border-radius:0;background:#FDFCF9;color:var(--stone)}
+body.reflow .back .qr.yt .t b{color:var(--stone);font-size:14px}body.reflow .back .qr.yt .t small{color:var(--muted)}
+body.reflow .back .qr.yt::after{margin-left:auto}
 }
 html[lang="ko"] .page{word-break:keep-all;overflow-wrap:anywhere}
 /* 중·일문엔 띄어쓰기가 없어 keep-all 이면 줄이 안 바뀐다(아이폰 5단계 칸 넘침 261003) */
@@ -1441,7 +1448,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
     </div>
     <p class="cta" data-r style="--d:2" data-i18n="b.cta" data-i18n-html><b>TSP® 선정 문의</b> — 전압 · 상(단상/삼상) · 부하 kVA · 필요 보상시간, 네 가지만 알려주시면 적합한 모델을 제안드립니다.</p>
     <nav class="next" id="next" aria-label="next"></nav>
-    <a class="qr" href="https://www.youtube.com/@WESCOTSP/videos" target="_blank" rel="noopener" data-i18n="b.yt">회사·제품 영상 · 유튜브 채널</a>
+    <a class="qr yt" href="https://www.youtube.com/@WESCOTSP/videos" target="_blank" rel="noopener"><svg viewBox="0 0 40 28" aria-hidden="true"><rect width="40" height="28" rx="7" fill="#FF0000"/><path d="M16 8.5v11l9.5-5.5z" fill="#fff"/></svg><span class="t"><b data-i18n="b.yt">유튜브 채널</b><small data-i18n="b.yts">회사·제품 영상 바로 보기</small></span></a>
   </div>
 </section>
 
