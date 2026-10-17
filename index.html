@@ -1592,7 +1592,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
     var all=[].slice.call(tabs.querySelectorAll('button')),badge=document.getElementById('hmi-badge'),box=document.getElementById('hmi-box');
     // 화면을 눌러도 다음 메뉴로 넘어간다 — 메뉴가 아래에 있어 모바일에서 못 찾는 경우 대비 (261017)
     function nextShot(){var i=all.findIndex(function(x){return x.classList.contains('on')});all[(i+1)%all.length].click()}
-    if(box){box.addEventListener('click',nextShot);box.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();nextShot()}})}
+    if(box){box.addEventListener('click',nextShot);box.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();e.stopPropagation();nextShot()}})}
     tabs.addEventListener('click',function(e){
       var b=e.target.closest('button');if(!b)return;
       if(badge)badge.innerHTML=(all.indexOf(b)+1)+'/'+all.length+' &rsaquo;';
