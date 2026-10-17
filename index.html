@@ -354,7 +354,7 @@ body.effects-off .sld .energy-arrival{animation:none}
 .tol text.in{font-size:14px;font-weight:700;fill:var(--red)}
 .tol text.dot{font-size:12.5px;font-weight:700;fill:var(--red)}
 html[lang="zh"] .tol text{font-family:"Noto Sans SC",sans-serif}html[lang="ja"] .tol text{font-family:"Noto Sans JP",sans-serif}
-/* 261003 SEMI F47 강하율별 조건표 (근거: F47-0706 Table 1 = 80%/1s·70%/0.5s·50%/0.2s, 삼성 POWER Vaccine 0%/1s — 그래프와 같은 값) */
+/* 261003 SEMI F47 강하율별 조건표 (근거: F47-0706 Table 1 = 80%/1s·70%/0.5s·50%/0.2s, 1초 완전정전 기준 0%/1s — 그래프와 같은 값) */
 .f47{margin-top:2px}.f47h{font-size:13px;font-weight:700;color:var(--stone);margin-bottom:6px}
 .f47t{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
 .f47t th,.f47t td{border-bottom:1px solid var(--line);padding:5px 8px;text-align:center;color:var(--body)}
@@ -1098,7 +1098,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
     <div data-r style="--d:1">
       <!-- 전압 내성 곡선. 정본 = TSP 카탈로그 p.7 「순간전압강하 보상 표준규격」. x=시간(log), y=정격 대비 잔여 전압(%).
            SEMI F47-0706 Table 1(필수) = 50%/0.2s · 70%/0.5s · 80%/1.0s. 1초 초과는 규정 없음 → 선을 1.0s 에서 끝낸다.
-           ITIC/CBEMA 하한 = 0%/20ms · 70%/0.5s · 80%/10s · 90% 연속. 삼성 POWER Vaccine 은 카탈로그 곡선(0% 1초 → 90%) 그대로. -->
+           ITIC/CBEMA 하한 = 0%/20ms · 70%/0.5s · 80%/10s · 90% 연속. 1초 완전정전 기준은 카탈로그 곡선(0% 1초 → 90%) 그대로. -->
       <svg class="tol" viewBox="0 0 520 284" aria-hidden="true">
         <text class="ttl" x="60" y="14" data-i18n="ps.yl">잔여 전압(정격 대비 %) · 0 = 완전 정전</text>
         <polygon class="ok" points="60,30 500,30 500,52 280,52 280,250 60,250"/><rect class="tsp" x="60" y="52" width="220" height="198"/>
@@ -1116,19 +1116,19 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
       </svg>
       <ul class="tolg">
         <li class="w"><i class="s-tsp"></i><span data-i18n="ps.tspl2">1초 · 잔여전압 0%(100% 정전)까지 — 규격 충족</span></li>
-        <li class="w"><i class="s-ok"></i><span data-i18n="ps.okl">삼성 규격 — 이 영역의 어떤 순간정전도 견뎌야 한다</span></li>
-        <li><i class="s-pv"></i><span>SAMSUNG POWER Vaccine</span></li>
+        <li class="w"><i class="s-ok"></i><span data-i18n="ps.okl">1초 완전정전 기준 — 이 영역의 어떤 순간정전도 견뎌야 한다</span></li>
+        <li><i class="s-pv"></i><span data-i18n="ps.pvl">1초 완전정전 기준</span></li>
         <li><i class="s-f47"></i><span>SEMI F47</span></li>
         <li><i class="s-itic"></i><span>ITIC / CBEMA</span></li>
       </ul>
-      <p class="note" data-i18n="ps.svgnote">세로축은 정격 대비 잔여 전압(0% = 완전 정전), 가로축은 지속시간입니다. 곡선 위쪽의 순간정전이면 장비는 멈추지 않아야 합니다. 삼성 POWER Vaccine 규격은 1초 · 100% 정전까지 요구하며, TSP®는 이 영역 전체를 보상해 규격을 충족합니다.</p>
+      <p class="note" data-i18n="ps.svgnote">세로축은 정격 대비 잔여 전압(0% = 완전 정전), 가로축은 지속시간입니다. 곡선 위쪽의 순간정전이면 장비는 멈추지 않아야 합니다. 일부 반도체 제조사는 SEMI F47보다 엄격한 1초 · 100% 정전 내성까지 요구하며, TSP®는 이 영역 전체를 보상해 기준을 충족합니다.</p>
     </div>
     <div class="pills" data-r style="--d:2">
       <div class="pill"><b>1</b><span data-i18n="ps.p1">사양서의 문장 <small data-i18n="ps.p1s">「장비는 SEMI F47 등 순간전압강하 규격에 정의된 전압강하·지속시간 조건에서 정상 작동을 유지해야 한다」 — 장비 발주의 공통 조건</small></span></div>
       <div class="f47">
-        <div class="f47h" data-i18n="f47.h">강하율별 조건 — SEMI F47 · 삼성 규격</div>
+        <div class="f47h" data-i18n="f47.h">강하율별 조건 — SEMI F47 · 1초 완전정전 기준</div>
         <table class="f47t">
-          <thead><tr><th></th><th colspan="3">SEMI F47</th><th class="pv" data-i18n="f47.pv">삼성 POWER Vaccine</th></tr></thead>
+          <thead><tr><th></th><th colspan="3">SEMI F47</th><th class="pv" data-i18n="f47.pv">1초 완전정전 기준</th></tr></thead>
           <tbody>
             <tr><th data-i18n="f47.c1">잔여 전압</th><td>80%</td><td>70%</td><td>50%</td><td class="pv">0%</td></tr>
             <tr><th data-i18n="f47.c2">강하율</th><td>20%</td><td>30%</td><td>50%</td><td class="pv">100%</td></tr>
