@@ -1361,7 +1361,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
   <p class="lead" data-i18n="p7.lead">7인치 터치 패널에 실시간 계측과 사고 기록이 함께 뜹니다. 원격 감시로 사무실 PC에서 현장의 모든 TSP® 사고 데이터를 한 화면에서 관리합니다. 메뉴를 눌러보십시오.</p>
   <div class="rule"></div>
   <div class="grid2">
-    <div class="shot" data-r style="--d:1" id="hmi-box"><span class="badge" id="hmi-badge" aria-hidden="true">1/5 &rsaquo;</span><img id="hmi-shot" src="images/hmi/hmi_status.webp" alt="TSP HMI" width="800" height="480"></div>
+    <div class="shot" data-r style="--d:1" id="hmi-box" role="button" tabindex="0" aria-label="next screen"><span class="badge" id="hmi-badge" aria-hidden="true">1/5 &rsaquo;</span><img id="hmi-shot" src="images/hmi/hmi_status.webp" alt="TSP HMI" width="800" height="480"></div>
     <div data-r style="--d:2">
       <p class="hint" data-i18n="p7.hint">메뉴를 누르면 실제 화면으로 바뀝니다</p>
       <div class="tabs" role="tablist">
@@ -1373,6 +1373,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
       </div>
       <p class="cap" id="hmi-cap" data-i18n="p7.c1">입출력 전압·전류, DC 충전율, 검출·복귀 레벨을 한 화면에서 봅니다.</p>
       <div class="store" hidden>
+        <span data-i18n="p7.c1">입출력 전압·전류, DC 충전율, 검출·복귀 레벨을 한 화면에서 봅니다.</span>
         <span data-i18n="p7.c2">사고 순간의 계통 파형(위)과 TSP가 만든 부하 파형(아래)을 나란히 남깁니다. 사고 시각·전압·지속시간이 함께 기록됩니다.</span>
         <span data-i18n="p7.c3">차단기 개폐, 기동·정지, 설정 변경까지 최대 500건을 남깁니다.</span>
         <span data-i18n="p7.c4">피상·유효·무효 전력과 누적 전력량. 시간·일·월·연 단위로 볼 수 있습니다.</span>
@@ -1590,7 +1591,8 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
     var keys={status:'p7.c1',sag:'p7.c2',history:'p7.c3',energy:'p7.c4',setting:'p7.c5'};
     var all=[].slice.call(tabs.querySelectorAll('button')),badge=document.getElementById('hmi-badge'),box=document.getElementById('hmi-box');
     // 화면을 눌러도 다음 메뉴로 넘어간다 — 메뉴가 아래에 있어 모바일에서 못 찾는 경우 대비 (261017)
-    if(box)box.addEventListener('click',function(){var i=all.findIndex(function(x){return x.classList.contains('on')});all[(i+1)%all.length].click()});
+    function nextShot(){var i=all.findIndex(function(x){return x.classList.contains('on')});all[(i+1)%all.length].click()}
+    if(box){box.addEventListener('click',nextShot);box.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();nextShot()}})}
     tabs.addEventListener('click',function(e){
       var b=e.target.closest('button');if(!b)return;
       if(badge)badge.innerHTML=(all.indexOf(b)+1)+'/'+all.length+' &rsaquo;';
