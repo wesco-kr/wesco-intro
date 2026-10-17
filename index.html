@@ -365,9 +365,9 @@ html[lang="zh"] .tol text{font-family:"Noto Sans SC",sans-serif}html[lang="ja"] 
 .pg-spec .pills{gap:8px}.pg-spec .pill{padding:10px 16px}
 .f47n{margin:6px 0 0;font-size:12.5px;color:var(--red);font-weight:700}
 /* 261003 범례는 그래프 밖 — 선 위에 글자를 얹지 않는다 */
-.tolg{list-style:none;margin:0;padding:10px 14px 12px;border:1px solid var(--line);border-top:0;border-radius:0 0 6px 6px;background:#FDFCF9;display:grid;grid-template-columns:auto auto 1fr;gap:6px 18px}
+.tolg{list-style:none;margin:0;padding:10px 14px 12px;border:1px solid var(--line);border-top:0;border-radius:0 0 6px 6px;background:#FDFCF9;display:flex;flex-wrap:wrap;gap:6px 18px}
 .tolg li{display:flex;align-items:center;gap:8px;font-size:12.5px;line-height:1.35;color:var(--body)}
-.tolg li.w{grid-column:1/-1}
+.tolg li.w{flex-basis:100%}.tolg li:not(.w) span{white-space:nowrap}
 html[lang="vi"] .tolg+.note{font-size:12px;margin-top:8px}
 html[lang="vi"] .pg-spec .h{font-size:31px}
 .tolg i{flex:none;width:22px;height:12px;border-radius:2px}
@@ -715,6 +715,9 @@ html[lang="ko"] .cover h1{font-size:47px}
 .back .ct a:hover{color:var(--tint);border-color:var(--red)}
 .back .qr{right:64px;bottom:56px;width:116px;height:116px;border:1px solid var(--muted);border-radius:0;background:transparent;color:var(--ivory);font-size:12px;line-height:1.7;transition:background .2s}
 .back .qr:hover{background:var(--red);border-color:var(--red)}
+.back .qr{width:auto;height:auto;border:0;border-bottom:1px solid var(--muted);padding:0 0 2px;background:transparent;line-height:1.5;text-decoration:none}
+.back .qr::after{content:" \2192";color:var(--red);font-family:Arial,sans-serif}
+.back .qr:hover{background:transparent;color:var(--tint);border-color:var(--red)}
 .thumbs{width:150px;gap:0;padding:0;scrollbar-width:thin;scrollbar-color:var(--muted) transparent}
 .thumbs a{border:0;border-left:2px solid transparent;border-bottom:1px solid var(--line);border-radius:0;background:var(--tint2);padding:9px 10px;display:grid;grid-template-columns:23px 1fr;gap:6px;font-size:10px;line-height:1.45}
 .thumbs a b{font-size:10px;font-weight:400;color:var(--muted)}
@@ -830,7 +833,7 @@ body.reflow .cover .prod{position:static;display:block;width:310px;margin:0 20px
 body.reflow .cover .eng{display:block;position:absolute;left:auto;right:282px;bottom:27px;height:164px}
 body.reflow .back{padding:0}body.reflow .back::after{display:none}body.reflow .back .inner{position:static;padding:30px 20px 22px}
 body.reflow .back .cta,body.reflow .back .next{position:static;margin-top:16px}body.reflow .back .next{gap:10px}
-body.reflow .back .ct{position:static;padding:24px 20px;grid-template-columns:1fr;gap:18px}body.reflow .back .qr{position:static;margin:14px auto 0;background:#292524;color:var(--ivory);border-color:#292524}
+body.reflow .back .ct{position:static;padding:24px 20px;grid-template-columns:1fr;gap:18px}body.reflow .back .qr{position:static;align-self:flex-start;margin:16px 0 0;background:transparent;color:var(--stone);border-color:var(--line)}
 }
 html[lang="ko"] .page{word-break:keep-all;overflow-wrap:anywhere}
 /* 중·일문엔 띄어쓰기가 없어 keep-all 이면 줄이 안 바뀐다(아이폰 5단계 칸 넘침 261003) */
@@ -858,7 +861,7 @@ html:not([lang="ko"]) .back .cta{font-size:13.5px}
 
 /* 사이트 런처 — launcher.js(공용) 가 #sites-mount 에 버튼을 넣는다. 목록은 sites.json 한 곳 */
 #sites-mount .wl-btn{height:34px;border-radius:2px;font-family:inherit}
-.back .next{position:absolute;left:64px;right:64px;top:416px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;z-index:2}
+.back .next{position:absolute;left:64px;right:64px;top:416px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px;z-index:2}
 .back .next a{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 16px;height:56px;border:1px solid var(--stone);text-decoration:none;color:var(--stone);font-size:14px;font-weight:700;transition:background .2s,color .2s}
 .back .next a::after{content:"→";font-family:Arial,sans-serif;font-weight:400;color:var(--red)}
 .back .next a:hover{background:var(--red);border-color:var(--red);color:#FDFCF9}
@@ -873,6 +876,20 @@ html:not([lang="ko"]) .back .next a{font-size:12.5px}
 .pg-hmi .tabs button::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--line)}
 .pg-hmi .tabs button.on{color:var(--stone)}
 .pg-hmi .tabs button.on::before{background:var(--red)}
+.pg-hmi .tabs button::after{content:"\203A";margin-left:auto;font-size:18px;font-weight:400;color:var(--line)}
+.pg-hmi .tabs button:hover{background:#F6F1EA}.pg-hmi .tabs button.on{background:#FBEAE4}.pg-hmi .tabs button.on::after{color:var(--red)}
+.pg-hmi .tabs button:focus-visible{outline:2px solid var(--red);outline-offset:-2px}
+.pg-hmi .hint{display:flex;align-items:center;gap:6px;margin:0 0 8px;font-size:12.5px;font-weight:700;color:var(--red)}
+.pg-hmi .hint::before{content:"\261D";font-size:14px}
+.pg-hmi .shot{position:relative;cursor:pointer}
+.pg-hmi .shot .badge{position:absolute;right:20px;bottom:calc(12px + 12%);background:rgba(41,37,36,.85);color:#FDFCF9;font:700 12px/1 Arial,sans-serif;letter-spacing:.04em;padding:7px 10px;border-radius:14px;pointer-events:none}
+body.reflow .pg-hmi .grid2{display:flex;flex-direction:column;gap:10px}
+body.reflow .pg-hmi .grid2>div:last-child{display:contents}
+body.reflow .pg-hmi .hint{order:1;margin:0}body.reflow .pg-hmi .tabs{order:2}body.reflow .pg-hmi .shot{order:3}body.reflow .pg-hmi .cap{order:4;margin-top:4px;min-height:0}
+body.reflow .pg-hmi .tabs{display:flex;flex-wrap:wrap;gap:6px;border:0}
+body.reflow .pg-hmi .tabs button{padding:8px 11px;border:1px solid var(--line);border-radius:16px;font-size:11.5px;letter-spacing:.04em;gap:0;background:#FDFCF9}
+body.reflow .pg-hmi .tabs button::before,body.reflow .pg-hmi .tabs button::after{display:none}
+body.reflow .pg-hmi .tabs button.on{background:var(--red);border-color:var(--red);color:#FDFCF9}
 .pg-hmi .cap{margin-top:18px;font-size:14px;line-height:1.75;color:var(--body);min-height:96px}
 html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
 </style>
@@ -1344,8 +1361,9 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
   <p class="lead" data-i18n="p7.lead">7인치 터치 패널에 실시간 계측과 사고 기록이 함께 뜹니다. 원격 감시로 사무실 PC에서 현장의 모든 TSP® 사고 데이터를 한 화면에서 관리합니다. 메뉴를 눌러보십시오.</p>
   <div class="rule"></div>
   <div class="grid2">
-    <div class="shot" data-r style="--d:1"><img id="hmi-shot" src="images/hmi/hmi_status.webp" alt="TSP HMI" width="800" height="480"></div>
+    <div class="shot" data-r style="--d:1" id="hmi-box"><span class="badge" id="hmi-badge" aria-hidden="true">1/5 &rsaquo;</span><img id="hmi-shot" src="images/hmi/hmi_status.webp" alt="TSP HMI" width="800" height="480"></div>
     <div data-r style="--d:2">
+      <p class="hint" data-i18n="p7.hint">메뉴를 누르면 실제 화면으로 바뀝니다</p>
       <div class="tabs" role="tablist">
         <button type="button" role="tab" class="on" data-s="status" aria-selected="true">STATUS</button>
         <button type="button" role="tab" data-s="sag" aria-selected="false">SAG EVENT</button>
@@ -1422,7 +1440,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
     </div>
     <p class="cta" data-r style="--d:2" data-i18n="b.cta" data-i18n-html><b>TSP® 선정 문의</b> — 전압 · 상(단상/삼상) · 부하 kVA · 필요 보상시간, 네 가지만 알려주시면 적합한 모델을 제안드립니다.</p>
     <nav class="next" id="next" aria-label="next"></nav>
-    <a class="qr" href="https://www.youtube.com/@WESCOTSP/videos" target="_blank" rel="noopener" data-i18n="b.yt" data-i18n-html>유튜브 채널<br>회사·제품 영상</a>
+    <a class="qr" href="https://www.youtube.com/@WESCOTSP/videos" target="_blank" rel="noopener" data-i18n="b.yt">회사·제품 영상 · 유튜브 채널</a>
   </div>
 </section>
 
@@ -1570,8 +1588,12 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
     var tabs=document.querySelector('.pg-hmi .tabs'),shot=document.getElementById('hmi-shot'),cap=document.getElementById('hmi-cap');
     if(!tabs||!shot)return;
     var keys={status:'p7.c1',sag:'p7.c2',history:'p7.c3',energy:'p7.c4',setting:'p7.c5'};
+    var all=[].slice.call(tabs.querySelectorAll('button')),badge=document.getElementById('hmi-badge'),box=document.getElementById('hmi-box');
+    // 화면을 눌러도 다음 메뉴로 넘어간다 — 메뉴가 아래에 있어 모바일에서 못 찾는 경우 대비 (261017)
+    if(box)box.addEventListener('click',function(){var i=all.findIndex(function(x){return x.classList.contains('on')});all[(i+1)%all.length].click()});
     tabs.addEventListener('click',function(e){
       var b=e.target.closest('button');if(!b)return;
+      if(badge)badge.innerHTML=(all.indexOf(b)+1)+'/'+all.length+' &rsaquo;';
       tabs.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b);x.setAttribute('aria-selected',x===b)});
       shot.src='images/hmi/hmi_'+b.dataset.s+'.webp';
       var src=document.querySelector('.pg-hmi .store [data-i18n="'+keys[b.dataset.s]+'"]');
@@ -1585,7 +1607,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
     var next=document.getElementById('next');if(!next||!window.WescoLauncher)return;
     var L=window.WescoLauncher,data=null;
     function build(){if(!data)return;var all={};data.groups.forEach(function(g){g.items.forEach(function(it){all[it.id]=it})});
-      next.innerHTML=['tsp','inquiry','catalog'].map(function(id){var it=all[id];return it?'<a href="'+L.href(it.href)+'" target="_blank" rel="noopener">'+L.t(it.title)+'</a>':''}).join('')}
+      next.innerHTML=['inquiry','catalog'].map(function(id){var it=all[id];return it?'<a href="'+L.href(it.href)+'" target="_blank" rel="noopener">'+L.t(it.title)+'</a>':''}).join('')}
     L.ready.then(function(d){data=d;build()}).catch(function(){});
     new MutationObserver(build).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
   })();
