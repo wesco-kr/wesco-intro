@@ -16,3 +16,8 @@ wrap_tails.py
 
 # 로컬 작업물(렌더·백업·브리프) — 공개 저장소에 올리지 않는다
 _build/
+
+# AI 도구 작업 기록·미리보기 백업 — 공개 저장소에 올리지 않는다(261025)
+.bkit/
+.gemini/
+_build_preview_*.html
