@@ -7,6 +7,7 @@
 - [WESCO TSP Business Introduction](https://intro.wesco.works/): Company overview and TSP® product introduction.
 
 ## Latest blog posts
+- [막으려면 먼저 보여야 한다 — 순간전압강하 계측·모니터링](https://intro.wesco.works/blog/voltage-sag-monitoring/): 순간전압강하는 0.5사이클에서 1분 사이에 끝나 일반 계측 장비로는 포착하기 어렵다. TSP® 블랙박스와 Sag-VIEWER™로 사고 데이터를 기록해 원인을 찾고 보상 효과를 검증하는 방법을 정리했다. ([English](https://intro.wesco.works/blog/en/voltage-sag-monitoring/))
 - [울트라커패시터(EDLC)는 어떻게 배터리를 대신하는가](https://intro.wesco.works/blog/supercapacitor-tech-explained/): EDLC는 화학반응 없이 이온을 물리적으로 저장해 밀리초 단위로 반응한다. 배터리와 다른 저장 원리가 짧고 강한 순간전압강하 보상에 적합한 이유를 설명한다. ([English](https://intro.wesco.works/blog/en/supercapacitor-tech-explained/))
 - [이차전지 공장의 순간전압강하 — 전극 코팅부터 조립까지, 왜 한 번의 흔들림이 배치 전체를 날리는가](https://intro.wesco.works/blog/ev-battery-plant-power-quality/): 이차전지 공장의 전극 코팅과 조립 공정은 연속 라인 구조라 순간전압강하 한 번에도 코일·로트 단위로 불량이 확산될 수 있다. 전압 민감도의 원인과 TSP의 배터리리스 대응 방식을 정리한다. ([English](https://intro.wesco.works/blog/en/ev-battery-plant-power-quality/))
 - [순간정전 피해 사례와 설비별 정지 기준](https://intro.wesco.works/blog/factory-outage-damage/): 순간정전 피해는 설비별 정지 순서와 업종별 사례로 살펴볼 수 있다. 같은 전압강하라도 인버터·서보와 PLC가 먼저 멈추며, 스크랩·재가동·납기 지연으로 피해가 이어진다. ([English](https://intro.wesco.works/blog/en/factory-outage-damage/))
@@ -16,7 +17,6 @@
 - [순간정전이란? 원인·피해·공장 대책 총정리](https://intro.wesco.works/blog/momentary-power-outage/): 순간정전은 전기가 완전히 끊기지 않고 짧게 떨어졌다 회복되는 현상이다. 낙뢰, 지락·단락 고장, 차단기 동작, 대형 부하 기동이 원인이며, 인버터와 PLC를 먼저 멈춰 세운다. 부하 등급을 나눈 뒤 민감 부하만 보상하는 것이 공장 대책의 출발점이다. ([English](https://intro.wesco.works/blog/en/momentary-power-outage/))
 - [여름 낙뢰철, 공장 전기는 무엇을 준비해야 하나](https://intro.wesco.works/blog/summer-lightning-season/): 여름 낙뢰철에는 순간전압강하와 순간정전이 늘어날 수 있다. 여름 전 접지·서지보호·계측 로그를 점검하고, 설비의 허용 강하 범위를 확인하는 것이 출발점이다. 보상장치는 절체 시간과 보상 시간을 구분해 선택해야 한다. ([English](https://intro.wesco.works/blog/en/summer-lightning-season/))
 - [관리 잘해도 라인이 멈추는 이유 — 순간전압강하는 공장 밖에서 온다](https://intro.wesco.works/blog/why-sags-come-from-outside/): 낙뢰·계통 사고·인근 대형 부하 기동 등 순간전압강하의 원인은 대부분 공장 밖에 있다. 내부 관리만으로는 라인 정지를 막기 어려운 이유와 순간정전에 대비하는 전압강하 보상 방법을 정리한다. ([English](https://intro.wesco.works/blog/en/why-sags-come-from-outside/))
-- [제어전원만 지켜도 라인이 산다 — 선택 보상이라는 접근](https://intro.wesco.works/blog/control-power-protection/): 설비 전체가 아니라 정지의 실제 원인인 제어전원과 핵심 부하만 골라 순간전압강하를 보상하는 선택 보상 설계를 다룬다. 투자 규모를 낮추면서도 라인 정지를 막는 실무적 접근과 적용 기준을 설명한다. ([English](https://intro.wesco.works/blog/en/control-power-protection/))
 
 ## Key facts
 - Product: TSP® (The Second Power) — battery-free voltage sag protector / power conditioner

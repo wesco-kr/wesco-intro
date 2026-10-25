@@ -1,0 +1,124 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>막으려면 먼저 보여야 한다 — 순간전압강하 계측·모니터링</title><meta name="description" content="순간전압강하는 0.5사이클에서 1분 사이에 끝나 일반 계측 장비로는 포착하기 어렵다. TSP® 블랙박스와 Sag-VIEWER™로 사고 데이터를 기록해 원인을 찾고 보상 효과를 검증하는 방법을 정리했다."><link rel="canonical" href="https://intro.wesco.works/blog/voltage-sag-monitoring/"><link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/voltage-sag-monitoring/"><link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/voltage-sag-monitoring/"><link rel="alternate" hreflang="x-default" href="https://intro.wesco.works/blog/voltage-sag-monitoring/"><meta property="og:type" content="article"><meta property="og:title" content="막으려면 먼저 보여야 한다 — 순간전압강하 계측·모니터링"><meta property="og:description" content="순간전압강하는 0.5사이클에서 1분 사이에 끝나 일반 계측 장비로는 포착하기 어렵다. TSP® 블랙박스와 Sag-VIEWER™로 사고 데이터를 기록해 원인을 찾고 보상 효과를 검증하는 방법을 정리했다."><meta property="og:url" content="https://intro.wesco.works/blog/voltage-sag-monitoring/"><meta property="og:image" content="https://intro.wesco.works/images/og-image.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="막으려면 먼저 보여야 한다 — 순간전압강하 계측·모니터링"><meta name="twitter:description" content="순간전압강하는 0.5사이클에서 1분 사이에 끝나 일반 계측 장비로는 포착하기 어렵다. TSP® 블랙박스와 Sag-VIEWER™로 사고 데이터를 기록해 원인을 찾고 보상 효과를 검증하는 방법을 정리했다."><meta name="twitter:image" content="https://intro.wesco.works/images/og-image.jpg"><link rel="icon" type="image/x-icon" href="https://intro.wesco.works/favicon.ico"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"><style>
+:root{
+  --c-red:#C13816; --c-red-dk:#9C2C10; --c-red-lt:#FBEEE8;
+  --c-head:#2C2924; --c-text:#4A4641; --c-gray:#78716C; --c-gray-lt:#A8A29E;
+  --c-bg:#FDFCF9; --c-bg-soft:#F7F4EE; --c-divider:#E0DBD3; --c-accent:#4F6886;
+  --font-ko:'Noto Sans KR','맑은 고딕',sans-serif;
+  --font-en:'Inter',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font-ko);color:var(--c-text);background:var(--c-bg);
+  line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:var(--c-red);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+
+/* 상단바 */
+.topbar{border-bottom:1px solid var(--c-divider);background:var(--c-bg)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center}
+.brand img{height:22px;width:auto;display:block}
+.topnav a{color:var(--c-gray);font-size:14px;font-weight:500;margin-left:22px}
+.topnav a:hover{color:var(--c-red);text-decoration:none}
+
+/* 글 헤더 */
+.post-head{padding:56px 0 34px;border-bottom:1px solid var(--c-divider)}
+.post-head .kicker{font-family:var(--font-en);font-size:12px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--c-red)}
+.post-head h1{font-size:34px;line-height:1.32;color:var(--c-head);
+  font-weight:700;margin:14px 0 12px;letter-spacing:-.01em}
+.post-head .sub{font-size:18px;color:var(--c-gray);font-weight:400;line-height:1.6}
+.post-meta{margin-top:20px;font-size:13px;color:var(--c-gray-lt);
+  font-family:var(--font-en);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.post-meta .lang-toggle{border:1px solid var(--c-divider);border-radius:100px;
+  padding:3px 12px;font-weight:600;color:var(--c-gray)}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tags .tag{background:var(--c-bg-soft);color:var(--c-gray);border:1px solid var(--c-divider);
+  border-radius:100px;padding:3px 11px;font-size:12px;font-family:var(--font-ko)}
+
+/* 본문 */
+.post-body{padding:38px 0 10px}
+.post-body h2{font-size:23px;color:var(--c-head);font-weight:700;
+  margin:44px 0 16px;letter-spacing:-.01em;line-height:1.4}
+.post-body h3{font-size:19px;color:var(--c-head);font-weight:700;margin:30px 0 12px}
+.post-body p{margin:0 0 20px}
+.post-body ul,.post-body ol{margin:0 0 22px;padding-left:22px}
+.post-body li{margin:0 0 9px}
+.post-body strong{color:var(--c-head);font-weight:700}
+.post-body em{font-style:normal;color:var(--c-gray)}
+.post-body hr{border:0;border-top:1px solid var(--c-divider);margin:40px 0}
+.post-body blockquote{border-left:3px solid var(--c-red);padding:2px 0 2px 18px;
+  margin:0 0 22px;color:var(--c-gray)}
+.post-body img{max-width:100%;height:auto;border-radius:10px;margin:8px 0 24px}
+
+/* FAQ */
+.faq{margin-top:8px}
+.faq dt{font-weight:700;color:var(--c-head);margin:22px 0 8px}
+.faq dd{margin:0 0 8px;color:var(--c-text)}
+
+/* CTA */
+.cta{margin:44px 0 0;background:var(--c-bg-soft);border:1px solid var(--c-divider);
+  border-radius:14px;padding:28px 30px}
+.cta h4{font-size:18px;color:var(--c-head);margin-bottom:8px}
+.cta p{font-size:15px;color:var(--c-gray);margin-bottom:16px}
+.cta a.btn{display:inline-block;background:var(--c-red);color:#fff;font-weight:600;
+  font-size:15px;padding:11px 22px;border-radius:8px}
+.cta a.btn:hover{background:var(--c-red-dk);text-decoration:none}
+.cta a.btn-ghost{background:transparent;color:var(--c-red);border:1px solid var(--c-red);margin-left:8px}
+.cta a.btn-ghost:hover{background:var(--c-red);color:#fff}
+
+/* 영상 · 관련 글 */
+.video{position:relative;padding-top:56.25%;margin:8px 0 28px;border-radius:10px;overflow:hidden;background:var(--c-bg-soft)}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.related{margin-top:44px}
+.related h2{font-size:20px;color:var(--c-head);margin-bottom:6px}
+.related a.rel{display:block;padding:12px 0;border-bottom:1px solid var(--c-divider);color:var(--c-head);font-weight:500}
+.related .product{margin-top:16px;font-size:15px;color:var(--c-gray)}
+
+/* 푸터 */
+.foot{margin-top:64px;border-top:1px solid var(--c-divider);
+  padding:30px 0 60px;color:var(--c-gray-lt);font-size:13px;text-align:center}
+.foot a{color:var(--c-gray)}
+
+/* 목록 */
+.list-head{padding:56px 0 14px}
+.list-head h1{font-size:30px;color:var(--c-head);font-weight:700}
+.list-head p{color:var(--c-gray);margin-top:8px}
+.list-head .lang-toggle{display:inline-block;margin-top:14px;border:1px solid var(--c-divider);
+  border-radius:100px;padding:4px 14px;font-size:13px;font-weight:600;color:var(--c-gray)}
+.card{display:block;padding:26px 0;border-bottom:1px solid var(--c-divider)}
+.card:hover{text-decoration:none}
+.card .kicker{font-family:var(--font-en);font-size:11px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--c-red)}
+.card h2{font-size:22px;color:var(--c-head);font-weight:700;margin:8px 0 8px;line-height:1.4}
+.card p{color:var(--c-gray);font-size:15px}
+.card .date{font-family:var(--font-en);font-size:12px;color:var(--c-gray-lt);margin-top:10px}
+
+@media(max-width:600px){
+  body{font-size:16px}
+  .post-head h1{font-size:27px}
+  .post-head .sub{font-size:16px}
+  .post-body h2{font-size:20px}
+}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "막으려면 먼저 보여야 한다 — 순간전압강하 계측·모니터링", "description": "순간전압강하는 0.5사이클에서 1분 사이에 끝나 일반 계측 장비로는 포착하기 어렵다. TSP® 블랙박스와 Sag-VIEWER™로 사고 데이터를 기록해 원인을 찾고 보상 효과를 검증하는 방법을 정리했다.", "datePublished": "2026-10-25", "dateModified": "2026-10-25", "inLanguage": "ko", "mainEntityOfPage": "https://intro.wesco.works/blog/voltage-sag-monitoring/", "author": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}, "publisher": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "순간전압강하는 왜 일반 계측기로 잡히지 않나요?", "acceptedAnswer": {"@type": "Answer", "text": "순간전압강하는 0.5사이클에서 1분 사이에 끝나는 경우가 많아, 일반 전력 계측기나 육안으로는 사고가 지나간 뒤에 확인하기 어렵다. 기록 장치 없이는 사고 발생 사실조차 남지 않는다."}}, {"@type": "Question", "name": "TSP®의 블랙박스는 무엇을 기록하나요?", "acceptedAnswer": {"@type": "Answer", "text": "TSP®의 블랙박스는 전압 사고의 발생 시점과 보상 동작 데이터를 자동으로 저장해, 사용자가 화면에서 사고·보상 현황을 바로 확인할 수 있도록 한다."}}, {"@type": "Question", "name": "Sag-VIEWER™는 어떤 역할을 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "Sag-VIEWER™는 여러 지점에 설치된 TSP®의 사고 데이터를 사무실 PC에서 원격으로 모니터링할 수 있게 해주는 기능으로, 현장을 직접 돌아다니지 않고도 전체 현황을 관리할 수 있다."}}]}</script><link rel="stylesheet" href="/blog/discovery.css"></head><body><header class="topbar"><div class="wrap"><a class="brand" href="https://intro.wesco.works/"><img src="https://intro.wesco.works/images/wesco_wordmark.png" alt="WESCO" width="119" height="22"></a><nav class="topnav"><a href="https://intro.wesco.works/">홈</a><a href="https://intro.wesco.works/blog/">인사이트</a><a href="/videos/">제품 영상</a></nav></div></header><section class="post-head"><div class="wrap"><div class="kicker">WESCO Insight</div><h1>막으려면 먼저 보여야 한다 — 순간전압강하 계측·모니터링</h1><p class="sub">TSP® 블랙박스와 Sag-VIEWER™로 짧은 전압 사고를 기록하고 검증하는 법</p><div class="post-meta"><span>2026-10-25</span><div class="tags"><span class="tag">순간전압강하</span><span class="tag">모니터링</span><span class="tag">계측</span><span class="tag">Sag-VIEWER</span><span class="tag">전력품질</span></div><a class="lang-toggle" href="https://intro.wesco.works/blog/en/voltage-sag-monitoring/">English</a></div></div></section><article class="post-body"><div class="wrap"><p>순간전압강하는 대부분 0.5사이클에서 1분 사이, 짧으면 수십 밀리초 안에 끝난다. 전압이 정격의 10~90% 수준까지 떨어졌다가 짧은 시간 안에 회복되는 이 현상은, 그 순간을 기록해두지 않으면 지나간 뒤에는 증거가 남지 않는다. 설비는 멈췄는데 전기는 정상으로 보이는 상황이 반복되는 이유다. WESCO TSP®의 블랙박스와 Sag-VIEWER™ 같은 이벤트 기록·원격 모니터링 기능은 이 짧은 순간을 데이터로 남겨, 원인을 찾고 보상 효과를 확인하는 근거로 쓴다.</p>
+<p>생산라인이 갑자기 멈췄다가 재가동됐다. 오퍼레이터는 원인을 모른 채 점검표에 &ldquo;이상 없음&rdquo;을 적고 라인을 돌린다. 전기도 정상, 로그도 없다. 같은 일이 한 달 뒤 다시 벌어진다. 이런 패턴이 반복된다면, 문제는 설비가 아니라 계측이 없다는 데 있을 가능성이 크다.</p>
+<h2>순간전압강하는 왜 보이지 않는가</h2>
+<p>순간전압강하는 지속시간이 0.5사이클부터 1분까지로 정의된다. 60Hz 기준 1사이클은 약 16.7ms이므로, 대부분의 사고는 사람이 인지하기 전에 끝난다. 실측 사례 중에는 전압이 정격의 약 80% 수준까지 떨어져 약 2.8초간 지속된 경우도 확인됐다 — 짧은 사고치고는 긴 편이지만, 이 역시 조명이 깜빡이는 정도로만 느껴질 뿐 대부분 알아채지 못한다.</p>
+<p>일반적인 전력 계측기나 멀티미터는 순시값을 보여줄 뿐, 수십 밀리초 단위로 지나가는 사고를 잡아내도록 설계돼 있지 않다. 사고가 끝난 뒤 설비를 점검해봐도 &ldquo;정상&rdquo;으로 나오는 이유가 여기 있다.</p>
+<h2>기록이 없으면 원인도 찾을 수 없다</h2>
+<p>순간전압강하는 대부분 공장 내부가 아니라 계통 어딘가의 사고 — 낙뢰, 지락·단락, 차단기 동작, 인근 대형 부하의 기동 — 가 전압에 남긴 흔적이다. 하지만 기록이 없으면 이 외부 원인을 설비 결함이나 프로그램 오류로 오인하기 쉽다. 그 결과 엔지니어는 멈춘 설비 자체만 반복 점검하고, 진짜 원인은 계속 방치된다. 정전은 눈에 보이므로 대비하지만, 순간전압강하는 보이지 않기 때문에 대책이 늦어진다.</p>
+<h2>TSP®의 블랙박스: 사고 순간을 데이터로 남긴다</h2>
+<p>TSP®에는 블랙박스 기능이 내장돼 있어 전압 사고 발생 시점과 보상 동작 데이터를 자동으로 저장한다. 사고가 언제, 어느 정도 깊이로, 얼마나 지속됐는지가 숫자로 남기 때문에 &ldquo;원인 모를 정지&rdquo;가 &ldquo;몇 시 몇 분, 몇 % 전압강하&rdquo;로 바뀐다. 사용자는 이 기록을 화면에서 바로 확인할 수 있어, 전기 쪽 문제인지 설비 쪽 문제인지를 가장 먼저 구분할 수 있다.</p>
+<h2>Sag-VIEWER™: 현장에 가지 않고도 확인한다</h2>
+<p>TSP®를 여러 지점에 설치한 경우, Sag-VIEWER™로 사무실 PC에서 각 지점의 사고 데이터를 원격으로 모니터링할 수 있다. 현장을 돌아다니며 하나씩 점검할 필요 없이, 어느 설비에서 몇 번의 순간전압강하가 있었는지를 한곳에서 관리한다. 사고가 반복되는 지점을 파악하면 계통 보강이나 추가 보상 설비 투자의 우선순위를 정하는 데도 쓸 수 있다.</p>
+<h2>계측으로 검증하는 두 가지: 원인과 효과</h2>
+<p>계측·모니터링의 역할은 두 가지다. 하나는 순간전압강하의 발생 원인과 패턴을 규명하는 것이고, 다른 하나는 TSP® 설치 이후 실제로 보상이 작동했는지를 확인하는 것이다. 보상이 정상 작동했다는 기록이 쌓이면, 그 설비 라인이 멈추지 않은 이유를 운 때문이 아니라 데이터로 설명할 수 있다. 막기 위해 먼저 봐야 하는 이유가 여기 있다.</p>
+<h2>정리</h2>
+<ul>
+<li>순간전압강하는 0.5사이클~1분 사이에 끝나, 일반 계측이나 육안으로는 거의 포착되지 않는다.</li>
+<li>기록이 없으면 외부 계통 사고가 설비 결함으로 오인되고, 같은 문제가 반복된다.</li>
+<li>TSP®의 블랙박스는 사고 발생·보상 동작을 자동 기록해 원인 추적의 근거를 남긴다.</li>
+<li>Sag-VIEWER™는 여러 설치 지점을 사무실에서 원격으로 모니터링한다.</li>
+<li>계측 데이터는 원인 규명뿐 아니라 TSP® 보상이 실제로 작동했는지 검증하는 근거로도 쓰인다.</li>
+</ul><h2>자주 묻는 질문 (FAQ)</h2><dl class="faq"><dt>Q. 순간전압강하는 왜 일반 계측기로 잡히지 않나요?</dt><dd>순간전압강하는 0.5사이클에서 1분 사이에 끝나는 경우가 많아, 일반 전력 계측기나 육안으로는 사고가 지나간 뒤에 확인하기 어렵다. 기록 장치 없이는 사고 발생 사실조차 남지 않는다.</dd><dt>Q. TSP®의 블랙박스는 무엇을 기록하나요?</dt><dd>TSP®의 블랙박스는 전압 사고의 발생 시점과 보상 동작 데이터를 자동으로 저장해, 사용자가 화면에서 사고·보상 현황을 바로 확인할 수 있도록 한다.</dd><dt>Q. Sag-VIEWER™는 어떤 역할을 하나요?</dt><dd>Sag-VIEWER™는 여러 지점에 설치된 TSP®의 사고 데이터를 사무실 PC에서 원격으로 모니터링할 수 있게 해주는 기능으로, 현장을 직접 돌아다니지 않고도 전체 현황을 관리할 수 있다.</dd></dl><div class="cta"><h4>순간전압강하 대응이 필요하신가요?</h4><p>WESCO는 25년간 전력 품질 분야에서 순간전압보상장치(TSP)를 제조해 왔습니다. 라인 환경에 맞는 용량 선정과 도입을 상담해 드립니다.</p><a class="btn" href="https://tsp.wesco.works/ko/?s=blog-voltage-sag-monitoring">도입 문의하기</a><a class="btn btn-ghost" href="mailto:wesco@wesco.co.kr?subject=%5Bblog%3Avoltage-sag-monitoring%5D%20TSP%20%EB%8F%84%EC%9E%85%20%EB%AC%B8%EC%9D%98">메일로 문의</a></div><div class="related"><h2>관련 글</h2><a class="rel" href="https://intro.wesco.works/blog/outage-vs-voltage-sag/">순간전압강하 순간정전 차이, 지속시간과 설비 영향으로 구분하는 법</a><a class="rel" href="https://intro.wesco.works/blog/momentary-power-outage/">순간정전이란? 원인·피해·공장 대책 총정리</a><a class="rel" href="https://intro.wesco.works/blog/why-sags-come-from-outside/">관리 잘해도 라인이 멈추는 이유 — 순간전압강하는 공장 밖에서 온다</a><a class="rel discovery-video" href="/videos/tsp-product/">영상으로 확인: 순간정전보상장치 TSP® 제품소개 | 3D 애니메이션 | WESCO 웨스코</a><p class="product">TSP® 제품 원리와 사양은 <a href="https://intro.wesco.works/battery-free-voltage-sag-protection.html">배터리 없는 순간전압강하 보상장치 TSP® 상세 보기 (영문)</a></p></div></div></article><footer class="foot"><div class="wrap">© WESCO Co., Ltd. · Voltage Sag Protector Manufacturer · <a href="https://www.wesco.co.kr">www.wesco.co.kr</a></div></footer></body></html>

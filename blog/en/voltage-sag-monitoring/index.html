@@ -1,0 +1,124 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>You Can&#x27;t Fix What You Can&#x27;t See: Measuring and Monitoring Voltage Sags</title><meta name="description" content="Voltage sags last half a cycle to about a minute, too brief for standard meters. TSP® event logging and Sag-VIEWER™ record and verify each one."><link rel="canonical" href="https://intro.wesco.works/blog/en/voltage-sag-monitoring/"><link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/voltage-sag-monitoring/"><link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/voltage-sag-monitoring/"><link rel="alternate" hreflang="x-default" href="https://intro.wesco.works/blog/voltage-sag-monitoring/"><meta property="og:type" content="article"><meta property="og:title" content="You Can&#x27;t Fix What You Can&#x27;t See: Measuring and Monitoring Voltage Sags"><meta property="og:description" content="Voltage sags last half a cycle to about a minute, too brief for standard meters. TSP® event logging and Sag-VIEWER™ record and verify each one."><meta property="og:url" content="https://intro.wesco.works/blog/en/voltage-sag-monitoring/"><meta property="og:image" content="https://intro.wesco.works/images/og-image.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="You Can&#x27;t Fix What You Can&#x27;t See: Measuring and Monitoring Voltage Sags"><meta name="twitter:description" content="Voltage sags last half a cycle to about a minute, too brief for standard meters. TSP® event logging and Sag-VIEWER™ record and verify each one."><meta name="twitter:image" content="https://intro.wesco.works/images/og-image.jpg"><link rel="icon" type="image/x-icon" href="https://intro.wesco.works/favicon.ico"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"><style>
+:root{
+  --c-red:#C13816; --c-red-dk:#9C2C10; --c-red-lt:#FBEEE8;
+  --c-head:#2C2924; --c-text:#4A4641; --c-gray:#78716C; --c-gray-lt:#A8A29E;
+  --c-bg:#FDFCF9; --c-bg-soft:#F7F4EE; --c-divider:#E0DBD3; --c-accent:#4F6886;
+  --font-ko:'Noto Sans KR','맑은 고딕',sans-serif;
+  --font-en:'Inter',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font-ko);color:var(--c-text);background:var(--c-bg);
+  line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:var(--c-red);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+
+/* 상단바 */
+.topbar{border-bottom:1px solid var(--c-divider);background:var(--c-bg)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center}
+.brand img{height:22px;width:auto;display:block}
+.topnav a{color:var(--c-gray);font-size:14px;font-weight:500;margin-left:22px}
+.topnav a:hover{color:var(--c-red);text-decoration:none}
+
+/* 글 헤더 */
+.post-head{padding:56px 0 34px;border-bottom:1px solid var(--c-divider)}
+.post-head .kicker{font-family:var(--font-en);font-size:12px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--c-red)}
+.post-head h1{font-size:34px;line-height:1.32;color:var(--c-head);
+  font-weight:700;margin:14px 0 12px;letter-spacing:-.01em}
+.post-head .sub{font-size:18px;color:var(--c-gray);font-weight:400;line-height:1.6}
+.post-meta{margin-top:20px;font-size:13px;color:var(--c-gray-lt);
+  font-family:var(--font-en);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.post-meta .lang-toggle{border:1px solid var(--c-divider);border-radius:100px;
+  padding:3px 12px;font-weight:600;color:var(--c-gray)}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tags .tag{background:var(--c-bg-soft);color:var(--c-gray);border:1px solid var(--c-divider);
+  border-radius:100px;padding:3px 11px;font-size:12px;font-family:var(--font-ko)}
+
+/* 본문 */
+.post-body{padding:38px 0 10px}
+.post-body h2{font-size:23px;color:var(--c-head);font-weight:700;
+  margin:44px 0 16px;letter-spacing:-.01em;line-height:1.4}
+.post-body h3{font-size:19px;color:var(--c-head);font-weight:700;margin:30px 0 12px}
+.post-body p{margin:0 0 20px}
+.post-body ul,.post-body ol{margin:0 0 22px;padding-left:22px}
+.post-body li{margin:0 0 9px}
+.post-body strong{color:var(--c-head);font-weight:700}
+.post-body em{font-style:normal;color:var(--c-gray)}
+.post-body hr{border:0;border-top:1px solid var(--c-divider);margin:40px 0}
+.post-body blockquote{border-left:3px solid var(--c-red);padding:2px 0 2px 18px;
+  margin:0 0 22px;color:var(--c-gray)}
+.post-body img{max-width:100%;height:auto;border-radius:10px;margin:8px 0 24px}
+
+/* FAQ */
+.faq{margin-top:8px}
+.faq dt{font-weight:700;color:var(--c-head);margin:22px 0 8px}
+.faq dd{margin:0 0 8px;color:var(--c-text)}
+
+/* CTA */
+.cta{margin:44px 0 0;background:var(--c-bg-soft);border:1px solid var(--c-divider);
+  border-radius:14px;padding:28px 30px}
+.cta h4{font-size:18px;color:var(--c-head);margin-bottom:8px}
+.cta p{font-size:15px;color:var(--c-gray);margin-bottom:16px}
+.cta a.btn{display:inline-block;background:var(--c-red);color:#fff;font-weight:600;
+  font-size:15px;padding:11px 22px;border-radius:8px}
+.cta a.btn:hover{background:var(--c-red-dk);text-decoration:none}
+.cta a.btn-ghost{background:transparent;color:var(--c-red);border:1px solid var(--c-red);margin-left:8px}
+.cta a.btn-ghost:hover{background:var(--c-red);color:#fff}
+
+/* 영상 · 관련 글 */
+.video{position:relative;padding-top:56.25%;margin:8px 0 28px;border-radius:10px;overflow:hidden;background:var(--c-bg-soft)}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.related{margin-top:44px}
+.related h2{font-size:20px;color:var(--c-head);margin-bottom:6px}
+.related a.rel{display:block;padding:12px 0;border-bottom:1px solid var(--c-divider);color:var(--c-head);font-weight:500}
+.related .product{margin-top:16px;font-size:15px;color:var(--c-gray)}
+
+/* 푸터 */
+.foot{margin-top:64px;border-top:1px solid var(--c-divider);
+  padding:30px 0 60px;color:var(--c-gray-lt);font-size:13px;text-align:center}
+.foot a{color:var(--c-gray)}
+
+/* 목록 */
+.list-head{padding:56px 0 14px}
+.list-head h1{font-size:30px;color:var(--c-head);font-weight:700}
+.list-head p{color:var(--c-gray);margin-top:8px}
+.list-head .lang-toggle{display:inline-block;margin-top:14px;border:1px solid var(--c-divider);
+  border-radius:100px;padding:4px 14px;font-size:13px;font-weight:600;color:var(--c-gray)}
+.card{display:block;padding:26px 0;border-bottom:1px solid var(--c-divider)}
+.card:hover{text-decoration:none}
+.card .kicker{font-family:var(--font-en);font-size:11px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--c-red)}
+.card h2{font-size:22px;color:var(--c-head);font-weight:700;margin:8px 0 8px;line-height:1.4}
+.card p{color:var(--c-gray);font-size:15px}
+.card .date{font-family:var(--font-en);font-size:12px;color:var(--c-gray-lt);margin-top:10px}
+
+@media(max-width:600px){
+  body{font-size:16px}
+  .post-head h1{font-size:27px}
+  .post-head .sub{font-size:16px}
+  .post-body h2{font-size:20px}
+}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "You Can't Fix What You Can't See: Measuring and Monitoring Voltage Sags", "description": "Voltage sags last half a cycle to about a minute, too brief for standard meters. TSP® event logging and Sag-VIEWER™ record and verify each one.", "datePublished": "2026-10-25", "dateModified": "2026-10-25", "inLanguage": "en", "mainEntityOfPage": "https://intro.wesco.works/blog/en/voltage-sag-monitoring/", "author": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}, "publisher": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why don't standard power meters catch a voltage sag?", "acceptedAnswer": {"@type": "Answer", "text": "Most voltage sags last between half a cycle and about a minute, often only tens of milliseconds. Standard power meters display instantaneous values and aren't built to capture an event that brief, so without dedicated event logging there's no record a sag even occurred."}}, {"@type": "Question", "name": "What does TSP®'s black box actually record?", "acceptedAnswer": {"@type": "Answer", "text": "TSP®'s built-in black box automatically logs the timing and the compensation response for every voltage event, so operators can check sag and compensation history directly on screen instead of guessing."}}, {"@type": "Question", "name": "What is Sag-VIEWER™ for?", "acceptedAnswer": {"@type": "Answer", "text": "Sag-VIEWER™ lets engineers monitor event data from multiple TSP® installations remotely, from a single office PC, without visiting each site individually."}}]}</script><link rel="stylesheet" href="/blog/discovery.css"></head><body><header class="topbar"><div class="wrap"><a class="brand" href="https://intro.wesco.works/"><img src="https://intro.wesco.works/images/wesco_wordmark.png" alt="WESCO" width="119" height="22"></a><nav class="topnav"><a href="https://intro.wesco.works/">Home</a><a href="https://intro.wesco.works/blog/en/">Insights</a><a href="/videos/">Product videos</a></nav></div></header><section class="post-head"><div class="wrap"><div class="kicker">WESCO Insight</div><h1>You Can&#x27;t Fix What You Can&#x27;t See: Measuring and Monitoring Voltage Sags</h1><p class="sub">How TSP® event logging and Sag-VIEWER™ capture sags too short for ordinary instruments to catch</p><div class="post-meta"><span>2026-10-25</span><div class="tags"><span class="tag">voltage sag</span><span class="tag">monitoring</span><span class="tag">Sag-VIEWER</span><span class="tag">power quality</span><span class="tag">EDLC</span></div><a class="lang-toggle" href="https://intro.wesco.works/blog/voltage-sag-monitoring/">한국어</a></div></div></section><article class="post-body"><div class="wrap"><p>Most voltage sags last between half a cycle and about a minute — often only tens of milliseconds — which is too brief for ordinary power meters or the human eye to register. Voltage dips briefly to somewhere between 10% and 90% of its rated level and recovers before anyone notices, yet sensitive equipment can still trip. Without event recording, there is no evidence after the fact that a sag ever happened. TSP®&rsquo;s built-in event logging, often called a &ldquo;black box,&rdquo; along with Sag-VIEWER™ remote monitoring, turns that brief moment into data so engineers can trace the cause and confirm that compensation actually worked.</p>
+<p>A production line stops, then restarts a moment later. The operator finds nothing wrong, logs &ldquo;no issue found,&rdquo; and moves on. The power looks normal and there&rsquo;s no record anywhere. A month later, it happens again. When this pattern repeats, the problem is often not the equipment — it&rsquo;s the absence of measurement.</p>
+<h2>Why Voltage Sags Go Unnoticed</h2>
+<p>A voltage sag is defined by duration: half a cycle to about one minute. At 60Hz, one cycle is roughly 16.7ms, so most sag events are over before anyone can react to them. One measured case recorded voltage dropping to about 80% of its rated level for roughly 2.8 seconds — long by sag standards, yet still perceived, if at all, as a brief flicker in the lights rather than an actual event.</p>
+<p>Standard power meters and multimeters display instantaneous values; they weren&rsquo;t built to capture something that comes and goes in a few dozen milliseconds. That&rsquo;s why equipment checked right after a stoppage so often comes back reading &ldquo;normal.&rdquo;</p>
+<h2>No Record, No Root Cause</h2>
+<p>Most voltage sags originate outside the facility — a lightning strike, a ground fault or short circuit elsewhere on the grid, a breaker or recloser operation, or a large motor starting nearby. Without a record, this external cause is easily mistaken for an equipment fault or a software bug. Engineers end up re-checking the same stopped machine over and over, while the real cause on the grid side goes unaddressed. A full outage is visible and gets planned for; a voltage sag isn&rsquo;t, which is exactly why the response to it tends to lag.</p>
+<h2>TSP®&rsquo;s Black Box: Turning a Sag into Data</h2>
+<p>TSP® includes a built-in black-box function that automatically logs the timing and the compensation response for every voltage event. A stoppage that was previously &ldquo;unexplained&rdquo; becomes a specific entry: time, depth of the dip, and duration. Operators can check this log directly on screen, which is the fastest way to tell whether a stoppage originated on the electrical side or the equipment side — before spending hours re-inspecting hardware that was never the problem.</p>
+<h2>Sag-VIEWER™: Monitoring Without a Site Visit</h2>
+<p>Where multiple TSP® units are deployed across a facility, Sag-VIEWER™ lets engineers monitor event data from every location remotely, from an office PC. There&rsquo;s no need to walk the floor checking each panel individually; event history across all installed points is managed from one place. Seeing which locations experience repeated sags also helps prioritize where to reinforce the supply or add further compensation capacity.</p>
+<h2>What Measurement Actually Verifies</h2>
+<p>Monitoring does two jobs. First, it identifies the cause and pattern behind recurring sags — most of which trace back to the grid, not the plant. Second, it confirms that compensation actually engaged when a battery-free voltage sag protector like TSP®, built on EDLC ultra-capacitors, is installed. A logged record of correct compensation turns &ldquo;the line didn&rsquo;t stop&rdquo; from a lucky guess into a documented fact — and that&rsquo;s the practical argument for measuring before trying to fix anything.</p>
+<h2>Key takeaways</h2>
+<ul>
+<li>Voltage sags last from half a cycle to about one minute, which is too brief for ordinary instruments or the human eye to catch reliably.</li>
+<li>Without a record, grid-side disturbances are often misdiagnosed as equipment faults, and the same stoppage keeps recurring.</li>
+<li>TSP®&rsquo;s black box automatically logs sag events and compensation response, giving engineers a factual basis for root-cause analysis.</li>
+<li>Sag-VIEWER™ enables remote monitoring of multiple TSP® installations from a single office PC.</li>
+<li>Event data serves two purposes: identifying where a sag originated, and verifying that EDLC-based compensation worked as intended.</li>
+</ul><h2>Frequently Asked Questions</h2><dl class="faq"><dt>Q. Why don&#x27;t standard power meters catch a voltage sag?</dt><dd>Most voltage sags last between half a cycle and about a minute, often only tens of milliseconds. Standard power meters display instantaneous values and aren&#x27;t built to capture an event that brief, so without dedicated event logging there&#x27;s no record a sag even occurred.</dd><dt>Q. What does TSP®&#x27;s black box actually record?</dt><dd>TSP®&#x27;s built-in black box automatically logs the timing and the compensation response for every voltage event, so operators can check sag and compensation history directly on screen instead of guessing.</dd><dt>Q. What is Sag-VIEWER™ for?</dt><dd>Sag-VIEWER™ lets engineers monitor event data from multiple TSP® installations remotely, from a single office PC, without visiting each site individually.</dd></dl><div class="cta"><h4>Need protection against voltage sags?</h4><p>WESCO has manufactured battery-free voltage sag protectors (TSP&reg;) for 25 years. We can help you size and deploy the right unit for your line.</p><a class="btn" href="https://tsp.wesco.works/en/?s=blog-voltage-sag-monitoring">Request a quote</a><a class="btn btn-ghost" href="mailto:wesco@wesco.co.kr?subject=%5Bblog%3Avoltage-sag-monitoring%5D%20TSP%20inquiry">Email us</a></div><div class="related"><h2>Related posts</h2><a class="rel" href="https://intro.wesco.works/blog/en/ev-battery-plant-power-quality/">Power Quality in EV Battery Plants: Why Sags on Electrode and Assembly Lines Turn Into Batch Losses</a><a class="rel" href="https://intro.wesco.works/blog/en/outage-vs-voltage-sag/">Voltage Sag vs Momentary Outage Difference: How to Tell Them Apart in the Field</a><a class="rel" href="https://intro.wesco.works/blog/en/momentary-outage-compensator-guide/">Momentary Outage Compensator: Types and Selection Criteria</a><a class="rel discovery-video" href="/en/videos/tsp-product/">Watch: TSP® Voltage Sag Protector | 3D Product Introduction | WESCO</a><p class="product">TSP® principle and specifications: <a href="https://intro.wesco.works/battery-free-voltage-sag-protection.html">Battery-free voltage sag protection (TSP®)</a></p></div></div></article><footer class="foot"><div class="wrap">© WESCO Co., Ltd. · Voltage Sag Protector Manufacturer · <a href="https://www.wesco.co.kr">www.wesco.co.kr</a></div></footer></body></html>
