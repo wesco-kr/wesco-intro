@@ -67,7 +67,7 @@ def video_schema(item):
     if chapters:
         data['hasPart'] = [{'@type':'Clip', 'name':chapter['title'],
                             'startOffset':chapter['seconds'],
-                            'endOffset':chapters[index+1]['seconds'] if index+1 < len(chapters) else item['durationSeconds'],
+                            'endOffset':chapters[index+1]['seconds'] if index+1 < len(chapters) else math.floor(item['durationSeconds']),
                             'url':ORIGIN+item['path']+'?t='+str(chapter['seconds'])}
                            for index, chapter in enumerate(chapters)]
     return data
