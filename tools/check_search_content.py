@@ -173,7 +173,7 @@ def main():
         is_hub = rel in ('blog/index.html', 'blog/en/index.html', 'videos/index.html')
         if is_blog:
             check(not schemas(page, 'VideoObject'), f'Unverified supplementary-video metadata: {rel}')
-            check(any(x.get('href') == '/videos/' for x in page.links), f'No video navigation: {rel}')
+            check(any(x.get('href', '').split('#')[0] == '/videos/' for x in page.links), f'No video navigation: {rel}')
             check('/blog/discovery.css' in page.styles, f'Missing discovery stylesheet: {rel}')
             if not is_hub:
                 expected_prefix = '/en/videos/' if rel.startswith('blog/en/') else '/videos/'

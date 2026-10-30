@@ -111,11 +111,7 @@
 .edlc-guide a{color:#B83214;text-decoration-thickness:1px;text-underline-offset:4px}
 .edlc-guide a:hover{color:#8B250F;text-decoration-thickness:2px}
 .edlc-guide a:focus-visible{outline:3px solid #E1431B;outline-offset:4px;border-radius:2px}
-.edlc-guide .guide-header{max-width:1120px;margin:auto;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;border-bottom:1px solid #E7E2DA}
-.edlc-guide .guide-brand{display:flex;flex-shrink:0}
-.edlc-guide .guide-brand img{display:block;width:132px;height:auto}
-.edlc-guide .guide-header nav{display:flex;align-items:center;flex-wrap:wrap;gap:12px 24px;font-size:14px;line-height:1.5}
-.edlc-guide .guide-header nav a{text-decoration:none;font-weight:600}
+.edlc-guide .topbar{border-bottom:1px solid #E0DBD3;background:#FDFCF9}.edlc-guide .topbar .wrap{max-width:1120px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;min-height:62px;gap:16px;flex-wrap:wrap;font-family:"Noto Sans KR","맑은 고딕",sans-serif}.edlc-guide .topbar .brand{display:flex;align-items:center}.edlc-guide .topbar .brand img{height:22px;width:auto;display:block}.edlc-guide .topnav{display:flex;flex-wrap:wrap;gap:16px}.edlc-guide .topnav a{color:#78716C;font-size:14px;font-weight:500;text-decoration:none}.edlc-guide .topnav a:hover{color:#C13816}.edlc-guide .topnav a.nav-cta{background:#E1431B;color:#fff;border-radius:6px;padding:6px 14px}.edlc-guide .topnav a.nav-cta:hover{background:#9C2C10;color:#fff}
 .edlc-guide main{max-width:860px;margin:auto;padding:46px 28px 60px}
 .edlc-guide .guide-kicker{margin:0 0 14px;color:#B83214;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
 .edlc-guide h1,.edlc-guide h2,.edlc-guide h3{color:#2C2924;overflow-wrap:break-word}
@@ -129,18 +125,14 @@
 .edlc-guide li{padding-left:4px;margin:10px 0}
 .edlc-guide hr{margin:38px 0 20px;border:0;border-top:1px solid #E7E2DA}
 .edlc-guide .guide-source{font-size:14px;color:#686156}
-@media(max-width:640px){.edlc-guide{font-size:16px;line-height:1.75}.edlc-guide .guide-header{padding:20px;align-items:flex-start;flex-wrap:wrap;gap:18px}.edlc-guide .guide-header nav{gap:12px 20px}.edlc-guide main{padding:30px 20px 40px}.edlc-guide h1{letter-spacing:-.7px}.edlc-guide h2{font-size:23px;margin-top:34px}.edlc-guide .guide-lead{font-size:17px}}
+@media(max-width:640px){.edlc-guide .topbar .wrap{padding:16px 20px}.edlc-guide{font-size:16px;line-height:1.75}.edlc-guide main{padding:30px 20px 40px}.edlc-guide h1{letter-spacing:-.7px}.edlc-guide h2{font-size:23px;margin-top:34px}.edlc-guide .guide-lead{font-size:17px}}
 </style>
 </head>
 <body class="edlc-guide">
-<header class="guide-header">
-  <a class="guide-brand" href="/?lang=en" aria-label="WESCO company introduction"><img src="/images/wesco_wordmark.png" width="132" alt="WESCO"></a>
-  <nav aria-label="WESCO resources"><a href="/?lang=en">Company</a><a href="/videos/#en">Videos</a><a href="/blog/en/">Insights</a></nav>
-</header>
+<header class="topbar"><div class="wrap"><a class="brand" href="/?lang=en" aria-label="WESCO"><img src="/images/wesco_wordmark.png" width="119" height="22" alt="WESCO"></a><nav class="topnav"><a data-home href="/?lang=en">Company Profile</a><a href="/blog/en/">Technical Guides</a><a href="/videos/#en">Videos</a><a class="nav-cta" href="https://tsp.wesco.works/en/?s=nav_battery_free#contact">Contact us</a></nav></div><script>try{var l=localStorage.getItem('wesco-intro-lang');if(/^(ko|en|cn|jp|vn)$/.test(l)){var m={ko:'ko',en:'en',cn:'zh-CN',jp:'ja',vn:'vi'},c={ko:'ko',en:'en',cn:'cn',jp:'en',vn:'vn'},a=document.querySelectorAll('.topnav a');a[0].href='/?lang='+l;a[1].href=l=='ko'?'/blog/':'/blog/en/';a[2].href='/videos/#'+m[l];a[3].href=a[3].href.replace(/tsp\.wesco\.works\/\w+\//,'tsp.wesco.works/'+c[l]+'/')}}catch(e){}</script></header>
 <main id="content">
 <p class="guide-kicker">WESCO · Power quality guide</p>
 
-<header style="max-width:1120px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid #E0DBD3;padding:16px 24px;margin-bottom:24px;font:500 14px/1.5 'Noto Sans KR','맑은 고딕',Arial,sans-serif"><a href="/"><img src="/images/wesco_wordmark.png" alt="WESCO" width="119" height="22"></a><nav style="display:flex;flex-wrap:wrap;gap:16px;align-items:center"><a data-home href="/?lang=en" style="color:#78716C;text-decoration:none">Company Profile</a><a href="/blog/en/" style="color:#78716C;text-decoration:none">Technical Guides</a><a href="/videos/" style="color:#78716C;text-decoration:none">Videos</a><a href="https://tsp.wesco.works/en/?s=nav_battery_free#contact" style="background:#E1431B;color:#fff;border-radius:6px;padding:6px 14px;text-decoration:none">Contact us</a></nav><script>try{var l=localStorage.getItem('wesco-intro-lang'),a=document.querySelector('.topnav a[data-home]');if(a&&/^(en|cn|jp|vn)$/.test(l))a.href='/?lang='+l}catch(e){}</script></header>
 
 <h1>Battery-Free Voltage Sag Protection (EDLC): How It Works</h1>
 

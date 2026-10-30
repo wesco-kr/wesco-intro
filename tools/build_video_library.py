@@ -38,21 +38,20 @@ def duration(seconds):
 NAV = {  # 상단 메뉴 정본(회사소개서 · 기술 자료 · 영상 · 문의하기). 블로그 topbar()·영상 페이지 헤더와 같은 구조
     'ko':('회사소개서','기술 자료','영상','문의하기'),
     'en':('Company Profile','Technical Guides','Videos','Contact us'),
-    'zh-CN':('公司介绍','技术资料（英文）','视频','联系我们'),
-    'zh-TW':('公司介紹','技術資料（英文）','影片','聯絡我們'),
-    'ja':('会社案内','技術資料（英語）','動画','お問い合わせ'),
-    'vi':('Hồ sơ công ty','Tài liệu kỹ thuật (tiếng Anh)','Video','Liên hệ')}
+    'zh-CN':('公司介绍','技术资料','视频','联系我们'),
+    'zh-TW':('公司介紹','技術資料','影片','聯絡我們'),
+    'ja':('会社案内','技術資料','動画','お問い合わせ'),
+    'vi':('Hồ sơ công ty','Tài liệu kỹ thuật','Video','Liên hệ')}
 CONTACT_LANG = {'ko':'ko','en':'en','zh-CN':'cn','zh-TW':'cn','ja':'en','vi':'vn'}
-# 영문 페이지는 첫 화면에서 고른 언어(localStorage)가 있으면 그 언어의 회사소개서로 돌아간다
-HOME_SCRIPT = ("<script>try{var l=localStorage.getItem('wesco-intro-lang'),a=document.querySelector('.topnav a[data-home]');"
-               "if(a&&/^(en|cn|jp|vn)$/.test(l))a.href='/?lang='+l}catch(e){}</script>")
+# 첫 화면에서 고른 언어(localStorage)가 있으면 메뉴 링크 4개를 그 언어로 바꾼다(라벨은 페이지 언어 그대로)
+NAV_SCRIPT = ("<script>try{var l=localStorage.getItem('wesco-intro-lang');if(/^(ko|en|cn|jp|vn)$/.test(l)){var m={ko:'ko',en:'en',cn:'zh-CN',jp:'ja',vn:'vi'},c={ko:'ko',en:'en',cn:'cn',jp:'en',vn:'vn'},a=document.querySelectorAll('.topnav a');a[0].href='/?lang='+l;a[1].href=l=='ko'?'/blog/':'/blog/en/';a[2].href='/videos/#'+m[l];a[3].href=a[3].href.replace(/tsp\\.wesco\\.works\\/\\w+\\//,'tsp.wesco.works/'+c[l]+'/')}}catch(e){}</script>")
 
 def header(locale, source='videos'):
     home, blogtext, videos, contact = NAV[locale]
     blog = '/blog/' if locale == 'ko' else '/blog/en/'
     homelink = f'<a data-home href="/?lang={HOME_LANG[locale]}">{e(home)}</a>'
     contacturl = f"https://tsp.wesco.works/{CONTACT_LANG[locale]}/?s=nav_{source}#contact"
-    script = HOME_SCRIPT if locale == 'en' else ''
+    script = NAV_SCRIPT
     return (f'<header class="topbar"><div class="wrap"><a class="brand" href="/?lang={HOME_LANG[locale]}" aria-label="WESCO"><img src="/images/wesco_wordmark.png" width="119" height="22" alt="WESCO"></a>'
             f'<nav class="topnav">{homelink}<a href="{blog}">{blogtext}</a><a href="/videos/#{locale}">{e(videos)}</a>'
             f'<a class="nav-cta" href="{contacturl}">{e(contact)}</a></nav></div>{script}</header>')
