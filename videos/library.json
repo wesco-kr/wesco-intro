@@ -18,7 +18,8 @@
       "/blog/outage-vs-voltage-sag/",
       "/blog/factory-outage-damage/"
     ],
-    "thumbnail": "/videos/thumbnails/ko-before-after.jpg"
+    "thumbnail": "/videos/thumbnails/ko-before-after.jpg",
+    "publishedAt": "2026-10-25T02:52:05-07:00"
   },
   {
     "key": "ko-singlephase",
@@ -39,7 +40,8 @@
       "/blog/control-power-protection/",
       "/blog/selecting-sag-protector-capacity/"
     ],
-    "thumbnail": "/videos/thumbnails/ko-singlephase.jpg"
+    "thumbnail": "/videos/thumbnails/ko-singlephase.jpg",
+    "publishedAt": "2026-10-25T02:52:05-07:00"
   },
   {
     "key": "ko-threephase",
@@ -60,7 +62,8 @@
       "/blog/selecting-sag-protector-capacity/",
       "/blog/smart-factory-power-quality/"
     ],
-    "thumbnail": "/videos/thumbnails/ko-threephase.jpg"
+    "thumbnail": "/videos/thumbnails/ko-threephase.jpg",
+    "publishedAt": "2026-10-25T02:52:05-07:00"
   },
   {
     "key": "en-before-after",
@@ -81,7 +84,8 @@
       "/blog/en/outage-vs-voltage-sag/",
       "/blog/en/factory-outage-damage/"
     ],
-    "thumbnail": "/videos/thumbnails/en-before-after.jpg"
+    "thumbnail": "/videos/thumbnails/en-before-after.jpg",
+    "publishedAt": "2026-10-30T01:37:55-07:00"
   },
   {
     "key": "en-singlephase",
@@ -102,7 +106,8 @@
       "/blog/en/control-power-protection/",
       "/blog/en/selecting-sag-protector-capacity/"
     ],
-    "thumbnail": "/videos/thumbnails/en-singlephase.jpg"
+    "thumbnail": "/videos/thumbnails/en-singlephase.jpg",
+    "publishedAt": "2026-10-30T01:44:07-07:00"
   },
   {
     "key": "en-threephase",
@@ -123,7 +128,8 @@
       "/blog/en/selecting-sag-protector-capacity/",
       "/blog/en/smart-factory-power-quality/"
     ],
-    "thumbnail": "/videos/thumbnails/en-threephase.jpg"
+    "thumbnail": "/videos/thumbnails/en-threephase.jpg",
+    "publishedAt": "2026-10-30T01:46:50-07:00"
   },
   {
     "key": "zh-CN-before-after",
@@ -144,7 +150,8 @@
       "/blog/en/outage-vs-voltage-sag/",
       "/blog/en/factory-outage-damage/"
     ],
-    "thumbnail": "/videos/thumbnails/zh-CN-before-after.jpg"
+    "thumbnail": "/videos/thumbnails/zh-CN-before-after.jpg",
+    "publishedAt": "2026-10-29T01:34:47-07:00"
   },
   {
     "key": "zh-CN-singlephase",
@@ -165,7 +172,8 @@
       "/blog/en/control-power-protection/",
       "/blog/en/selecting-sag-protector-capacity/"
     ],
-    "thumbnail": "/videos/thumbnails/zh-CN-singlephase.jpg"
+    "thumbnail": "/videos/thumbnails/zh-CN-singlephase.jpg",
+    "publishedAt": "2026-10-29T01:44:33-07:00"
   },
   {
     "key": "zh-CN-threephase",
@@ -186,7 +194,8 @@
       "/blog/en/selecting-sag-protector-capacity/",
       "/blog/en/smart-factory-power-quality/"
     ],
-    "thumbnail": "/videos/thumbnails/zh-CN-threephase.jpg"
+    "thumbnail": "/videos/thumbnails/zh-CN-threephase.jpg",
+    "publishedAt": "2026-10-29T01:45:38-07:00"
   },
   {
     "key": "zh-TW-before-after",
@@ -207,7 +216,8 @@
       "/blog/en/outage-vs-voltage-sag/",
       "/blog/en/factory-outage-damage/"
     ],
-    "thumbnail": "/videos/thumbnails/zh-TW-before-after.jpg"
+    "thumbnail": "/videos/thumbnails/zh-TW-before-after.jpg",
+    "publishedAt": "2026-10-29T01:48:38-07:00"
   },
   {
     "key": "zh-TW-singlephase",
@@ -228,7 +238,8 @@
       "/blog/en/control-power-protection/",
       "/blog/en/selecting-sag-protector-capacity/"
     ],
-    "thumbnail": "/videos/thumbnails/zh-TW-singlephase.jpg"
+    "thumbnail": "/videos/thumbnails/zh-TW-singlephase.jpg",
+    "publishedAt": "2026-10-29T01:49:46-07:00"
   },
   {
     "key": "zh-TW-threephase",
@@ -249,7 +260,8 @@
       "/blog/en/selecting-sag-protector-capacity/",
       "/blog/en/smart-factory-power-quality/"
     ],
-    "thumbnail": "/videos/thumbnails/zh-TW-threephase.jpg"
+    "thumbnail": "/videos/thumbnails/zh-TW-threephase.jpg",
+    "publishedAt": "2026-10-29T01:50:52-07:00"
   },
   {
     "key": "ja-before-after",
@@ -270,7 +282,8 @@
       "/blog/en/outage-vs-voltage-sag/",
       "/blog/en/factory-outage-damage/"
     ],
-    "thumbnail": "/videos/thumbnails/ja-before-after.jpg"
+    "thumbnail": "/videos/thumbnails/ja-before-after.jpg",
+    "publishedAt": "2026-10-29T01:51:13-07:00"
   },
   {
     "key": "ja-singlephase",
@@ -291,7 +304,8 @@
       "/blog/en/control-power-protection/",
       "/blog/en/selecting-sag-protector-capacity/"
     ],
-    "thumbnail": "/videos/thumbnails/ja-singlephase.jpg"
+    "thumbnail": "/videos/thumbnails/ja-singlephase.jpg",
+    "publishedAt": "2026-10-29T01:53:32-07:00"
   },
   {
     "key": "ja-threephase",
@@ -312,7 +326,8 @@
       "/blog/en/selecting-sag-protector-capacity/",
       "/blog/en/smart-factory-power-quality/"
     ],
-    "thumbnail": "/videos/thumbnails/ja-threephase.jpg"
+    "thumbnail": "/videos/thumbnails/ja-threephase.jpg",
+    "publishedAt": "2026-10-29T01:55:01-07:00"
   },
   {
     "key": "vi-before-after",
@@ -333,7 +348,8 @@
       "/blog/en/outage-vs-voltage-sag/",
       "/blog/en/factory-outage-damage/"
     ],
-    "thumbnail": "/videos/thumbnails/vi-before-after.jpg"
+    "thumbnail": "/videos/thumbnails/vi-before-after.jpg",
+    "publishedAt": "2026-10-30T00:22:32-07:00"
   },
   {
     "key": "vi-singlephase",
@@ -354,7 +370,8 @@
       "/blog/en/control-power-protection/",
       "/blog/en/selecting-sag-protector-capacity/"
     ],
-    "thumbnail": "/videos/thumbnails/vi-singlephase.jpg"
+    "thumbnail": "/videos/thumbnails/vi-singlephase.jpg",
+    "publishedAt": "2026-10-30T00:17:44-07:00"
   },
   {
     "key": "vi-threephase",
@@ -375,6 +392,7 @@
       "/blog/en/selecting-sag-protector-capacity/",
       "/blog/en/smart-factory-power-quality/"
     ],
-    "thumbnail": "/videos/thumbnails/vi-threephase.jpg"
+    "thumbnail": "/videos/thumbnails/vi-threephase.jpg",
+    "publishedAt": "2026-10-30T00:21:18-07:00"
   }
 ]
