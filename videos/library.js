@@ -5,10 +5,13 @@
   const status = document.getElementById('filter-status');
   const valid = new Set(['all', ...sections.map(s => s.dataset.videoLanguage)]);
   const copyNode = document.getElementById('hub-copy');
-  const copy = copyNode ? JSON.parse(copyNode.textContent) : {};
+  let copy = {};
+  try { copy = copyNode ? JSON.parse(copyNode.textContent) : {}; } catch (error) { copy = {}; }
   const stored = () => {
-    try { return {ko:'ko', en:'en', cn:'zh-CN', jp:'ja', vn:'vi'}[localStorage.getItem('wesco-intro-lang')] || 'ko'; }
-    catch (error) { return 'ko'; }
+    try {
+      const value = localStorage.getItem('wesco-intro-lang');
+      return /^(ko|en|cn|jp|vn)$/.test(value) ? {ko:'ko', en:'en', cn:'zh-CN', jp:'ja', vn:'vi'}[value] : 'ko';
+    } catch (error) { return 'ko'; }
   };
   const lines = (node, values) => node.replaceChildren(...values.map(text => {
     const span = document.createElement('span');
@@ -18,7 +21,7 @@
   }));
   // 상단 안내 문구·메뉴 라벨·html lang 을 선택한 언어로 바꾼다(textContent 만 사용). 전체 보기는 저장 언어를 따른다.
   const localize = lang => {
-    const c = copy[lang];
+    const c = Object.prototype.hasOwnProperty.call(copy, lang) ? copy[lang] : null;
     if (!c) return null;
     document.documentElement.lang = lang;
     lines(document.querySelector('.library-hero h1'), c.title);
