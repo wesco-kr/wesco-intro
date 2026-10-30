@@ -97,6 +97,12 @@
       }
     });
 
+    // 링크 주소가 언어마다 다른 항목(상단 메뉴 등)
+    document.querySelectorAll('[data-i18n-href]').forEach((el) => {
+      const val = dict[el.getAttribute('data-i18n-href')];
+      if (val) el.setAttribute('href', val);
+    });
+
     // Update <html lang>
     document.documentElement.lang = lang === 'cn' ? 'zh' : (lang === 'jp' ? 'ja' : (lang === 'vn' ? 'vi' : lang));
     loadCjkFont(lang);

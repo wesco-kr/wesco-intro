@@ -9,8 +9,11 @@
  "bar.sub": "会社案内 · 2026",
  "bar.present": "プレゼンモード",
  "bar.fxOn": "エフェクト ON",
- "bar.blog": "インサイト",
+ "bar.blog": "技術資料",
  "bar.contact": "お問い合わせ",
+ "bar.blogUrl": "/blog/en/",
+ "bar.videosUrl": "/videos/#ja",
+ "bar.contactUrl": "https://tsp.wesco.works/en/?s=nav_intro#contact",
  "thumb.1": "表紙",
  "c.eyebrow": "COMPANY PROFILE · 2026",
  "c.h1": "瞬時電圧低下補償装置<br><em>TSP®</em>",
@@ -291,5 +294,5 @@
  "f47.t1": "0.2 秒",
  "f47.t2": "0.5 秒",
  "f47.t3": "1 秒",
- "bar.videos": "製品動画"
+ "bar.videos": "動画"
 }

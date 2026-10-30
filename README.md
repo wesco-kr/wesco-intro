@@ -20,16 +20,27 @@
 | `tools/check_i18n.py` | 4개 언어 누락·잉여·한글 잔존·태그 검사 |
 | `tools/render_book.py` | 쪽별 PNG 렌더 + 넘침 검사 (`RENDER_BASE=http://127.0.0.1:8765` 로 http 경유 시 다국어) |
 | `images/ci/` | 글로벌 레퍼런스 고객사 CI 106종(반도체·디스플레이·자동차·PCB·화학·2차전지·기타). 기본 `실적 CI.pptx`(2021-09) + 대표이사 Micron 브리프 2026 Ver 2.0E(2026-07)의 최신 10종(tsmc·UMC·Corning·Kia 신CI·HL Mando·Renault Korea·SK on·LG Energy Solution·SAMSUNG SDI·LG Innotek), 모두 `07-영업자료/07.제안자료/대표이사_출장_260609/`. 사내 자료에 로고가 없던 5종은 웹에서 수집 — onsemi(위키미디어 커먼즈 `Onsemi logo 2021.svg`), Nanya(nanya.com), Mosel Vitelic/MVC(moselvitelic.com), KINSUS(kinsus.com.tw), SI-FLEX(siflex.co.kr). 흰 배경 투명화. 미확보: LG-TORAY·Volta·MAX CHIP(사이트 접속 불가) |
-| `images/proof/install_semi_2026.jpg` | 회사소개(p2) 현장 사진 — 원본 `07-영업자료/02.사진/00.설치사진/3상/WD-2026-CIP-50K.jpg`(2026 설치, 150kVA). 구 `install_semi.jpg`(2010년대)는 `all-new-intro.html`만 참조 |
+| `images/proof/install_semi_2026.jpg` | 회사소개(p2) 현장 사진 — 원본 `07-영업자료/02.사진/00.설치사진/3상/WD-2026-CIP-50K.jpg`(2026 설치, 150kVA). 구 `install_semi.jpg`(2010년대)는 구 시안 `all-new-intro.html`(261030 `_build/`로 이동)만 참조 |
 | `images/og-image.jpg` | 링크 미리보기(카카오톡·메신저·SNS) 이미지 1200×630 — 워드마크 + TSP 라인업(`product/lineup_wide.png`) + 핵심 수치. 생성 `tools/make_og.py`(Pillow, 나눔스퀘어) |
 | `images/world-map.png` | 글로벌 네트워크 지도 밑그림 — 본사→대리점 연결선·라벨은 `index.html` 안 SVG 오버레이(픽셀 실측 좌표) |
-| `blog/` | 인사이트 글 (별도 유지) |
+| `blog/` | 기술 자료 글 (별도 유지, 생성기 `~/apps/wesco-blog/publish/build_blog.py`) |
 | `launcher.js` | 공용 사이트 런처. 다른 wesco.works 사이트도 `<script src="https://intro.wesco.works/launcher.js?v=1" defer data-mount="[data-wesco-launcher]">` 한 줄로 같은 서랍을 붙인다 |
 | `sites.json` | WESCO 공개 사이트 목록 — 상단 「WESCO 사이트」 서랍과 뒷표지 「다음 단계」 카드가 이 한 파일을 읽는다. 사이트가 늘면 여기만 고친다. 사내·거래처 전용 시스템(quote·works·partner·cs)은 넣지 않는다 |
 
 `_build/` 는 렌더 산출물·작업 로그로 git 에 올리지 않는다.
 
-## 인사이트·영상 검색 경로
+## 상단 메뉴 정본 (261030)
+
+| 순서 | 한국어 | English | 주소 |
+|---|---|---|---|
+| 1 | 회사소개서 | Company Profile | `/` |
+| 2 | 기술 자료 | Technical Guides | `/blog/` (en `/blog/en/`) |
+| 3 | 영상 | Videos | `/videos/` |
+| 4 | 문의하기(빨강) | Contact us | `https://tsp.wesco.works/{ko\|en\|cn\|vn}/#contact` (jp는 en) |
+
+블로그는 `build_blog.py`의 `topbar()`, 영상 페이지는 각 `index.html` 헤더와 `videos/watch.css`, 회사소개서는 `index.html`의 `bar.*` 키(`i18n/*.json`), 서랍은 `sites.json`. 한 곳을 바꾸면 나머지도 같이 맞춘다.
+
+## 기술 자료·영상 검색 경로
 
 - `blog/`는 외부 피드가 아닌 정적 HTML이다. 한국어·영어 목록에서 기초, 반도체·디스플레이, 일반 제조업 자료로 이동하며 각 글의 관련 영상과 영상 페이지의 관련 기술 자료를 서로 연결한다.
 - 블로그 공통 탐색 스타일은 `blog/discovery.css`에 있다. 외부 도구로 글을 다시 생성할 때 이 스타일, 영상 메뉴, 관련 영상 링크를 유지한다.

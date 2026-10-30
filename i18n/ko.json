@@ -6,11 +6,14 @@
   "meta.ogImageAlt": "WESCO TSP 순간정전 보상장치 제품 라인업",
   "meta.twitterTitle": "순간정전보상장치 TSP® | WESCO 웨스코",
   "meta.twitterDescription": "웨스코(WESCO)는 2001년 설립된 순간정전보상장치 TSP® 전문 제조사입니다. 반도체·디스플레이 및 일반 제조업을 위한 제품 라인업, 작동 원리, 적용 사례와 회사 정보를 소개합니다.",
-  "bar.sub": "사업소개서 · 2026",
+  "bar.sub": "회사소개서 · 2026",
   "bar.present": "발표 모드",
   "bar.fxOn": "이펙트 ON",
-  "bar.blog": "인사이트",
+  "bar.blog": "기술 자료",
   "bar.contact": "문의하기",
+  "bar.blogUrl": "/blog/",
+  "bar.videosUrl": "/videos/#ko",
+  "bar.contactUrl": "https://tsp.wesco.works/ko/?s=nav_intro#contact",
   "thumb.1": "표지",
   "c.eyebrow": "COMPANY PROFILE · 2026",
   "c.h1": "순간정전보상장치<br><em>TSP®</em>",
@@ -291,5 +294,5 @@
   "f47.t1": "0.2초",
   "f47.t2": "0.5초",
   "f47.t3": "1초",
-  "bar.videos": "제품 영상"
+  "bar.videos": "영상"
 }

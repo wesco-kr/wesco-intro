@@ -37,6 +37,7 @@ LEGACY_SLUGS = {'tsp-product', 'tsp-demo', 'wesco-company'}
 class Page(HTMLParser):
     def __init__(self, text):
         super().__init__(convert_charrefs=True)
+        self.in_header = False
         self.links = []
         self.canonicals = []
         self.frames = []
@@ -49,12 +50,19 @@ class Page(HTMLParser):
         self.feed(text)
         self.data = [json.loads(item) for item in LD.findall(text)]
 
+    def handle_endtag(self, tag):
+        if tag == 'header':
+            self.in_header = False
+
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
         if 'id' in attrs:
             self.ids.append(attrs['id'])
+        if tag == 'header':
+            self.in_header = True
         if tag == 'a':
-            self.links.append(attrs)
+            # 상단 메뉴(header) 링크는 본문 CTA 개수에서 뺀다
+            self.links.append(dict(attrs, _header=True) if self.in_header else attrs)
         if tag == 'iframe':
             self.frames.append(attrs)
         if tag == 'h1':
@@ -255,7 +263,7 @@ def main():
                         # timestamp; do not permit a different publication day.
                         current_data[0]['uploadDate'] = original_data[0]['uploadDate']
                 check(current_data == original_data, f'Existing video metadata changed: {rel}')
-                ctas = lambda p: [x for x in p.links if urlsplit(x.get('href', '')).netloc == 'tsp.wesco.works']
+                ctas = lambda p: [x for x in p.links if urlsplit(x.get('href', '')).netloc == 'tsp.wesco.works' and not x.get('_header')]
                 check(ctas(page) == ctas(before) and len(ctas(page)) == 2, f'Inquiry/catalogue tracking changed: {rel}')
                 preserved_ctas += len(ctas(page))
 
@@ -395,7 +403,7 @@ def main():
                 chapter_count += len(lesson['chapters'])
             check(page.lang == data['inLanguage'] == item['locale'], f'Video/page/catalog language mismatch: {url}')
             check(data['embedUrl'] == 'https://www.youtube.com/embed/' + item['videoId'], f'Catalog player mismatch: {url}')
-            ctas = [urlsplit(x.get('href', '')) for x in page.links if urlsplit(x.get('href', '')).netloc == 'tsp.wesco.works']
+            ctas = [urlsplit(x.get('href', '')) for x in page.links if urlsplit(x.get('href', '')).netloc == 'tsp.wesco.works' and not x.get('_header')]
             check(len(ctas) == 2 and {c.fragment for c in ctas} == {'contact', 'catalog'}, f'Missing inquiry/catalogue links: {url}')
             check(all(c.path == '/' + FORM_LOCALES[item['locale']] + '/' for c in ctas), f'Wrong form language route: {url}')
             sources = [parse_qs(c.query).get('s', []) for c in ctas]
