@@ -1,0 +1,380 @@
+[
+  {
+    "key": "ko-before-after",
+    "locale": "ko",
+    "film": "before-after",
+    "videoId": "-v_ZJZaqG8Q",
+    "title": "순간정전보상장치 TSP® 적용 전후 소개 | WESCO",
+    "url": "https://www.youtube.com/watch?v=-v_ZJZaqG8Q",
+    "publishedDate": "2026-10-25",
+    "durationSeconds": 35,
+    "heading": "TSP® 적용 전후",
+    "description": "순간전압강하·순간정전이 설비에 미치는 영향과 TSP가 연결된 보호 대상에 전원을 공급하는 개념을 비교합니다.",
+    "path": "/videos/tsp-before-after/",
+    "embedUrl": "https://www.youtube.com/embed/-v_ZJZaqG8Q",
+    "contactUrl": "https://tsp.wesco.works/ko/?s=video_tsp_before_after_ko#contact",
+    "catalogUrl": "https://tsp.wesco.works/ko/?s=video_tsp_before_after_ko#catalog",
+    "relatedBlogs": [
+      "/blog/outage-vs-voltage-sag/",
+      "/blog/factory-outage-damage/"
+    ],
+    "thumbnail": "/videos/thumbnails/ko-before-after.jpg"
+  },
+  {
+    "key": "ko-singlephase",
+    "locale": "ko",
+    "film": "singlephase",
+    "videoId": "PBwGk-WIgxM",
+    "title": "단상 순간정전보상장치 TSP® 설치·시운전 | WESCO",
+    "url": "https://www.youtube.com/watch?v=PBwGk-WIgxM",
+    "publishedDate": "2026-10-25",
+    "durationSeconds": 148.9,
+    "heading": "단상 TSP® 설치·시운전",
+    "description": "제어전원 보호용 단상 TSP의 설치, 입출력 결선, 단자 커버, 전원 투입과 정상 표시 확인을 살펴봅니다. 통신과 SAG Viewer는 선택 사양입니다.",
+    "path": "/videos/single-phase-installation/",
+    "embedUrl": "https://www.youtube.com/embed/PBwGk-WIgxM",
+    "contactUrl": "https://tsp.wesco.works/ko/?s=video_single_phase_installation_ko#contact",
+    "catalogUrl": "https://tsp.wesco.works/ko/?s=video_single_phase_installation_ko#catalog",
+    "relatedBlogs": [
+      "/blog/control-power-protection/",
+      "/blog/selecting-sag-protector-capacity/"
+    ],
+    "thumbnail": "/videos/thumbnails/ko-singlephase.jpg"
+  },
+  {
+    "key": "ko-threephase",
+    "locale": "ko",
+    "film": "threephase",
+    "videoId": "XvvLKWAlaEs",
+    "title": "삼상 순간정전보상장치 TSP® 설치·시운전 | WESCO",
+    "url": "https://www.youtube.com/watch?v=XvvLKWAlaEs",
+    "publishedDate": "2026-10-25",
+    "durationSeconds": 156.5,
+    "heading": "삼상 TSP® 설치·시운전",
+    "description": "삼상 TSP의 제품 사양 확인부터 전면 도어 내부 결선, 전원 투입, 충전·대기 표시와 시운전까지 살펴봅니다. 통신과 SAG Viewer는 선택 사양입니다.",
+    "path": "/videos/three-phase-installation/",
+    "embedUrl": "https://www.youtube.com/embed/XvvLKWAlaEs",
+    "contactUrl": "https://tsp.wesco.works/ko/?s=video_three_phase_installation_ko#contact",
+    "catalogUrl": "https://tsp.wesco.works/ko/?s=video_three_phase_installation_ko#catalog",
+    "relatedBlogs": [
+      "/blog/selecting-sag-protector-capacity/",
+      "/blog/smart-factory-power-quality/"
+    ],
+    "thumbnail": "/videos/thumbnails/ko-threephase.jpg"
+  },
+  {
+    "key": "en-before-after",
+    "locale": "en",
+    "film": "before-after",
+    "videoId": "OyOUA83g0pA",
+    "title": "WESCO TSP® Voltage Sag Protection | With and Without TSP",
+    "url": "https://www.youtube.com/watch?v=OyOUA83g0pA",
+    "publishedDate": "2026-10-30",
+    "durationSeconds": 30,
+    "heading": "With and without TSP®",
+    "description": "Compare the effects of a brief power disturbance and the concept of TSP supplying the equipment connected for protection.",
+    "path": "/en/videos/tsp-before-after/",
+    "embedUrl": "https://www.youtube.com/embed/OyOUA83g0pA",
+    "contactUrl": "https://tsp.wesco.works/en/?s=video_tsp_before_after_en#contact",
+    "catalogUrl": "https://tsp.wesco.works/en/?s=video_tsp_before_after_en#catalog",
+    "relatedBlogs": [
+      "/blog/en/outage-vs-voltage-sag/",
+      "/blog/en/factory-outage-damage/"
+    ],
+    "thumbnail": "/videos/thumbnails/en-before-after.jpg"
+  },
+  {
+    "key": "en-singlephase",
+    "locale": "en",
+    "film": "singlephase",
+    "videoId": "En8y8OtMNW4",
+    "title": "Single-Phase TSP® Installation & Commissioning | Control Power | WESCO",
+    "url": "https://www.youtube.com/watch?v=En8y8OtMNW4",
+    "publishedDate": "2026-10-30",
+    "durationSeconds": 148.9,
+    "heading": "Single-phase TSP® installation",
+    "description": "Explore control-power installation, input and output wiring, terminal covers, power-up and normal-status checks. Communications and SAG Viewer are optional.",
+    "path": "/en/videos/single-phase-installation/",
+    "embedUrl": "https://www.youtube.com/embed/En8y8OtMNW4",
+    "contactUrl": "https://tsp.wesco.works/en/?s=video_single_phase_installation_en#contact",
+    "catalogUrl": "https://tsp.wesco.works/en/?s=video_single_phase_installation_en#catalog",
+    "relatedBlogs": [
+      "/blog/en/control-power-protection/",
+      "/blog/en/selecting-sag-protector-capacity/"
+    ],
+    "thumbnail": "/videos/thumbnails/en-singlephase.jpg"
+  },
+  {
+    "key": "en-threephase",
+    "locale": "en",
+    "film": "threephase",
+    "videoId": "Lj4nvtzeylA",
+    "title": "Three-Phase TSP® Installation, Wiring & Commissioning | WESCO",
+    "url": "https://www.youtube.com/watch?v=Lj4nvtzeylA",
+    "publishedDate": "2026-10-30",
+    "durationSeconds": 156.5,
+    "heading": "Three-phase TSP® installation",
+    "description": "Explore product ratings, wiring inside the front door, power-up, charging and standby indication, and commissioning. Communications and SAG Viewer are optional.",
+    "path": "/en/videos/three-phase-installation/",
+    "embedUrl": "https://www.youtube.com/embed/Lj4nvtzeylA",
+    "contactUrl": "https://tsp.wesco.works/en/?s=video_three_phase_installation_en#contact",
+    "catalogUrl": "https://tsp.wesco.works/en/?s=video_three_phase_installation_en#catalog",
+    "relatedBlogs": [
+      "/blog/en/selecting-sag-protector-capacity/",
+      "/blog/en/smart-factory-power-quality/"
+    ],
+    "thumbnail": "/videos/thumbnails/en-threephase.jpg"
+  },
+  {
+    "key": "zh-CN-before-after",
+    "locale": "zh-CN",
+    "film": "before-after",
+    "videoId": "c45UkHi8Um4",
+    "title": "WESCO TSP® 应用前后对比｜瞬时停电与电压暂降保护【简体中文】",
+    "url": "https://www.youtube.com/watch?v=c45UkHi8Um4",
+    "publishedDate": "2026-10-29",
+    "durationSeconds": 30,
+    "heading": "TSP® 应用前后对比",
+    "description": "对比短时电源扰动对设备的影响，了解 TSP 为接入保护范围的设备供电的原理。",
+    "path": "/zh-cn/videos/tsp-before-after/",
+    "embedUrl": "https://www.youtube.com/embed/c45UkHi8Um4",
+    "contactUrl": "https://tsp.wesco.works/cn/?s=video_tsp_before_after_zh_cn#contact",
+    "catalogUrl": "https://tsp.wesco.works/cn/?s=video_tsp_before_after_zh_cn#catalog",
+    "relatedBlogs": [
+      "/blog/en/outage-vs-voltage-sag/",
+      "/blog/en/factory-outage-damage/"
+    ],
+    "thumbnail": "/videos/thumbnails/zh-CN-before-after.jpg"
+  },
+  {
+    "key": "zh-CN-singlephase",
+    "locale": "zh-CN",
+    "film": "singlephase",
+    "videoId": "UPCtmbrDC9A",
+    "title": "单相 TSP® 安装与调试｜控制电源接线・短时断电测试｜WESCO【简体中文】",
+    "url": "https://www.youtube.com/watch?v=UPCtmbrDC9A",
+    "publishedDate": "2026-10-29",
+    "durationSeconds": 148.9,
+    "heading": "单相 TSP® 安装与调试",
+    "description": "了解控制电源保护用单相 TSP 的安装、输入输出接线、端子盖安装、送电与正常状态确认。通信与 SAG Viewer 为选配功能。",
+    "path": "/zh-cn/videos/single-phase-installation/",
+    "embedUrl": "https://www.youtube.com/embed/UPCtmbrDC9A",
+    "contactUrl": "https://tsp.wesco.works/cn/?s=video_single_phase_installation_zh_cn#contact",
+    "catalogUrl": "https://tsp.wesco.works/cn/?s=video_single_phase_installation_zh_cn#catalog",
+    "relatedBlogs": [
+      "/blog/en/control-power-protection/",
+      "/blog/en/selecting-sag-protector-capacity/"
+    ],
+    "thumbnail": "/videos/thumbnails/zh-CN-singlephase.jpg"
+  },
+  {
+    "key": "zh-CN-threephase",
+    "locale": "zh-CN",
+    "film": "threephase",
+    "videoId": "dJzDsouY6Q8",
+    "title": "三相 TSP® 安装与调试｜输入输出接线・上电检查｜WESCO【简体中文】",
+    "url": "https://www.youtube.com/watch?v=dJzDsouY6Q8",
+    "publishedDate": "2026-10-29",
+    "durationSeconds": 156.5,
+    "heading": "三相 TSP® 安装与调试",
+    "description": "了解产品规格确认、前门内接线、送电、充电与待机指示，以及调试流程。通信与 SAG Viewer 为选配功能。",
+    "path": "/zh-cn/videos/three-phase-installation/",
+    "embedUrl": "https://www.youtube.com/embed/dJzDsouY6Q8",
+    "contactUrl": "https://tsp.wesco.works/cn/?s=video_three_phase_installation_zh_cn#contact",
+    "catalogUrl": "https://tsp.wesco.works/cn/?s=video_three_phase_installation_zh_cn#catalog",
+    "relatedBlogs": [
+      "/blog/en/selecting-sag-protector-capacity/",
+      "/blog/en/smart-factory-power-quality/"
+    ],
+    "thumbnail": "/videos/thumbnails/zh-CN-threephase.jpg"
+  },
+  {
+    "key": "zh-TW-before-after",
+    "locale": "zh-TW",
+    "film": "before-after",
+    "videoId": "Xzp5PJhguYk",
+    "title": "WESCO TSP® 導入前後對比｜瞬間停電與電壓驟降保護【繁體中文】",
+    "url": "https://www.youtube.com/watch?v=Xzp5PJhguYk",
+    "publishedDate": "2026-10-29",
+    "durationSeconds": 30,
+    "heading": "TSP® 導入前後對比",
+    "description": "比較短暫電源擾動對設備的影響，了解 TSP 對接入保護範圍的設備供電的原理。",
+    "path": "/zh-tw/videos/tsp-before-after/",
+    "embedUrl": "https://www.youtube.com/embed/Xzp5PJhguYk",
+    "contactUrl": "https://tsp.wesco.works/cn/?s=video_tsp_before_after_zh_tw#contact",
+    "catalogUrl": "https://tsp.wesco.works/cn/?s=video_tsp_before_after_zh_tw#catalog",
+    "relatedBlogs": [
+      "/blog/en/outage-vs-voltage-sag/",
+      "/blog/en/factory-outage-damage/"
+    ],
+    "thumbnail": "/videos/thumbnails/zh-TW-before-after.jpg"
+  },
+  {
+    "key": "zh-TW-singlephase",
+    "locale": "zh-TW",
+    "film": "singlephase",
+    "videoId": "n5itCFfDgDw",
+    "title": "單相 TSP® 安裝與試運轉｜控制電源接線・瞬間斷電測試｜WESCO【繁體中文】",
+    "url": "https://www.youtube.com/watch?v=n5itCFfDgDw",
+    "publishedDate": "2026-10-29",
+    "durationSeconds": 148.9,
+    "heading": "單相 TSP® 安裝與試運轉",
+    "description": "了解控制電源保護用單相 TSP 的安裝、輸入輸出接線、端子護蓋安裝、送電與正常狀態確認。通訊與 SAG Viewer 為選配功能。",
+    "path": "/zh-tw/videos/single-phase-installation/",
+    "embedUrl": "https://www.youtube.com/embed/n5itCFfDgDw",
+    "contactUrl": "https://tsp.wesco.works/cn/?s=video_single_phase_installation_zh_tw#contact",
+    "catalogUrl": "https://tsp.wesco.works/cn/?s=video_single_phase_installation_zh_tw#catalog",
+    "relatedBlogs": [
+      "/blog/en/control-power-protection/",
+      "/blog/en/selecting-sag-protector-capacity/"
+    ],
+    "thumbnail": "/videos/thumbnails/zh-TW-singlephase.jpg"
+  },
+  {
+    "key": "zh-TW-threephase",
+    "locale": "zh-TW",
+    "film": "threephase",
+    "videoId": "a99Aec9Q33g",
+    "title": "三相 TSP® 安裝與試運轉｜輸入輸出接線・送電檢查｜WESCO【繁體中文】",
+    "url": "https://www.youtube.com/watch?v=a99Aec9Q33g",
+    "publishedDate": "2026-10-29",
+    "durationSeconds": 156.5,
+    "heading": "三相 TSP® 安裝與試運轉",
+    "description": "了解產品規格確認、前門內接線、送電、充電與待機指示，以及試運轉流程。通訊與 SAG Viewer 為選配功能。",
+    "path": "/zh-tw/videos/three-phase-installation/",
+    "embedUrl": "https://www.youtube.com/embed/a99Aec9Q33g",
+    "contactUrl": "https://tsp.wesco.works/cn/?s=video_three_phase_installation_zh_tw#contact",
+    "catalogUrl": "https://tsp.wesco.works/cn/?s=video_three_phase_installation_zh_tw#catalog",
+    "relatedBlogs": [
+      "/blog/en/selecting-sag-protector-capacity/",
+      "/blog/en/smart-factory-power-quality/"
+    ],
+    "thumbnail": "/videos/thumbnails/zh-TW-threephase.jpg"
+  },
+  {
+    "key": "ja-before-after",
+    "locale": "ja",
+    "film": "before-after",
+    "videoId": "Ut8JB6e5-TU",
+    "title": "WESCO TSP® 導入前後の比較｜瞬時電圧低下・瞬間停電への備え【日本語】",
+    "url": "https://www.youtube.com/watch?v=Ut8JB6e5-TU",
+    "publishedDate": "2026-10-29",
+    "durationSeconds": 30,
+    "heading": "TSP® 導入前後の比較",
+    "description": "短時間の電源変動が設備に与える影響と、TSP に接続した保護対象へ給電する仕組みを比較します。",
+    "path": "/ja/videos/tsp-before-after/",
+    "embedUrl": "https://www.youtube.com/embed/Ut8JB6e5-TU",
+    "contactUrl": "https://tsp.wesco.works/en/?s=video_tsp_before_after_ja#contact",
+    "catalogUrl": "https://tsp.wesco.works/en/?s=video_tsp_before_after_ja#catalog",
+    "relatedBlogs": [
+      "/blog/en/outage-vs-voltage-sag/",
+      "/blog/en/factory-outage-damage/"
+    ],
+    "thumbnail": "/videos/thumbnails/ja-before-after.jpg"
+  },
+  {
+    "key": "ja-singlephase",
+    "locale": "ja",
+    "film": "singlephase",
+    "videoId": "HwKY01VcqeM",
+    "title": "単相 TSP® の設置・結線・試運転｜制御電源の保護｜WESCO【日本語】",
+    "url": "https://www.youtube.com/watch?v=HwKY01VcqeM",
+    "publishedDate": "2026-10-29",
+    "durationSeconds": 156.9,
+    "heading": "単相 TSP® の設置・試運転",
+    "description": "制御電源保護用の単相 TSP の設置、入出力結線、端子カバーの取り付け、電源投入と正常表示の確認をご紹介します。通信と SAG Viewer はオプションです。",
+    "path": "/ja/videos/single-phase-installation/",
+    "embedUrl": "https://www.youtube.com/embed/HwKY01VcqeM",
+    "contactUrl": "https://tsp.wesco.works/en/?s=video_single_phase_installation_ja#contact",
+    "catalogUrl": "https://tsp.wesco.works/en/?s=video_single_phase_installation_ja#catalog",
+    "relatedBlogs": [
+      "/blog/en/control-power-protection/",
+      "/blog/en/selecting-sag-protector-capacity/"
+    ],
+    "thumbnail": "/videos/thumbnails/ja-singlephase.jpg"
+  },
+  {
+    "key": "ja-threephase",
+    "locale": "ja",
+    "film": "threephase",
+    "videoId": "8-TYx_V7b_o",
+    "title": "三相 TSP® の設置・結線・試運転｜入力電圧・充電・運転確認｜WESCO【日本語】",
+    "url": "https://www.youtube.com/watch?v=8-TYx_V7b_o",
+    "publishedDate": "2026-10-29",
+    "durationSeconds": 156.5,
+    "heading": "三相 TSP® の設置・試運転",
+    "description": "製品仕様の確認から前面ドア内の結線、電源投入、充電・待機表示、試運転までをご紹介します。通信と SAG Viewer はオプションです。",
+    "path": "/ja/videos/three-phase-installation/",
+    "embedUrl": "https://www.youtube.com/embed/8-TYx_V7b_o",
+    "contactUrl": "https://tsp.wesco.works/en/?s=video_three_phase_installation_ja#contact",
+    "catalogUrl": "https://tsp.wesco.works/en/?s=video_three_phase_installation_ja#catalog",
+    "relatedBlogs": [
+      "/blog/en/selecting-sag-protector-capacity/",
+      "/blog/en/smart-factory-power-quality/"
+    ],
+    "thumbnail": "/videos/thumbnails/ja-threephase.jpg"
+  },
+  {
+    "key": "vi-before-after",
+    "locale": "vi",
+    "film": "before-after",
+    "videoId": "XLfRS8Wfdz4",
+    "title": "WESCO TSP®: Trước và sau khi lắp đặt | Bảo vệ sụt áp và mất điện thoáng qua",
+    "url": "https://www.youtube.com/watch?v=XLfRS8Wfdz4",
+    "publishedDate": "2026-10-30",
+    "durationSeconds": 30.0,
+    "heading": "Trước và sau khi lắp đặt TSP®",
+    "description": "So sánh ảnh hưởng của sự cố nguồn điện ngắn hạn và tìm hiểu nguyên lý TSP cấp điện cho thiết bị được kết nối để bảo vệ.",
+    "path": "/vi/videos/tsp-before-after/",
+    "embedUrl": "https://www.youtube.com/embed/XLfRS8Wfdz4",
+    "contactUrl": "https://tsp.wesco.works/vn/?s=video_tsp_before_after_vi#contact",
+    "catalogUrl": "https://tsp.wesco.works/vn/?s=video_tsp_before_after_vi#catalog",
+    "relatedBlogs": [
+      "/blog/en/outage-vs-voltage-sag/",
+      "/blog/en/factory-outage-damage/"
+    ],
+    "thumbnail": "/videos/thumbnails/vi-before-after.jpg"
+  },
+  {
+    "key": "vi-singlephase",
+    "locale": "vi",
+    "film": "singlephase",
+    "videoId": "fLt0BU2hvGM",
+    "title": "TSP® một pha: Lắp đặt, đấu nối và chạy thử | Bảo vệ nguồn điều khiển | WESCO",
+    "url": "https://www.youtube.com/watch?v=fLt0BU2hvGM",
+    "publishedDate": "2026-10-30",
+    "durationSeconds": 148.9,
+    "heading": "Lắp đặt và chạy thử TSP® một pha",
+    "description": "Tìm hiểu cách lắp đặt TSP một pha để bảo vệ nguồn điều khiển, đấu nối đầu vào và đầu ra, lắp nắp che đầu nối, cấp nguồn và kiểm tra trạng thái bình thường. Truyền thông và SAG Viewer là tùy chọn.",
+    "path": "/vi/videos/single-phase-installation/",
+    "embedUrl": "https://www.youtube.com/embed/fLt0BU2hvGM",
+    "contactUrl": "https://tsp.wesco.works/vn/?s=video_single_phase_installation_vi#contact",
+    "catalogUrl": "https://tsp.wesco.works/vn/?s=video_single_phase_installation_vi#catalog",
+    "relatedBlogs": [
+      "/blog/en/control-power-protection/",
+      "/blog/en/selecting-sag-protector-capacity/"
+    ],
+    "thumbnail": "/videos/thumbnails/vi-singlephase.jpg"
+  },
+  {
+    "key": "vi-threephase",
+    "locale": "vi",
+    "film": "threephase",
+    "videoId": "WXyeac63Xbc",
+    "title": "TSP® ba pha: Lắp đặt, đấu nối và chạy thử | Kiểm tra cấp nguồn | WESCO",
+    "url": "https://www.youtube.com/watch?v=WXyeac63Xbc",
+    "publishedDate": "2026-10-30",
+    "durationSeconds": 158.5,
+    "heading": "Lắp đặt và chạy thử TSP® ba pha",
+    "description": "Tìm hiểu việc kiểm tra thông số sản phẩm, đấu nối bên trong cửa trước, cấp nguồn, kiểm tra sạc và đèn báo chờ, cùng quy trình chạy thử. Truyền thông và SAG Viewer là tùy chọn.",
+    "path": "/vi/videos/three-phase-installation/",
+    "embedUrl": "https://www.youtube.com/embed/WXyeac63Xbc",
+    "contactUrl": "https://tsp.wesco.works/vn/?s=video_three_phase_installation_vi#contact",
+    "catalogUrl": "https://tsp.wesco.works/vn/?s=video_three_phase_installation_vi#catalog",
+    "relatedBlogs": [
+      "/blog/en/selecting-sag-protector-capacity/",
+      "/blog/en/smart-factory-power-quality/"
+    ],
+    "thumbnail": "/videos/thumbnails/vi-threephase.jpg"
+  }
+]
