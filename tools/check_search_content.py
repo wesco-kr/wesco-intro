@@ -233,6 +233,13 @@ def main():
                     for current_clip, original_clip in zip(current_data[0].get('hasPart', []), original_data[0].get('hasPart', [])):
                         if 'endOffset' not in original_clip:
                             current_clip.pop('endOffset', None)
+                        else:
+                            item_duration = publication_by_embed[current_data[0]['embedUrl']]['durationSeconds']
+                            if (original_clip['endOffset'] == item_duration
+                                    and current_clip.get('endOffset') == math.floor(item_duration)):
+                                # Normalize the final boundary to an integer second
+                                # without extending it beyond the actual video.
+                                current_clip['endOffset'] = original_clip['endOffset']
                 if len(current_data) == len(original_data) == 1:
                     published_item = publication_by_embed.get(current_data[0].get('embedUrl'))
                     if (published_item and original_data[0].get('uploadDate') == published_item['publishedDate']
@@ -351,10 +358,10 @@ def main():
                 for chapter_index, (chapter, link) in enumerate(zip(lesson['chapters'], chapter_links)):
                     start = chapter['seconds']
                     end = (lesson['chapters'][chapter_index+1]['seconds']
-                           if chapter_index+1 < len(lesson['chapters']) else seconds)
+                           if chapter_index+1 < len(lesson['chapters']) else math.floor(seconds))
                     check(isinstance(start, int) and previous_start < start < seconds,
                           f'Invalid chapter time: {url}')
-                    check(start < end <= seconds, f'Invalid chapter end time: {url}')
+                    check(isinstance(end, int) and start < end <= seconds, f'Invalid chapter end time: {url}')
                     expected_link = item['path'] + '?t=' + str(start) + '#player'
                     check(link['href'] == expected_link and html.escape(chapter['title']) in contents,
                           f'Chapter link/title differs: {url}')
@@ -362,6 +369,8 @@ def main():
                                            'url':url+'?t='+str(start)})
                     previous_start = start
                 check(data.get('hasPart') == expected_clips, f'Clip/visible chapter mismatch: {url}')
+                check(all(type(clip.get('endOffset')) is int for clip in data['hasPart']),
+                      f'Clip endOffset must be an integer, not a fractional JSON number: {url}')
                 check(len(transcript_links) == len(lesson['transcript']) >= 10, f'Transcript count mismatch: {url}')
                 transcript_html = re.search(r'<details class="video-transcript">.*?</details>', contents, re.S)
                 check(transcript_html is not None, f'Missing static transcript: {url}')
