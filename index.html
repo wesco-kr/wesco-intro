@@ -503,6 +503,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 .bar{height:56px;background:var(--ivory);padding:0 24px}
 .bar button,.bar .btns .btn,.bar .lang{border-radius:2px}
 .bar .pg{align-self:center}
+/* 메뉴 3개: 블로그·영상 페이지의 .topnav 와 같은 모양(글자 링크 + 빨간 버튼) */
+.bar .btns{align-items:center}
+.bar .sep{width:1px;height:20px;background:var(--line);margin:0 8px}
+.bar .topnav{display:flex;align-items:center;gap:16px}
+.bar .btns .topnav a.btn{border:0;border-radius:0;background:none;padding:0;font-size:14px;font-weight:500;color:#78716C}
+.bar .btns .topnav a.btn:hover{color:#C13816}
+.bar .btns .topnav a.btn.red{background:#E1431B;color:#fff;border-radius:6px;padding:6px 14px}
+.bar .btns .topnav a.btn.red:hover{background:#9C2C10;color:#fff}
 .wrap{gap:24px;padding-top:32px}
 .pages{gap:40px}
 .page{padding:48px 64px 78px;box-shadow:0 12px 36px rgba(68,64,60,.12);scroll-margin-top:80px}
@@ -744,7 +752,7 @@ body.effects-off .page *{animation:none!important;transition:none!important}
  .page,.page [data-r],.step {opacity:1!important;transform:none!important}
  .bars .tr i{width:var(--w)!important}
 }
-@media (max-width:760px),(pointer:coarse) and (max-height:520px){html,body{overflow-x:hidden}.thumbs{display:none}.bar{height:auto;padding:8px 12px}.bar a.btn:not(.red){display:none}.bar .btns{gap:5px}.bar .pg{margin-right:4px}.wrap{padding:12px}.pages{gap:20px}}
+@media (max-width:760px),(pointer:coarse) and (max-height:520px){html,body{overflow-x:hidden}.thumbs{display:none}.bar{height:auto;padding:8px 12px}.bar a.btn:not(.red){display:none}.bar .sep{display:none}.bar .btns{gap:5px}.bar .pg{margin-right:4px}.wrap{padding:12px}.pages{gap:20px}}
 @page{size:1120px 720px;margin:0}
 @media print{
  html,body,body.present{margin:0!important;padding:0!important;background:var(--ivory);overflow:visible!important;width:1120px;print-color-adjust:exact;-webkit-print-color-adjust:exact}
@@ -914,9 +922,12 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
     <button type="button" id="present" data-i18n="bar.present">발표 모드</button>
     <button type="button" id="fx" class="on" data-i18n="bar.fxOn">이펙트 ON</button>
     <span id="sites-mount"></span>
+    <span class="sep" aria-hidden="true"></span>
+    <nav class="topnav">
     <a class="btn" href="/blog/" data-i18n-href="bar.blogUrl" data-i18n="bar.blog">기술 자료</a>
     <a class="btn" href="/videos/#ko" data-i18n-href="bar.videosUrl" data-i18n="bar.videos">영상</a>
     <a class="btn red" href="https://tsp.wesco.works/ko/?s=nav_intro#contact" data-i18n-href="bar.contactUrl" data-i18n="bar.contact">문의하기</a>
+    </nav>
   </div>
 </div>
 

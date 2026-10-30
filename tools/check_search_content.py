@@ -173,7 +173,9 @@ def main():
         is_hub = rel in ('blog/index.html', 'blog/en/index.html', 'videos/index.html')
         if is_blog:
             check(not schemas(page, 'VideoObject'), f'Unverified supplementary-video metadata: {rel}')
-            check(any(x.get('href', '').split('#')[0] == '/videos/' for x in page.links), f'No video navigation: {rel}')
+            # 상단 메뉴의 영상 링크: 해시가 없거나 허브가 아는 언어 필터(ko|en|zh-CN|zh-TW|ja|vi|all)일 때만 통과
+            nav_videos = [urlsplit(x.get('href', '')) for x in page.links if x.get('_header') and urlsplit(x.get('href', '')).path == '/videos/']
+            check(nav_videos and all(re.fullmatch(r'(ko|en|zh-CN|zh-TW|ja|vi|all)?', u.fragment) for u in nav_videos), f'No valid video navigation: {rel}')
             check('/blog/discovery.css' in page.styles, f'Missing discovery stylesheet: {rel}')
             if not is_hub:
                 expected_prefix = '/en/videos/' if rel.startswith('blog/en/') else '/videos/'
