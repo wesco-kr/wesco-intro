@@ -29,6 +29,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://intro.wesco.works/blog/magnetic-contactor-dropout/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/magnetic-contactor-dropout/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/magnetic-contactor-dropout/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://intro.wesco.works/blog/magnetic-contactor-dropout/"/>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://intro.wesco.works/blog/en/magnetic-contactor-dropout/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/magnetic-contactor-dropout/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/magnetic-contactor-dropout/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://intro.wesco.works/blog/magnetic-contactor-dropout/"/>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://intro.wesco.works/blog/voltage-sag-monitoring/</loc>
     <xhtml:link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/voltage-sag-monitoring/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/voltage-sag-monitoring/"/>

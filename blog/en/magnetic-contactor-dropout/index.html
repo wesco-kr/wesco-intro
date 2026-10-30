@@ -1,0 +1,132 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Contactor Dropout: Check Voltage Sag, Restart Conditions and Protection Scope</title><meta name="description" content="Investigate contactor dropout by checking model-specific voltage limits, restart conditions and the scope of control-power protection."><link rel="canonical" href="https://intro.wesco.works/blog/en/magnetic-contactor-dropout/"><link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/magnetic-contactor-dropout/"><link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/magnetic-contactor-dropout/"><link rel="alternate" hreflang="x-default" href="https://intro.wesco.works/blog/magnetic-contactor-dropout/"><meta property="og:type" content="article"><meta property="og:title" content="Contactor Dropout: Check Voltage Sag, Restart Conditions and Protection Scope"><meta property="og:description" content="Investigate contactor dropout by checking model-specific voltage limits, restart conditions and the scope of control-power protection."><meta property="og:url" content="https://intro.wesco.works/blog/en/magnetic-contactor-dropout/"><meta property="og:image" content="https://intro.wesco.works/images/og-image.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Contactor Dropout: Check Voltage Sag, Restart Conditions and Protection Scope"><meta name="twitter:description" content="Investigate contactor dropout by checking model-specific voltage limits, restart conditions and the scope of control-power protection."><meta name="twitter:image" content="https://intro.wesco.works/images/og-image.jpg"><link rel="icon" type="image/x-icon" href="https://intro.wesco.works/favicon.ico"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"><style>
+:root{
+  --c-red:#C13816; --c-red-dk:#9C2C10; --c-red-lt:#FBEEE8;
+  --c-head:#2C2924; --c-text:#4A4641; --c-gray:#78716C; --c-gray-lt:#A8A29E;
+  --c-bg:#FDFCF9; --c-bg-soft:#F7F4EE; --c-divider:#E0DBD3; --c-accent:#E1431B;
+  --font-ko:'Noto Sans KR','맑은 고딕',sans-serif;
+  --font-en:'Inter',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font-ko);color:var(--c-text);background:var(--c-bg);
+  line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:var(--c-red);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+
+/* 상단바 */
+.topbar{border-bottom:1px solid var(--c-divider);background:var(--c-bg)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center}
+.brand img{height:22px;width:auto;display:block}
+.topnav a{color:var(--c-gray);font-size:14px;font-weight:500;margin-left:22px}
+.topnav a:hover{color:var(--c-red);text-decoration:none}
+.topnav a.nav-cta{background:var(--c-accent);color:#fff;border-radius:6px;padding:6px 14px}
+.topnav a.nav-cta:hover{background:var(--c-red-dk);color:#fff}
+
+/* 글 헤더 */
+.post-head{padding:56px 0 34px;border-bottom:1px solid var(--c-divider)}
+.post-head .kicker{font-family:var(--font-en);font-size:12px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--c-red)}
+.post-head h1{font-size:34px;line-height:1.32;color:var(--c-head);
+  font-weight:700;margin:14px 0 12px;letter-spacing:-.01em}
+.post-head .sub{font-size:18px;color:var(--c-gray);font-weight:400;line-height:1.6}
+.post-meta{margin-top:20px;font-size:13px;color:var(--c-gray-lt);
+  font-family:var(--font-en);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.post-meta .lang-toggle{border:1px solid var(--c-divider);border-radius:100px;
+  padding:3px 12px;font-weight:600;color:var(--c-gray)}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tags .tag{background:var(--c-bg-soft);color:var(--c-gray);border:1px solid var(--c-divider);
+  border-radius:100px;padding:3px 11px;font-size:12px;font-family:var(--font-ko)}
+
+/* 본문 */
+.post-body{padding:38px 0 10px}
+.post-body h2{font-size:23px;color:var(--c-head);font-weight:700;
+  margin:44px 0 16px;letter-spacing:-.01em;line-height:1.4}
+.post-body h3{font-size:19px;color:var(--c-head);font-weight:700;margin:30px 0 12px}
+.post-body p{margin:0 0 20px}
+.post-body ul,.post-body ol{margin:0 0 22px;padding-left:22px}
+.post-body li{margin:0 0 9px}
+.post-body strong{color:var(--c-head);font-weight:700}
+.post-body em{font-style:normal;color:var(--c-gray)}
+.post-body hr{border:0;border-top:1px solid var(--c-divider);margin:40px 0}
+.post-body blockquote{border-left:3px solid var(--c-red);padding:2px 0 2px 18px;
+  margin:0 0 22px;color:var(--c-gray)}
+.post-body img{max-width:100%;height:auto;border-radius:10px;margin:8px 0 24px}
+
+/* FAQ */
+.faq{margin-top:8px}
+.faq dt{font-weight:700;color:var(--c-head);margin:22px 0 8px}
+.faq dd{margin:0 0 8px;color:var(--c-text)}
+
+/* CTA */
+.cta{margin:44px 0 0;background:var(--c-bg-soft);border:1px solid var(--c-divider);
+  border-radius:14px;padding:28px 30px}
+.cta h4{font-size:18px;color:var(--c-head);margin-bottom:8px}
+.cta p{font-size:15px;color:var(--c-gray);margin-bottom:16px}
+.cta a.btn{display:inline-block;background:var(--c-red);color:#fff;font-weight:600;
+  font-size:15px;padding:11px 22px;border-radius:8px}
+.cta a.btn:hover{background:var(--c-red-dk);text-decoration:none}
+.cta a.btn-ghost{background:transparent;color:var(--c-red);border:1px solid var(--c-red);margin-left:8px}
+.cta a.btn-ghost:hover{background:var(--c-red);color:#fff}
+
+/* 영상 · 관련 글 */
+.video{position:relative;padding-top:56.25%;margin:8px 0 28px;border-radius:10px;overflow:hidden;background:var(--c-bg-soft)}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.related{margin-top:44px}
+.related h2{font-size:20px;color:var(--c-head);margin-bottom:6px}
+.related a.rel{display:block;padding:12px 0;border-bottom:1px solid var(--c-divider);color:var(--c-head);font-weight:500}
+.related .product{margin-top:16px;font-size:15px;color:var(--c-gray)}
+
+/* 푸터 */
+.foot{margin-top:64px;border-top:1px solid var(--c-divider);
+  padding:30px 0 60px;color:var(--c-gray-lt);font-size:13px;text-align:center}
+.foot a{color:var(--c-gray)}
+
+/* 목록 */
+.list-head{padding:56px 0 14px}
+.list-head h1{font-size:30px;color:var(--c-head);font-weight:700}
+.list-head p{color:var(--c-gray);margin-top:8px}
+.list-head .lang-toggle{display:inline-block;margin-top:14px;border:1px solid var(--c-divider);
+  border-radius:100px;padding:4px 14px;font-size:13px;font-weight:600;color:var(--c-gray)}
+.card{display:block;padding:26px 0;border-bottom:1px solid var(--c-divider)}
+.card:hover{text-decoration:none}
+.card .kicker{font-family:var(--font-en);font-size:11px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--c-red)}
+.card h2{font-size:22px;color:var(--c-head);font-weight:700;margin:8px 0 8px;line-height:1.4}
+.card p{color:var(--c-gray);font-size:15px}
+.card .date{font-family:var(--font-en);font-size:12px;color:var(--c-gray-lt);margin-top:10px}
+
+@media(max-width:600px){
+  body{font-size:16px}
+  .post-head h1{font-size:27px}
+  .post-head .sub{font-size:16px}
+  .post-body h2{font-size:20px}
+}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Contactor Dropout: Check Voltage Sag, Restart Conditions and Protection Scope", "description": "Investigate contactor dropout by checking model-specific voltage limits, restart conditions and the scope of control-power protection.", "datePublished": "2026-10-31", "dateModified": "2026-10-31", "inLanguage": "en", "mainEntityOfPage": "https://intro.wesco.works/blog/en/magnetic-contactor-dropout/", "author": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}, "publisher": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does contactor dropout prove that a voltage sag occurred?", "acceptedAnswer": {"@type": "Answer", "text": "No. A voltage sag is a possible cause to investigate. Check the actual contactor model and coil specification rather than diagnosing the cause from the symptom alone."}}, {"@type": "Question", "name": "Will the contactor restart automatically when voltage returns?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the control circuit. In the manufacturer's described three-wire seal-in arrangement, a new start command is needed; a maintained two-wire command can allow restart after supply recovery. Follow the actual wiring and interlock requirements."}}, {"@type": "Question", "name": "Does installing TSP on control power protect the entire machine?", "acceptedAnswer": {"@type": "Answer", "text": "Protecting only control power does not establish ride-through for an unprotected motor, compressor or drive power circuit. Whole-machine protection requires a separate review of the application point and TSP model and capacity."}}]}</script><link rel="stylesheet" href="/blog/discovery.css"></head><body><header class="topbar"><div class="wrap"><a class="brand" href="https://intro.wesco.works/"><img src="https://intro.wesco.works/images/wesco_wordmark.png" alt="WESCO" width="119" height="22"></a><nav class="topnav"><a data-home href="https://intro.wesco.works/?lang=en">Company Profile</a><a href="https://intro.wesco.works/blog/en/">Technical Guides</a><a href="/videos/#en">Videos</a><a class="nav-cta" href="https://tsp.wesco.works/en/?s=nav_blog_en_magnetic-contactor-dropout#contact">Contact us</a></nav></div><script>try{var l=localStorage.getItem('wesco-intro-lang');if(/^(ko|en|cn|jp|vn)$/.test(l)){var m={ko:'ko',en:'en',cn:'zh-CN',jp:'ja',vn:'vi'},c={ko:'ko',en:'en',cn:'cn',jp:'en',vn:'vn'},a=document.querySelectorAll('.topnav a');a[0].href='/?lang='+l;a[1].href=l=='ko'?'/blog/':'/blog/en/';a[2].href='/videos/#'+m[l];a[3].href=a[3].href.replace(/tsp\.wesco\.works\/\w+\//,'tsp.wesco.works/'+c[l]+'/')}}catch(e){}</script></header><section class="post-head"><div class="wrap"><div class="kicker">WESCO Insight</div><h1>Contactor Dropout: Check Voltage Sag, Restart Conditions and Protection Scope</h1><p class="sub">Separate the contactor specification, control circuit and protected load</p><div class="post-meta"><span>2026-10-31</span><div class="tags"><span class="tag">contactor dropout</span><span class="tag">magnetic contactor</span><span class="tag">voltage sag</span><span class="tag">control power</span><span class="tag">power quality</span></div><a class="lang-toggle" href="https://intro.wesco.works/blog/magnetic-contactor-dropout/">한국어</a></div></div></section><article class="post-body"><div class="wrap"><p>Contactor dropout can prompt an investigation into reduced control voltage, including voltage sag. However, dropout conditions depend on the contactor model and coil type, among other stated conditions. The symptom alone does not establish the cause, and a single voltage threshold should not be applied to every contactor.</p>
+<p>Three questions make the issue easier to understand: <strong>Under what voltage conditions does the contactor release? What happens when voltage returns? Which power circuit needs protection?</strong> These lead to three separate checks: the product specification, the control arrangement and the scope of the proposed TSP installation.</p>
+<h2>Contactor Dropout Starts with the Actual Product Specification</h2>
+<p>A contactor&rsquo;s general name or appearance is not enough to determine its dropout voltage. Schneider Electric&rsquo;s official guidance for TeSys D contactors distinguishes model groups, AC and DC control, and temperature conditions when describing dropout voltage limits.</p>
+<p>Start with the installed model and coil specification, then find the manufacturer&rsquo;s documentation for that product. A value stated for one model should not be carried over to another without checking the applicable conditions. Likewise, an illustrative figure should not be presented as a guaranteed limit for every contactor.</p>
+<p>This keeps the discussion tied to an identifiable product. Instead of asking for one percentage that supposedly explains every event, ask which specification applies to the contactor being assessed.</p>
+<h2>What Voltage Sag Adds to the Investigation</h2>
+<p>A voltage sag is a temporary reduction in supply voltage followed by recovery. Lightning, faults in the power system and the starting of a large load can cause such a reduction. Treating reduced voltage and a complete interruption of supply as the same event can obscure this distinction.</p>
+<p>Here, voltage sag is a power-supply phenomenon to consider when investigating contactor release. This article does not claim that it is more common than contactor damage, nor does it diagnose an actual customer event. An assessment for a particular installation needs the applicable product documentation and its actual supply conditions.</p>
+<h2>Restart After Voltage Recovery Is a Separate Question</h2>
+<p>The conditions that release a contactor and the conditions that restart the equipment need separate attention. Schneider Electric&rsquo;s explanation of star-delta starter control distinguishes a three-wire seal-in arrangement from a maintained two-wire command.</p>
+<p>In the described three-wire arrangement, loss of supply or control voltage releases the held start command, so a new start signal is required. With a maintained two-wire command, operation can resume when voltage returns.</p>
+<p>That explanation applies to a particular control arrangement; it does not guarantee automatic restart for every machine. Follow the installed wiring and the equipment&rsquo;s interlock and restart requirements. Do not bypass an interlock to force a restart.</p>
+<p>The practical distinction is straightforward: confirming that voltage has returned is not the same as confirming that the required restart command and interlock conditions have been satisfied.</p>
+<h2>Before Applying TSP: Separate Control Power from Power Circuits</h2>
+<p>WESCO TSP® is a battery-free voltage sag protector that uses energy stored in EDLC capacitors. Utility power supplies the load under normal conditions, and stored energy is used for compensation when a voltage sag occurs.</p>
+<p>A TSP installation on control power may be considered for an application involving contactors. The key question is <strong>which circuits are actually connected within the protected scope</strong>. Protecting control power alone does not establish ride-through for a motor, compressor or drive power circuit outside that scope.</p>
+<p>This does not mean that TSP is limited to control-power applications. The model, capacity and wiring conditions must match the intended load and application point. Transfer time and compensation duration are also different specification items; check each against the requirements of the selected model and operating conditions.</p>
+<p>Keeping those boundaries explicit avoids turning a proposal to protect one circuit into an unsupported promise about the whole machine.</p>
+<h2>Key Takeaways</h2>
+<ul>
+<li>For dropout conditions, check the manufacturer&rsquo;s specification for the actual model, coil type and temperature conditions.</li>
+<li>For restart, check the control arrangement and interlock requirements rather than relying on voltage recovery alone.</li>
+<li>For protection, distinguish control power from power circuits and review the TSP application point, model and capacity.</li>
+<li>Treat voltage sag as a possible cause to investigate, not a diagnosis established by the symptom alone.</li>
+</ul>
+<p>References: <a href="https://www.se.com/ng/en/faqs/FA409210/">Schneider Electric — TeSys D contactor dropout voltage limits</a>, <a href="https://www.se.com/nl/nl/faqs/FA147367/">Schneider Electric — Two-wire control of a star-delta starter</a>.</p><h2>Frequently Asked Questions</h2><dl class="faq"><dt>Q. Does contactor dropout prove that a voltage sag occurred?</dt><dd>No. A voltage sag is a possible cause to investigate. Check the actual contactor model and coil specification rather than diagnosing the cause from the symptom alone.</dd><dt>Q. Will the contactor restart automatically when voltage returns?</dt><dd>It depends on the control circuit. In the manufacturer&#x27;s described three-wire seal-in arrangement, a new start command is needed; a maintained two-wire command can allow restart after supply recovery. Follow the actual wiring and interlock requirements.</dd><dt>Q. Does installing TSP on control power protect the entire machine?</dt><dd>Protecting only control power does not establish ride-through for an unprotected motor, compressor or drive power circuit. Whole-machine protection requires a separate review of the application point and TSP model and capacity.</dd></dl><div class="cta"><h4>Need protection against voltage sags?</h4><p>WESCO has manufactured battery-free voltage sag protectors (TSP&reg;) for 25 years. We can help you size and deploy the right unit for your line.</p><a class="btn" href="https://tsp.wesco.works/en/?s=blog-magnetic-contactor-dropout">Request a quote</a><a class="btn btn-ghost" href="mailto:wesco@wesco.co.kr?subject=%5Bblog%3Amagnetic-contactor-dropout%5D%20TSP%20inquiry">Email us</a></div><div class="related"><h2>Related posts</h2><a class="rel" href="https://intro.wesco.works/blog/en/voltage-sag-monitoring/">You Can&#x27;t Fix What You Can&#x27;t See: Measuring and Monitoring Voltage Sags</a><a class="rel" href="https://intro.wesco.works/blog/en/ev-battery-plant-power-quality/">Power Quality in EV Battery Plants: Why Sags on Electrode and Assembly Lines Turn Into Batch Losses</a><a class="rel" href="https://intro.wesco.works/blog/en/outage-vs-voltage-sag/">Voltage Sag vs Momentary Outage Difference: How to Tell Them Apart in the Field</a><a class="rel discovery-video" href="/en/videos/tsp-product/">Watch: TSP® Voltage Sag Protector | 3D Product Introduction | WESCO</a><p class="product">TSP® principle and specifications: <a href="https://intro.wesco.works/battery-free-voltage-sag-protection.html">Battery-free voltage sag protection (TSP®)</a></p></div></div></article><footer class="foot"><div class="wrap">© WESCO Co., Ltd. · Voltage Sag Protector Manufacturer · <a href="https://www.wesco.co.kr">www.wesco.co.kr</a></div></footer></body></html>
