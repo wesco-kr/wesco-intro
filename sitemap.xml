@@ -550,7 +550,7 @@
       <video:title>순간정전보상장치 TSP® 적용 전후 소개 | WESCO</video:title>
       <video:description>순간전압강하·순간정전이 설비에 미치는 영향과 TSP가 연결된 보호 대상에 전원을 공급하는 개념을 비교합니다.</video:description>
       <video:player_loc>https://www.youtube.com/embed/-v_ZJZaqG8Q</video:player_loc>
-      <video:publication_date>2026-10-25</video:publication_date>
+      <video:publication_date>2026-10-25T02:52:05-07:00</video:publication_date>
       <video:duration>35</video:duration>
     </video:video>
   </url>
@@ -568,7 +568,7 @@
       <video:title>단상 순간정전보상장치 TSP® 설치·시운전 | WESCO</video:title>
       <video:description>제어전원 보호용 단상 TSP의 설치, 입출력 결선, 단자 커버, 전원 투입과 정상 표시 확인을 살펴봅니다. 통신과 SAG Viewer는 선택 사양입니다.</video:description>
       <video:player_loc>https://www.youtube.com/embed/PBwGk-WIgxM</video:player_loc>
-      <video:publication_date>2026-10-25</video:publication_date>
+      <video:publication_date>2026-10-25T02:52:05-07:00</video:publication_date>
       <video:duration>149</video:duration>
     </video:video>
   </url>
@@ -586,7 +586,7 @@
       <video:title>삼상 순간정전보상장치 TSP® 설치·시운전 | WESCO</video:title>
       <video:description>삼상 TSP의 제품 사양 확인부터 전면 도어 내부 결선, 전원 투입, 충전·대기 표시와 시운전까지 살펴봅니다. 통신과 SAG Viewer는 선택 사양입니다.</video:description>
       <video:player_loc>https://www.youtube.com/embed/XvvLKWAlaEs</video:player_loc>
-      <video:publication_date>2026-10-25</video:publication_date>
+      <video:publication_date>2026-10-25T02:52:05-07:00</video:publication_date>
       <video:duration>157</video:duration>
     </video:video>
   </url>
@@ -604,7 +604,7 @@
       <video:title>WESCO TSP® Voltage Sag Protection | With and Without TSP</video:title>
       <video:description>Compare the effects of a brief power disturbance and the concept of TSP supplying the equipment connected for protection.</video:description>
       <video:player_loc>https://www.youtube.com/embed/OyOUA83g0pA</video:player_loc>
-      <video:publication_date>2026-10-30</video:publication_date>
+      <video:publication_date>2026-10-30T01:37:55-07:00</video:publication_date>
       <video:duration>30</video:duration>
     </video:video>
   </url>
@@ -622,7 +622,7 @@
       <video:title>Single-Phase TSP® Installation &amp; Commissioning | Control Power | WESCO</video:title>
       <video:description>Explore control-power installation, input and output wiring, terminal covers, power-up and normal-status checks. Communications and SAG Viewer are optional.</video:description>
       <video:player_loc>https://www.youtube.com/embed/En8y8OtMNW4</video:player_loc>
-      <video:publication_date>2026-10-30</video:publication_date>
+      <video:publication_date>2026-10-30T01:44:07-07:00</video:publication_date>
       <video:duration>149</video:duration>
     </video:video>
   </url>
@@ -640,7 +640,7 @@
       <video:title>Three-Phase TSP® Installation, Wiring &amp; Commissioning | WESCO</video:title>
       <video:description>Explore product ratings, wiring inside the front door, power-up, charging and standby indication, and commissioning. Communications and SAG Viewer are optional.</video:description>
       <video:player_loc>https://www.youtube.com/embed/Lj4nvtzeylA</video:player_loc>
-      <video:publication_date>2026-10-30</video:publication_date>
+      <video:publication_date>2026-10-30T01:46:50-07:00</video:publication_date>
       <video:duration>157</video:duration>
     </video:video>
   </url>
@@ -658,7 +658,7 @@
       <video:title>WESCO TSP® 应用前后对比｜瞬时停电与电压暂降保护【简体中文】</video:title>
       <video:description>对比短时电源扰动对设备的影响，了解 TSP 为接入保护范围的设备供电的原理。</video:description>
       <video:player_loc>https://www.youtube.com/embed/c45UkHi8Um4</video:player_loc>
-      <video:publication_date>2026-10-29</video:publication_date>
+      <video:publication_date>2026-10-29T01:34:47-07:00</video:publication_date>
       <video:duration>30</video:duration>
     </video:video>
   </url>
@@ -676,7 +676,7 @@
       <video:title>单相 TSP® 安装与调试｜控制电源接线・短时断电测试｜WESCO【简体中文】</video:title>
       <video:description>了解控制电源保护用单相 TSP 的安装、输入输出接线、端子盖安装、送电与正常状态确认。通信与 SAG Viewer 为选配功能。</video:description>
       <video:player_loc>https://www.youtube.com/embed/UPCtmbrDC9A</video:player_loc>
-      <video:publication_date>2026-10-29</video:publication_date>
+      <video:publication_date>2026-10-29T01:44:33-07:00</video:publication_date>
       <video:duration>149</video:duration>
     </video:video>
   </url>
@@ -694,7 +694,7 @@
       <video:title>三相 TSP® 安装与调试｜输入输出接线・上电检查｜WESCO【简体中文】</video:title>
       <video:description>了解产品规格确认、前门内接线、送电、充电与待机指示，以及调试流程。通信与 SAG Viewer 为选配功能。</video:description>
       <video:player_loc>https://www.youtube.com/embed/dJzDsouY6Q8</video:player_loc>
-      <video:publication_date>2026-10-29</video:publication_date>
+      <video:publication_date>2026-10-29T01:45:38-07:00</video:publication_date>
       <video:duration>157</video:duration>
     </video:video>
   </url>
@@ -712,7 +712,7 @@
       <video:title>WESCO TSP® 導入前後對比｜瞬間停電與電壓驟降保護【繁體中文】</video:title>
       <video:description>比較短暫電源擾動對設備的影響，了解 TSP 對接入保護範圍的設備供電的原理。</video:description>
       <video:player_loc>https://www.youtube.com/embed/Xzp5PJhguYk</video:player_loc>
-      <video:publication_date>2026-10-29</video:publication_date>
+      <video:publication_date>2026-10-29T01:48:38-07:00</video:publication_date>
       <video:duration>30</video:duration>
     </video:video>
   </url>
@@ -730,7 +730,7 @@
       <video:title>單相 TSP® 安裝與試運轉｜控制電源接線・瞬間斷電測試｜WESCO【繁體中文】</video:title>
       <video:description>了解控制電源保護用單相 TSP 的安裝、輸入輸出接線、端子護蓋安裝、送電與正常狀態確認。通訊與 SAG Viewer 為選配功能。</video:description>
       <video:player_loc>https://www.youtube.com/embed/n5itCFfDgDw</video:player_loc>
-      <video:publication_date>2026-10-29</video:publication_date>
+      <video:publication_date>2026-10-29T01:49:46-07:00</video:publication_date>
       <video:duration>149</video:duration>
     </video:video>
   </url>
@@ -748,7 +748,7 @@
       <video:title>三相 TSP® 安裝與試運轉｜輸入輸出接線・送電檢查｜WESCO【繁體中文】</video:title>
       <video:description>了解產品規格確認、前門內接線、送電、充電與待機指示，以及試運轉流程。通訊與 SAG Viewer 為選配功能。</video:description>
       <video:player_loc>https://www.youtube.com/embed/a99Aec9Q33g</video:player_loc>
-      <video:publication_date>2026-10-29</video:publication_date>
+      <video:publication_date>2026-10-29T01:50:52-07:00</video:publication_date>
       <video:duration>157</video:duration>
     </video:video>
   </url>
@@ -766,7 +766,7 @@
       <video:title>WESCO TSP® 導入前後の比較｜瞬時電圧低下・瞬間停電への備え【日本語】</video:title>
       <video:description>短時間の電源変動が設備に与える影響と、TSP に接続した保護対象へ給電する仕組みを比較します。</video:description>
       <video:player_loc>https://www.youtube.com/embed/Ut8JB6e5-TU</video:player_loc>
-      <video:publication_date>2026-10-29</video:publication_date>
+      <video:publication_date>2026-10-29T01:51:13-07:00</video:publication_date>
       <video:duration>30</video:duration>
     </video:video>
   </url>
@@ -784,7 +784,7 @@
       <video:title>単相 TSP® の設置・結線・試運転｜制御電源の保護｜WESCO【日本語】</video:title>
       <video:description>制御電源保護用の単相 TSP の設置、入出力結線、端子カバーの取り付け、電源投入と正常表示の確認をご紹介します。通信と SAG Viewer はオプションです。</video:description>
       <video:player_loc>https://www.youtube.com/embed/HwKY01VcqeM</video:player_loc>
-      <video:publication_date>2026-10-29</video:publication_date>
+      <video:publication_date>2026-10-29T01:53:32-07:00</video:publication_date>
       <video:duration>157</video:duration>
     </video:video>
   </url>
@@ -802,7 +802,7 @@
       <video:title>三相 TSP® の設置・結線・試運転｜入力電圧・充電・運転確認｜WESCO【日本語】</video:title>
       <video:description>製品仕様の確認から前面ドア内の結線、電源投入、充電・待機表示、試運転までをご紹介します。通信と SAG Viewer はオプションです。</video:description>
       <video:player_loc>https://www.youtube.com/embed/8-TYx_V7b_o</video:player_loc>
-      <video:publication_date>2026-10-29</video:publication_date>
+      <video:publication_date>2026-10-29T01:55:01-07:00</video:publication_date>
       <video:duration>157</video:duration>
     </video:video>
   </url>
@@ -820,7 +820,7 @@
       <video:title>WESCO TSP®: Trước và sau khi lắp đặt | Bảo vệ sụt áp và mất điện thoáng qua</video:title>
       <video:description>So sánh ảnh hưởng của sự cố nguồn điện ngắn hạn và tìm hiểu nguyên lý TSP cấp điện cho thiết bị được kết nối để bảo vệ.</video:description>
       <video:player_loc>https://www.youtube.com/embed/XLfRS8Wfdz4</video:player_loc>
-      <video:publication_date>2026-10-30</video:publication_date>
+      <video:publication_date>2026-10-30T00:22:32-07:00</video:publication_date>
       <video:duration>30</video:duration>
     </video:video>
   </url>
@@ -838,7 +838,7 @@
       <video:title>TSP® một pha: Lắp đặt, đấu nối và chạy thử | Bảo vệ nguồn điều khiển | WESCO</video:title>
       <video:description>Tìm hiểu cách lắp đặt TSP một pha để bảo vệ nguồn điều khiển, đấu nối đầu vào và đầu ra, lắp nắp che đầu nối, cấp nguồn và kiểm tra trạng thái bình thường. Truyền thông và SAG Viewer là tùy chọn.</video:description>
       <video:player_loc>https://www.youtube.com/embed/fLt0BU2hvGM</video:player_loc>
-      <video:publication_date>2026-10-30</video:publication_date>
+      <video:publication_date>2026-10-30T00:17:44-07:00</video:publication_date>
       <video:duration>149</video:duration>
     </video:video>
   </url>
@@ -856,7 +856,7 @@
       <video:title>TSP® ba pha: Lắp đặt, đấu nối và chạy thử | Kiểm tra cấp nguồn | WESCO</video:title>
       <video:description>Tìm hiểu việc kiểm tra thông số sản phẩm, đấu nối bên trong cửa trước, cấp nguồn, kiểm tra sạc và đèn báo chờ, cùng quy trình chạy thử. Truyền thông và SAG Viewer là tùy chọn.</video:description>
       <video:player_loc>https://www.youtube.com/embed/WXyeac63Xbc</video:player_loc>
-      <video:publication_date>2026-10-30</video:publication_date>
+      <video:publication_date>2026-10-30T00:21:18-07:00</video:publication_date>
       <video:duration>159</video:duration>
     </video:video>
   </url>

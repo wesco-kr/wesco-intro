@@ -5,7 +5,7 @@ source dates, existing video embeds, and inquiry links were preserved.
 Uses only the Python standard library; does not make network requests.
 """
 import argparse
-from datetime import date, datetime
+from datetime import date, datetime, timedelta, timezone
 import hashlib
 import html
 import json
@@ -113,6 +113,21 @@ def main():
     learning = json.loads(text(ROOT / 'videos/library-learning.json'))
     lessons = {item['key']: item for item in learning['entries']}
     check(len(learning['entries']) == len(lessons) == 18, 'Expected 18 distinct video lessons')
+    catalog_file = ROOT / 'videos/library.json'
+    check(catalog_file.is_file(), 'Missing public video catalog')
+    catalog = json.loads(text(catalog_file))
+    catalog = catalog.get('entries', []) if isinstance(catalog, dict) else catalog
+    check(isinstance(catalog, list) and len(catalog) == 18, 'Expected 18 current public catalog entries')
+    publication_by_embed = {item['embedUrl']: item for item in catalog}
+    for item in catalog:
+        try:
+            published = datetime.fromisoformat(item['publishedAt'].replace('Z', '+00:00'))
+        except (KeyError, ValueError, TypeError):
+            check(False, f'Missing or invalid verified publication timestamp: {item["key"]}')
+        check('T' in item['publishedAt'] and published.utcoffset() is not None,
+              f'Publication timestamp must include a time and timezone: {item["key"]}')
+        check(published.astimezone(timezone(timedelta(hours=9))).date().isoformat() == item['publishedDate'],
+              f'Publication timestamp differs from observed Korean date: {item["key"]}')
 
     sitemap = ET.fromstring(text(ROOT / 'sitemap.xml'))
     entries = {e.findtext('s:loc', namespaces=NS): e for e in sitemap.findall('s:url', NS)}
@@ -201,7 +216,7 @@ def main():
                 if rel in reviewed: reviewed_articles += 1
                 else: preserved_articles += 1
             if path in watch_paths:
-                current_data = [dict(item) for item in schemas(page, 'VideoObject')]
+                current_data = json.loads(json.dumps(schemas(page, 'VideoObject')))
                 original_data = schemas(before, 'VideoObject')
                 # Reviewed chapters may add Clip markup; every pre-existing field
                 # stays unchanged. The complete new Clip list is checked below.
@@ -210,6 +225,21 @@ def main():
                 if (len(current_data) == len(original_data) == 1 and 'hasPart' not in original_data[0]
                         and current_data[0].get('embedUrl') in lesson_embeds):
                     current_data[0].pop('hasPart', None)
+                elif (len(current_data) == len(original_data) == 1
+                      and current_data[0].get('embedUrl') in lesson_embeds
+                      and len(current_data[0].get('hasPart', [])) == len(original_data[0].get('hasPart', []))):
+                    # Add a missing chapter end only; the complete boundaries are
+                    # validated against the chapter map and duration below.
+                    for current_clip, original_clip in zip(current_data[0].get('hasPart', []), original_data[0].get('hasPart', [])):
+                        if 'endOffset' not in original_clip:
+                            current_clip.pop('endOffset', None)
+                if len(current_data) == len(original_data) == 1:
+                    published_item = publication_by_embed.get(current_data[0].get('embedUrl'))
+                    if (published_item and original_data[0].get('uploadDate') == published_item['publishedDate']
+                            and current_data[0].get('uploadDate') == published_item['publishedAt']):
+                        # Only refine the existing observed date using the verified
+                        # timestamp; do not permit a different publication day.
+                        current_data[0]['uploadDate'] = original_data[0]['uploadDate']
                 check(current_data == original_data, f'Existing video metadata changed: {rel}')
                 ctas = lambda p: [x for x in p.links if urlsplit(x.get('href', '')).netloc == 'tsp.wesco.works']
                 check(ctas(page) == ctas(before) and len(ctas(page)) == 2, f'Inquiry/catalogue tracking changed: {rel}')
@@ -228,11 +258,6 @@ def main():
 
     video_entries = {u: e for u, e in entries.items() if e.find('v:video', NS) is not None}
     check(len(video_entries) == len(watch_paths) == 24, 'Expected 24 video sitemap/watch pages (18 new + 6 legacy)')
-    catalog_file = ROOT / 'videos/library.json'
-    check(catalog_file.is_file(), 'Missing public video catalog')
-    catalog = json.loads(text(catalog_file))
-    catalog = catalog.get('entries', []) if isinstance(catalog, dict) else catalog
-    check(isinstance(catalog, list) and len(catalog) == 18, 'Expected 18 current public catalog entries')
     check(len({x['key'] for x in catalog}) == 18, 'Duplicate catalog key')
     check(len({x['videoId'] for x in catalog}) == 18, 'Duplicate catalog video ID')
     check(set(lessons) == {x['key'] for x in catalog}, 'Lesson/catalog keys differ')
@@ -294,6 +319,9 @@ def main():
         check(sum(x.get('href', '').startswith(blogprefix) for x in page.links) >= 3, f'Missing related guide navigation: {url}')
         if url in catalog_by_url:
             item = catalog_by_url[url]
+            check(data['uploadDate'] == item['publishedAt'], f'Verified publication timestamp mismatch: {url}')
+            visible_date = f'<time datetime="{item["publishedDate"]}">{item["publishedDate"]}</time>'
+            check(visible_date in contents, f'Observed public date missing or changed: {url}')
             lesson = lessons[item['key']]
             check(lesson['videoId'] == item['videoId'] and lesson['locale'] == item['locale'],
                   f'Lesson video/language mismatch: {url}')
@@ -320,14 +348,17 @@ def main():
                 check(len(chapter_links) == len(lesson['chapters']), f'Chapter count mismatch: {url}')
                 expected_clips = []
                 previous_start = -1
-                for chapter, link in zip(lesson['chapters'], chapter_links):
+                for chapter_index, (chapter, link) in enumerate(zip(lesson['chapters'], chapter_links)):
                     start = chapter['seconds']
+                    end = (lesson['chapters'][chapter_index+1]['seconds']
+                           if chapter_index+1 < len(lesson['chapters']) else seconds)
                     check(isinstance(start, int) and previous_start < start < seconds,
                           f'Invalid chapter time: {url}')
+                    check(start < end <= seconds, f'Invalid chapter end time: {url}')
                     expected_link = item['path'] + '?t=' + str(start) + '#player'
                     check(link['href'] == expected_link and html.escape(chapter['title']) in contents,
                           f'Chapter link/title differs: {url}')
-                    expected_clips.append({'@type':'Clip','name':chapter['title'],'startOffset':start,
+                    expected_clips.append({'@type':'Clip','name':chapter['title'],'startOffset':start,'endOffset':end,
                                            'url':url+'?t='+str(start)})
                     previous_start = start
                 check(data.get('hasPart') == expected_clips, f'Clip/visible chapter mismatch: {url}')

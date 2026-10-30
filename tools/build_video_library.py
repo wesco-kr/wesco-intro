@@ -59,7 +59,7 @@ def footer(locale):
 def video_schema(item):
     data = {'@context':'https://schema.org','@type':'VideoObject','@id':ORIGIN+item['path']+'#video',
             'name':item['title'],'description':item['description'],
-            'thumbnailUrl':[ORIGIN+item['thumbnail']], 'uploadDate':item['publishedDate'],
+            'thumbnailUrl':[ORIGIN+item['thumbnail']], 'uploadDate':item['publishedAt'],
             'duration':f"PT{item['durationSeconds']:g}S",'embedUrl':item['embedUrl'],'inLanguage':item['locale'],
             'publisher':{'@type':'Organization','@id':ORIGIN+'/#org','name':'WESCO'},
             'mainEntityOfPage':{'@type':'WebPage','@id':ORIGIN+item['path']}}
@@ -67,8 +67,9 @@ def video_schema(item):
     if chapters:
         data['hasPart'] = [{'@type':'Clip', 'name':chapter['title'],
                             'startOffset':chapter['seconds'],
+                            'endOffset':chapters[index+1]['seconds'] if index+1 < len(chapters) else item['durationSeconds'],
                             'url':ORIGIN+item['path']+'?t='+str(chapter['seconds'])}
-                           for chapter in chapters]
+                           for index, chapter in enumerate(chapters)]
     return data
 
 def learning_content(item):
