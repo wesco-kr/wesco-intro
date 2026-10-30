@@ -146,12 +146,21 @@ def legacy_cards():
             rows.append(f'<article><a href="{path}"><img src="{data["thumbnailUrl"][0]}" width="1280" height="720" loading="lazy" alt=""><h3>{e(data["name"])}</h3></a><p>{lang}</p></article>')
     return ''.join(rows)
 
+def hub_lines(lines):
+    # 줄바꿈은 <br> 대신 블록 span으로 둔다(library.js 가 같은 구조로 문구를 교체)
+    return ''.join(f'<span class="hub-line">{e(x)}</span>' for x in lines)
+
+def hub_copy_script():
+    data = {loc: {**COPY[loc]['hub'], 'nav': list(NAV[loc])} for loc in ORDER}
+    return '<script type="application/json" id="hub-copy">'+json.dumps(data, ensure_ascii=False).replace('</','<\\/')+'</script>'
+
 def render_hub():
     title='TSP® 적용 전후·단상·삼상 설치 영상 | 6개 언어 | WESCO'
     desc='WESCO 순간정전보상장치 TSP® 적용 전후와 단상·삼상 설치·시운전 영상을 한국어, 영어, 간체중문, 번체중문, 일본어, 베트남어로 확인하세요.'
     schema={'@context':'https://schema.org','@type':'CollectionPage','name':title,'description':desc,'url':ORIGIN+'/videos/','mainEntity':{'@type':'ItemList','itemListElement':[{'@type':'ListItem','position':n+1,'url':ORIGIN+i['path'],'name':i['title']} for n,i in enumerate(ENTRIES)]}}
-    out=head('ko',title,desc,'/videos/')+ld(schema)+'<script src="/videos/library.js" defer></script></head><body class="library-page"><a class="skip" href="#main">본문으로 이동</a>'+header('ko')
-    out+='''<main id="main"><section class="library-hero"><p class="eyebrow">WESCO / VIDEO LIBRARY</p><h1>TSP를 이해하고,<br>설치와 시운전까지.</h1><p class="lead">순간정전보상장치 TSP®의 적용 전후부터 단상·삼상 설치까지.<br>고객과 현장 엔지니어를 위한 영상을 편한 언어로 만나보세요.</p><div class="library-meta"><span>3가지 주제</span><span>6개 언어 · 18편</span><span>공식 WESCO 채널</span></div></section><nav class="language-filter" aria-label="영상 언어 선택">'''
+    out=head('ko',title,desc,'/videos/')+ld(schema)+'<script src="/videos/library.js" defer></script></head><body class="library-page"><a class="skip" href="#main">본문으로 이동</a>'+header('ko')+hub_copy_script()
+    ko_hub=COPY['ko']['hub']
+    out+=f'''<main id="main"><section class="library-hero"><p class="eyebrow">WESCO / VIDEO LIBRARY</p><h1>{hub_lines(ko_hub['title'])}</h1><p class="lead">{hub_lines(ko_hub['lead'])}</p><div class="library-meta">{''.join('<span>'+e(x)+'</span>' for x in ko_hub['meta'])}</div></section><nav class="language-filter" aria-label="영상 언어 선택">'''
     for key,name in [('all','전체 / All')]+[(k,COPY[k]['name']) for k in ORDER]:
         out+=f'<button type="button" data-language-filter="{key}" aria-pressed="false">{name}</button>'
     out+='</nav><p id="filter-status" class="filter-note" role="status" aria-live="polite">전체 / All · 18편</p>'

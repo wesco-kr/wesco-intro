@@ -33,6 +33,22 @@
         "heading": "삼상 TSP® 설치·시운전",
         "description": "삼상 TSP의 제품 사양 확인부터 전면 도어 내부 결선, 전원 투입, 충전·대기 표시와 시운전까지 살펴봅니다. 통신과 SAG Viewer는 선택 사양입니다."
       }
+    },
+    "hub": {
+      "title": [
+        "TSP를 이해하고,",
+        "설치와 시운전까지."
+      ],
+      "lead": [
+        "순간정전보상장치 TSP®의 적용 전후부터 단상·삼상 설치까지.",
+        "고객과 현장 엔지니어를 위한 영상을 편한 언어로 만나보세요."
+      ],
+      "meta": [
+        "3가지 주제",
+        "6개 언어 · 18편",
+        "공식 WESCO 채널"
+      ],
+      "unit": "{n}편"
     }
   },
   "en": {
@@ -69,6 +85,22 @@
         "heading": "Three-phase TSP® installation",
         "description": "Explore product ratings, wiring inside the front door, power-up, charging and standby indication, and commissioning. Communications and SAG Viewer are optional."
       }
+    },
+    "hub": {
+      "title": [
+        "Understand TSP,",
+        "from installation to start-up."
+      ],
+      "lead": [
+        "From before-and-after comparisons of TSP® voltage sag protection to single-phase and three-phase installation.",
+        "Videos for customers and field engineers, in the language you prefer."
+      ],
+      "meta": [
+        "3 topics",
+        "6 languages · 18 videos",
+        "Official WESCO channel"
+      ],
+      "unit": "{n} videos"
     }
   },
   "zh-CN": {
@@ -105,6 +137,22 @@
         "heading": "三相 TSP® 安装与调试",
         "description": "了解产品规格确认、前门内接线、送电、充电与待机指示，以及调试流程。通信与 SAG Viewer 为选配功能。"
       }
+    },
+    "hub": {
+      "title": [
+        "了解 TSP，",
+        "从安装到调试。"
+      ],
+      "lead": [
+        "从电压暂降补偿装置 TSP® 的应用前后对比，到单相、三相安装。",
+        "为客户和现场工程师准备，用您习惯的语言观看。"
+      ],
+      "meta": [
+        "3 个主题",
+        "6 种语言 · 18 个视频",
+        "WESCO 官方频道"
+      ],
+      "unit": "{n} 个视频"
     }
   },
   "zh-TW": {
@@ -141,6 +189,22 @@
         "heading": "三相 TSP® 安裝與試運轉",
         "description": "了解產品規格確認、前門內接線、送電、充電與待機指示，以及試運轉流程。通訊與 SAG Viewer 為選配功能。"
       }
+    },
+    "hub": {
+      "title": [
+        "了解 TSP，",
+        "從安裝到試運轉。"
+      ],
+      "lead": [
+        "從電壓暫降補償裝置 TSP® 的應用前後對比，到單相、三相安裝。",
+        "為客戶和現場工程師準備，用您習慣的語言觀看。"
+      ],
+      "meta": [
+        "3 個主題",
+        "6 種語言 · 18 部影片",
+        "WESCO 官方頻道"
+      ],
+      "unit": "{n} 部影片"
     }
   },
   "ja": {
@@ -177,6 +241,22 @@
         "heading": "三相 TSP® の設置・試運転",
         "description": "製品仕様の確認から前面ドア内の結線、電源投入、充電・待機表示、試運転までをご紹介します。通信と SAG Viewer はオプションです。"
       }
+    },
+    "hub": {
+      "title": [
+        "TSP を理解し、",
+        "設置から試運転まで。"
+      ],
+      "lead": [
+        "瞬時電圧低下補償装置 TSP® の導入前後の比較から、単相・三相の設置まで。",
+        "お客様と現場エンジニアのための動画を、ご希望の言語でご覧ください。"
+      ],
+      "meta": [
+        "3つのテーマ",
+        "6言語 · 18本",
+        "WESCO 公式チャンネル"
+      ],
+      "unit": "{n}本"
     }
   },
   "vi": {
@@ -213,6 +293,22 @@
         "heading": "Lắp đặt và chạy thử TSP® ba pha",
         "description": "Tìm hiểu việc kiểm tra thông số sản phẩm, đấu nối bên trong cửa trước, cấp nguồn, kiểm tra sạc và đèn báo chờ, cùng quy trình chạy thử. Truyền thông và SAG Viewer là tùy chọn."
       }
+    },
+    "hub": {
+      "title": [
+        "Hiểu về TSP,",
+        "từ lắp đặt đến chạy thử."
+      ],
+      "lead": [
+        "Từ so sánh trước và sau khi dùng thiết bị bù sụt áp TSP® đến lắp đặt một pha và ba pha.",
+        "Video dành cho khách hàng và kỹ sư hiện trường, bằng ngôn ngữ bạn chọn."
+      ],
+      "meta": [
+        "3 chủ đề",
+        "6 ngôn ngữ · 18 video",
+        "Kênh chính thức của WESCO"
+      ],
+      "unit": "{n} video"
     }
   }
 }
