@@ -511,6 +511,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 .bar .btns .topnav a.btn:hover{color:#C13816}
 .bar .btns .topnav a.btn.red{background:#E1431B;color:#fff;border-radius:6px;padding:6px 14px}
 .bar .btns .topnav a.btn.red:hover{background:#9C2C10;color:#fff}
+@media (max-width:900px){.bar a.btn:not(.red),.bar .sep{display:none}}
+@media (max-width:760px),(pointer:coarse) and (max-height:520px){.bar .btns .topnav a.btn.red{padding:4px 10px;font-size:12px}}
 .wrap{gap:24px;padding-top:32px}
 .pages{gap:40px}
 .page{padding:48px 64px 78px;box-shadow:0 12px 36px rgba(68,64,60,.12);scroll-margin-top:80px}

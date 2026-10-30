@@ -174,7 +174,9 @@ def main():
         if is_blog:
             check(not schemas(page, 'VideoObject'), f'Unverified supplementary-video metadata: {rel}')
             # 상단 메뉴의 영상 링크: 해시가 없거나 허브가 아는 언어 필터(ko|en|zh-CN|zh-TW|ja|vi|all)일 때만 통과
-            nav_videos = [urlsplit(x.get('href', '')) for x in page.links if x.get('_header') and urlsplit(x.get('href', '')).path == '/videos/']
+            nav_urls = [urlsplit(x.get('href', '')) for x in page.links if x.get('_header')]
+            # 상대 링크이거나 자기 도메인일 때만 허용(외부 도메인의 /videos/ 는 영상 메뉴로 보지 않는다)
+            nav_videos = [u for u in nav_urls if u.path == '/videos/' and ((not u.scheme and not u.netloc) or (u.scheme, u.netloc) == ('https', 'intro.wesco.works'))]
             check(nav_videos and all(re.fullmatch(r'(ko|en|zh-CN|zh-TW|ja|vi|all)?', u.fragment) for u in nav_videos), f'No valid video navigation: {rel}')
             check('/blog/discovery.css' in page.styles, f'Missing discovery stylesheet: {rel}')
             if not is_hub:
