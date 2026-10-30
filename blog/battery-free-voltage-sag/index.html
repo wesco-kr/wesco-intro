@@ -2,7 +2,7 @@
 :root{
   --c-red:#C13816; --c-red-dk:#9C2C10; --c-red-lt:#FBEEE8;
   --c-head:#2C2924; --c-text:#4A4641; --c-gray:#78716C; --c-gray-lt:#A8A29E;
-  --c-bg:#FDFCF9; --c-bg-soft:#F7F4EE; --c-divider:#E0DBD3; --c-accent:#4F6886;
+  --c-bg:#FDFCF9; --c-bg-soft:#F7F4EE; --c-divider:#E0DBD3; --c-accent:#E1431B;
   --font-ko:'Noto Sans KR','맑은 고딕',sans-serif;
   --font-en:'Inter',Arial,sans-serif;
 }
@@ -21,6 +21,8 @@ a:hover{text-decoration:underline}
 .brand img{height:22px;width:auto;display:block}
 .topnav a{color:var(--c-gray);font-size:14px;font-weight:500;margin-left:22px}
 .topnav a:hover{color:var(--c-red);text-decoration:none}
+.topnav a.nav-cta{background:var(--c-accent);color:#fff;border-radius:6px;padding:6px 14px}
+.topnav a.nav-cta:hover{background:var(--c-red-dk);color:#fff}
 
 /* 글 헤더 */
 .post-head{padding:56px 0 34px;border-bottom:1px solid var(--c-divider)}
@@ -101,7 +103,7 @@ a:hover{text-decoration:underline}
   .post-head .sub{font-size:16px}
   .post-body h2{font-size:20px}
 }
-</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "0.2초의 정전, 반도체 공장을 멈추다", "description": "정전도 아닌데 라인이 멈춘다. 눈 깜빡임보다 짧은 순간전압강하(Voltage Sag)가 정밀 제조라인을 세우는 이유와, 배터리 없이 이를 보상하는 방법을 정리했다.", "datePublished": "2026-07-11", "dateModified": "2026-07-11", "inLanguage": "ko", "mainEntityOfPage": "https://intro.wesco.works/blog/battery-free-voltage-sag/", "author": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}, "publisher": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}, "image": "https://intro.wesco.works/images/products/tsp-hero.jpg"}</script><link rel="stylesheet" href="/blog/discovery.css"></head><body><header class="topbar"><div class="wrap"><a class="brand" href="https://intro.wesco.works/"><img src="https://intro.wesco.works/images/wesco_wordmark.png" alt="WESCO" width="119" height="22"></a><nav class="topnav"><a href="https://intro.wesco.works/">홈</a><a href="https://intro.wesco.works/blog/">인사이트</a><a href="/videos/">제품 영상</a></nav></div></header><section class="post-head"><div class="wrap"><div class="kicker">WESCO Insight</div><h1>0.2초의 정전, 반도체 공장을 멈추다</h1><p class="sub">눈에 보이지 않는 전압 강하가 만드는 손실, 그리고 배터리 없는 해법</p><div class="post-meta"><span>2026-07-11</span><div class="tags"><span class="tag">Voltage Sag</span><span class="tag">순간전압강하</span><span class="tag">전력품질</span><span class="tag">반도체</span><span class="tag">TSP</span></div></div></div></section><article class="post-body"><div class="wrap"><h2>정전이 아니었는데, 라인이 멈췄다</h2>
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "0.2초의 정전, 반도체 공장을 멈추다", "description": "정전도 아닌데 라인이 멈춘다. 눈 깜빡임보다 짧은 순간전압강하(Voltage Sag)가 정밀 제조라인을 세우는 이유와, 배터리 없이 이를 보상하는 방법을 정리했다.", "datePublished": "2026-07-11", "dateModified": "2026-07-11", "inLanguage": "ko", "mainEntityOfPage": "https://intro.wesco.works/blog/battery-free-voltage-sag/", "author": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}, "publisher": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}, "image": "https://intro.wesco.works/images/products/tsp-hero.jpg"}</script><link rel="stylesheet" href="/blog/discovery.css"></head><body><header class="topbar"><div class="wrap"><a class="brand" href="https://intro.wesco.works/"><img src="https://intro.wesco.works/images/wesco_wordmark.png" alt="WESCO" width="119" height="22"></a><nav class="topnav"><a data-home href="https://intro.wesco.works/?lang=ko">회사소개서</a><a href="https://intro.wesco.works/blog/">기술 자료</a><a href="/videos/#ko">영상</a><a class="nav-cta" href="https://tsp.wesco.works/ko/?s=nav_blog_battery-free-voltage-sag#contact">문의하기</a></nav></div><script>try{var l=localStorage.getItem('wesco-intro-lang');if(/^(ko|en|cn|jp|vn)$/.test(l)){var m={ko:'ko',en:'en',cn:'zh-CN',jp:'ja',vn:'vi'},c={ko:'ko',en:'en',cn:'cn',jp:'en',vn:'vn'},a=document.querySelectorAll('.topnav a');a[0].href='/?lang='+l;a[1].href=l=='ko'?'/blog/':'/blog/en/';a[2].href='/videos/#'+m[l];a[3].href=a[3].href.replace(/tsp\.wesco\.works\/\w+\//,'tsp.wesco.works/'+c[l]+'/')}}catch(e){}</script></header><section class="post-head"><div class="wrap"><div class="kicker">WESCO Insight</div><h1>0.2초의 정전, 반도체 공장을 멈추다</h1><p class="sub">눈에 보이지 않는 전압 강하가 만드는 손실, 그리고 배터리 없는 해법</p><div class="post-meta"><span>2026-07-11</span><div class="tags"><span class="tag">Voltage Sag</span><span class="tag">순간전압강하</span><span class="tag">전력품질</span><span class="tag">반도체</span><span class="tag">TSP</span></div></div></div></section><article class="post-body"><div class="wrap"><h2>정전이 아니었는데, 라인이 멈췄다</h2>
 <p>새벽 세 시. 멀쩡히 돌아가던 반도체 라인이 순식간에 멈춘다. 담당자는 정전을 의심하지만, 계기판의 전기는 멀쩡하다. 불도 켜져 있고, 사무실 컴퓨터도 그대로다. 그런데 수십 대의 장비만 정지 신호를 띄운다.</p>
 <p>원인은 <strong>0.2초</strong>였다. 눈을 한 번 깜빡이는 것보다 짧은 순간, 전압이 정격의 절반 아래로 뚝 떨어졌다가 되돌아온 것이다. 사람은 알아채지 못하지만, 정밀 장비는 정확히 반응한다. 그리고 그 대가는 몇 시간의 재가동과, 그 사이 만들어지던 제품들이다.</p>
 <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/say1HOvU-a0" title="순간정전보상장치 TSP® 소개 영상 | 웨스코(WESCO) 순간전압강하 완벽 해결" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div><h2>순간전압강하란 무엇인가</h2>

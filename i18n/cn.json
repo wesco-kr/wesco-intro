@@ -9,8 +9,11 @@
  "bar.sub": "公司简介 · 2026",
  "bar.present": "演示模式",
  "bar.fxOn": "特效 ON",
- "bar.blog": "洞察",
+ "bar.blog": "技术资料",
  "bar.contact": "联系我们",
+ "bar.blogUrl": "/blog/en/",
+ "bar.videosUrl": "/videos/#zh-CN",
+ "bar.contactUrl": "https://tsp.wesco.works/cn/?s=nav_intro#contact",
  "thumb.1": "封面",
  "c.eyebrow": "COMPANY PROFILE · 2026",
  "c.h1": "电压暂降补偿装置<br><em>TSP®</em>",
@@ -291,5 +294,5 @@
  "f47.t1": "0.2 秒",
  "f47.t2": "0.5 秒",
  "f47.t3": "1 秒",
- "bar.videos": "产品视频"
+ "bar.videos": "视频"
 }

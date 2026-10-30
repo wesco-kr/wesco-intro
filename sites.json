@@ -55,32 +55,14 @@
           }
         },
         {
-          "id": "tsp",
-          "href": "https://tsp.wesco.works/{tsp}/",
-          "title": {
-            "ko": "TSP 제품 · 순간정전",
-            "en": "TSP Product · Voltage Sag",
-            "cn": "TSP 产品 · 电压暂降",
-            "jp": "TSP 製品・瞬時電圧低下",
-            "vn": "Sản phẩm TSP · Sụt áp"
-          },
-          "desc": {
-            "ko": "순간정전이란 · TSP 동작 원리 · 문의 남기기",
-            "en": "What a sag is, how TSP works, send an inquiry",
-            "cn": "什么是暂降 · TSP 工作原理 · 留言咨询",
-            "jp": "瞬低とは・TSPの動作原理・お問い合わせ",
-            "vn": "Sụt áp là gì, TSP hoạt động ra sao, gửi yêu cầu"
-          }
-        },
-        {
           "id": "blog",
           "href": "https://intro.wesco.works/blog/",
           "title": {
-            "ko": "인사이트",
-            "en": "Insights",
-            "cn": "洞察",
-            "jp": "インサイト",
-            "vn": "Bài viết"
+            "ko": "기술 자료",
+            "en": "Technical Guides",
+            "cn": "技术资料",
+            "jp": "技術資料",
+            "vn": "Tài liệu kỹ thuật"
           },
           "desc": {
             "ko": "순간정전 기초 · ITIC 곡선 · 업종별 사례",
@@ -94,11 +76,11 @@
           "id": "videos",
           "href": "https://intro.wesco.works/videos/",
           "title": {
-            "ko": "TSP 제품·회사 영상",
-            "en": "TSP & Company Videos",
-            "cn": "TSP 产品与公司视频",
-            "jp": "TSP製品・会社動画",
-            "vn": "Video TSP và công ty"
+            "ko": "영상",
+            "en": "Videos",
+            "cn": "视频",
+            "jp": "動画",
+            "vn": "Video"
           },
           "desc": {
             "ko": "6개 언어 적용 전후·설치 영상 · 실제 데모·회사소개",
