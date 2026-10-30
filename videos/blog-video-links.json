@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "default": "legacy:tsp-product",
+  "posts": {
+    "10-year-maintenance-free": "legacy:tsp-product",
+    "automotive-line-voltage-sag": "film:threephase",
+    "battery-free-voltage-sag": "legacy:tsp-product",
+    "control-power-protection": "film:singlephase",
+    "display-fab-power-quality": "film:before-after",
+    "ev-battery-plant-power-quality": "legacy:tsp-product",
+    "factory-outage-damage": "film:before-after",
+    "faq-voltage-sag-basics": "legacy:tsp-product",
+    "global-track-record": "legacy:wesco-company",
+    "itic-curve-guide": "legacy:tsp-product",
+    "lv-scope-explained": "legacy:tsp-product",
+    "momentary-outage-compensator-guide": "legacy:tsp-product",
+    "momentary-power-outage": "legacy:tsp-demo",
+    "outage-vs-voltage-sag": "film:before-after",
+    "plc-momentary-outage": "film:singlephase",
+    "selecting-sag-protector-capacity": "film:threephase",
+    "semi-f47-explained": "legacy:tsp-product",
+    "semiconductor-fab-voltage-sag": "film:before-after",
+    "smart-factory-power-quality": "film:threephase",
+    "summer-lightning-season": "legacy:tsp-product",
+    "supercapacitor-tech-explained": "legacy:tsp-product",
+    "ups-vs-outage-compensator": "legacy:tsp-product",
+    "voltage-sag-cost-structure": "legacy:tsp-demo",
+    "voltage-sag-monitoring": "film:threephase",
+    "why-sags-come-from-outside": "legacy:tsp-demo"
+  },
+  "legacy": {
+    "tsp-product": {
+      "ko": {
+        "path": "/videos/tsp-product/",
+        "title": "순간정전보상장치 TSP® 제품소개 | 3D 애니메이션 | WESCO 웨스코"
+      },
+      "en": {
+        "path": "/en/videos/tsp-product/",
+        "title": "TSP® Voltage Sag Protector | 3D Product Introduction | WESCO"
+      }
+    },
+    "wesco-company": {
+      "en": {
+        "path": "/en/videos/wesco-company/",
+        "title": "WESCO Company Introduction | TSP® Voltage Sag Protector Manufacturer"
+      },
+      "ko": {
+        "path": "/videos/wesco-company/",
+        "title": "웨스코 WESCO 기업소개 | 순간정전보상장치 TSP® 제조사"
+      }
+    },
+    "tsp-demo": {
+      "en": {
+        "path": "/en/videos/tsp-demo/",
+        "title": "TSP® Voltage Sag Protector | Demo Simulation | WESCO"
+      },
+      "ko": {
+        "path": "/videos/tsp-demo/",
+        "title": "순간정전보상장치 TSP® 데모 시연 | 순간전압강하 보상 | WESCO 웨스코"
+      }
+    }
+  }
+}

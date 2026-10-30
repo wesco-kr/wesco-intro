@@ -10,6 +10,7 @@ import math
 import re
 from pathlib import Path
 import xml.etree.ElementTree as ET
+from blog_video_links import BlogVideoConfigError, get_related_video
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = 'https://intro.wesco.works'
@@ -147,21 +148,19 @@ def render_hub():
     write('/videos/index.html',out)
 
 def update_blog_links():
-    groups={
-      'before-after':['outage-vs-voltage-sag','factory-outage-damage','semiconductor-fab-voltage-sag','display-fab-power-quality'],
-      'singlephase':['control-power-protection','plc-momentary-outage'],
-      'threephase':['selecting-sag-protector-capacity','smart-factory-power-quality','automotive-line-voltage-sag','voltage-sag-monitoring']}
     changed=[]
-    for locale in ['ko','en']:
-        for film,slugs in groups.items():
-            item=next(i for i in ENTRIES if i['locale']==locale and i['film']==film)
-            for slug in slugs:
-                p=ROOT/('blog/en' if locale=='en' else 'blog')/slug/'index.html'
-                if not p.exists(): continue
-                old=p.read_text(encoding='utf-8')
-                label=('영상으로 확인: ' if locale=='ko' else 'Watch: ')+item['heading']
-                new=re.sub(r'<a class="rel discovery-video"[^>]*>.*?</a>',f'<a class="rel discovery-video" href="{item["path"]}">{e(label)}</a>',old,flags=re.S)
-                if new!=old: p.write_text(new,encoding='utf-8'); changed.append(p.relative_to(ROOT).as_posix())
+    for locale, directory in [('ko', ROOT/'blog'), ('en', ROOT/'blog/en')]:
+        for p in sorted(directory.glob('*/index.html')):
+            if p.parent.name == 'en': continue  # English index is not an article.
+            item=get_related_video(ROOT, p.parent.name, locale)
+            old=p.read_text(encoding='utf-8')
+            new, count=re.subn(r'<a class="rel discovery-video"[^>]*>.*?</a>',
+                              lambda _: f'<a class="rel discovery-video" href="{e(item["path"])}">{e(item["label"])}</a>',
+                              old, flags=re.S)
+            if count != 1:
+                raise BlogVideoConfigError(f'Expected one generated related-video link in {p.relative_to(ROOT)}; found {count}')
+            if new!=old:
+                p.write_text(new,encoding='utf-8'); changed.append(p.relative_to(ROOT).as_posix())
     return changed
 
 def update_sitemap():
