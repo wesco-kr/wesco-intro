@@ -1,0 +1,2243 @@
+{
+  "version": 1,
+  "copy": {
+    "ko": {
+      "summaryTitle": "이 영상에서 확인할 내용",
+      "chaptersTitle": "시간별 목차",
+      "timeHint": "시간을 누르면 해당 지점에서 영상을 시작할 수 있습니다.",
+      "transcriptTitle": "영상 설명 전문 읽기",
+      "transcriptNote": "공개 영상의 확정 자막을 바탕으로 정리한 발화 내용입니다. 줄바꿈만 읽기 편하게 다듬었습니다.",
+      "referenceNote": "이 영상은 설치 흐름을 설명하는 자료입니다. 실제 작업은 자격을 갖춘 담당자가 해당 모델의 최신 사용자 매뉴얼과 현장 기준에 따라 수행해야 합니다."
+    },
+    "en": {
+      "summaryTitle": "What this video covers",
+      "chaptersTitle": "Chapters",
+      "timeHint": "Select a time to start the video at that point.",
+      "transcriptTitle": "Read the video transcript",
+      "transcriptNote": "Spoken content from the finalized captions for this published video. Subtitle line breaks have been joined for readability.",
+      "referenceNote": "This video explains the installation workflow. Actual work must be performed by qualified personnel using the current manual for the specific model and approved site procedures."
+    },
+    "zh-CN": {
+      "summaryTitle": "本视频介绍什么",
+      "chaptersTitle": "视频目录",
+      "timeHint": "点击时间，即可从视频的相应位置开始观看。",
+      "transcriptTitle": "阅读完整解说",
+      "transcriptNote": "以下为本公开视频定稿字幕中的解说内容，仅合并了字幕换行，方便阅读。",
+      "referenceNote": "本视频用于说明安装流程。实际作业应由具备资质的人员按照对应型号的最新用户手册及现场规定执行。"
+    },
+    "zh-TW": {
+      "summaryTitle": "本影片介紹什麼",
+      "chaptersTitle": "影片章節",
+      "timeHint": "點選時間，即可從影片的對應位置開始觀看。",
+      "transcriptTitle": "閱讀完整解說",
+      "transcriptNote": "以下為本公開影片定稿字幕中的解說內容，僅合併字幕換行，方便閱讀。",
+      "referenceNote": "本影片用於說明安裝流程。實際作業應由具備資格的人員依照對應型號的最新使用手冊與現場規範執行。"
+    },
+    "ja": {
+      "summaryTitle": "この動画でわかること",
+      "chaptersTitle": "チャプター",
+      "timeHint": "時刻を選ぶと、その位置から動画を視聴できます。",
+      "transcriptTitle": "解説の全文を読む",
+      "transcriptNote": "公開済み動画の確定字幕に基づく解説です。読みやすさのため、字幕の改行のみを整理しています。",
+      "referenceNote": "この動画は設置の流れを説明する資料です。実際の作業は、資格を持つ担当者が対象機種の最新マニュアルと現場の規定に従って行ってください。"
+    },
+    "vi": {
+      "summaryTitle": "Nội dung video",
+      "chaptersTitle": "Các phần trong video",
+      "timeHint": "Chọn mốc thời gian để xem video từ vị trí tương ứng.",
+      "transcriptTitle": "Đọc toàn bộ lời thuyết minh",
+      "transcriptNote": "Nội dung lời nói từ phụ đề đã chốt của video công khai này. Các dòng phụ đề được nối lại để dễ đọc.",
+      "referenceNote": "Video giải thích quy trình lắp đặt. Công việc thực tế phải do người có chuyên môn thực hiện theo hướng dẫn mới nhất của đúng model và quy trình tại hiện trường."
+    }
+  },
+  "entries": [
+    {
+      "key": "ko-before-after",
+      "videoId": "-v_ZJZaqG8Q",
+      "locale": "ko",
+      "summary": "순간전압강하나 짧은 정전으로 생산설비가 멈추는 상황과 TSP가 연결된 보호 대상에 전원을 공급하는 개념을 비교합니다. 도입을 검토하는 고객과 현장 담당자가 단상·삼상 설치 영상을 보기 전에 전체 목적을 이해할 수 있는 소개입니다.",
+      "takeaways": [
+        "비적용과 적용 상황을 비교해 설비 전원 보호의 목적을 살펴봅니다.",
+        "보호 대상은 TSP에 연결된 부하이며, 제품 정격과 보상 범위는 실제 부하·운전 조건에 맞춰 선정합니다.",
+        "배선과 시운전의 구체적인 흐름은 같은 언어의 단상·삼상 설치 영상에서 확인할 수 있습니다."
+      ],
+      "chapters": [],
+      "transcript": []
+    },
+    {
+      "key": "ko-singlephase",
+      "videoId": "PBwGk-WIgxM",
+      "locale": "ko",
+      "summary": "설비의 제어전원을 보호하는 단상 TSP 설치 흐름을 설명합니다. 가로·세로 설치 형태에서 연결 관계가 같다는 점부터 INPUT·OUTPUT·접지 결선, 두 종류의 단자 보호 커버, 전원 투입과 시운전까지 이어집니다.",
+      "takeaways": [
+        "전원 측 케이블은 INPUT, 설비 제어전원으로 가는 케이블은 OUTPUT에 연결하는 관계를 확인합니다.",
+        "단자대 커버와 추가 금속 보호 커버를 체결하는 모습, 충전 완료와 녹색 대기 표시를 확인합니다.",
+        "입력 전용 분기 차단기를 이용한 시험과 고객 안내를 살펴봅니다. 통신과 SAG Viewer 모니터링은 선택 사양입니다."
+      ],
+      "chapters": [
+        {
+          "seconds": 0,
+          "title": "단상 TSP 사양과 Stand·Wall 설치 형태"
+        },
+        {
+          "seconds": 16,
+          "title": "전원 차단과 결선 준비"
+        },
+        {
+          "seconds": 37,
+          "title": "INPUT·OUTPUT·접지 결선"
+        },
+        {
+          "seconds": 66,
+          "title": "설비 연결·단자 커버·통신 옵션"
+        },
+        {
+          "seconds": 93,
+          "title": "전원 투입·충전 완료·STBY 확인"
+        },
+        {
+          "seconds": 113,
+          "title": "제어전원 보상시험 확인"
+        },
+        {
+          "seconds": 125,
+          "title": "SAG Viewer 이벤트·파형 확인 (통신 옵션)"
+        },
+        {
+          "seconds": 136,
+          "title": "고객 안내와 마무리"
+        }
+      ],
+      "transcript": [
+        {
+          "start": 0.25,
+          "end": 3.68,
+          "text": "설비의 제어전원을 보호하는 단상 TSP입니다."
+        },
+        {
+          "start": 3.84,
+          "end": 5.83,
+          "text": "가로 설치부터 함께 살펴볼게요."
+        },
+        {
+          "start": 6.55,
+          "end": 9.03,
+          "text": "제품 라벨에서 사양을 확인합니다."
+        },
+        {
+          "start": 10.45,
+          "end": 14.2,
+          "text": "세로로 설치해도 입력과 출력의 연결 관계는 같습니다."
+        },
+        {
+          "start": 16.2,
+          "end": 18.89,
+          "text": "설치 작업 전에 해당 회로의 전원을 차단합니다."
+        },
+        {
+          "start": 27.6,
+          "end": 30.39,
+          "text": "후면 단자 커버를 열면 연결할 위치가 보입니다."
+        },
+        {
+          "start": 31.6,
+          "end": 34.91,
+          "text": "입력과 출력 케이블, 접지선을 먼저 구분합니다."
+        },
+        {
+          "start": 37.65,
+          "end": 41.54,
+          "text": "계통전원의 입력 케이블을 TSP INPUT 단자에 연결합니다."
+        },
+        {
+          "start": 43.95,
+          "end": 47.07,
+          "text": "고리 모양의 단자를 나사 위치에 맞춰 고정합니다."
+        },
+        {
+          "start": 48.25,
+          "end": 51.67,
+          "text": "같은 INPUT 안에서도 P와 N 표시를 각각 맞춥니다."
+        },
+        {
+          "start": 52.65,
+          "end": 57.21,
+          "text": "부하설비로 가는 전원 케이블은 TSP OUTPUT 단자에 연결합니다."
+        },
+        {
+          "start": 58.0,
+          "end": 60.7,
+          "text": "OUTPUT도 P와 N을 구분해 연결합니다."
+        },
+        {
+          "start": 62.05,
+          "end": 64.97,
+          "text": "접지선은 최우측의 접지단자에 연결합니다."
+        },
+        {
+          "start": 66.3,
+          "end": 69.82,
+          "text": "OUTPUT 케이블은 설비의 제어전원 접속부로 이어집니다."
+        },
+        {
+          "start": 71.81,
+          "end": 74.89,
+          "text": "결선 상태를 점검한 뒤, 단자대 커버를 씌웁니다."
+        },
+        {
+          "start": 76.15,
+          "end": 79.4,
+          "text": "통신 옵션이 있는 제품은 노트북도 연결할 수 있습니다."
+        },
+        {
+          "start": 84.5,
+          "end": 87.75,
+          "text": "철제 보호 커버도 제자리에 놓고 단단히 고정합니다."
+        },
+        {
+          "start": 93.45,
+          "end": 97.52,
+          "text": "단상 TSP 입력에 연결된 전용 분기 차단기를 켭니다."
+        },
+        {
+          "start": 98.9,
+          "end": 101.38,
+          "text": "TSP 후면 전원스위치를 켭니다."
+        },
+        {
+          "start": 104.25,
+          "end": 106.78,
+          "text": "화면에서 충전이 끝났는지 확인합니다."
+        },
+        {
+          "start": 106.79,
+          "end": 110.62,
+          "text": "녹색 대기 표시등이 켜져 있으면, 보상할 준비가 된 상태입니다."
+        },
+        {
+          "start": 112.15,
+          "end": 116.23,
+          "text": "이제 제어전원과 공정이 정상적으로 가동되는지 살펴봅니다."
+        },
+        {
+          "start": 116.68,
+          "end": 122.23,
+          "text": "공정 가동 중, TSP 입력 전용 분기를 끄고, 일 초 안에 바로 다시 켭니다."
+        },
+        {
+          "start": 122.57,
+          "end": 125.49,
+          "text": "제어전원과 공정이 유지되는지 확인합니다."
+        },
+        {
+          "start": 126.25,
+          "end": 131.85,
+          "text": "통신 옵션을 사용하는 경우에는, 노트북에서 이벤트 기록과 입력, 출력 파형을 확인합니다."
+        },
+        {
+          "start": 132.23,
+          "end": 135.28,
+          "text": "지금 보시는 화면은 매뉴얼에 실린 예시입니다."
+        },
+        {
+          "start": 137.1,
+          "end": 140.63,
+          "text": "정상 표시와 이력 보는 방법도 함께 안내해 드립니다."
+        },
+        {
+          "start": 141.06,
+          "end": 145.17,
+          "text": "사용하시다가 궁금한 점이 생기면, 언제든 웨스코에 문의해 주세요."
+        },
+        {
+          "start": 145.18,
+          "end": 145.75,
+          "text": "감사합니다."
+        }
+      ],
+      "captionSha256": "57dfeca84429db18cfc0ce561c676942dc18be528005e50efe402b8ecd12243c"
+    },
+    {
+      "key": "ko-threephase",
+      "videoId": "XvvLKWAlaEs",
+      "locale": "ko",
+      "summary": "분전반–TSP–설비의 연결 관계를 바탕으로 삼상 TSP의 설치와 시운전을 설명합니다. 전면 도어 내부의 단자대·차단기 위치와 하부 케이블 인입구부터 입력 전압, 충전, 출력 투입과 설비 동작 확인까지 살펴봅니다.",
+      "takeaways": [
+        "전면 도어 안쪽 하단의 입출력 단자대와 중간의 차단기, 입력·출력·접지 케이블이 통과하는 하부 공용 인입구를 확인합니다.",
+        "분전반 전원 투입 후 입력 AC 전압을 사양과 비교하고, TSP 기동·충전·대기 확인 후 출력을 투입하는 흐름입니다.",
+        "설비 동작을 확인하는 시험, BYPASS의 용도와 고객 안내를 다룹니다. 통신과 SAG Viewer는 선택 사양입니다."
+      ],
+      "chapters": [
+        {
+          "seconds": 0,
+          "title": "삼상 TSP 사양·연결 관계·배치"
+        },
+        {
+          "seconds": 21,
+          "title": "전원 차단·전면 도어 내부 구조"
+        },
+        {
+          "seconds": 39,
+          "title": "하부 인입구·접지·입출력 결선"
+        },
+        {
+          "seconds": 65,
+          "title": "통신 옵션과 결선 후 점검"
+        },
+        {
+          "seconds": 79,
+          "title": "분전반 전원 투입·입력 AC 전압 확인"
+        },
+        {
+          "seconds": 89,
+          "title": "TSP 기동·충전·STBY·출력 투입"
+        },
+        {
+          "seconds": 114,
+          "title": "설비 가동 중 보상시험 확인"
+        },
+        {
+          "seconds": 126,
+          "title": "SAG Viewer 이벤트·파형 확인 (통신 옵션)"
+        },
+        {
+          "seconds": 136,
+          "title": "BYPASS 용도와 고객 안내"
+        }
+      ],
+      "transcript": [
+        {
+          "start": 0.25,
+          "end": 4.18,
+          "text": "삼상 TSP의 설치부터 시운전까지, 함께 살펴볼게요."
+        },
+        {
+          "start": 5.45,
+          "end": 9.38,
+          "text": "분전반 전원은 TSP 입력에, 출력은 설비에 연결합니다."
+        },
+        {
+          "start": 11.15,
+          "end": 13.81,
+          "text": "전면 제품 라벨에서 사양을 확인합니다."
+        },
+        {
+          "start": 16.15,
+          "end": 20.55,
+          "text": "통풍과 점검 공간을 확보한 뒤, 제품을 안정적으로 놓습니다."
+        },
+        {
+          "start": 22.15,
+          "end": 24.96,
+          "text": "설치 작업 전에 해당 회로의 전원을 차단합니다."
+        },
+        {
+          "start": 28.35,
+          "end": 31.27,
+          "text": "전면 도어를 열면 아래쪽에 단자대가 있습니다."
+        },
+        {
+          "start": 34.15,
+          "end": 37.9,
+          "text": "중간은 차단기, 하단은 입력과 출력 단자대입니다."
+        },
+        {
+          "start": 40.25,
+          "end": 44.96,
+          "text": "입력과 출력 케이블, 접지선은 모두 하부의 사각 인입구로 넣습니다."
+        },
+        {
+          "start": 45.23,
+          "end": 47.87,
+          "text": "접지선은 접지 바에 연결합니다."
+        },
+        {
+          "start": 50.2,
+          "end": 54.05,
+          "text": "입력단자대에 상순에 맞게 입력전원 케이블을 결선합니다."
+        },
+        {
+          "start": 58.1,
+          "end": 62.44,
+          "text": "설비로 가는 전원 케이블은 출력단자대에 상순에 맞게 결선합니다."
+        },
+        {
+          "start": 62.7,
+          "end": 65.48,
+          "text": "출력 케이블은 보호할 설비로 이어집니다."
+        },
+        {
+          "start": 66.15,
+          "end": 69.4,
+          "text": "통신 옵션이 있는 제품은 노트북도 연결할 수 있습니다."
+        },
+        {
+          "start": 71.7,
+          "end": 75.25,
+          "text": "체결 상태와 케이블 지지, 배선 경로를 확인합니다."
+        },
+        {
+          "start": 75.65,
+          "end": 79.05,
+          "text": "결선 상태를 한 번 더 살펴보고, 공구를 정리합니다."
+        },
+        {
+          "start": 79.6,
+          "end": 81.2,
+          "text": "분전반 차단기를 켜고,"
+        },
+        {
+          "start": 81.56,
+          "end": 84.66,
+          "text": "TSP 입력단자에서 교류 전압을 측정합니다."
+        },
+        {
+          "start": 84.66,
+          "end": 87.65,
+          "text": "제품 라벨의 정격전압과 맞는지 확인합니다."
+        },
+        {
+          "start": 90.6,
+          "end": 92.41,
+          "text": "TSP 차단기를 켭니다."
+        },
+        {
+          "start": 95.75,
+          "end": 100.41,
+          "text": "화면에 입력이 정상으로 표시되는지 보고, 충전이 끝날 때까지 기다립니다."
+        },
+        {
+          "start": 101.65,
+          "end": 104.18,
+          "text": "화면에서 충전이 끝났는지 확인합니다."
+        },
+        {
+          "start": 104.19,
+          "end": 108.02,
+          "text": "녹색 대기 표시등이 켜져 있으면, 보상할 준비가 된 상태입니다."
+        },
+        {
+          "start": 108.8,
+          "end": 112.68,
+          "text": "충전 완료를 확인한 뒤 TSP 출력 차단기를 켭니다."
+        },
+        {
+          "start": 114.7,
+          "end": 117.46,
+          "text": "이제 설비가 정상 가동되는지 살펴봅니다."
+        },
+        {
+          "start": 117.8,
+          "end": 123.24,
+          "text": "공정이 가동되는 상태에서 앞단 메인 차단기를 끄고, 일 초 안에 바로 다시 켭니다."
+        },
+        {
+          "start": 123.51,
+          "end": 125.68,
+          "text": "설비가 멈추지 않는지 확인합니다."
+        },
+        {
+          "start": 126.75,
+          "end": 132.35,
+          "text": "통신 옵션을 사용하는 경우에는, 노트북에서 이벤트 기록과 입력, 출력 파형을 확인합니다."
+        },
+        {
+          "start": 132.73,
+          "end": 135.78,
+          "text": "지금 보시는 화면은 매뉴얼에 실린 예시입니다."
+        },
+        {
+          "start": 136.75,
+          "end": 143.43,
+          "text": "고장이나 점검 때는 바이패스로 설비 전원을 우회하고, 입출력 차단기로 TSP 회로를 분리합니다."
+        },
+        {
+          "start": 144.7,
+          "end": 148.23,
+          "text": "정상 표시와 이력 보는 방법도 함께 안내해 드립니다."
+        },
+        {
+          "start": 148.56,
+          "end": 152.67,
+          "text": "사용하시다가 궁금한 점이 생기면, 언제든 웨스코에 문의해 주세요."
+        },
+        {
+          "start": 152.68,
+          "end": 153.25,
+          "text": "감사합니다."
+        }
+      ],
+      "captionSha256": "24c342ac74eaac1df96c6928a0f653778d2b4ced683e20b4a4adfaff9abd0ee2"
+    },
+    {
+      "key": "en-before-after",
+      "videoId": "OyOUA83g0pA",
+      "locale": "en",
+      "summary": "Compare a production stoppage during a brief power disturbance with the concept of TSP supplying the equipment connected for protection. This introduction helps customers and site teams understand the purpose before moving on to the single-phase or three-phase installation guide.",
+      "takeaways": [
+        "See the contrast between equipment operation without TSP and with TSP connected.",
+        "Protection applies to the connected load. The product rating and ride-through capability must suit the actual load and operating conditions.",
+        "Use the installation guides in the same language for the wiring and commissioning workflow."
+      ],
+      "chapters": [],
+      "transcript": []
+    },
+    {
+      "key": "en-singlephase",
+      "videoId": "En8y8OtMNW4",
+      "locale": "en",
+      "summary": "Follow the installation workflow for a single-phase TSP protecting equipment control power. The guide covers horizontal and vertical mounting, INPUT and OUTPUT connections, protective earth, both terminal covers, power-up and commissioning.",
+      "takeaways": [
+        "Understand the connection from the supply to INPUT and from OUTPUT to the equipment control-power input.",
+        "See the terminal-block cover and additional metal cover, followed by charging and the green standby indication.",
+        "Review the input-branch interruption test and customer handover. Communications and SAG Viewer monitoring are optional."
+      ],
+      "chapters": [
+        {
+          "seconds": 0,
+          "title": "Product ratings and mounting orientation"
+        },
+        {
+          "seconds": 16,
+          "title": "Power off and preparation"
+        },
+        {
+          "seconds": 37,
+          "title": "INPUT, OUTPUT and protective earth wiring"
+        },
+        {
+          "seconds": 72,
+          "title": "Terminal covers and communications option"
+        },
+        {
+          "seconds": 93,
+          "title": "Power-up, charging and standby indication"
+        },
+        {
+          "seconds": 114,
+          "title": "Equipment operation and interruption test"
+        },
+        {
+          "seconds": 126,
+          "title": "SAG Viewer monitoring (optional)"
+        },
+        {
+          "seconds": 137,
+          "title": "Customer handover and support"
+        }
+      ],
+      "transcript": [
+        {
+          "start": 0.21,
+          "end": 6.83,
+          "text": "This single-phase TSP protects equipment control power. Let's start with horizontal mounting."
+        },
+        {
+          "start": 7.03,
+          "end": 8.99,
+          "text": "Check the ratings on the product label."
+        },
+        {
+          "start": 10.41,
+          "end": 14.35,
+          "text": "The input and output connections stay the same when mounted vertically."
+        },
+        {
+          "start": 16.16,
+          "end": 18.87,
+          "text": "Turn off power to the circuit before installation."
+        },
+        {
+          "start": 27.56,
+          "end": 30.63,
+          "text": "Open the rear terminal cover to see the connections."
+        },
+        {
+          "start": 31.56,
+          "end": 35.61,
+          "text": "Identify the input, output and protective earth cables."
+        },
+        {
+          "start": 37.61,
+          "end": 41.8,
+          "text": "Connect the incoming supply cable to the TSP input terminals."
+        },
+        {
+          "start": 43.91,
+          "end": 46.86,
+          "text": "Align the ring terminal with the screw and secure it."
+        },
+        {
+          "start": 48.21,
+          "end": 51.1,
+          "text": "Match P and N to the correct input terminals."
+        },
+        {
+          "start": 52.61,
+          "end": 56.51,
+          "text": "Connect the equipment's power cable to the TSP output terminals."
+        },
+        {
+          "start": 57.96,
+          "end": 60.79,
+          "text": "Match P and N on the output side too."
+        },
+        {
+          "start": 62.01,
+          "end": 65.11,
+          "text": "Connect protective earth to the far-right earth terminal."
+        },
+        {
+          "start": 66.26,
+          "end": 69.84,
+          "text": "The output cable connects to the equipment's control power input."
+        },
+        {
+          "start": 71.77,
+          "end": 74.8,
+          "text": "Check the wiring, then fit the terminal cover."
+        },
+        {
+          "start": 76.11,
+          "end": 79.51,
+          "text": "You can connect a laptop if the communications option is fitted."
+        },
+        {
+          "start": 84.46,
+          "end": 87.55,
+          "text": "Fit the metal protective cover and fasten it securely."
+        },
+        {
+          "start": 93.41,
+          "end": 96.96,
+          "text": "Turn on the dedicated TSP input branch breaker."
+        },
+        {
+          "start": 98.86,
+          "end": 100.48,
+          "text": "Turn on the rear power switch."
+        },
+        {
+          "start": 104.21,
+          "end": 111.09,
+          "text": "Check the display for full charge. The green standby light means TSP is ready to provide protection."
+        },
+        {
+          "start": 112.11,
+          "end": 116.01,
+          "text": "Now check that control power and the process are operating normally."
+        },
+        {
+          "start": 116.64,
+          "end": 125.07,
+          "text": "With the process running, cycle the input branch breaker off and on within one second. Confirm control power and the process continue."
+        },
+        {
+          "start": 126.21,
+          "end": 133.88,
+          "text": "With optional communications, check events and input and output waveforms on the laptop. This screen is an example from the manual."
+        },
+        {
+          "start": 137.06,
+          "end": 143.6,
+          "text": "We'll explain the normal indicators and how to check event history. Contact WESCO anytime if you have questions."
+        },
+        {
+          "start": 143.86,
+          "end": 145.26,
+          "text": "Thank you."
+        }
+      ],
+      "captionSha256": "287f6fc4d80b4cfe1babd44e928faa9bfdd115e9d59c778bd334b486aa42f751"
+    },
+    {
+      "key": "en-threephase",
+      "videoId": "Lj4nvtzeylA",
+      "locale": "en",
+      "summary": "Follow the supply-panel–TSP–equipment connection through installation and commissioning. The guide shows the terminal blocks and breakers behind the front door, the bottom cable entry, and the sequence from input-voltage checks to charging, output power and equipment operation.",
+      "takeaways": [
+        "Locate the terminal blocks below the breakers and the shared bottom entry for input, output and protective-earth cables.",
+        "Follow panel power-on, input AC-voltage verification, TSP start-up, charging and standby checks before switching on the output.",
+        "Review the equipment-operation test, the role of BYPASS and customer handover. Communications and SAG Viewer are optional."
+      ],
+      "chapters": [
+        {
+          "seconds": 0,
+          "title": "Product ratings and power path"
+        },
+        {
+          "seconds": 16,
+          "title": "Positioning the unit and switching power off"
+        },
+        {
+          "seconds": 28,
+          "title": "Front-door layout and cable entry"
+        },
+        {
+          "seconds": 50,
+          "title": "INPUT and OUTPUT wiring and final checks"
+        },
+        {
+          "seconds": 80,
+          "title": "Input-voltage check, power-up and charging"
+        },
+        {
+          "seconds": 108,
+          "title": "Output power and interruption test"
+        },
+        {
+          "seconds": 126,
+          "title": "SAG Viewer monitoring (optional)"
+        },
+        {
+          "seconds": 136,
+          "title": "Bypass purpose and customer handover"
+        }
+      ],
+      "transcript": [
+        {
+          "start": 0.21,
+          "end": 4.18,
+          "text": "Let's look at installing and commissioning a three-phase TSP."
+        },
+        {
+          "start": 5.41,
+          "end": 9.9,
+          "text": "Connect panel power to TSP input, and output to the equipment."
+        },
+        {
+          "start": 11.11,
+          "end": 13.13,
+          "text": "Check the ratings on the front label."
+        },
+        {
+          "start": 16.11,
+          "end": 20.23,
+          "text": "Allow space for airflow and servicing, then position the unit securely."
+        },
+        {
+          "start": 22.11,
+          "end": 24.77,
+          "text": "Turn off power to the circuit before installation."
+        },
+        {
+          "start": 28.31,
+          "end": 31.21,
+          "text": "Open the front door to find the terminal blocks at the bottom."
+        },
+        {
+          "start": 34.11,
+          "end": 37.57,
+          "text": "The breakers are in the middle; input and output terminals are below."
+        },
+        {
+          "start": 40.21,
+          "end": 44.47,
+          "text": "Route input, output and earth cables through the shared rectangular base entry."
+        },
+        {
+          "start": 45.19,
+          "end": 47.31,
+          "text": "Connect protective earth to the earth bar."
+        },
+        {
+          "start": 50.16,
+          "end": 53.85,
+          "text": "Connect input cables to the input block in the correct phase sequence."
+        },
+        {
+          "start": 58.06,
+          "end": 63.11,
+          "text": "Connect the protected equipment's cables to TSP output, matching the phase sequence."
+        },
+        {
+          "start": 66.11,
+          "end": 69.2,
+          "text": "You can connect a laptop if the communications option is fitted."
+        },
+        {
+          "start": 71.66,
+          "end": 78.08,
+          "text": "Check the connections, cable supports and cable routing. Check the wiring once more and remove your tools."
+        },
+        {
+          "start": 79.56,
+          "end": 80.96,
+          "text": "Turn on the panel breaker."
+        },
+        {
+          "start": 81.52,
+          "end": 87.33,
+          "text": "At the TSP input terminals, measure AC voltage and compare it with the label's rated voltage."
+        },
+        {
+          "start": 90.56,
+          "end": 92.17,
+          "text": "Turn on the TSP breaker."
+        },
+        {
+          "start": 95.71,
+          "end": 100.0,
+          "text": "Check the display shows normal input, then wait for charging to finish."
+        },
+        {
+          "start": 101.61,
+          "end": 108.02,
+          "text": "Confirm full charge on-screen. The green standby light means TSP is ready for protection."
+        },
+        {
+          "start": 108.76,
+          "end": 112.26,
+          "text": "Once fully charged, turn on the TSP output breaker."
+        },
+        {
+          "start": 114.66,
+          "end": 116.76,
+          "text": "Check the equipment is operating normally."
+        },
+        {
+          "start": 117.76,
+          "end": 125.03,
+          "text": "During operation, switch the upstream main breaker off and back on within one second. Check that the equipment keeps running."
+        },
+        {
+          "start": 126.71,
+          "end": 134.72,
+          "text": "With optional communications, check events and input and output waveforms on the laptop. This screen is an example from the manual."
+        },
+        {
+          "start": 136.71,
+          "end": 143.2,
+          "text": "For faults or checks, bypass feeds the load; input and output breakers disconnect TSP."
+        },
+        {
+          "start": 144.66,
+          "end": 150.65,
+          "text": "We'll explain the normal indicators and how to check event history. Contact WESCO anytime if you have questions."
+        },
+        {
+          "start": 151.42,
+          "end": 152.82,
+          "text": "Thank you."
+        }
+      ],
+      "captionSha256": "262ddf4c7dbd7e0b061060f44b15e028415ba817705c26bc1c6fc91f13b34b75"
+    },
+    {
+      "key": "zh-CN-before-after",
+      "videoId": "c45UkHi8Um4",
+      "locale": "zh-CN",
+      "summary": "对比短时电源扰动造成生产设备停机的情景，与 TSP 向所连接的受保护设备供电的概念。客户和现场工程师可先了解保护目的，再观看单相或三相安装教学。",
+      "takeaways": [
+        "通过未配置与配置 TSP 的情景对比，了解设备电源保护的作用。",
+        "保护对象为连接到 TSP 的负载。产品额定参数和补偿能力应根据实际负载及运行条件选择。",
+        "具体接线和调试流程，请查看同语言的单相与三相安装视频。"
+      ],
+      "chapters": [],
+      "transcript": []
+    },
+    {
+      "key": "zh-CN-singlephase",
+      "videoId": "UPCtmbrDC9A",
+      "locale": "zh-CN",
+      "summary": "介绍用于保护设备控制电源的单相 TSP 安装流程，涵盖横向与竖向安装、输入和输出接线、保护接地、两层端子防护、上电与调试。",
+      "takeaways": [
+        "了解电源侧接 INPUT、OUTPUT 接设备控制电源的连接关系。",
+        "查看端子排盖与附加金属防护罩的安装，以及充电完成和绿色待机指示。",
+        "了解输入专用分支回路的短时断电测试及客户培训。通信和 SAG Viewer 监控为选配功能。"
+      ],
+      "chapters": [
+        {
+          "seconds": 0,
+          "title": "产品规格与安装方向"
+        },
+        {
+          "seconds": 16,
+          "title": "断电与接线准备"
+        },
+        {
+          "seconds": 37,
+          "title": "输入、输出与保护接地接线"
+        },
+        {
+          "seconds": 72,
+          "title": "端子保护罩与通信选配"
+        },
+        {
+          "seconds": 93,
+          "title": "上电、充电与待机检查"
+        },
+        {
+          "seconds": 114,
+          "title": "运行检查与短时断电测试"
+        },
+        {
+          "seconds": 126,
+          "title": "SAG Viewer 监控（选配）"
+        },
+        {
+          "seconds": 137,
+          "title": "客户培训与咨询"
+        }
+      ],
+      "transcript": [
+        {
+          "start": 0.21,
+          "end": 4.786,
+          "text": "单相 TSP 保护设备的控制电源。先来看横向安装。"
+        },
+        {
+          "start": 6.51,
+          "end": 8.93,
+          "text": "查看产品标签，确认规格。"
+        },
+        {
+          "start": 10.41,
+          "end": 13.73,
+          "text": "竖向安装时，输入和输出的连接方式不变。"
+        },
+        {
+          "start": 16.16,
+          "end": 18.48,
+          "text": "安装前，先切断该回路的电源。"
+        },
+        {
+          "start": 27.56,
+          "end": 30.06,
+          "text": "打开后部端子盖，查看接线位置。"
+        },
+        {
+          "start": 31.56,
+          "end": 34.29,
+          "text": "先分清输入、输出电缆和保护接地线。"
+        },
+        {
+          "start": 37.61,
+          "end": 40.1,
+          "text": "把电源侧的输入电缆接到 TSP 输入端子。"
+        },
+        {
+          "start": 44.22,
+          "end": 46.73,
+          "text": "把环形端子对准螺钉，并固定好。"
+        },
+        {
+          "start": 48.42,
+          "end": 51.62,
+          "text": "按输入侧的 P 和 N 标识分别接线。"
+        },
+        {
+          "start": 52.82,
+          "end": 56.69,
+          "text": "通往设备的电源电缆，接到 TSP 输出端子。"
+        },
+        {
+          "start": 58.22,
+          "end": 60.76,
+          "text": "输出侧也要按 P 和 N 标识接线。"
+        },
+        {
+          "start": 62.22,
+          "end": 64.44,
+          "text": "保护接地线接到最右侧的接地端子。"
+        },
+        {
+          "start": 66.26,
+          "end": 69.08,
+          "text": "输出电缆连接设备的控制电源输入端。"
+        },
+        {
+          "start": 71.77,
+          "end": 73.96,
+          "text": "检查接线后，装上端子排盖。"
+        },
+        {
+          "start": 76.11,
+          "end": 79.28,
+          "text": "选配通信功能后，还可以连接笔记本电脑。"
+        },
+        {
+          "start": 84.46,
+          "end": 86.83,
+          "text": "再装上金属防护罩，并牢固固定。"
+        },
+        {
+          "start": 93.41,
+          "end": 96.33,
+          "text": "合上 TSP 输入专用分支断路器。"
+        },
+        {
+          "start": 98.86,
+          "end": 100.87,
+          "text": "打开 TSP 后部的电源开关。"
+        },
+        {
+          "start": 104.21,
+          "end": 110.29,
+          "text": "在屏幕上确认充电完成。绿色待机灯亮起，表示 TSP 已准备好进行补偿。"
+        },
+        {
+          "start": 112.11,
+          "end": 114.9,
+          "text": "确认控制电源和生产流程都正常。"
+        },
+        {
+          "start": 116.64,
+          "end": 125.71,
+          "text": "生产运行时，断开输入专用分支断路器，并在一秒内重新合上。确认控制电源保持供电，生产持续运行。"
+        },
+        {
+          "start": 126.21,
+          "end": 134.21,
+          "text": "选配通信功能后，可在笔记本电脑上查看事件记录和输入、输出波形。画面是用户手册中的示例。"
+        },
+        {
+          "start": 137.06,
+          "end": 143.64,
+          "text": "我们还会介绍正常状态指示和历史记录的查看方法。有疑问，欢迎随时联系 WESCO。"
+        },
+        {
+          "start": 144.46,
+          "end": 145.9,
+          "text": "谢谢。"
+        }
+      ],
+      "captionSha256": "e04ef5c7f9cce805faa5829fe28c5d004493841c927a16d64696d49fe50c6c4c"
+    },
+    {
+      "key": "zh-CN-threephase",
+      "videoId": "dJzDsouY6Q8",
+      "locale": "zh-CN",
+      "summary": "按配电柜–TSP–设备的连接关系介绍三相 TSP 安装与调试。内容包括前门内的端子排和断路器、底部电缆进线口，以及输入电压、充电、输出供电和设备运行检查。",
+      "takeaways": [
+        "确认断路器位于中部，输入输出端子排位于下方；输入、输出和保护接地线共用底部进线口。",
+        "了解配电柜送电、输入交流电压核对、TSP 启动、充电及待机确认后投入输出的流程。",
+        "查看设备运行测试、BYPASS 的用途及客户培训。通信和 SAG Viewer 为选配功能。"
+      ],
+      "chapters": [
+        {
+          "seconds": 0,
+          "title": "产品与供电连接关系"
+        },
+        {
+          "seconds": 16,
+          "title": "安装位置与断电准备"
+        },
+        {
+          "seconds": 28,
+          "title": "前门内部结构与电缆进线"
+        },
+        {
+          "seconds": 50,
+          "title": "输入、输出接线与连接检查"
+        },
+        {
+          "seconds": 80,
+          "title": "上电、输入电压与充电检查"
+        },
+        {
+          "seconds": 109,
+          "title": "输出供电与短时断电测试"
+        },
+        {
+          "seconds": 127,
+          "title": "SAG Viewer 监控（选配）"
+        },
+        {
+          "seconds": 137,
+          "title": "旁路用途与客户培训"
+        }
+      ],
+      "transcript": [
+        {
+          "start": 0.0,
+          "end": 2.72,
+          "text": "一起来看三相 TSP 的安装与调试。"
+        },
+        {
+          "start": 5.41,
+          "end": 9.19,
+          "text": "配电柜电源接 TSP 输入端，输出端接设备。"
+        },
+        {
+          "start": 11.11,
+          "end": 13.75,
+          "text": "查看正面的产品标签，确认规格。"
+        },
+        {
+          "start": 16.11,
+          "end": 19.13,
+          "text": "留出通风和检修空间，再把产品放稳。"
+        },
+        {
+          "start": 22.11,
+          "end": 24.73,
+          "text": "安装前，先切断该回路的电源。"
+        },
+        {
+          "start": 28.31,
+          "end": 31.15,
+          "text": "打开前门，就能看到下方的端子排。"
+        },
+        {
+          "start": 34.11,
+          "end": 37.69,
+          "text": "中部是断路器，下方是输入和输出端子排。"
+        },
+        {
+          "start": 40.21,
+          "end": 44.42,
+          "text": "输入、输出和接地线，共用底部的矩形进线口。"
+        },
+        {
+          "start": 45.19,
+          "end": 47.36,
+          "text": "把保护接地线接到接地排。"
+        },
+        {
+          "start": 50.16,
+          "end": 54.11,
+          "text": "按相序，将输入电源电缆接到输入端子排。"
+        },
+        {
+          "start": 58.06,
+          "end": 62.62,
+          "text": "把通往受保护设备的电缆，按相序接到 TSP 输出端子排。"
+        },
+        {
+          "start": 66.11,
+          "end": 69.35,
+          "text": "选配通信功能后，还可以连接笔记本电脑。"
+        },
+        {
+          "start": 71.66,
+          "end": 77.98,
+          "text": "检查紧固情况、电缆支撑和布线路径。再检查一次接线，并收好工具。"
+        },
+        {
+          "start": 79.56,
+          "end": 81.14,
+          "text": "合上配电柜断路器。"
+        },
+        {
+          "start": 81.52,
+          "end": 87.11,
+          "text": "在 TSP 输入端子上测量交流电压，并与标签上的额定电压对照。"
+        },
+        {
+          "start": 90.56,
+          "end": 92.18,
+          "text": "合上 TSP 断路器。"
+        },
+        {
+          "start": 95.71,
+          "end": 99.16,
+          "text": "确认屏幕显示输入正常，再等待充电完成。"
+        },
+        {
+          "start": 101.61,
+          "end": 107.69,
+          "text": "在屏幕上确认充电完成。绿色待机灯亮起，表示 TSP 已准备好进行补偿。"
+        },
+        {
+          "start": 108.76,
+          "end": 112.65,
+          "text": "确认充电完成后，合上 TSP 输出断路器。"
+        },
+        {
+          "start": 114.66,
+          "end": 116.54,
+          "text": "检查设备是否正常运行。"
+        },
+        {
+          "start": 117.76,
+          "end": 124.51,
+          "text": "生产运行时，断开上游主断路器，并在一秒内重新合上。确认设备持续运行。"
+        },
+        {
+          "start": 126.71,
+          "end": 134.71,
+          "text": "选配通信功能后，可在笔记本电脑上查看事件记录和输入、输出波形。画面是用户手册中的示例。"
+        },
+        {
+          "start": 136.71,
+          "end": 143.03,
+          "text": "故障或检修时，可用旁路给设备供电，并用输入、输出断路器断开 TSP 回路。"
+        },
+        {
+          "start": 144.66,
+          "end": 151.72,
+          "text": "我们还会介绍正常状态指示和历史记录的查看方法。有疑问，欢迎随时联系 WESCO。"
+        },
+        {
+          "start": 152.57,
+          "end": 154.01,
+          "text": "谢谢。"
+        }
+      ],
+      "captionSha256": "5604ad262c20cf47f57bc2afeadd6d7c216360d14b9be7cf4af5ae5eda24f96c"
+    },
+    {
+      "key": "zh-TW-before-after",
+      "videoId": "Xzp5PJhguYk",
+      "locale": "zh-TW",
+      "summary": "比較短暫電源擾動造成生產設備停機的情境，以及 TSP 向所連接的受保護設備供電的概念。客戶與現場工程師可先了解保護目的，再觀看單相或三相安裝教學。",
+      "takeaways": [
+        "透過未配置與配置 TSP 的情境對比，了解設備電源保護的作用。",
+        "保護對象為連接至 TSP 的負載。產品額定規格與補償能力應依實際負載及運轉條件選擇。",
+        "具體接線與試運轉流程，請查看同語言的單相與三相安裝影片。"
+      ],
+      "chapters": [],
+      "transcript": []
+    },
+    {
+      "key": "zh-TW-singlephase",
+      "videoId": "n5itCFfDgDw",
+      "locale": "zh-TW",
+      "summary": "介紹用於保護設備控制電源的單相 TSP 安裝流程，涵蓋橫向與直立安裝、輸入及輸出接線、保護接地、兩層端子防護、送電與試運轉。",
+      "takeaways": [
+        "了解電源側接 INPUT、OUTPUT 接設備控制電源的連接關係。",
+        "查看端子台蓋與額外金屬保護罩的安裝，以及充電完成與綠色待機指示。",
+        "了解輸入專用分路的短暫斷電測試與客戶教學。通訊與 SAG Viewer 監控為選配功能。"
+      ],
+      "chapters": [
+        {
+          "seconds": 0,
+          "title": "產品規格與安裝方向"
+        },
+        {
+          "seconds": 16,
+          "title": "斷電與接線準備"
+        },
+        {
+          "seconds": 37,
+          "title": "輸入、輸出與保護接地接線"
+        },
+        {
+          "seconds": 72,
+          "title": "端子保護罩與通訊選配"
+        },
+        {
+          "seconds": 93,
+          "title": "送電、充電與待機檢查"
+        },
+        {
+          "seconds": 114,
+          "title": "運轉確認與短暫斷電測試"
+        },
+        {
+          "seconds": 126,
+          "title": "SAG Viewer 監控（選配）"
+        },
+        {
+          "seconds": 137,
+          "title": "客戶教學與洽詢"
+        }
+      ],
+      "transcript": [
+        {
+          "start": 0.21,
+          "end": 4.786,
+          "text": "單相 TSP 保護設備的控制電源。先來看橫向安裝。"
+        },
+        {
+          "start": 6.51,
+          "end": 8.93,
+          "text": "查看產品標籤，確認規格。"
+        },
+        {
+          "start": 10.41,
+          "end": 13.73,
+          "text": "豎向安裝時，輸入和輸出的連接方式不變。"
+        },
+        {
+          "start": 16.16,
+          "end": 18.48,
+          "text": "安裝前，先切斷該回路的電源。"
+        },
+        {
+          "start": 27.56,
+          "end": 30.06,
+          "text": "打開後部端子蓋，查看接線位置。"
+        },
+        {
+          "start": 31.56,
+          "end": 34.29,
+          "text": "先分清輸入、輸出電纜和保護接地線。"
+        },
+        {
+          "start": 37.61,
+          "end": 40.1,
+          "text": "把電源側的輸入電纜接到 TSP 輸入端子。"
+        },
+        {
+          "start": 44.22,
+          "end": 46.73,
+          "text": "把環形端子對準螺釘，並固定好。"
+        },
+        {
+          "start": 48.42,
+          "end": 51.62,
+          "text": "按輸入側的 P 和 N 標識分別接線。"
+        },
+        {
+          "start": 52.82,
+          "end": 56.69,
+          "text": "通往設備的電源電纜，接到 TSP 輸出端子。"
+        },
+        {
+          "start": 58.22,
+          "end": 60.76,
+          "text": "輸出側也要按 P 和 N 標識接線。"
+        },
+        {
+          "start": 62.22,
+          "end": 64.44,
+          "text": "保護接地線接到最右側的接地端子。"
+        },
+        {
+          "start": 66.26,
+          "end": 69.08,
+          "text": "輸出電纜連接設備的控制電源輸入端。"
+        },
+        {
+          "start": 71.77,
+          "end": 73.96,
+          "text": "檢查接線後，裝上端子排蓋。"
+        },
+        {
+          "start": 76.11,
+          "end": 79.28,
+          "text": "選配通信功能後，還可以連接筆記本電腦。"
+        },
+        {
+          "start": 84.46,
+          "end": 86.83,
+          "text": "再裝上金屬防護罩，並牢固固定。"
+        },
+        {
+          "start": 93.41,
+          "end": 96.33,
+          "text": "合上 TSP 輸入專用分支斷路器。"
+        },
+        {
+          "start": 98.86,
+          "end": 100.87,
+          "text": "打開 TSP 後部的電源開關。"
+        },
+        {
+          "start": 104.21,
+          "end": 110.29,
+          "text": "在屏幕上確認充電完成。綠色待機燈亮起，表示 TSP 已準備好進行補償。"
+        },
+        {
+          "start": 112.11,
+          "end": 114.9,
+          "text": "確認控制電源和生產流程都正常。"
+        },
+        {
+          "start": 116.64,
+          "end": 125.71,
+          "text": "生產運行時，斷開輸入專用分支斷路器，並在一秒內重新合上。確認控制電源保持供電，生產持續運行。"
+        },
+        {
+          "start": 126.21,
+          "end": 134.21,
+          "text": "選配通信功能後，可在筆記本電腦上查看事件記錄和輸入、輸出波形。畫面是用戶手冊中的示例。"
+        },
+        {
+          "start": 137.06,
+          "end": 143.64,
+          "text": "我們還會介紹正常狀態指示和歷史記錄的查看方法。有疑問，歡迎隨時聯繫 WESCO。"
+        },
+        {
+          "start": 144.46,
+          "end": 145.9,
+          "text": "謝謝。"
+        }
+      ],
+      "captionSha256": "64b22a67f94e715ea5391627ce5837c7ac1e2b3c313b375462353ec10eee3925"
+    },
+    {
+      "key": "zh-TW-threephase",
+      "videoId": "a99Aec9Q33g",
+      "locale": "zh-TW",
+      "summary": "依配電盤–TSP–設備的連接關係介紹三相 TSP 安裝與試運轉。內容包括前門內的端子台和斷路器、底部電纜引入口，以及輸入電壓、充電、輸出供電與設備運轉確認。",
+      "takeaways": [
+        "確認斷路器位於中部，輸入輸出端子台位於下方；輸入、輸出與保護接地線共用底部引入口。",
+        "了解配電盤送電、輸入交流電壓核對、TSP 啟動、充電及待機確認後投入輸出的流程。",
+        "查看設備運轉測試、BYPASS 的用途與客戶教學。通訊與 SAG Viewer 為選配功能。"
+      ],
+      "chapters": [
+        {
+          "seconds": 0,
+          "title": "產品與供電連接關係"
+        },
+        {
+          "seconds": 16,
+          "title": "安裝位置與斷電準備"
+        },
+        {
+          "seconds": 28,
+          "title": "前門內部結構與電纜引入"
+        },
+        {
+          "seconds": 50,
+          "title": "輸入、輸出接線與連接檢查"
+        },
+        {
+          "seconds": 80,
+          "title": "送電、輸入電壓與充電檢查"
+        },
+        {
+          "seconds": 109,
+          "title": "輸出供電與短暫斷電測試"
+        },
+        {
+          "seconds": 127,
+          "title": "SAG Viewer 監控（選配）"
+        },
+        {
+          "seconds": 137,
+          "title": "旁路用途與客戶教學"
+        }
+      ],
+      "transcript": [
+        {
+          "start": 0.0,
+          "end": 2.72,
+          "text": "一起來看三相 TSP 的安裝與調試。"
+        },
+        {
+          "start": 5.41,
+          "end": 9.19,
+          "text": "配電櫃電源接 TSP 輸入端，輸出端接設備。"
+        },
+        {
+          "start": 11.11,
+          "end": 13.75,
+          "text": "查看正面的產品標籤，確認規格。"
+        },
+        {
+          "start": 16.11,
+          "end": 19.13,
+          "text": "留出通風和檢修空間，再把產品放穩。"
+        },
+        {
+          "start": 22.11,
+          "end": 24.73,
+          "text": "安裝前，先切斷該回路的電源。"
+        },
+        {
+          "start": 28.31,
+          "end": 31.15,
+          "text": "打開前門，就能看到下方的端子排。"
+        },
+        {
+          "start": 34.11,
+          "end": 37.69,
+          "text": "中部是斷路器，下方是輸入和輸出端子排。"
+        },
+        {
+          "start": 40.21,
+          "end": 44.42,
+          "text": "輸入、輸出和接地線，共用底部的矩形進線口。"
+        },
+        {
+          "start": 45.19,
+          "end": 47.36,
+          "text": "把保護接地線接到接地排。"
+        },
+        {
+          "start": 50.16,
+          "end": 54.11,
+          "text": "按相序，將輸入電源電纜接到輸入端子排。"
+        },
+        {
+          "start": 58.06,
+          "end": 62.62,
+          "text": "把通往受保護設備的電纜，按相序接到 TSP 輸出端子排。"
+        },
+        {
+          "start": 66.11,
+          "end": 69.35,
+          "text": "選配通信功能後，還可以連接筆記本電腦。"
+        },
+        {
+          "start": 71.66,
+          "end": 77.98,
+          "text": "檢查緊固情況、電纜支撐和布線路徑。再檢查一次接線，並收好工具。"
+        },
+        {
+          "start": 79.56,
+          "end": 81.14,
+          "text": "合上配電櫃斷路器。"
+        },
+        {
+          "start": 81.52,
+          "end": 87.11,
+          "text": "在 TSP 輸入端子上測量交流電壓，並與標籤上的額定電壓對照。"
+        },
+        {
+          "start": 90.56,
+          "end": 92.18,
+          "text": "合上 TSP 斷路器。"
+        },
+        {
+          "start": 95.71,
+          "end": 99.16,
+          "text": "確認屏幕顯示輸入正常，再等待充電完成。"
+        },
+        {
+          "start": 101.61,
+          "end": 107.69,
+          "text": "在屏幕上確認充電完成。綠色待機燈亮起，表示 TSP 已準備好進行補償。"
+        },
+        {
+          "start": 108.76,
+          "end": 112.65,
+          "text": "確認充電完成後，合上 TSP 輸出斷路器。"
+        },
+        {
+          "start": 114.66,
+          "end": 116.54,
+          "text": "檢查設備是否正常運行。"
+        },
+        {
+          "start": 117.76,
+          "end": 124.51,
+          "text": "生產運行時，斷開上游主斷路器，並在一秒內重新合上。確認設備持續運行。"
+        },
+        {
+          "start": 126.71,
+          "end": 134.71,
+          "text": "選配通信功能後，可在筆記本電腦上查看事件記錄和輸入、輸出波形。畫面是用戶手冊中的示例。"
+        },
+        {
+          "start": 136.71,
+          "end": 143.03,
+          "text": "故障或檢修時，可用旁路給設備供電，並用輸入、輸出斷路器斷開 TSP 回路。"
+        },
+        {
+          "start": 144.66,
+          "end": 151.72,
+          "text": "我們還會介紹正常狀態指示和歷史記錄的查看方法。有疑問，歡迎隨時聯繫 WESCO。"
+        },
+        {
+          "start": 152.57,
+          "end": 154.01,
+          "text": "謝謝。"
+        }
+      ],
+      "captionSha256": "33621ee020d19c93ef9d8233348fbcb937309ac7dbb6f5d4101242a1e42311a3"
+    },
+    {
+      "key": "ja-before-after",
+      "videoId": "Ut8JB6e5-TU",
+      "locale": "ja",
+      "summary": "短時間の電源変動で生産設備が停止する場面と、TSP が接続された保護対象へ給電する考え方を比較します。単相・三相の設置動画を見る前に、お客様や現場担当者が保護の目的を理解するための紹介動画です。",
+      "takeaways": [
+        "TSP を導入していない場合と導入した場合の設備動作を比較します。",
+        "保護対象は TSP に接続された負荷です。製品の定格と補償範囲は、実際の負荷や運転条件に合わせて選定します。",
+        "結線と試運転の具体的な流れは、同じ言語の単相・三相設置動画で確認できます。"
+      ],
+      "chapters": [],
+      "transcript": []
+    },
+    {
+      "key": "ja-singlephase",
+      "videoId": "HwKY01VcqeM",
+      "locale": "ja",
+      "summary": "設備の制御電源を保護する単相 TSP の設置手順を紹介します。横置き・縦置き、入力と出力の接続、接地、2種類の端子保護カバー、電源投入から試運転までを扱います。",
+      "takeaways": [
+        "電源側を INPUT へ、OUTPUT を設備の制御電源入力へ接続する関係を確認します。",
+        "端子台カバーと追加の金属製保護カバー、充電完了と緑の待機ランプを確認します。",
+        "入力専用分岐回路での短時間停電試験とお客様への案内を紹介します。通信と SAG Viewer はオプションです。"
+      ],
+      "chapters": [
+        {
+          "seconds": 0,
+          "title": "製品仕様と設置方向"
+        },
+        {
+          "seconds": 16,
+          "title": "電源遮断と結線準備"
+        },
+        {
+          "seconds": 37,
+          "title": "入力・出力・接地の結線"
+        },
+        {
+          "seconds": 72,
+          "title": "保護カバーと通信オプション"
+        },
+        {
+          "seconds": 93,
+          "title": "電源投入・充電・待機確認"
+        },
+        {
+          "seconds": 114,
+          "title": "運転確認と短時間の停電試験"
+        },
+        {
+          "seconds": 134,
+          "title": "SAG Viewer（通信オプション）"
+        },
+        {
+          "seconds": 145,
+          "title": "お客様へのご案内"
+        }
+      ],
+      "transcript": [
+        {
+          "start": 0.21,
+          "end": 5.56,
+          "text": "これは制御電源を保護する単相 TSP です。まず横置きから説明します。"
+        },
+        {
+          "start": 6.51,
+          "end": 8.88,
+          "text": "製品ラベルで仕様を確認します。"
+        },
+        {
+          "start": 10.41,
+          "end": 14.16,
+          "text": "縦置きでも、入力と出力の接続は同じです。"
+        },
+        {
+          "start": 16.16,
+          "end": 19.53,
+          "text": "設置前に、該当回路の電源を切ります。"
+        },
+        {
+          "start": 26.61,
+          "end": 31.09,
+          "text": "背面の端子カバーを開き、接続位置を確認します。"
+        },
+        {
+          "start": 31.56,
+          "end": 35.33,
+          "text": "入力・出力ケーブルと接地線を確認します。"
+        },
+        {
+          "start": 37.61,
+          "end": 42.85,
+          "text": "電源側のケーブルを TSP の入力端子に接続します。"
+        },
+        {
+          "start": 44.21,
+          "end": 47.87,
+          "text": "丸形端子をねじに合わせ、固定します。"
+        },
+        {
+          "start": 48.41,
+          "end": 52.69,
+          "text": "入力側は P と N の表示に合わせて接続します。"
+        },
+        {
+          "start": 52.86,
+          "end": 57.99,
+          "text": "設備側の電源ケーブルを TSP の出力端子に接続します。"
+        },
+        {
+          "start": 58.21,
+          "end": 62.07,
+          "text": "出力側も P と N を確認して接続します。"
+        },
+        {
+          "start": 62.24,
+          "end": 66.07,
+          "text": "接地線は、一番右の接地端子につなぎます。"
+        },
+        {
+          "start": 66.26,
+          "end": 69.038,
+          "text": "出力ケーブルは、設備の制御電源入力につながります。"
+        },
+        {
+          "start": 71.77,
+          "end": 75.0,
+          "text": "結線を確認し、端子台カバーを付けます。"
+        },
+        {
+          "start": 76.11,
+          "end": 79.29,
+          "text": "通信オプションがあれば、パソコンも接続できます。"
+        },
+        {
+          "start": 84.46,
+          "end": 88.23,
+          "text": "金属製の保護カバーも取り付け、しっかり固定します。"
+        },
+        {
+          "start": 93.41,
+          "end": 97.53,
+          "text": "TSP 入力の専用分岐遮断器を入れます。"
+        },
+        {
+          "start": 98.86,
+          "end": 103.12,
+          "text": "TSP 背面の電源スイッチを入れます。"
+        },
+        {
+          "start": 104.21,
+          "end": 110.02,
+          "text": "画面で充電完了を確認します。緑の待機ランプが点灯すれば、補償の準備は完了です。"
+        },
+        {
+          "start": 114.01,
+          "end": 119.22,
+          "text": "制御電源と生産工程の正常動作を確認します。"
+        },
+        {
+          "start": 119.41,
+          "end": 133.15,
+          "text": "工程の稼働中に入力専用の分岐遮断器を切り、一秒以内に入れ直します。制御電源と工程が継続するか確認します。"
+        },
+        {
+          "start": 134.21,
+          "end": 143.03,
+          "text": "通信オプションでは、パソコンでイベント履歴と入出力波形を確認できます。この画面はマニュアルの掲載例です。"
+        },
+        {
+          "start": 145.06,
+          "end": 152.75,
+          "text": "正常時の表示や履歴の見方もご案内します。ご不明な点は、いつでも WESCO にご相談ください。"
+        },
+        {
+          "start": 153.12,
+          "end": 154.52,
+          "text": "ありがとうございます。"
+        }
+      ],
+      "captionSha256": "3cfc027371d951ce1636a1b30bcec807c6e4395c5be4a8e8e684921a51dec3ad"
+    },
+    {
+      "key": "ja-threephase",
+      "videoId": "8-TYx_V7b_o",
+      "locale": "ja",
+      "summary": "分電盤–TSP–設備の接続関係に沿って、三相 TSP の設置と試運転を紹介します。前面ドア内の端子台と遮断器、底面のケーブル引込口から、入力電圧、充電、出力投入と設備動作の確認までを扱います。",
+      "takeaways": [
+        "中段の遮断器、下部の入出力端子台、入力・出力・接地線が通る底面共通の引込口を確認します。",
+        "分電盤の電源投入、入力交流電圧の照合、TSP 起動、充電・待機確認、出力投入の流れを確認します。",
+        "設備動作の確認試験、BYPASS の役割、お客様への案内を紹介します。通信と SAG Viewer はオプションです。"
+      ],
+      "chapters": [
+        {
+          "seconds": 0,
+          "title": "製品と電源の接続関係"
+        },
+        {
+          "seconds": 16,
+          "title": "設置位置と電源遮断"
+        },
+        {
+          "seconds": 28,
+          "title": "前面ドア内部とケーブル引込口"
+        },
+        {
+          "seconds": 50,
+          "title": "入力・出力の結線と接続確認"
+        },
+        {
+          "seconds": 80,
+          "title": "電源投入・入力電圧・充電確認"
+        },
+        {
+          "seconds": 109,
+          "title": "出力投入と短時間の停電試験"
+        },
+        {
+          "seconds": 127,
+          "title": "SAG Viewer（通信オプション）"
+        },
+        {
+          "seconds": 137,
+          "title": "バイパスの役割とお客様へのご案内"
+        }
+      ],
+      "transcript": [
+        {
+          "start": 0.21,
+          "end": 5.08,
+          "text": "三相 TSP の設置と試運転を見ていきます。"
+        },
+        {
+          "start": 5.26,
+          "end": 10.85,
+          "text": "分電盤から TSP の入力へ、出力から設備へ接続します。"
+        },
+        {
+          "start": 11.11,
+          "end": 14.37,
+          "text": "前面の製品ラベルで仕様を確認します。"
+        },
+        {
+          "start": 16.11,
+          "end": 21.25,
+          "text": "通風と点検のスペースを確保し、製品を安定して設置します。"
+        },
+        {
+          "start": 22.11,
+          "end": 25.58,
+          "text": "設置前に、該当回路の電源を切ります。"
+        },
+        {
+          "start": 28.31,
+          "end": 31.89,
+          "text": "前面ドアを開くと、下部に端子台があります。"
+        },
+        {
+          "start": 34.11,
+          "end": 39.22,
+          "text": "中央に遮断器、下部に入力と出力の端子台があります。"
+        },
+        {
+          "start": 40.21,
+          "end": 46.04,
+          "text": "入力・出力・接地線を、底の共通の四角い引込口に通します。"
+        },
+        {
+          "start": 46.21,
+          "end": 48.63,
+          "text": "接地線を接地バーにつなぎます。"
+        },
+        {
+          "start": 50.16,
+          "end": 54.08,
+          "text": "入力電源ケーブルを、相順に合わせて入力端子台に接続します。"
+        },
+        {
+          "start": 58.06,
+          "end": 62.83,
+          "text": "保護する設備のケーブルを、相順に合わせて TSP の出力端子台に接続します。"
+        },
+        {
+          "start": 66.11,
+          "end": 69.68,
+          "text": "通信オプションがあれば、パソコンも接続できます。"
+        },
+        {
+          "start": 71.66,
+          "end": 77.83,
+          "text": "締結状態、ケーブルの支持と経路を確認します。結線を再確認し、工具を片付けます。"
+        },
+        {
+          "start": 79.56,
+          "end": 80.96,
+          "text": "主遮断器を入れます。"
+        },
+        {
+          "start": 81.52,
+          "end": 86.96,
+          "text": "TSP の入力端子で交流電圧を測り、ラベルの定格電圧と照合します。"
+        },
+        {
+          "start": 90.56,
+          "end": 92.51,
+          "text": "TSP の遮断器を入れます。"
+        },
+        {
+          "start": 95.71,
+          "end": 99.43,
+          "text": "画面で入力が正常か確認し、充電完了を待ちます。"
+        },
+        {
+          "start": 101.61,
+          "end": 107.42,
+          "text": "画面で充電完了を確認します。緑の待機ランプが点灯すれば、補償の準備は完了です。"
+        },
+        {
+          "start": 108.76,
+          "end": 112.79,
+          "text": "充電完了を確認し、TSP の出力遮断器を入れます。"
+        },
+        {
+          "start": 114.66,
+          "end": 117.03,
+          "text": "設備の正常動作を確認します。"
+        },
+        {
+          "start": 117.31,
+          "end": 126.39,
+          "text": "工程の稼働中に上流の主遮断器を切り、一秒以内に入れ直します。設備が稼働を続けるか確認します。"
+        },
+        {
+          "start": 126.71,
+          "end": 135.53,
+          "text": "通信オプションでは、パソコンでイベント履歴と入出力波形を確認できます。この画面はマニュアルの掲載例です。"
+        },
+        {
+          "start": 136.61,
+          "end": 144.42,
+          "text": "故障や点検時は、バイパスで設備に給電し、入出力遮断器で TSP 回路を切り離します。"
+        },
+        {
+          "start": 144.66,
+          "end": 152.35,
+          "text": "正常時の表示や履歴の見方もご案内します。ご不明な点は、いつでも WESCO にご相談ください。"
+        },
+        {
+          "start": 152.72,
+          "end": 154.12,
+          "text": "ありがとうございます。"
+        }
+      ],
+      "captionSha256": "c9ff992442621e7aa3a5e6fb59891474ae48284011af72516dc5638acb346a40"
+    },
+    {
+      "key": "vi-before-after",
+      "videoId": "XLfRS8Wfdz4",
+      "locale": "vi",
+      "summary": "So sánh tình huống thiết bị sản xuất dừng do biến động nguồn điện ngắn với nguyên lý TSP cấp điện cho thiết bị được nối để bảo vệ. Video giúp khách hàng và kỹ sư tại hiện trường hiểu mục đích trước khi xem hướng dẫn lắp đặt một pha hoặc ba pha.",
+      "takeaways": [
+        "Quan sát sự khác biệt giữa thiết bị chưa được bảo vệ và thiết bị có kết nối TSP.",
+        "Phạm vi bảo vệ là tải được kết nối với TSP. Thông số định mức và khả năng bù phải phù hợp với tải và điều kiện vận hành thực tế.",
+        "Xem video lắp đặt một pha và ba pha cùng ngôn ngữ để tìm hiểu quy trình đấu nối và chạy thử."
+      ],
+      "chapters": [],
+      "transcript": []
+    },
+    {
+      "key": "vi-singlephase",
+      "videoId": "fLt0BU2hvGM",
+      "locale": "vi",
+      "summary": "Tìm hiểu quy trình lắp đặt TSP một pha để bảo vệ nguồn điều khiển của thiết bị: lắp nằm ngang hoặc dựng đứng, đấu nối đầu vào và đầu ra, tiếp địa, hai lớp nắp bảo vệ cầu đấu, cấp nguồn và chạy thử.",
+      "takeaways": [
+        "Xác định mối nối từ nguồn cấp đến INPUT và từ OUTPUT đến đầu vào nguồn điều khiển của thiết bị.",
+        "Xem cách lắp nắp che cầu đấu và nắp bảo vệ kim loại, sau đó xác nhận nạp điện xong và đèn chờ màu xanh lá.",
+        "Tìm hiểu phép thử trên nhánh cấp riêng cho đầu vào và hướng dẫn bàn giao. Truyền thông và giám sát SAG Viewer là tùy chọn."
+      ],
+      "chapters": [
+        {
+          "seconds": 0,
+          "title": "Thông số và hướng lắp đặt"
+        },
+        {
+          "seconds": 16,
+          "title": "Ngắt điện và chuẩn bị đấu nối"
+        },
+        {
+          "seconds": 37,
+          "title": "Đấu nối đầu vào, đầu ra và tiếp địa"
+        },
+        {
+          "seconds": 71,
+          "title": "Nắp bảo vệ và tùy chọn truyền thông"
+        },
+        {
+          "seconds": 93,
+          "title": "Cấp nguồn, nạp điện và kiểm tra trạng thái sẵn sàng"
+        },
+        {
+          "seconds": 112,
+          "title": "Kiểm tra vận hành và thử mất điện ngắn"
+        },
+        {
+          "seconds": 125,
+          "title": "SAG Viewer (tùy chọn)"
+        },
+        {
+          "seconds": 136,
+          "title": "Hướng dẫn khách hàng và liên hệ"
+        }
+      ],
+      "transcript": [
+        {
+          "start": 0.21,
+          "end": 6.47,
+          "text": "TSP một pha bảo vệ nguồn điều khiển của thiết bị. Trước tiên, hãy xem cách lắp nằm ngang."
+        },
+        {
+          "start": 6.53,
+          "end": 8.21,
+          "text": "Kiểm tra thông số trên nhãn sản phẩm."
+        },
+        {
+          "start": 10.41,
+          "end": 13.28,
+          "text": "Khi lắp thẳng đứng, cách nối đầu vào và đầu ra vẫn như nhau."
+        },
+        {
+          "start": 16.16,
+          "end": 18.36,
+          "text": "Ngắt điện mạch cần lắp đặt trước khi làm việc."
+        },
+        {
+          "start": 27.56,
+          "end": 30.28,
+          "text": "Mở nắp che cầu đấu phía sau để xem vị trí đấu dây."
+        },
+        {
+          "start": 31.56,
+          "end": 35.05,
+          "text": "Phân biệt cáp đầu vào, cáp đầu ra và dây nối đất bảo vệ."
+        },
+        {
+          "start": 37.61,
+          "end": 43.23,
+          "text": "Nối cáp nguồn cấp vào các đầu nối INPUT của TSP."
+        },
+        {
+          "start": 43.76,
+          "end": 48.35,
+          "text": "Đặt đầu cốt tròn đúng vị trí vít, rồi siết chặt."
+        },
+        {
+          "start": 48.42,
+          "end": 52.36,
+          "text": "Đấu đúng ký hiệu P và N ở phía INPUT."
+        },
+        {
+          "start": 52.61,
+          "end": 57.06,
+          "text": "Nối cáp cấp điện cho thiết bị vào các đầu nối OUTPUT của TSP."
+        },
+        {
+          "start": 57.96,
+          "end": 61.47,
+          "text": "Phía OUTPUT cũng cần đấu đúng P và N."
+        },
+        {
+          "start": 62.01,
+          "end": 66.15,
+          "text": "Nối dây đất vào đầu nối đất ngoài cùng bên phải."
+        },
+        {
+          "start": 66.26,
+          "end": 69.29,
+          "text": "Cáp đầu ra nối đến đầu cấp nguồn điều khiển của thiết bị."
+        },
+        {
+          "start": 71.77,
+          "end": 74.74,
+          "text": "Kiểm tra dây đã đấu, rồi lắp nắp che cầu đấu."
+        },
+        {
+          "start": 76.11,
+          "end": 79.57,
+          "text": "Nếu có tùy chọn truyền thông, bạn có thể nối máy tính xách tay."
+        },
+        {
+          "start": 84.46,
+          "end": 87.7,
+          "text": "Lắp thêm nắp bảo vệ bằng kim loại và cố định chắc chắn."
+        },
+        {
+          "start": 93.41,
+          "end": 96.71,
+          "text": "Đóng aptomat nhánh chuyên cấp nguồn đầu vào cho TSP."
+        },
+        {
+          "start": 98.86,
+          "end": 101.26,
+          "text": "Bật công tắc nguồn phía sau TSP."
+        },
+        {
+          "start": 104.21,
+          "end": 109.73,
+          "text": "Xác nhận nạp điện xong trên màn hình. Đèn chờ màu xanh lá báo máy đã sẵn sàng bù điện áp."
+        },
+        {
+          "start": 112.06,
+          "end": 116.1,
+          "text": "Kiểm tra nguồn điều khiển và quá trình sản xuất hoạt động bình thường."
+        },
+        {
+          "start": 116.16,
+          "end": 125.85,
+          "text": "Khi máy đang chạy, ngắt aptomat nhánh đầu vào TSP rồi đóng lại trong vòng một giây. Kiểm tra nguồn điều khiển và quá trình sản xuất vẫn được duy trì."
+        },
+        {
+          "start": 126.21,
+          "end": 134.82,
+          "text": "Nếu có tùy chọn truyền thông, xem sự kiện và dạng sóng đầu vào, đầu ra trên máy tính. Màn hình này là ví dụ trong hướng dẫn sử dụng."
+        },
+        {
+          "start": 137.06,
+          "end": 143.45,
+          "text": "Chúng tôi sẽ hướng dẫn cách xem đèn báo và lịch sử sự kiện. Nếu có thắc mắc khi sử dụng, hãy liên hệ WESCO để được hỗ trợ."
+        },
+        {
+          "start": 143.66,
+          "end": 145.06,
+          "text": "Xin cảm ơn."
+        }
+      ],
+      "captionSha256": "703301841f467aceed0848848ff14d6f36aebe73687cec5fd4d4c76c6ef4d103"
+    },
+    {
+      "key": "vi-threephase",
+      "videoId": "WXyeac63Xbc",
+      "locale": "vi",
+      "summary": "Tìm hiểu lắp đặt và chạy thử TSP ba pha theo mối nối tủ điện–TSP–thiết bị. Video giới thiệu cầu đấu và aptomat phía sau cửa trước, lỗ luồn cáp ở đáy, kiểm tra điện áp đầu vào, nạp điện, cấp điện đầu ra và xác nhận hoạt động của thiết bị.",
+      "takeaways": [
+        "Xác định aptomat ở giữa, cầu đấu vào và ra ở dưới, cùng lỗ luồn cáp chung ở đáy cho cáp vào, cáp ra và dây đất.",
+        "Theo dõi trình tự cấp điện từ tủ, đo điện áp AC đầu vào, khởi động TSP, xác nhận nạp điện và trạng thái chờ trước khi đóng đầu ra.",
+        "Xem phép thử hoạt động của thiết bị, vai trò của BYPASS và hướng dẫn khách hàng. Truyền thông và SAG Viewer là tùy chọn."
+      ],
+      "chapters": [
+        {
+          "seconds": 0,
+          "title": "Thiết bị và sơ đồ cấp nguồn"
+        },
+        {
+          "seconds": 15,
+          "title": "Vị trí lắp đặt và ngắt điện"
+        },
+        {
+          "seconds": 27,
+          "title": "Bên trong cửa trước và lỗ luồn cáp"
+        },
+        {
+          "seconds": 49,
+          "title": "Đấu nối đầu vào, đầu ra và kiểm tra"
+        },
+        {
+          "seconds": 79,
+          "title": "Cấp nguồn, đo điện áp đầu vào và nạp điện"
+        },
+        {
+          "seconds": 108,
+          "title": "Cấp nguồn cho tải và thử mất điện ngắn"
+        },
+        {
+          "seconds": 126,
+          "title": "SAG Viewer (tùy chọn)"
+        },
+        {
+          "seconds": 136,
+          "title": "Vai trò của bypass và hướng dẫn khách hàng"
+        }
+      ],
+      "transcript": [
+        {
+          "start": 0.21,
+          "end": 3.98,
+          "text": "Cùng tìm hiểu cách lắp đặt và chạy thử TSP ba pha."
+        },
+        {
+          "start": 5.41,
+          "end": 10.0,
+          "text": "Nối nguồn từ tủ điện vào đầu vào TSP, rồi nối đầu ra với thiết bị."
+        },
+        {
+          "start": 11.11,
+          "end": 13.91,
+          "text": "Kiểm tra thông số trên nhãn sản phẩm ở mặt trước."
+        },
+        {
+          "start": 16.11,
+          "end": 19.99,
+          "text": "Chừa khoảng trống thông gió và bảo trì, rồi đặt máy vững chắc."
+        },
+        {
+          "start": 22.11,
+          "end": 24.88,
+          "text": "Ngắt điện mạch cần lắp đặt trước khi làm việc."
+        },
+        {
+          "start": 28.31,
+          "end": 31.25,
+          "text": "Mở cửa phía trước để thấy các cầu đấu bên dưới."
+        },
+        {
+          "start": 34.11,
+          "end": 37.43,
+          "text": "Các aptomat ở giữa; cầu đấu đầu vào và đầu ra ở dưới."
+        },
+        {
+          "start": 40.21,
+          "end": 43.62,
+          "text": "Luồn cáp vào, cáp ra và dây đất qua lỗ chữ nhật chung ở đáy."
+        },
+        {
+          "start": 45.19,
+          "end": 46.82,
+          "text": "Nối dây đất bảo vệ vào thanh nối đất."
+        },
+        {
+          "start": 50.16,
+          "end": 52.96,
+          "text": "Đấu cáp nguồn vào cầu đấu đầu vào theo đúng thứ tự pha."
+        },
+        {
+          "start": 58.06,
+          "end": 63.63,
+          "text": "Đấu cáp cấp cho thiết bị vào cầu đấu đầu ra, đúng thứ tự pha. Cáp đầu ra nối đến thiết bị cần bảo vệ."
+        },
+        {
+          "start": 66.11,
+          "end": 69.15,
+          "text": "Nếu có tùy chọn truyền thông, bạn có thể nối máy tính xách tay."
+        },
+        {
+          "start": 71.66,
+          "end": 74.39,
+          "text": "Kiểm tra dây đã đấu, rồi thu dọn dụng cụ."
+        },
+        {
+          "start": 79.64,
+          "end": 81.45,
+          "text": "Đóng aptomat ở tủ điện."
+        },
+        {
+          "start": 81.52,
+          "end": 86.7,
+          "text": "Đo điện áp AC tại cầu đấu INPUT của TSP, rồi so với định mức trên nhãn."
+        },
+        {
+          "start": 90.56,
+          "end": 92.09,
+          "text": "Đóng aptomat TSP."
+        },
+        {
+          "start": 95.71,
+          "end": 99.84,
+          "text": "Kiểm tra màn hình báo đầu vào bình thường, rồi chờ nạp điện xong."
+        },
+        {
+          "start": 101.61,
+          "end": 106.96,
+          "text": "Xác nhận nạp điện xong trên màn hình. Đèn chờ màu xanh lá báo máy đã sẵn sàng bù điện áp."
+        },
+        {
+          "start": 108.76,
+          "end": 112.01,
+          "text": "Khi nạp điện xong, đóng aptomat đầu ra TSP."
+        },
+        {
+          "start": 114.66,
+          "end": 116.73,
+          "text": "Kiểm tra thiết bị hoạt động bình thường."
+        },
+        {
+          "start": 117.76,
+          "end": 126.14,
+          "text": "Khi máy đang chạy, ngắt aptomat tổng phía trước rồi đóng lại trong vòng một giây. Kiểm tra thiết bị vẫn chạy liên tục."
+        },
+        {
+          "start": 126.71,
+          "end": 136.33,
+          "text": "Nếu có tùy chọn truyền thông, xem sự kiện và dạng sóng đầu vào, đầu ra trên máy tính. Màn hình này là ví dụ trong hướng dẫn sử dụng."
+        },
+        {
+          "start": 136.71,
+          "end": 146.18,
+          "text": "Khi có lỗi hoặc cần bảo trì, đường bypass cấp điện cho tải. Các aptomat đầu vào và đầu ra tách TSP khỏi mạch."
+        },
+        {
+          "start": 146.66,
+          "end": 156.07,
+          "text": "Chúng tôi sẽ hướng dẫn cách xem đèn báo và lịch sử sự kiện. Nếu có thắc mắc khi sử dụng, hãy liên hệ WESCO để được hỗ trợ."
+        },
+        {
+          "start": 156.23,
+          "end": 157.63,
+          "text": "Xin cảm ơn."
+        }
+      ],
+      "captionSha256": "1798871a69264b75abd62913768fefe64161906196c2eec3bba466a1889835af"
+    }
+  ]
+}

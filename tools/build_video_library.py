@@ -2,7 +2,7 @@
 
 Run with Python's standard library. This does not publish videos, make network
 requests, or change existing legacy watch pages. Keep local file paths and
-production/approval records out of the two public catalog JSON files.
+production/approval records out of the public data files.
 """
 import html
 import json
@@ -15,6 +15,8 @@ ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = 'https://intro.wesco.works'
 ENTRIES = json.loads((ROOT/'videos/library.json').read_text(encoding='utf-8'))
 COPY = json.loads((ROOT/'videos/library-copy.json').read_text(encoding='utf-8'))
+LEARNING = json.loads((ROOT/'videos/library-learning.json').read_text(encoding='utf-8'))
+LESSONS = {item['key']: item for item in LEARNING['entries']}
 ORDER = ['ko','en','zh-CN','zh-TW','ja','vi']
 HOME_LANG = {'ko':'ko','en':'en','zh-CN':'cn','zh-TW':'cn','ja':'jp','vi':'vn'}
 FILMS = ['before-after','singlephase','threephase']
@@ -55,12 +57,38 @@ def footer(locale):
     return f'''<footer class="library-footer"><span>© WESCO · TSP®</span><span><a href="https://www.wesco.co.kr">{e(c['officialWebsite'])}</a> · <a href="mailto:wesco@wesco.co.kr">wesco@wesco.co.kr</a></span></footer>'''
 
 def video_schema(item):
-    return {'@context':'https://schema.org','@type':'VideoObject','@id':ORIGIN+item['path']+'#video',
+    data = {'@context':'https://schema.org','@type':'VideoObject','@id':ORIGIN+item['path']+'#video',
             'name':item['title'],'description':item['description'],
             'thumbnailUrl':[ORIGIN+item['thumbnail']], 'uploadDate':item['publishedDate'],
             'duration':f"PT{item['durationSeconds']:g}S",'embedUrl':item['embedUrl'],'inLanguage':item['locale'],
             'publisher':{'@type':'Organization','@id':ORIGIN+'/#org','name':'WESCO'},
             'mainEntityOfPage':{'@type':'WebPage','@id':ORIGIN+item['path']}}
+    chapters = LESSONS[item['key']]['chapters']
+    if chapters:
+        data['hasPart'] = [{'@type':'Clip', 'name':chapter['title'],
+                            'startOffset':chapter['seconds'],
+                            'url':ORIGIN+item['path']+'?t='+str(chapter['seconds'])}
+                           for chapter in chapters]
+    return data
+
+def learning_content(item):
+    lesson = LESSONS[item['key']]
+    assert lesson['videoId'] == item['videoId'] and lesson['locale'] == item['locale']
+    c = LEARNING['copy'][item['locale']]
+    out = f'''<section class="video-learning" aria-labelledby="learning-title"><h2 id="learning-title">{e(c['summaryTitle'])}</h2><p>{e(lesson['summary'])}</p><ul class="learning-points">'''
+    out += ''.join(f'<li>{e(point)}</li>' for point in lesson['takeaways'])+'</ul></section>'
+    if not lesson['transcript']:
+        assert item['film'] == 'before-after' and not lesson['chapters']
+        return out
+    out += f'''<p class="note installation-reference">{e(c['referenceNote'])}</p><nav class="video-chapters" aria-labelledby="chapters-title"><h2 id="chapters-title">{e(c['chaptersTitle'])}</h2><p class="time-hint">{e(c['timeHint'])}</p><ol>'''
+    for chapter in lesson['chapters']:
+        seconds = chapter['seconds']
+        out += f'<li><a class="chapter-link" href="{item["path"]}?t={seconds}#player"><span class="timecode">{seconds//60:02d}:{seconds%60:02d}</span><span>{e(chapter["title"])}</span></a></li>'
+    out += f'''</ol></nav><details class="video-transcript"><summary><h2>{e(c['transcriptTitle'])}</h2></summary><p class="transcript-note">{e(c['transcriptNote'])}</p><ol>'''
+    for cue in lesson['transcript']:
+        seconds = math.floor(cue['start'])
+        out += f'<li class="transcript-cue" data-start="{cue["start"]}" data-end="{cue["end"]}"><a class="transcript-time timecode" href="{item["path"]}?t={seconds}#player">{seconds//60:02d}:{seconds%60:02d}</a><p>{e(cue["text"])}</p></li>'
+    return out+'</ol></details>'
 
 def guide_title(path):
     source = (ROOT/path.lstrip('/')/'index.html').read_text(encoding='utf-8')
@@ -79,10 +107,11 @@ def render_watch(item):
     body = head(locale,item['title'],item['description'],item['path'],item['thumbnail'],alternates)+ld(video_schema(item))
     body += f'''<script src="/videos/watch.js" defer></script></head><body class="series-watch">{header(locale)}<main id="main">
 <p class="eyebrow">WESCO TSP® / VIDEO</p><h1 class="watch-title">{e(item['heading'])}</h1>
-<div class="player"><iframe src="{item['embedUrl']}" title="{e(item['title'])}" data-duration="{item['durationSeconds']}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<div class="player" id="player"><iframe src="{item['embedUrl']}" title="{e(item['title'])}" data-duration="{item['durationSeconds']}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
 <div class="watch-meta"><span>{e(COPY[locale]['name'])} · {duration(item['durationSeconds'])} · {e(c['published'])} <time datetime="{item['publishedDate']}">{item['publishedDate']}</time></span><a href="{item['url']}">{e(c['watchYouTube'])} ↗</a></div>
 <nav class="language-switch" aria-label="{e(c['chooseLanguage'])}">{switch}</nav>
 <p class="watch-description">{e(item['description'])}</p><p class="note">{e(c['illustrationNote'])}</p>
+{learning_content(item)}
 <section class="video-cta" aria-label="{e(c['contact'])}"><p>{e(c['contactIntro'])}</p><div class="video-cta-actions"><a class="video-cta-primary" href="{e(item['contactUrl'])}">{e(c['contact'])}</a><a class="video-cta-secondary" href="{e(item['catalogUrl'])}">{e(c['catalog'])}</a></div>'''
     if c['contactLanguageNote']: body += f'<p class="note">{e(c["contactLanguageNote"])}</p>'
     body += f'''</section><div class="related-grid"><nav class="related" aria-label="{e(c['relatedVideos'])}"><h2>{e(c['relatedVideos'])}</h2><ul>'''
