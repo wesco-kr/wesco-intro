@@ -37,6 +37,14 @@
 - `python tools/check_search_content.py`로 내부 링크, canonical, 영상 사이트맵 및 언어별 연결을 검사한다. 배포 전 `--base origin/main`을 붙이면 기존 글 본문·Article/FAQ·iframe·문의 추적 링크가 보존됐는지도 검사한다.
 - 탐색 링크 변경만으로 글의 최초 발행일을 새 날짜로 바꾸지 않는다. 검색 노출·색인 여부는 배포 여부와 구분해 Search Console에서 확인한다.
 
+### 자동 블로그 발행과 영상 추천의 공통 기준
+
+- `videos/blog-video-links.json`에 글 slug별 추천과 신규 글의 기본 추천을 명시한다. 최신 3종은 `film:before-after`, `film:singlephase`, `film:threephase`로 선택하며 실제 경로·표제는 항상 `videos/library.json`에서 읽는다. 기존 제품·실제 데모·회사소개 추천은 `legacy:*` 항목에 명시한 공개 시청 페이지와 제목을 사용한다. 기존 글의 선택을 유지하며, 여러 영상에 연결될 수 있는 `relatedBlogs`를 역산해 대표 추천을 정하지 않는다.
+- 외부 블로그 프로그램도 최신 사이트 checkout의 `tools/blog_video_links.py`를 호출한다. `get_related_video(site_root, slug, locale)`의 `locale`은 `ko` 또는 `en`이며 반환값은 `{"path": "/videos/.../", "label": "영상으로 확인: ..."}`이다. `path`와 `label`을 HTML escape한 뒤 `<a class="rel discovery-video" ...>`를 한 개 렌더링한다. 영상 ID·제목·추천 목록을 외부 프로그램에 다시 하드코딩하지 않는다.
+- 모듈은 네트워크나 쓰기 작업 없이 공개 JSON과 대상 페이지를 읽는다. 미등록 slug는 명시된 기본 추천을 사용한다. 파일·선택 항목·지원 언어·시청 페이지가 누락되거나 잘못되면 `BlogVideoConfigError`로 중단하며 구버전 값으로 조용히 되돌리지 않는다.
+- 발행 순서는 최신 원격 기준 반영 → 원고 렌더링(공통 추천 함수 호출) → `python tools/check_search_content.py --base <렌더링 전 기준 커밋>` → 커밋·배포다. 외부 생성기가 기존 글을 다시 만들 때도 본문·발행일·정정 내용과 공통 메뉴를 보존해야 한다. 기존 검사기는 추천 경로와 표시 문구를 정확히 대조하여, 같은 언어의 옛 영상으로 돌아간 경우도 거부한다.
+- `python -m unittest discover -s tools/tests -p "test_blog_video_links.py"`로 신규 글, 기존 최신 18개·legacy 29개 추천, 누락된 카탈로그, 잘못된 매핑과 구버전 링크 회귀를 검사한다. 영상 생성기의 `update_blog_links()`도 같은 함수를 사용하며 추천 요소가 없거나 중복되면 중단한다. 블로그 발행만을 위해 영상 페이지·메뉴 전체를 다시 생성할 필요는 없다.
+
 ## 다국어 영상 자료실
 
 - `/videos/`에서 적용 전후·단상 설치·삼상 설치 공개 영상 18편을 6개 언어로 선택한다. 기존 제품·데모·회사소개 시청 페이지 6개는 유지한다.

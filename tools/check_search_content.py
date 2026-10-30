@@ -16,6 +16,7 @@ import subprocess
 from urllib.parse import parse_qs, urljoin, urlsplit
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
+from blog_video_links import BlogVideoConfigError, validate_related_video_html
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = 'https://intro.wesco.works'
@@ -170,6 +171,12 @@ def main():
                 expected_prefix = '/en/videos/' if rel.startswith('blog/en/') else '/videos/'
                 matches = [x for x in page.links if x.get('class') == 'rel discovery-video']
                 check(len(matches) == 1 and matches[0]['href'].startswith(expected_prefix), f'Wrong related video language: {rel}')
+                try:
+                    validate_related_video_html(ROOT, path.parent.name,
+                                                'en' if rel.startswith('blog/en/') else 'ko', contents)
+                except BlogVideoConfigError as error:
+                    check(False, str(error))
+                check(True, f'Exact related-video path/label: {rel}')
                 check(len(schemas(page, 'Article')) == 1, f'Missing article metadata: {rel}')
         # Pages first published after the base (new posts) have nothing to preserve.
         if args.base and subprocess.run(['git', 'cat-file', '-e', f'{args.base}:{rel}'], cwd=ROOT, stderr=subprocess.DEVNULL).returncode == 0:
