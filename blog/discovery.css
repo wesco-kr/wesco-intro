@@ -1,5 +1,5 @@
 /* Shared additions for the existing static insights pages. */
-.topbar .wrap{height:auto;min-height:62px;gap:16px;padding-top:16px;padding-bottom:16px;flex-wrap:wrap}
+.topbar .wrap{max-width:1120px;height:auto;min-height:62px;gap:16px;padding-top:16px;padding-bottom:16px;flex-wrap:wrap}
 .topnav{display:flex;flex-wrap:wrap;gap:16px}
 .topnav a{margin-left:0}
 .discovery-hub{margin-top:20px;margin-bottom:20px}
