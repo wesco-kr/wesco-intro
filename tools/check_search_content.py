@@ -5,11 +5,13 @@ source dates, existing video embeds, and inquiry links were preserved.
 Uses only the Python standard library; does not make network requests.
 """
 import argparse
+from datetime import date, datetime
 import json
+import math
 from pathlib import Path
 import re
 import subprocess
-from urllib.parse import urljoin, urlsplit
+from urllib.parse import parse_qs, urljoin, urlsplit
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 
@@ -19,6 +21,14 @@ NS = {'s': 'http://www.sitemaps.org/schemas/sitemap/0.9',
       'v': 'http://www.google.com/schemas/sitemap-video/1.1',
       'x': 'http://www.w3.org/1999/xhtml'}
 LD = re.compile(r'<script type="application/ld\+json">(.*?)</script>', re.S)
+LOCALE_PREFIXES = {'ko': '', 'en': 'en/', 'zh-CN': 'zh-cn/',
+                   'zh-TW': 'zh-tw/', 'ja': 'ja/', 'vi': 'vi/'}
+FILM_SLUGS = {'before-after': 'tsp-before-after',
+              'singlephase': 'single-phase-installation',
+              'threephase': 'three-phase-installation'}
+FORM_LOCALES = {'ko': 'ko', 'en': 'en', 'zh-CN': 'cn',
+                'zh-TW': 'cn', 'ja': 'en', 'vi': 'vn'}
+LEGACY_SLUGS = {'tsp-product', 'tsp-demo', 'wesco-company'}
 
 
 class Page(HTMLParser):
@@ -29,6 +39,9 @@ class Page(HTMLParser):
         self.frames = []
         self.h1_count = 0
         self.styles = []
+        self.alternates = {}
+        self.lang = None
+        self.images = []
         self.feed(text)
         self.data = [json.loads(item) for item in LD.findall(text)]
 
@@ -40,10 +53,16 @@ class Page(HTMLParser):
             self.frames.append(attrs)
         if tag == 'h1':
             self.h1_count += 1
+        if tag == 'html':
+            self.lang = attrs.get('lang')
+        if tag == 'img':
+            self.images.append(attrs)
         if tag == 'link' and attrs.get('rel') == 'canonical':
             self.canonicals.append(attrs.get('href'))
         if tag == 'link' and attrs.get('rel') == 'stylesheet':
             self.styles.append(attrs.get('href'))
+        if tag == 'link' and attrs.get('rel') == 'alternate' and attrs.get('hreflang'):
+            self.alternates.setdefault(attrs['hreflang'], []).append(attrs.get('href'))
 
 
 def text(path):
@@ -78,7 +97,8 @@ def main():
         check(local_target(url).is_file(), f'Missing sitemap target: {url}')
 
     blog_paths = sorted((ROOT / 'blog').glob('**/index.html'))
-    watch_paths = sorted((ROOT / 'videos').glob('*/index.html')) + sorted((ROOT / 'en/videos').glob('*/index.html'))
+    watch_paths = sorted(path for prefix in LOCALE_PREFIXES.values()
+                         for path in (ROOT / prefix / 'videos').glob('*/index.html'))
     pages = blog_paths + [ROOT / 'videos/index.html'] + watch_paths
     unique_targets = set()
     preserved_articles = preserved_embeds = preserved_ctas = 0
@@ -119,12 +139,13 @@ def main():
             if is_blog and not is_hub:
                 for kind in ('Article', 'FAQPage'):
                     check(schemas(page, kind) == schemas(before, kind), f'{kind} changed: {rel}')
-                # Ignore the related-video anchor only when the base predates it. All article
-                # prose, source dates, related-video targets and existing recommendations stay intact.
+                # Related-video recommendations may change; preserve the article's
+                # prose, dates, FAQ, and all other recommendations on both sides.
                 body = re.search(r'<article\b.*?</article>', contents, re.S).group(0)
-                if 'class="rel discovery-video"' not in old:
-                    body = re.sub(r'<a class="rel discovery-video"[^>]*>.*?</a>', '', body)
                 old_body = re.search(r'<article\b.*?</article>', old, re.S).group(0)
+                related_video = r'<a class="rel discovery-video"[^>]*>.*?</a>'
+                body = re.sub(related_video, '', body, flags=re.S)
+                old_body = re.sub(related_video, '', old_body, flags=re.S)
                 check(body == old_body, f'Article body changed: {rel}')
                 preserved_articles += 1
             if path in watch_paths:
@@ -143,7 +164,30 @@ def main():
             check(any(x['href'] == prefix + slug + '/' for x in hub.links), f'Missing topic: {lang}/{slug}')
 
     video_entries = {u: e for u, e in entries.items() if e.find('v:video', NS) is not None}
-    check(len(video_entries) == len(watch_paths) == 6, 'Video sitemap/watch-page count mismatch')
+    check(len(video_entries) == len(watch_paths) == 24, 'Expected 24 video sitemap/watch pages (18 new + 6 legacy)')
+    catalog_file = ROOT / 'videos/library.json'
+    check(catalog_file.is_file(), 'Missing public video catalog')
+    catalog = json.loads(text(catalog_file))
+    catalog = catalog.get('entries', []) if isinstance(catalog, dict) else catalog
+    check(isinstance(catalog, list) and len(catalog) == 18, 'Expected 18 current public catalog entries')
+    check(len({x['key'] for x in catalog}) == 18, 'Duplicate catalog key')
+    check(len({x['videoId'] for x in catalog}) == 18, 'Duplicate catalog video ID')
+    check({(x['locale'], x['film']) for x in catalog} ==
+          {(locale, film) for locale in LOCALE_PREFIXES for film in FILM_SLUGS},
+          'Catalog must contain all six languages and three films')
+    catalog_by_url = {}
+    for item in catalog:
+        route = '/' + LOCALE_PREFIXES[item['locale']] + 'videos/' + FILM_SLUGS[item['film']] + '/'
+        if 'path' in item:
+            check(item['path'] == route, f'Unexpected catalog route: {item["key"]}')
+        check(re.fullmatch(r'[A-Za-z0-9_-]{11}', item['videoId']) is not None,
+              f'Invalid YouTube ID: {item["key"]}')
+        catalog_by_url[ORIGIN + route] = item
+    library_page = Page(text(ROOT / 'videos/index.html'))
+    library_targets = {urljoin(ORIGIN + '/videos/', x.get('href', '')) for x in library_page.links}
+    check(set(video_entries).issubset(library_targets), 'Library must link to all 24 current/legacy watch pages')
+    check(not library_page.frames, 'Video library must not preload 24 video players')
+    source_values = set()
     for path in watch_paths:
         page = Page(text(path))
         data, = schemas(page, 'VideoObject')
@@ -154,17 +198,51 @@ def main():
                   'publication_date': data['uploadDate']}
         for key, value in fields.items():
             check(video.findtext('v:' + key, namespaces=NS) == value, f'Video sitemap {key} differs from page: {url}')
-        iso = re.fullmatch(r'PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?', data['duration'])
-        seconds = sum(int(n or 0) * factor for n, factor in zip(iso.groups(), (3600, 60, 1)))
-        check(int(video.findtext('v:duration', namespaces=NS)) == seconds, f'Video duration mismatch: {url}')
+        iso = re.fullmatch(r'PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?', data['duration'])
+        check(iso is not None, f'Invalid ISO duration: {url}')
+        seconds = sum(float(n or 0) * factor for n, factor in zip(iso.groups(), (3600, 60, 1)))
+        check(int(video.findtext('v:duration', namespaces=NS)) == math.ceil(seconds), f'Video duration mismatch: {url}')
+        check(seconds > 0, f'Video duration must be positive: {url}')
+        try:
+            if len(data['uploadDate']) == 10:
+                date.fromisoformat(data['uploadDate'])
+            else:
+                datetime.fromisoformat(data['uploadDate'].replace('Z', '+00:00'))
+        except (ValueError, TypeError):
+            check(False, f'Invalid upload date: {url}')
         check('contentUrl' not in data, f'Unverified media URL: {url}')
-        check(page.frames[0]['src'] == data['embedUrl'], f'Player mismatch: {url}')
-        check({a.attrib['hreflang'] for a in video_entries[url].findall('x:link', NS)} == {'ko', 'en'}, f'Missing language alternates: {url}')
-        blogprefix = '/blog/en/' if '/en/videos/' in url else '/blog/'
+        check(len(page.frames) == 1 and page.frames[0].get('src') == data['embedUrl'], f'Player mismatch: {url}')
+        sitemap_alternates = {a.attrib['hreflang']: a.attrib['href']
+                              for a in video_entries[url].findall('x:link', NS)}
+        expected_langs = set(LOCALE_PREFIXES) | {'x-default'} if url in catalog_by_url else {'ko', 'en'}
+        check(set(sitemap_alternates) == expected_langs, f'Missing sitemap language alternates: {url}')
+        check(set(page.alternates) == expected_langs, f'Missing HTML language alternates: {url}')
+        check(all(len(values) == 1 for values in page.alternates.values()), f'Duplicate hreflang: {url}')
+        check({lang: targets[0] for lang, targets in page.alternates.items()} == sitemap_alternates,
+              f'HTML/sitemap alternate mismatch: {url}')
+        for lang, target in sitemap_alternates.items():
+            check(local_target(target).is_file(), f'Missing alternate target: {url} -> {target}')
+            reciprocal = Page(text(local_target(target)))
+            check(reciprocal.alternates.get(page.lang) == [url], f'Nonreciprocal hreflang: {url} -> {target}')
+        blogprefix = '/blog/' if page.lang == 'ko' else '/blog/en/'
         check(sum(x.get('href', '').startswith(blogprefix) for x in page.links) >= 3, f'Missing related guide navigation: {url}')
+        if url in catalog_by_url:
+            item = catalog_by_url[url]
+            check(page.lang == data['inLanguage'] == item['locale'], f'Video/page/catalog language mismatch: {url}')
+            check(data['embedUrl'] == 'https://www.youtube.com/embed/' + item['videoId'], f'Catalog player mismatch: {url}')
+            ctas = [urlsplit(x.get('href', '')) for x in page.links if urlsplit(x.get('href', '')).netloc == 'tsp.wesco.works']
+            check(len(ctas) == 2 and {c.fragment for c in ctas} == {'contact', 'catalog'}, f'Missing inquiry/catalogue links: {url}')
+            check(all(c.path == '/' + FORM_LOCALES[item['locale']] + '/' for c in ctas), f'Wrong form language route: {url}')
+            sources = [parse_qs(c.query).get('s', []) for c in ctas]
+            check(len(sources[0]) == 1 and sources[0] == sources[1], f'Inconsistent CTA source tracking: {url}')
+            source = sources[0][0]
+            check(re.fullmatch(r'[A-Za-z0-9_-]{1,80}', source) is not None, f'Invalid CTA source: {url}')
+            check(source not in source_values, f'Duplicate per-video CTA source: {url}')
+            source_values.add(source)
 
     print(json.dumps({'status': 'passed', 'checks': checks, 'pages': len(pages),
                       'articles': len(blog_paths) - 2, 'video_sitemap_entries': len(video_entries),
+                      'current_public_videos': len(catalog), 'tracked_video_sources': len(source_values),
                       'unique_internal_targets': len(unique_targets), 'baseline': args.base,
                       'preserved_article_bodies': preserved_articles, 'preserved_iframes': preserved_embeds,
                       'preserved_inquiry_catalogue_links': preserved_ctas}, indent=2))

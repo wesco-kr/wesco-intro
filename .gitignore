@@ -4,6 +4,7 @@ Thumbs.db
 .vscode/
 .idea/
 node_modules/
+__pycache__/
 
 # i18n build artifacts (input is index.html.bak before injection)
 index.html.bak

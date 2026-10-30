@@ -1,0 +1,163 @@
+"""Render the public multilingual video library from verified release metadata.
+
+Run with Python's standard library. This does not publish videos, make network
+requests, or change existing legacy watch pages. Keep local file paths and
+production/approval records out of the two public catalog JSON files.
+"""
+import html
+import json
+import math
+import re
+from pathlib import Path
+import xml.etree.ElementTree as ET
+
+ROOT = Path(__file__).resolve().parents[1]
+ORIGIN = 'https://intro.wesco.works'
+ENTRIES = json.loads((ROOT/'videos/library.json').read_text(encoding='utf-8'))
+COPY = json.loads((ROOT/'videos/library-copy.json').read_text(encoding='utf-8'))
+ORDER = ['ko','en','zh-CN','zh-TW','ja','vi']
+HOME_LANG = {'ko':'ko','en':'en','zh-CN':'cn','zh-TW':'cn','ja':'jp','vi':'vn'}
+FILMS = ['before-after','singlephase','threephase']
+e = html.escape
+
+def write(path, value):
+    dest = ROOT/path.lstrip('/')
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_text(value, encoding='utf-8')
+
+def ld(data):
+    return '<script type="application/ld+json">'+json.dumps(data, ensure_ascii=False).replace('</','<\\/')+'</script>'
+
+def duration(seconds):
+    s = math.ceil(seconds)
+    return f'{s//60}:{s%60:02d}'
+
+def header(locale):
+    c = COPY[locale]
+    blog = '/blog/' if locale == 'ko' else '/blog/en/'
+    blogtext = {'ko':'기술 인사이트','en':'Technical insights','zh-CN':'技术文章（英文）','zh-TW':'技術文章（英文）','ja':'技術記事（英語）','vi':'Bài viết kỹ thuật (tiếng Anh)'}[locale]
+    return f'''<header><a href="/?lang={HOME_LANG[locale]}" aria-label="WESCO"><img src="/images/wesco_wordmark.png" width="132" alt="WESCO"></a><nav aria-label="{e(c['menu'])}"><a href="/videos/#{locale}">{e(c['menu'])}</a><a href="/?lang={HOME_LANG[locale]}">{e(c['company'])}</a><a href="{blog}">{blogtext}</a></nav></header>'''
+
+def head(locale, title, description, path, thumbnail=None, alternates=''):
+    ogimage = ORIGIN+thumbnail if thumbnail else ORIGIN+'/images/og-image.jpg'
+    return f'''<!doctype html><html lang="{locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{e(title)}</title><meta name="description" content="{e(description)}"><link rel="canonical" href="{ORIGIN+path}">
+<meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(description)}"><meta property="og:url" content="{ORIGIN+path}"><meta property="og:image" content="{ogimage}"><meta property="og:type" content="{'video.other' if thumbnail else 'website'}"><meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/videos/watch.css"><link rel="stylesheet" href="/videos/library.css">{alternates}'''
+
+def card(item):
+    c = COPY[item['locale']]
+    num = FILMS.index(item['film'])+1
+    return f'''<article class="video-card"><a class="thumb" href="{item['path']}" tabindex="-1" aria-hidden="true"><img src="{item['thumbnail']}" alt="" width="1280" height="720" loading="lazy"><span class="duration">{duration(item['durationSeconds'])}</span></a><div class="card-body"><span class="card-kicker">WESCO TSP® / 0{num}</span><h3><a href="{item['path']}">{e(item['heading'])}</a></h3><p>{e(item['description'])}</p><a class="watch-link" href="{item['path']}">{e(c['watch'])} <span aria-hidden="true">→</span></a></div></article>'''
+
+def footer(locale):
+    c = COPY[locale]
+    return f'''<footer class="library-footer"><span>© WESCO · TSP®</span><span><a href="https://www.wesco.co.kr">{e(c['officialWebsite'])}</a> · <a href="mailto:wesco@wesco.co.kr">wesco@wesco.co.kr</a></span></footer>'''
+
+def video_schema(item):
+    return {'@context':'https://schema.org','@type':'VideoObject','@id':ORIGIN+item['path']+'#video',
+            'name':item['title'],'description':item['description'],
+            'thumbnailUrl':[ORIGIN+item['thumbnail']], 'uploadDate':item['publishedDate'],
+            'duration':f"PT{item['durationSeconds']:g}S",'embedUrl':item['embedUrl'],'inLanguage':item['locale'],
+            'publisher':{'@type':'Organization','@id':ORIGIN+'/#org','name':'WESCO'},
+            'mainEntityOfPage':{'@type':'WebPage','@id':ORIGIN+item['path']}}
+
+def guide_title(path):
+    source = (ROOT/path.lstrip('/')/'index.html').read_text(encoding='utf-8')
+    text = re.search(r'<h1[^>]*>(.*?)</h1>',source,re.S).group(1)
+    return html.unescape(re.sub('<[^>]+>','',text))
+
+def render_watch(item):
+    locale = item['locale']; c = COPY[locale]
+    siblings = [i for i in ENTRIES if i['film']==item['film']]
+    alternates = ''.join(f'<link rel="alternate" hreflang="{i["locale"]}" href="{ORIGIN+i["path"]}">' for i in siblings)
+    default = next(i for i in siblings if i['locale']=='en')
+    alternates += f'<link rel="alternate" hreflang="x-default" href="{ORIGIN+default["path"]}">'
+    switch = ''.join(f'<a href="{i["path"]}" lang="{i["locale"]}" hreflang="{i["locale"]}"'+(' aria-current="page"' if i['locale']==locale else '')+f'>{e(COPY[i["locale"]]["name"])}</a>' for i in siblings)
+    others = [i for i in ENTRIES if i['locale']==locale and i['film']!=item['film']]
+    guides = ''.join(f'<li><a href="{p}">{e(guide_title(p))}</a></li>' for p in item['relatedBlogs'])
+    body = head(locale,item['title'],item['description'],item['path'],item['thumbnail'],alternates)+ld(video_schema(item))
+    body += f'''<script src="/videos/watch.js" defer></script></head><body class="series-watch">{header(locale)}<main id="main">
+<p class="eyebrow">WESCO TSP® / VIDEO</p><h1 class="watch-title">{e(item['heading'])}</h1>
+<div class="player"><iframe src="{item['embedUrl']}" title="{e(item['title'])}" data-duration="{item['durationSeconds']}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<div class="watch-meta"><span>{e(COPY[locale]['name'])} · {duration(item['durationSeconds'])} · {e(c['published'])} <time datetime="{item['publishedDate']}">{item['publishedDate']}</time></span><a href="{item['url']}">{e(c['watchYouTube'])} ↗</a></div>
+<nav class="language-switch" aria-label="{e(c['chooseLanguage'])}">{switch}</nav>
+<p class="watch-description">{e(item['description'])}</p><p class="note">{e(c['illustrationNote'])}</p>
+<section class="video-cta" aria-label="{e(c['contact'])}"><p>{e(c['contactIntro'])}</p><div class="video-cta-actions"><a class="video-cta-primary" href="{e(item['contactUrl'])}">{e(c['contact'])}</a><a class="video-cta-secondary" href="{e(item['catalogUrl'])}">{e(c['catalog'])}</a></div>'''
+    if c['contactLanguageNote']: body += f'<p class="note">{e(c["contactLanguageNote"])}</p>'
+    body += f'''</section><div class="related-grid"><nav class="related" aria-label="{e(c['relatedVideos'])}"><h2>{e(c['relatedVideos'])}</h2><ul>'''
+    body += ''.join(f'<li><a href="{i["path"]}">{e(i["heading"])}</a></li>' for i in others)
+    body += f'''</ul></nav><nav class="related" aria-label="{e(c['relatedGuides'])}"><h2>{e(c['relatedGuides'])}</h2><p class="guide-lang">{e(c['relatedGuidesLanguageNote'])}</p><ul>{guides}</ul></nav></div>{footer(locale)}</main></body></html>\n'''
+    write(item['path']+'index.html',body)
+
+def legacy_cards():
+    rows=[]
+    for prefix,lang in [('','한국어'),('/en','English')]:
+        for slug in ['tsp-product','tsp-demo','wesco-company']:
+            path = prefix+'/videos/'+slug+'/'
+            content = (ROOT/path.lstrip('/')/'index.html').read_text(encoding='utf-8')
+            data = json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>',content,re.S).group(1))
+            rows.append(f'<article><a href="{path}"><img src="{data["thumbnailUrl"][0]}" width="1280" height="720" loading="lazy" alt=""><h3>{e(data["name"])}</h3></a><p>{lang}</p></article>')
+    return ''.join(rows)
+
+def render_hub():
+    title='TSP® 적용 전후·단상·삼상 설치 영상 | 6개 언어 | WESCO'
+    desc='WESCO 순간정전보상장치 TSP® 적용 전후와 단상·삼상 설치·시운전 영상을 한국어, 영어, 간체중문, 번체중문, 일본어, 베트남어로 확인하세요.'
+    schema={'@context':'https://schema.org','@type':'CollectionPage','name':title,'description':desc,'url':ORIGIN+'/videos/','mainEntity':{'@type':'ItemList','itemListElement':[{'@type':'ListItem','position':n+1,'url':ORIGIN+i['path'],'name':i['title']} for n,i in enumerate(ENTRIES)]}}
+    out=head('ko',title,desc,'/videos/')+ld(schema)+'<script src="/videos/library.js" defer></script></head><body class="library-page"><a class="skip" href="#main">본문으로 이동</a>'+header('ko')
+    out+='''<main id="main"><section class="library-hero"><p class="eyebrow">WESCO / VIDEO LIBRARY</p><h1>TSP를 이해하고,<br>설치와 시운전까지.</h1><p class="lead">순간정전보상장치 TSP®의 적용 전후부터 단상·삼상 설치까지.<br>고객과 현장 엔지니어를 위한 영상을 편한 언어로 만나보세요.</p><div class="library-meta"><span>3가지 주제</span><span>6개 언어 · 18편</span><span>공식 WESCO 채널</span></div></section><nav class="language-filter" aria-label="영상 언어 선택">'''
+    for key,name in [('all','전체 / All')]+[(k,COPY[k]['name']) for k in ORDER]:
+        out+=f'<button type="button" data-language-filter="{key}" aria-pressed="false">{name}</button>'
+    out+='</nav><p id="filter-status" class="filter-note" role="status" aria-live="polite">전체 / All · 18편</p>'
+    for locale in ORDER:
+        c=COPY[locale]; items=[i for i in ENTRIES if i['locale']==locale]
+        out+=f'<section class="language-section" data-video-language="{locale}" lang="{locale}" aria-labelledby="heading-{locale}"><div class="section-title"><h2 id="heading-{locale}">{c["name"]}</h2><span>{e(c["libraryTitle"])}</span></div><div class="cards">'+''.join(card(i) for i in items)+'</div></section>'
+    out+='''<details class="legacy"><summary>제품소개·실제 데모·회사소개 영상 더 보기</summary><p>기존 한국어·영어 제품소개, 실제 데모 시연, WESCO 회사소개도 함께 확인하세요.</p><div class="cards">'''+legacy_cards()+'''</div></details><section class="library-context"><h2>우리 설비에는 어떻게 적용할까요?</h2><div class="two"><article><h3>반도체·디스플레이</h3><p>전압 변동에 민감한 공정과 제어전원의 보호 범위를 확인하세요.</p><ul><li><a href="/blog/semiconductor-fab-voltage-sag/">반도체 팹의 순간전압강하</a></li><li><a href="/blog/display-fab-power-quality/">디스플레이 라인의 전력품질</a></li></ul></article><article><h3>일반 제조업</h3><p>공정의 정지 요인과 설비 구성에 맞춰 적용 대상을 검토하세요.</p><ul><li><a href="/blog/smart-factory-power-quality/">스마트팩토리와 전력품질</a></li><li><a href="/blog/automotive-line-voltage-sag/">자동차 공장의 순간전압강하</a></li></ul></article></div></section><section class="video-cta"><p>설비에 맞는 TSP 적용 범위와 설치 구성을 상담하세요.</p><div class="video-cta-actions"><a class="video-cta-primary" href="https://tsp.wesco.works/ko/?s=video_library_ko#contact">TSP 도입 상담</a><a class="video-cta-secondary" href="https://tsp.wesco.works/ko/?s=video_library_ko#catalog">카탈로그 받기</a></div></section>'''
+    out+=footer('ko')+'</main></body></html>\n'
+    write('/videos/index.html',out)
+
+def update_blog_links():
+    groups={
+      'before-after':['outage-vs-voltage-sag','factory-outage-damage','semiconductor-fab-voltage-sag','display-fab-power-quality'],
+      'singlephase':['control-power-protection','plc-momentary-outage'],
+      'threephase':['selecting-sag-protector-capacity','smart-factory-power-quality','automotive-line-voltage-sag','voltage-sag-monitoring']}
+    changed=[]
+    for locale in ['ko','en']:
+        for film,slugs in groups.items():
+            item=next(i for i in ENTRIES if i['locale']==locale and i['film']==film)
+            for slug in slugs:
+                p=ROOT/('blog/en' if locale=='en' else 'blog')/slug/'index.html'
+                if not p.exists(): continue
+                old=p.read_text(encoding='utf-8')
+                label=('영상으로 확인: ' if locale=='ko' else 'Watch: ')+item['heading']
+                new=re.sub(r'<a class="rel discovery-video"[^>]*>.*?</a>',f'<a class="rel discovery-video" href="{item["path"]}">{e(label)}</a>',old,flags=re.S)
+                if new!=old: p.write_text(new,encoding='utf-8'); changed.append(p.relative_to(ROOT).as_posix())
+    return changed
+
+def update_sitemap():
+    # Preserve existing formatting and entries; replace only these 18 URLs.
+    p=ROOT/'sitemap.xml'; source=p.read_text(encoding='utf-8')
+    for item in ENTRIES:
+        url=ORIGIN+item['path']
+        source=re.sub(r'\s*<url>\s*<loc>'+re.escape(url)+r'</loc>.*?</url>','',source,flags=re.S)
+    blocks=[]
+    for item in ENTRIES:
+        schema=video_schema(item); url=ORIGIN+item['path']
+        lines=['  <url>',f'    <loc>{url}</loc>']
+        for other in ENTRIES:
+            if other['film']==item['film']:
+                lines.append(f'    <xhtml:link rel="alternate" hreflang="{other["locale"]}" href="{ORIGIN+other["path"]}"/>')
+        default=next(i for i in ENTRIES if i['locale']=='en' and i['film']==item['film'])
+        lines.append(f'    <xhtml:link rel="alternate" hreflang="x-default" href="{ORIGIN+default["path"]}"/>')
+        lines.append('    <video:video>')
+        fields={'thumbnail_loc':schema['thumbnailUrl'][0],'title':schema['name'],'description':schema['description'],'player_loc':schema['embedUrl'],'publication_date':schema['uploadDate'],'duration':math.ceil(item['durationSeconds'])}
+        lines += [f'      <video:{k}>{e(str(v))}</video:{k}>' for k,v in fields.items()]
+        lines+=['    </video:video>','  </url>']; blocks.append('\n'.join(lines))
+    source=re.sub(r'\s*</urlset>\s*$', '\n'+'\n'.join(blocks)+'\n</urlset>\n', source)
+    ET.fromstring(source)
+    p.write_text(source,encoding='utf-8')
+
+if __name__=='__main__':
+    for item in ENTRIES: render_watch(item)
+    render_hub(); changed=update_blog_links(); update_sitemap()
+    print(json.dumps({'watch_pages':len(ENTRIES),'languages':ORDER,'updated_blog_links':changed},ensure_ascii=False))

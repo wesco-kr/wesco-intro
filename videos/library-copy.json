@@ -1,0 +1,218 @@
+{
+  "ko": {
+    "name": "한국어",
+    "pathPrefix": "",
+    "contactLocale": "ko",
+    "contactLanguageNote": "",
+    "libraryTitle": "TSP® 적용 전후·설치 영상",
+    "libraryIntro": "TSP의 적용 개념부터 단상·삼상 설치와 시운전까지, 필요한 영상을 골라 보세요.",
+    "menu": "영상 자료실",
+    "company": "WESCO 회사소개",
+    "chooseLanguage": "다른 언어로 보기",
+    "watch": "영상 보기",
+    "watchYouTube": "YouTube에서 보기",
+    "relatedVideos": "함께 볼 영상",
+    "relatedGuides": "관련 기술 자료",
+    "relatedGuidesLanguageNote": "",
+    "contact": "TSP 도입 상담",
+    "catalog": "카탈로그 받기",
+    "contactIntro": "설비의 전원 구성과 보호할 부하에 맞는 TSP를 상담하세요.",
+    "officialWebsite": "WESCO 공식 홈페이지",
+    "published": "공개일",
+    "illustrationNote": "제품 자료를 바탕으로 AI로 재현한 설명 영상입니다. 실제 고객 현장이나 성능시험 기록이 아닙니다. 적용 사양과 보상 범위는 모델·보호 부하·운전 조건에 따라 확인해야 합니다.",
+    "films": {
+      "before-after": {
+        "heading": "TSP® 적용 전후",
+        "description": "순간전압강하·순간정전이 설비에 미치는 영향과 TSP가 연결된 보호 대상에 전원을 공급하는 개념을 비교합니다."
+      },
+      "singlephase": {
+        "heading": "단상 TSP® 설치·시운전",
+        "description": "제어전원 보호용 단상 TSP의 설치, 입출력 결선, 단자 커버, 전원 투입과 정상 표시 확인을 살펴봅니다. 통신과 SAG Viewer는 선택 사양입니다."
+      },
+      "threephase": {
+        "heading": "삼상 TSP® 설치·시운전",
+        "description": "삼상 TSP의 제품 사양 확인부터 전면 도어 내부 결선, 전원 투입, 충전·대기 표시와 시운전까지 살펴봅니다. 통신과 SAG Viewer는 선택 사양입니다."
+      }
+    }
+  },
+  "en": {
+    "name": "English",
+    "pathPrefix": "/en",
+    "contactLocale": "en",
+    "contactLanguageNote": "",
+    "libraryTitle": "TSP® protection and installation videos",
+    "libraryIntro": "Explore the protection concept, then see how single-phase and three-phase TSP units are installed and commissioned.",
+    "menu": "Video library",
+    "company": "About WESCO",
+    "chooseLanguage": "Watch in another language",
+    "watch": "Watch video",
+    "watchYouTube": "Watch on YouTube",
+    "relatedVideos": "Related videos",
+    "relatedGuides": "Related technical guides",
+    "relatedGuidesLanguageNote": "",
+    "contact": "Contact WESCO",
+    "catalog": "Get the catalogue",
+    "contactIntro": "Discuss a TSP configuration for your equipment supply and protected loads.",
+    "officialWebsite": "Official WESCO website",
+    "published": "Published",
+    "illustrationNote": "AI-assisted educational reconstruction based on product references, not customer-site footage or a performance-test record. Select the model and protection scope for the connected load and operating conditions.",
+    "films": {
+      "before-after": {
+        "heading": "With and without TSP®",
+        "description": "Compare the effects of a brief power disturbance and the concept of TSP supplying the equipment connected for protection."
+      },
+      "singlephase": {
+        "heading": "Single-phase TSP® installation",
+        "description": "Explore control-power installation, input and output wiring, terminal covers, power-up and normal-status checks. Communications and SAG Viewer are optional."
+      },
+      "threephase": {
+        "heading": "Three-phase TSP® installation",
+        "description": "Explore product ratings, wiring inside the front door, power-up, charging and standby indication, and commissioning. Communications and SAG Viewer are optional."
+      }
+    }
+  },
+  "zh-CN": {
+    "name": "简体中文",
+    "pathPrefix": "/zh-cn",
+    "contactLocale": "cn",
+    "contactLanguageNote": "",
+    "libraryTitle": "TSP® 防护原理与安装视频",
+    "libraryIntro": "了解 TSP 的防护原理，以及单相、三相产品的安装与调试。",
+    "menu": "视频资料库",
+    "company": "关于 WESCO",
+    "chooseLanguage": "选择其他语言",
+    "watch": "观看视频",
+    "watchYouTube": "在 YouTube 上观看",
+    "relatedVideos": "相关视频",
+    "relatedGuides": "相关技术资料",
+    "relatedGuidesLanguageNote": "以下技术文章为英文。",
+    "contact": "咨询 TSP 选型",
+    "catalog": "获取产品目录",
+    "contactIntro": "根据设备的供电配置与需要保护的负载，咨询适合的 TSP 方案。",
+    "officialWebsite": "WESCO 官方网站",
+    "published": "发布日期",
+    "illustrationNote": "本视频基于产品资料，采用 AI 辅助重现用于教学说明，并非客户现场实拍或性能测试记录。请根据所选型号、受保护负载和运行条件确认适用范围。",
+    "films": {
+      "before-after": {
+        "heading": "TSP® 应用前后对比",
+        "description": "对比短时电源扰动对设备的影响，了解 TSP 为接入保护范围的设备供电的原理。"
+      },
+      "singlephase": {
+        "heading": "单相 TSP® 安装与调试",
+        "description": "了解控制电源保护用单相 TSP 的安装、输入输出接线、端子盖安装、送电与正常状态确认。通信与 SAG Viewer 为选配功能。"
+      },
+      "threephase": {
+        "heading": "三相 TSP® 安装与调试",
+        "description": "了解产品规格确认、前门内接线、送电、充电与待机指示，以及调试流程。通信与 SAG Viewer 为选配功能。"
+      }
+    }
+  },
+  "zh-TW": {
+    "name": "繁體中文",
+    "pathPrefix": "/zh-tw",
+    "contactLocale": "cn",
+    "contactLanguageNote": "諮詢與型錄頁面目前使用簡體中文。",
+    "libraryTitle": "TSP® 防護原理與安裝影片",
+    "libraryIntro": "了解 TSP 的防護原理，以及單相、三相產品的安裝與試運轉。",
+    "menu": "影片資料庫",
+    "company": "關於 WESCO",
+    "chooseLanguage": "選擇其他語言",
+    "watch": "觀看影片",
+    "watchYouTube": "在 YouTube 觀看",
+    "relatedVideos": "相關影片",
+    "relatedGuides": "相關技術資料",
+    "relatedGuidesLanguageNote": "以下技術文章為英文。",
+    "contact": "洽詢 TSP 選型（簡體中文）",
+    "catalog": "取得產品型錄（簡體中文）",
+    "contactIntro": "依據設備的供電配置與需要保護的負載，洽詢適合的 TSP 方案。",
+    "officialWebsite": "WESCO 官方網站",
+    "published": "發布日期",
+    "illustrationNote": "本影片依據產品資料，以 AI 輔助重現作為教學說明，並非客戶現場實拍或性能測試紀錄。適用範圍須依所選機型、受保護負載與運轉條件確認。",
+    "films": {
+      "before-after": {
+        "heading": "TSP® 導入前後對比",
+        "description": "比較短暫電源擾動對設備的影響，了解 TSP 對接入保護範圍的設備供電的原理。"
+      },
+      "singlephase": {
+        "heading": "單相 TSP® 安裝與試運轉",
+        "description": "了解控制電源保護用單相 TSP 的安裝、輸入輸出接線、端子護蓋安裝、送電與正常狀態確認。通訊與 SAG Viewer 為選配功能。"
+      },
+      "threephase": {
+        "heading": "三相 TSP® 安裝與試運轉",
+        "description": "了解產品規格確認、前門內接線、送電、充電與待機指示，以及試運轉流程。通訊與 SAG Viewer 為選配功能。"
+      }
+    }
+  },
+  "ja": {
+    "name": "日本語",
+    "pathPrefix": "/ja",
+    "contactLocale": "en",
+    "contactLanguageNote": "お問い合わせ・カタログのページは英語です。",
+    "libraryTitle": "TSP® の保護原理・設置動画",
+    "libraryIntro": "TSP の保護原理と、単相・三相製品の設置から試運転までをご覧ください。",
+    "menu": "動画ライブラリ",
+    "company": "WESCO について",
+    "chooseLanguage": "ほかの言語で見る",
+    "watch": "動画を見る",
+    "watchYouTube": "YouTube で見る",
+    "relatedVideos": "関連動画",
+    "relatedGuides": "関連技術資料",
+    "relatedGuidesLanguageNote": "以下の技術記事は英語です。",
+    "contact": "TSP の導入相談（英語）",
+    "catalog": "カタログを見る（英語）",
+    "contactIntro": "設備の電源構成と保護対象の負荷に適した TSP についてご相談ください。",
+    "officialWebsite": "WESCO 公式ウェブサイト",
+    "published": "公開日",
+    "illustrationNote": "製品資料に基づき、AI を活用して再現した説明動画です。お客様の現場映像や性能試験の記録ではありません。適用範囲は機種・保護対象負荷・運転条件に応じてご確認ください。",
+    "films": {
+      "before-after": {
+        "heading": "TSP® 導入前後の比較",
+        "description": "短時間の電源変動が設備に与える影響と、TSP に接続した保護対象へ給電する仕組みを比較します。"
+      },
+      "singlephase": {
+        "heading": "単相 TSP® の設置・試運転",
+        "description": "制御電源保護用の単相 TSP の設置、入出力結線、端子カバーの取り付け、電源投入と正常表示の確認をご紹介します。通信と SAG Viewer はオプションです。"
+      },
+      "threephase": {
+        "heading": "三相 TSP® の設置・試運転",
+        "description": "製品仕様の確認から前面ドア内の結線、電源投入、充電・待機表示、試運転までをご紹介します。通信と SAG Viewer はオプションです。"
+      }
+    }
+  },
+  "vi": {
+    "name": "Tiếng Việt",
+    "pathPrefix": "/vi",
+    "contactLocale": "vn",
+    "contactLanguageNote": "",
+    "libraryTitle": "Video về bảo vệ nguồn điện và lắp đặt TSP®",
+    "libraryIntro": "Tìm hiểu nguyên lý bảo vệ, cách lắp đặt và chạy thử TSP một pha và ba pha.",
+    "menu": "Thư viện video",
+    "company": "Giới thiệu WESCO",
+    "chooseLanguage": "Xem bằng ngôn ngữ khác",
+    "watch": "Xem video",
+    "watchYouTube": "Xem trên YouTube",
+    "relatedVideos": "Video liên quan",
+    "relatedGuides": "Tài liệu kỹ thuật liên quan",
+    "relatedGuidesLanguageNote": "Các bài viết kỹ thuật dưới đây bằng tiếng Anh.",
+    "contact": "Tư vấn lựa chọn TSP",
+    "catalog": "Xem tài liệu sản phẩm",
+    "contactIntro": "Trao đổi với WESCO về cấu hình TSP phù hợp với nguồn cấp và tải cần bảo vệ của thiết bị.",
+    "officialWebsite": "Trang web chính thức của WESCO",
+    "published": "Ngày đăng",
+    "illustrationNote": "Video minh họa có hỗ trợ AI, được tái hiện từ tài liệu sản phẩm; không phải cảnh quay tại nhà máy khách hàng hay hồ sơ thử nghiệm hiệu năng. Phạm vi bảo vệ phụ thuộc vào mẫu sản phẩm, tải được bảo vệ và điều kiện vận hành.",
+    "films": {
+      "before-after": {
+        "heading": "Trước và sau khi lắp đặt TSP®",
+        "description": "So sánh ảnh hưởng của sự cố nguồn điện ngắn hạn và tìm hiểu nguyên lý TSP cấp điện cho thiết bị được kết nối để bảo vệ."
+      },
+      "singlephase": {
+        "heading": "Lắp đặt và chạy thử TSP® một pha",
+        "description": "Tìm hiểu cách lắp đặt TSP một pha để bảo vệ nguồn điều khiển, đấu nối đầu vào và đầu ra, lắp nắp che đầu nối, cấp nguồn và kiểm tra trạng thái bình thường. Truyền thông và SAG Viewer là tùy chọn."
+      },
+      "threephase": {
+        "heading": "Lắp đặt và chạy thử TSP® ba pha",
+        "description": "Tìm hiểu việc kiểm tra thông số sản phẩm, đấu nối bên trong cửa trước, cấp nguồn, kiểm tra sạc và đèn báo chờ, cùng quy trình chạy thử. Truyền thông và SAG Viewer là tùy chọn."
+      }
+    }
+  }
+}

@@ -37,6 +37,14 @@
 - `python tools/check_search_content.py`로 내부 링크, canonical, 영상 사이트맵 및 언어별 연결을 검사한다. 배포 전 `--base origin/main`을 붙이면 기존 글 본문·Article/FAQ·iframe·문의 추적 링크가 보존됐는지도 검사한다.
 - 탐색 링크 변경만으로 글의 최초 발행일을 새 날짜로 바꾸지 않는다. 검색 노출·색인 여부는 배포 여부와 구분해 Search Console에서 확인한다.
 
+## 다국어 영상 자료실
+
+- `/videos/`에서 적용 전후·단상 설치·삼상 설치 공개 영상 18편을 6개 언어로 선택한다. 기존 제품·데모·회사소개 시청 페이지 6개는 유지한다.
+- 공개 영상 정보는 `videos/library.json`, 번역된 화면 문구는 `videos/library-copy.json`, 승인된 썸네일은 `videos/thumbnails/`에 있다. 로컬 검토본과 공개본이 다른 경우 반드시 공개 영상의 메타데이터를 사용한다.
+- `python tools/build_video_library.py`로 목록, 개별 시청 페이지, 관련 블로그 영상 링크, 영상 사이트맵을 다시 만든다. `python tools/check_search_content.py --base origin/main`으로 검증한다.
+- 언어 필터 없이도 정적 HTML에 모든 영상 링크가 남는다. 각 시청 페이지의 상담·카탈로그 링크는 기존 `tsp.wesco.works` 경로와 영상별 `s` 값을 사용한다. 번체·일본어 페이지는 문의창의 지원 언어를 명시한다.
+- 번역 대본·생성 비용·내부 제작 기록은 이 공개 저장소에 넣지 않는다. 구조화된 데이터와 사이트맵의 추가는 Google 색인·노출의 보장이 아니다.
+
 ## 데이터 출처
 WESCO-사업소개서-2025-Ver3.5 · 검증 수치만 사용(50,000+ Units · 900+ Companies · 15+ Countries · 2001년 설립)
 글로벌 네트워크 거점은 `07-영업자료/13.대리점 관리/WESCO-대리점 LIST-V3.0.xlsx` 기준 — 대외 페이지에는 국가·도시만 표기하고 대리점 회사명은 넣지 않는다.
