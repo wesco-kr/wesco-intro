@@ -107,44 +107,29 @@ a:hover{text-decoration:underline}
 <p>“The lights stayed on, but the machine stopped.” That can happen when a controller, drive or contactor leaves its operating range. It does not prove a supply-side sag: internal faults and protection trips can produce a similar symptom.</p>
 <h2>Voltage sag vs momentary outage difference at a glance</h2>
 <p>This is a conceptual illustration, not a measured waveform. Height represents voltage magnitude.</p>
-<pre><code class="language-text">Normal voltage   ----------------------
-Sag              -----+       +--------
-                      +-------+          lower voltage, then recovery
-Interruption     -----+       +--------
-                      |       |
-Zero voltage          +-------+          supply lost, then restored
-</code></pre>
-<table>
-<thead>
-<tr>
-<th>Question</th>
-<th>Voltage sag</th>
-<th>Supply interruption</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>What changes?</td>
-<td>Voltage magnitude falls</td>
-<td>Supply is interrupted</td>
-</tr>
-<tr>
-<td>Is it obvious?</td>
-<td>A flicker, or no visible sign</td>
-<td>Depends on duration and the connected load</td>
-</tr>
-<tr>
-<td>Can equipment stop?</td>
-<td>Controls, drives or contactors may trip</td>
-<td>Loads losing their supply may stop</td>
-</tr>
-<tr>
-<td>What should be recorded?</td>
-<td>Remaining voltage and duration</td>
-<td>Interruption time and duration</td>
-</tr>
-</tbody>
-</table>
+<div style="margin:24px 0;overflow-x:auto;background:#faf8f4;border:1px solid #e5ded2;border-radius:12px;padding:16px">
+<svg viewBox="0 0 680 250" role="img" aria-label="Concept diagram: voltage sag and interruption" style="display:block;width:100%;min-width:480px;height:auto" xmlns="http://www.w3.org/2000/svg">
+<title>Concept diagram: voltage sag and interruption</title>
+<g font-family="Arial, sans-serif" font-size="16" fill="#292a25">
+<text x="12" y="36">Normal voltage</text><text x="12" y="104">Voltage sag</text><text x="12" y="185">Interruption</text>
+<text x="192" y="140" font-size="14" fill="#66665e">Lower voltage, then recovery</text><text x="192" y="242" font-size="14" fill="#66665e">Supply lost, then restored</text>
+</g>
+<path d="M190 30 H650" fill="none" stroke="#7a7f76" stroke-width="3"/>
+<path d="M190 90 H320 V116 H505 V90 H650" fill="none" stroke="#d4471b" stroke-width="4" stroke-linejoin="round"/>
+<path d="M190 170 H320 V214 H505 V170 H650" fill="none" stroke="#315b68" stroke-width="4" stroke-linejoin="round"/>
+<path d="M190 214 H650" fill="none" stroke="#bbb8b0" stroke-width="1" stroke-dasharray="5 5"/>
+<text x="155" y="219" font-family="Arial, sans-serif" font-size="13" fill="#66665e">0</text>
+</svg>
+</div>
+
+<div style="overflow-x:auto;margin:20px 0"><table style="width:100%;border-collapse:collapse;font-size:0.95em;line-height:1.6">
+<tr><th style="text-align:left;vertical-align:top;padding:12px;border:1px solid #dedbd3;background:#f3eee5;">Question</th><th style="text-align:left;vertical-align:top;padding:12px;border:1px solid #dedbd3;background:#f3eee5;">Voltage sag</th><th style="text-align:left;vertical-align:top;padding:12px;border:1px solid #dedbd3;background:#f3eee5;">Supply interruption</th></tr>
+<tr><td style="text-align:left;vertical-align:top;padding:12px;border:1px solid #dedbd3;">What changes?</td><td style="text-align:left;vertical-align:top;padding:12px;border:1px solid #dedbd3;">Voltage magnitude falls</td><td style="text-align:left;vertical-align:top;padding:12px;border:1px solid #dedbd3;">Supply is interrupted</td></tr>
+<tr><td style="text-align:left;vertical-align:top;padding:12px;border:1px solid #dedbd3;">Is it obvious?</td><td style="text-align:left;vertical-align:top;padding:12px;border:1px solid #dedbd3;">A flicker, or no visible sign</td><td style="text-align:left;vertical-align:top;padding:12px;border:1px solid #dedbd3;">Depends on duration and the connected load</td></tr>
+<tr><td style="text-align:left;vertical-align:top;padding:12px;border:1px solid #dedbd3;">Can equipment stop?</td><td style="text-align:left;vertical-align:top;padding:12px;border:1px solid #dedbd3;">Controls, drives or contactors may trip</td><td style="text-align:left;vertical-align:top;padding:12px;border:1px solid #dedbd3;">Loads losing their supply may stop</td></tr>
+<tr><td style="text-align:left;vertical-align:top;padding:12px;border:1px solid #dedbd3;">What should be recorded?</td><td style="text-align:left;vertical-align:top;padding:12px;border:1px solid #dedbd3;">Remaining voltage and duration</td><td style="text-align:left;vertical-align:top;padding:12px;border:1px solid #dedbd3;">Interruption time and duration</td></tr>
+</table></div>
+
 <p>WESCO&rsquo;s definition describes a sag as voltage falling to <strong>10–90% of nominal for 0.5 cycle to 1 minute</strong>. This percentage is the voltage <em>remaining</em>, not the percentage lost. An interruption can also be brief; duration alone does not distinguish the two.</p>
 <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/M1QejBSbeYc" title="순간정전보상장치 TSP® 데모 시뮬레이션 영상 | 웨스코(WESCO) 순간전압강하 자동 보상" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div><h2>Why equipment may stay stopped after voltage returns</h2>
 <p>Consider an illustrative example, not a customer case: a pump contactor drops out during a dip in its control supply, releasing a seal-in circuit. If the circuit requires a new start command or an alarm reset, the pump can remain stopped after voltage returns.</p>
