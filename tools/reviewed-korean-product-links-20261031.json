@@ -1,0 +1,316 @@
+{
+  "files": [
+    {
+      "path": "blog/10-year-maintenance-free/index.html",
+      "beforeNormalizedSha256": "f8f5b5fd243e204f790b87bed8528504a409dd0f65281709070409b8ce614425",
+      "afterSha256": "7140183b9105f4c6123dfbee71e3f3f6eee831edca4b51f4f5cfd961f08b3154",
+      "changes": [
+        {
+          "before": "<p class=\"product\">",
+          "after": "<p class=\"product product-ko\"><a href=\"https://intro.wesco.works/?lang=ko#p9\">TSP® 제품 라인업 보기 (한국어)</a></p><p class=\"product\">",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "blog/automotive-line-voltage-sag/index.html",
+      "beforeNormalizedSha256": "6e0db15d229e5e2303d9a6f71857efc95d5ede824c830b0a21ed9f19af43027a",
+      "afterSha256": "2c7a111fc46fbb4cbdbffc5b37e9b606f9c26cd4be9d413c40d0e95e4a70cc69",
+      "changes": [
+        {
+          "before": "<p class=\"product\">",
+          "after": "<p class=\"product product-ko\"><a href=\"https://intro.wesco.works/?lang=ko#p9\">TSP® 제품 라인업 보기 (한국어)</a></p><p class=\"product\">",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "blog/lv-scope-explained/index.html",
+      "beforeNormalizedSha256": "1fa8d002a86dc267db589c4554a193ce7acdff34497ae3f118d6aa812ef72e63",
+      "afterSha256": "719061261108aa286363ace05ab92601cd2d2b1cd11d33af2bbe1f1e362a6218",
+      "changes": [
+        {
+          "before": "<p class=\"product\">",
+          "after": "<p class=\"product product-ko\"><a href=\"https://intro.wesco.works/?lang=ko#p9\">TSP® 제품 라인업 보기 (한국어)</a></p><p class=\"product\">",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "blog/voltage-sag-monitoring/index.html",
+      "beforeNormalizedSha256": "6e906bebabe60645c1805258878837b7576d65f26db50356bf5208c6911ea06d",
+      "afterSha256": "f7b6009a02e832c615b1f2fd8fd3f3bfca324bc14532594a2f132e52c81b9c91",
+      "changes": [
+        {
+          "before": "<p class=\"product\">",
+          "after": "<p class=\"product product-ko\"><a href=\"https://intro.wesco.works/?lang=ko#p9\">TSP® 제품 라인업 보기 (한국어)</a></p><p class=\"product\">",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "blog/magnetic-contactor-dropout/index.html",
+      "beforeNormalizedSha256": "58d194399c6e83080b1abb519464d008ade601ea23cdc0cda349baf110f5c3c1",
+      "afterSha256": "e40936c1866c8bf5f740e53dc92c59414793b419a2d3771e05e38d217dedfc81",
+      "changes": [
+        {
+          "before": "<p class=\"product\">",
+          "after": "<p class=\"product product-ko\"><a href=\"https://intro.wesco.works/?lang=ko#p9\">TSP® 제품 라인업 보기 (한국어)</a></p><p class=\"product\">",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "blog/smart-factory-power-quality/index.html",
+      "beforeNormalizedSha256": "1f96bf3bc27edb3c013c8421d5875f1a7ea887c19610fa724ecb2de484c1b269",
+      "afterSha256": "a3674a89572708e19955309e7e1486d0ffc316595324cab58f3569244c57cf66",
+      "changes": [
+        {
+          "before": "<p class=\"product\">",
+          "after": "<p class=\"product product-ko\"><a href=\"https://intro.wesco.works/?lang=ko#p9\">TSP® 제품 라인업 보기 (한국어)</a></p><p class=\"product\">",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "blog/voltage-sag-cost-structure/index.html",
+      "beforeNormalizedSha256": "89474378cd0509bc0addbe723672e6708bad4548aac276cdca38c6bbb037dc82",
+      "afterSha256": "10f96c15fc5b4022b1716b9d1c3c88c84f5d20ad3b4feb1c371766e8f5d75f25",
+      "changes": [
+        {
+          "before": "<p class=\"product\">",
+          "after": "<p class=\"product product-ko\"><a href=\"https://intro.wesco.works/?lang=ko#p9\">TSP® 제품 라인업 보기 (한국어)</a></p><p class=\"product\">",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "blog/itic-curve-guide/index.html",
+      "beforeNormalizedSha256": "2520bdea0be05cc2067084f64179da79dead0d7043ad865ddea105f64e4dcc55",
+      "afterSha256": "828da811ab07b7db66dcb51fcb280fb8b9930bd9ca7a6b7b7f911921ccf03cb9",
+      "changes": [
+        {
+          "before": "<p class=\"product\">",
+          "after": "<p class=\"product product-ko\"><a href=\"https://intro.wesco.works/?lang=ko#p9\">TSP® 제품 라인업 보기 (한국어)</a></p><p class=\"product\">",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "blog/control-power-protection/index.html",
+      "beforeNormalizedSha256": "16556cd0460bf3fda0cf62bf8cd86c43fe5333f4e765954235a908cc8f07831d",
+      "afterSha256": "0ea31bc5cb04d7a4e56e2ca15a44a59c9b2b356bde019f5ad9944168fe5fa194",
+      "changes": [
+        {
+          "before": "<p class=\"product\">",
+          "after": "<p class=\"product product-ko\"><a href=\"https://intro.wesco.works/?lang=ko#p9\">TSP® 제품 라인업 보기 (한국어)</a></p><p class=\"product\">",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "blog/faq-voltage-sag-basics/index.html",
+      "beforeNormalizedSha256": "c17e0a9e4b5e1759a76c83e69e18cdc8db5b0a5e1f172686aa8f79251cde26b2",
+      "afterSha256": "39154dec3ea8be0f919d9252ef78f7d4e849ee81c7c9d8263a4431ab824d6b75",
+      "changes": [
+        {
+          "before": "<p class=\"product\">",
+          "after": "<p class=\"product product-ko\"><a href=\"https://intro.wesco.works/?lang=ko#p9\">TSP® 제품 라인업 보기 (한국어)</a></p><p class=\"product\">",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "blog/momentary-power-outage/index.html",
+      "beforeNormalizedSha256": "f1bcb767a267539eeacd183ba3032301eafbe62eb1a36b5b744fa4a195c889f1",
+      "afterSha256": "6c662ff9da249961a3811a33fb7ec0f72e50ee997e68b49e39dc3b70fdee860f",
+      "changes": [
+        {
+          "before": "<p class=\"product\">",
+          "after": "<p class=\"product product-ko\"><a href=\"https://intro.wesco.works/?lang=ko#p9\">TSP® 제품 라인업 보기 (한국어)</a></p><p class=\"product\">",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "blog/battery-free-voltage-sag/index.html",
+      "beforeNormalizedSha256": "67be2fb71b5d735a11726bf619777813d284b2c466cfc88c2345747c98d0bead",
+      "afterSha256": "b1376169cebe312e587476aacc7b9f5226f214a839caa8e6d5f399d7e7eb3bc5",
+      "changes": [
+        {
+          "before": "<p class=\"product\">",
+          "after": "<p class=\"product product-ko\"><a href=\"https://intro.wesco.works/?lang=ko#p9\">TSP® 제품 라인업 보기 (한국어)</a></p><p class=\"product\">",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "blog/factory-outage-damage/index.html",
+      "beforeNormalizedSha256": "93da462d8445469211e52f266c80389d7ff318da9d67da1a095f20f74b153353",
+      "afterSha256": "f8f8cb72993d5d43c360fe54b1804607d078b51497f446e94eb6f3a8faf6738b",
+      "changes": [
+        {
+          "before": "<p class=\"product\">",
+          "after": "<p class=\"product product-ko\"><a href=\"https://intro.wesco.works/?lang=ko#p9\">TSP® 제품 라인업 보기 (한국어)</a></p><p class=\"product\">",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "blog/global-track-record/index.html",
+      "beforeNormalizedSha256": "d77d599eb2263e88cdbb346e7f1967dfe31751da12cc83f394c2c0459adce761",
+      "afterSha256": "99d2cc796ba3a468faf1e329304938144ca472d73fda54c9711510a7fc45f432",
+      "changes": [
+        {
+          "before": "<p class=\"product\">",
+          "after": "<p class=\"product product-ko\"><a href=\"https://intro.wesco.works/?lang=ko#p9\">TSP® 제품 라인업 보기 (한국어)</a></p><p class=\"product\">",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "blog/display-fab-power-quality/index.html",
+      "beforeNormalizedSha256": "b32f3faa5b178e504ca8c69c2b4a3cebbe6762d47ab75a9ce72d6e40643c43c7",
+      "afterSha256": "166d2fd1b7ba578b9cc237551c6e67b0946d461700d2fee1ef5c36016c2def8c",
+      "changes": [
+        {
+          "before": "<p class=\"product\">",
+          "after": "<p class=\"product product-ko\"><a href=\"https://intro.wesco.works/?lang=ko#p9\">TSP® 제품 라인업 보기 (한국어)</a></p><p class=\"product\">",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "blog/ups-vs-outage-compensator/index.html",
+      "beforeNormalizedSha256": "aca8c8ff9c970e6727fdf8563bbdc92cb6154d839c6c043a15f7bc5d7a4b757b",
+      "afterSha256": "d88cbedbeae197fa9e5c24d1d938bf9ca1634d1617e30dff8eda91e48d03692a",
+      "changes": [
+        {
+          "before": "<p class=\"product\">",
+          "after": "<p class=\"product product-ko\"><a href=\"https://intro.wesco.works/?lang=ko#p9\">TSP® 제품 라인업 보기 (한국어)</a></p><p class=\"product\">",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "blog/why-sags-come-from-outside/index.html",
+      "beforeNormalizedSha256": "468384161a0dbd53fba14f36224bb1bcd0a19ba4638b5f670361e10d4997d305",
+      "afterSha256": "5986374d70a0be5af59022a4e54318b1ae857dfeee5147df562f9ff3ca2bdade",
+      "changes": [
+        {
+          "before": "<p class=\"product\">",
+          "after": "<p class=\"product product-ko\"><a href=\"https://intro.wesco.works/?lang=ko#p9\">TSP® 제품 라인업 보기 (한국어)</a></p><p class=\"product\">",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "blog/momentary-outage-compensator-guide/index.html",
+      "beforeNormalizedSha256": "4a0b7bdde9e08e35f8dc59fd6890ffdbe353d2b5e6897fda2744e3ca3e7a936d",
+      "afterSha256": "82f47b94175e0a48f12d2483bb47dc08f36a2419d3c164ef4be71ee680bc711f",
+      "changes": [
+        {
+          "before": "<p class=\"product\">",
+          "after": "<p class=\"product product-ko\"><a href=\"https://intro.wesco.works/?lang=ko#p9\">TSP® 제품 라인업 보기 (한국어)</a></p><p class=\"product\">",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "blog/supercapacitor-tech-explained/index.html",
+      "beforeNormalizedSha256": "deef69838240fd1f34eeb990c0d5c3ec8711daf73ece195729f60ffa2d1030a5",
+      "afterSha256": "59b78a00cfe408d651d341d0fceef87e32f4a013a96ab39db5fee75613e49590",
+      "changes": [
+        {
+          "before": "<p class=\"product\">",
+          "after": "<p class=\"product product-ko\"><a href=\"https://intro.wesco.works/?lang=ko#p9\">TSP® 제품 라인업 보기 (한국어)</a></p><p class=\"product\">",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "blog/selecting-sag-protector-capacity/index.html",
+      "beforeNormalizedSha256": "ec85e7908286735c759cad8226195880db89b441728c1679404cad07675646bc",
+      "afterSha256": "4888c93c96be8a77db4932aed22b633285763ed549c92c51008c448ba61da33f",
+      "changes": [
+        {
+          "before": "<p class=\"product\">",
+          "after": "<p class=\"product product-ko\"><a href=\"https://intro.wesco.works/?lang=ko#p9\">TSP® 제품 라인업 보기 (한국어)</a></p><p class=\"product\">",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "blog/data-center-voltage-sag/index.html",
+      "beforeNormalizedSha256": "4598ac883b0b9dee81be4edbc5c2e8e5ee50648466abfda462c8da77030a51aa",
+      "afterSha256": "b238bcde3466e6c2d6b6a80f4bc7e7ceb9249c204a3f325a11abadc097bb1950",
+      "changes": [
+        {
+          "before": "<p class=\"product\">",
+          "after": "<p class=\"product product-ko\"><a href=\"https://intro.wesco.works/?lang=ko#p9\">TSP® 제품 라인업 보기 (한국어)</a></p><p class=\"product\">",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "blog/summer-lightning-season/index.html",
+      "beforeNormalizedSha256": "e5d78c2b91407bc4f234837ac1d9fc36d16935e9c93baed3e1dc18e8e0d21181",
+      "afterSha256": "e0d0cd819213e72de3bad3a2a991ad6109e6a5f4402d41544224a67bf2c064ac",
+      "changes": [
+        {
+          "before": "<p class=\"product\">",
+          "after": "<p class=\"product product-ko\"><a href=\"https://intro.wesco.works/?lang=ko#p9\">TSP® 제품 라인업 보기 (한국어)</a></p><p class=\"product\">",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "blog/ev-battery-plant-power-quality/index.html",
+      "beforeNormalizedSha256": "e0a6e7a7906d9bb673ff9d4476abd8652819f37137522525e56238992f152eb1",
+      "afterSha256": "1daf105fe4ff11292130e846a960d742d785edf82dd182055e8a920f0d6bafee",
+      "changes": [
+        {
+          "before": "<p class=\"product\">",
+          "after": "<p class=\"product product-ko\"><a href=\"https://intro.wesco.works/?lang=ko#p9\">TSP® 제품 라인업 보기 (한국어)</a></p><p class=\"product\">",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "blog/outage-vs-voltage-sag/index.html",
+      "beforeNormalizedSha256": "7353cea93721c672c217db8d1ae2efcbed8c3bdbf8dc24a34405327653a78059",
+      "afterSha256": "193306639f4787de2d39a959284efbff81680ba7f0e8cb2ccd3dcc507049b586",
+      "changes": [
+        {
+          "before": "<p class=\"product\">",
+          "after": "<p class=\"product product-ko\"><a href=\"https://intro.wesco.works/?lang=ko#p9\">TSP® 제품 라인업 보기 (한국어)</a></p><p class=\"product\">",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "blog/semi-f47-explained/index.html",
+      "beforeNormalizedSha256": "cce9df72bf74eab756afb3815c7fb43d8eee63abfb9e6114ac2c13bcd64cdf84",
+      "afterSha256": "dcb1f2d6de2d26b203454aca9749cae03972f31235f781983c4f04af8dd8099a",
+      "changes": [
+        {
+          "before": "<p class=\"product\">",
+          "after": "<p class=\"product product-ko\"><a href=\"https://intro.wesco.works/?lang=ko#p9\">TSP® 제품 라인업 보기 (한국어)</a></p><p class=\"product\">",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "blog/semiconductor-fab-voltage-sag/index.html",
+      "beforeNormalizedSha256": "e9d73925b54b7f83bc5681c7662f483ee83676baa4d3eedda841f0736a5d5a09",
+      "afterSha256": "a2eab9b71f20538d543da35286b28b89e0e69434bc2b30810330cc2d07868c6a",
+      "changes": [
+        {
+          "before": "<p class=\"product\">",
+          "after": "<p class=\"product product-ko\"><a href=\"https://intro.wesco.works/?lang=ko#p9\">TSP® 제품 라인업 보기 (한국어)</a></p><p class=\"product\">",
+          "occurrences": 1
+        }
+      ]
+    }
+  ]
+}
