@@ -17,7 +17,8 @@
     // URL parameter has highest priority (?lang=en)
     const urlLang = new URLSearchParams(location.search).get('lang');
     if (urlLang && SUPPORTED.includes(urlLang)) return urlLang;
-    const saved = localStorage.getItem(STORAGE_KEY);
+    let saved;
+    try { saved = localStorage.getItem(STORAGE_KEY); } catch (_) {}
     if (saved && SUPPORTED.includes(saved)) return saved;
     const browser = (navigator.language || 'ko').slice(0, 2).toLowerCase();
     if (browser === 'zh') return 'cn';
@@ -117,12 +118,36 @@
     document.dispatchEvent(new CustomEvent('wesco:i18n', { detail: { lang } }));
   }
 
+  function syncLanguageUrl(lang) {
+    const url = new URL(location.href);
+    if (lang === 'ko') url.searchParams.delete('lang');
+    else url.searchParams.set('lang', lang);
+    // Preserve attribution parameters and the current slide in the visible URL.
+    history.replaceState(history.state, '', url.pathname + url.search + url.hash);
+    const canonical = 'https://intro.wesco.works/' + (lang === 'ko' ? '' : '?lang=' + lang);
+    const link = document.querySelector('link[rel="canonical"]');
+    if (link) link.setAttribute('href', canonical);
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) ogUrl.setAttribute('content', canonical);
+    const locales = {ko: 'ko_KR', en: 'en_US', cn: 'zh_CN', jp: 'ja_JP', vn: 'vi_VN'};
+    const locale = document.querySelector('meta[property="og:locale"]');
+    if (locale) locale.setAttribute('content', locales[lang]);
+    document.querySelectorAll('meta[property="og:locale:alternate"]').forEach(el => el.remove());
+    Object.keys(locales).filter(key => key !== lang).forEach(key => {
+      const meta = document.createElement('meta');
+      meta.setAttribute('property', 'og:locale:alternate');
+      meta.setAttribute('content', locales[key]);
+      document.head.appendChild(meta);
+    });
+  }
+
   async function setLang(lang) {
     if (!SUPPORTED.includes(lang)) return;
     const dict = await loadDict(lang);
     if (!dict) return;
     applyDict(dict, lang);
-    localStorage.setItem(STORAGE_KEY, lang);
+    syncLanguageUrl(lang);
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch (_) {}
   }
 
   // Expose for buttons / debugging
@@ -144,6 +169,7 @@
     if (initial !== 'ko') {
       setLang(initial);
     } else {
+      syncLanguageUrl('ko');
       // Mark KO active
       document.querySelectorAll('[data-lang-btn="ko"]').forEach((b) => b.classList.add('active'));
     }
