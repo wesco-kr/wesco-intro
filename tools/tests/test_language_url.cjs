@@ -23,6 +23,13 @@ for (const [lang, locale] of Object.entries(locales)) {
   assert.equal(alternatives.length,4);
   assert.ok(!alternatives.includes(locale));
   assert.ok(url.includes('s=blog') && url.endsWith('#p9'));
-  assert.equal(new URL(url,'https://intro.wesco.works').searchParams.get('lang'),lang==='ko'?null:lang);
+  assert.equal(new URL(url,'https://intro.wesco.works').searchParams.get('lang'),lang);
+  // Simulate reopening the rewritten URL with a conflicting saved/browser language.
+  const initial = source.slice(source.indexOf('  function getInitialLang()'), source.indexOf('  // 261003'));
+  for (const blocked of [false,true]) {
+    const reopened={URLSearchParams,location:{search:new URL(url,'https://intro.wesco.works').search},
+      localStorage:{getItem(){if(blocked)throw Error('blocked');return 'en';}},navigator:{language:'en-US'}};
+    assert.equal(vm.runInNewContext("const SUPPORTED=['ko','en','cn','jp','vn']; const DEFAULT_LANG='ko'; const STORAGE_KEY='wesco-intro-lang';"+initial+'getInitialLang();',reopened),lang);
+  }
 }
 console.log('PASS: 5 language routes, canonical/OG consistency, alternate locales, attribution/hash and history state preservation');

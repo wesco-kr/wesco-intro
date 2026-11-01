@@ -120,8 +120,8 @@
 
   function syncLanguageUrl(lang) {
     const url = new URL(location.href);
-    if (lang === 'ko') url.searchParams.delete('lang');
-    else url.searchParams.set('lang', lang);
+    // Keep Korean explicit too: reload/share must not fall back to another language.
+    url.searchParams.set('lang', lang);
     // Preserve attribution parameters and the current slide in the visible URL.
     history.replaceState(history.state, '', url.pathname + url.search + url.hash);
     const canonical = 'https://intro.wesco.works/' + (lang === 'ko' ? '' : '?lang=' + lang);
