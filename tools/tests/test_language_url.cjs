@@ -32,4 +32,19 @@ for (const [lang, locale] of Object.entries(locales)) {
     assert.equal(vm.runInNewContext("const SUPPORTED=['ko','en','cn','jp','vn']; const DEFAULT_LANG='ko'; const STORAGE_KEY='wesco-intro-lang';"+initial+'getInitialLang();',reopened),lang);
   }
 }
-console.log('PASS: 5 language routes, canonical/OG consistency, alternate locales, attribution/hash and history state preservation');
+// A canonical URL must resolve to its own language regardless of preferences.
+const initial = source.slice(source.indexOf('  function getInitialLang()'), source.indexOf('  // 261003'));
+let canonicalCases = 0;
+for (const browser of ['ko-KR','en-US','zh-CN','ja-JP','vi-VN']) {
+  for (const saved of ['ko','en','cn','jp','vn',null]) {
+    for (const blocked of [false,true]) {
+      for (const search of ['', '?s=blog', '?lang=invalid', '?lang=']) {
+        const context = {URLSearchParams,location:{search},navigator:{language:browser},
+          localStorage:{getItem(){if(blocked)throw Error('blocked');return saved;}}};
+        assert.equal(vm.runInNewContext("const SUPPORTED=['ko','en','cn','jp','vn']; const DEFAULT_LANG='ko'; const STORAGE_KEY='wesco-intro-lang';"+initial+'getInitialLang();',context),'ko');
+        canonicalCases++;
+      }
+    }
+  }
+}
+console.log(`PASS: 5 language routes and 240 bare-root/invalid-language preference cases; canonical/OG consistency, reload, attribution/hash and history state preservation (${canonicalCases} cases)`);

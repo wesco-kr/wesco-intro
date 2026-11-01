@@ -14,17 +14,10 @@
   const dicts = {}; // cache: { ko: {...}, en: {...}, ... }
 
   function getInitialLang() {
-    // URL parameter has highest priority (?lang=en)
+    // Each URL has a stable language; the bare canonical root is Korean.
+    // Language selection stays explicit in the URL (for example ?lang=en).
     const urlLang = new URLSearchParams(location.search).get('lang');
     if (urlLang && SUPPORTED.includes(urlLang)) return urlLang;
-    let saved;
-    try { saved = localStorage.getItem(STORAGE_KEY); } catch (_) {}
-    if (saved && SUPPORTED.includes(saved)) return saved;
-    const browser = (navigator.language || 'ko').slice(0, 2).toLowerCase();
-    if (browser === 'zh') return 'cn';
-    if (browser === 'ja') return 'jp';
-    if (browser === 'vi') return 'vn';
-    if (SUPPORTED.includes(browser)) return browser;
     return DEFAULT_LANG;
   }
 
