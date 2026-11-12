@@ -29,6 +29,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://intro.wesco.works/blog/line-stop-root-cause-checklist/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/line-stop-root-cause-checklist/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/line-stop-root-cause-checklist/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://intro.wesco.works/blog/line-stop-root-cause-checklist/"/>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://intro.wesco.works/blog/en/line-stop-root-cause-checklist/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/line-stop-root-cause-checklist/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/line-stop-root-cause-checklist/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://intro.wesco.works/blog/line-stop-root-cause-checklist/"/>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://intro.wesco.works/blog/magnetic-contactor-dropout/</loc>
     <xhtml:link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/magnetic-contactor-dropout/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/magnetic-contactor-dropout/"/>
