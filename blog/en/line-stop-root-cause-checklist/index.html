@@ -1,0 +1,131 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Equipment stop investigation — records to check before assigning a cause</title><meta name="description" content="A stop alone does not establish voltage sag as the cause. Check voltage, command and alarm records, model/AC-DC/temperature-specific contactor data, restart wiring and control-power protection scope."><link rel="canonical" href="https://intro.wesco.works/blog/en/line-stop-root-cause-checklist/"><link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/line-stop-root-cause-checklist/"><link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/line-stop-root-cause-checklist/"><link rel="alternate" hreflang="x-default" href="https://intro.wesco.works/blog/line-stop-root-cause-checklist/"><meta property="og:type" content="article"><meta property="og:title" content="Equipment stop investigation — records to check before assigning a cause"><meta property="og:description" content="A stop alone does not establish voltage sag as the cause. Check voltage, command and alarm records, model/AC-DC/temperature-specific contactor data, restart wiring and control-power protection scope."><meta property="og:url" content="https://intro.wesco.works/blog/en/line-stop-root-cause-checklist/"><meta property="og:image" content="https://intro.wesco.works/images/og-image.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Equipment stop investigation — records to check before assigning a cause"><meta name="twitter:description" content="A stop alone does not establish voltage sag as the cause. Check voltage, command and alarm records, model/AC-DC/temperature-specific contactor data, restart wiring and control-power protection scope."><meta name="twitter:image" content="https://intro.wesco.works/images/og-image.jpg"><link rel="icon" type="image/x-icon" href="https://intro.wesco.works/favicon.ico"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"><style>
+:root{
+  --c-red:#C13816; --c-red-dk:#9C2C10; --c-red-lt:#FBEEE8;
+  --c-head:#2C2924; --c-text:#4A4641; --c-gray:#78716C; --c-gray-lt:#A8A29E;
+  --c-bg:#FDFCF9; --c-bg-soft:#F7F4EE; --c-divider:#E0DBD3; --c-accent:#E1431B;
+  --font-ko:'Noto Sans KR','맑은 고딕',sans-serif;
+  --font-en:'Inter',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font-ko);color:var(--c-text);background:var(--c-bg);
+  line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:var(--c-red);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+
+/* 상단바 */
+.topbar{border-bottom:1px solid var(--c-divider);background:var(--c-bg)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center}
+.brand img{height:22px;width:auto;display:block}
+.topnav a{color:var(--c-gray);font-size:14px;font-weight:500;margin-left:22px}
+.topnav a:hover{color:var(--c-red);text-decoration:none}
+.topnav a.nav-cta{background:var(--c-accent);color:#fff;border-radius:6px;padding:6px 14px}
+.topnav a.nav-cta:hover{background:var(--c-red-dk);color:#fff}
+
+/* 글 헤더 */
+.post-head{padding:56px 0 34px;border-bottom:1px solid var(--c-divider)}
+.post-head .kicker{font-family:var(--font-en);font-size:12px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--c-red)}
+.post-head h1{font-size:34px;line-height:1.32;color:var(--c-head);
+  font-weight:700;margin:14px 0 12px;letter-spacing:-.01em}
+.post-head .sub{font-size:18px;color:var(--c-gray);font-weight:400;line-height:1.6}
+.post-meta{margin-top:20px;font-size:13px;color:var(--c-gray-lt);
+  font-family:var(--font-en);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.post-meta .lang-toggle{border:1px solid var(--c-divider);border-radius:100px;
+  padding:3px 12px;font-weight:600;color:var(--c-gray)}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tags .tag{background:var(--c-bg-soft);color:var(--c-gray);border:1px solid var(--c-divider);
+  border-radius:100px;padding:3px 11px;font-size:12px;font-family:var(--font-ko)}
+
+/* 본문 */
+.post-body{padding:38px 0 10px}
+.post-body h2{font-size:23px;color:var(--c-head);font-weight:700;
+  margin:44px 0 16px;letter-spacing:-.01em;line-height:1.4}
+.post-body h3{font-size:19px;color:var(--c-head);font-weight:700;margin:30px 0 12px}
+.post-body p{margin:0 0 20px}
+.post-body ul,.post-body ol{margin:0 0 22px;padding-left:22px}
+.post-body li{margin:0 0 9px}
+.post-body strong{color:var(--c-head);font-weight:700}
+.post-body em{font-style:normal;color:var(--c-gray)}
+.post-body hr{border:0;border-top:1px solid var(--c-divider);margin:40px 0}
+.post-body blockquote{border-left:3px solid var(--c-red);padding:2px 0 2px 18px;
+  margin:0 0 22px;color:var(--c-gray)}
+.post-body img{max-width:100%;height:auto;border-radius:10px;margin:8px 0 24px}
+
+/* FAQ */
+.faq{margin-top:8px}
+.faq dt{font-weight:700;color:var(--c-head);margin:22px 0 8px}
+.faq dd{margin:0 0 8px;color:var(--c-text)}
+
+/* CTA */
+.cta{margin:44px 0 0;background:var(--c-bg-soft);border:1px solid var(--c-divider);
+  border-radius:14px;padding:28px 30px}
+.cta h4{font-size:18px;color:var(--c-head);margin-bottom:8px}
+.cta p{font-size:15px;color:var(--c-gray);margin-bottom:16px}
+.cta a.btn{display:inline-block;background:var(--c-red);color:#fff;font-weight:600;
+  font-size:15px;padding:11px 22px;border-radius:8px}
+.cta a.btn:hover{background:var(--c-red-dk);text-decoration:none}
+.cta a.btn-ghost{background:transparent;color:var(--c-red);border:1px solid var(--c-red);margin-left:8px}
+.cta a.btn-ghost:hover{background:var(--c-red);color:#fff}
+
+/* 영상 · 관련 글 */
+.video{position:relative;padding-top:56.25%;margin:8px 0 28px;border-radius:10px;overflow:hidden;background:var(--c-bg-soft)}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.related{margin-top:44px}
+.related h2{font-size:20px;color:var(--c-head);margin-bottom:6px}
+.related a.rel{display:block;padding:12px 0;border-bottom:1px solid var(--c-divider);color:var(--c-head);font-weight:500}
+.related .product{margin-top:16px;font-size:15px;color:var(--c-gray)}
+
+/* 푸터 */
+.foot{margin-top:64px;border-top:1px solid var(--c-divider);
+  padding:30px 0 60px;color:var(--c-gray-lt);font-size:13px;text-align:center}
+.foot a{color:var(--c-gray)}
+
+/* 목록 */
+.list-head{padding:56px 0 14px}
+.list-head h1{font-size:30px;color:var(--c-head);font-weight:700}
+.list-head p{color:var(--c-gray);margin-top:8px}
+.list-head .lang-toggle{display:inline-block;margin-top:14px;border:1px solid var(--c-divider);
+  border-radius:100px;padding:4px 14px;font-size:13px;font-weight:600;color:var(--c-gray)}
+.card{display:block;padding:26px 0;border-bottom:1px solid var(--c-divider)}
+.card:hover{text-decoration:none}
+.card .kicker{font-family:var(--font-en);font-size:11px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--c-red)}
+.card h2{font-size:22px;color:var(--c-head);font-weight:700;margin:8px 0 8px;line-height:1.4}
+.card p{color:var(--c-gray);font-size:15px}
+.card .date{font-family:var(--font-en);font-size:12px;color:var(--c-gray-lt);margin-top:10px}
+
+@media(max-width:600px){
+  body{font-size:16px}
+  .post-head h1{font-size:27px}
+  .post-head .sub{font-size:16px}
+  .post-body h2{font-size:20px}
+}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Equipment stop investigation — records to check before assigning a cause", "description": "A stop alone does not establish voltage sag as the cause. Check voltage, command and alarm records, model/AC-DC/temperature-specific contactor data, restart wiring and control-power protection scope.", "datePublished": "2026-11-10", "dateModified": "2026-11-10", "inLanguage": "en", "mainEntityOfPage": "https://intro.wesco.works/blog/en/line-stop-root-cause-checklist/", "author": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}, "publisher": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does the absence of an outage record prove a voltage sag?", "acceptedAnswer": {"@type": "Answer", "text": "No. Check voltage, control-command and equipment alarm records together with the actual product specification."}}, {"@type": "Question", "name": "Do all contactors have the same dropout voltage?", "acceptedAnswer": {"@type": "Answer", "text": "No. Schneider Electric’s TeSys D guidance distinguishes dropout-voltage ranges by model group, AC/DC control circuit and temperature. A value for one product is not a universal threshold."}}, {"@type": "Question", "name": "Will equipment restart as soon as voltage returns?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the circuit. The manufacturer's three-wire holding arrangement requires a fresh start signal after interruption; a maintained two-wire command can permit restart on supply recovery. Check the actual interlocks and restart requirements."}}]}</script><link rel="stylesheet" href="/blog/discovery.css"></head><body><header class="topbar"><div class="wrap"><a class="brand" href="https://intro.wesco.works/"><img src="https://intro.wesco.works/images/wesco_wordmark.png" alt="WESCO" width="119" height="22"></a><nav class="topnav"><a data-home href="https://intro.wesco.works/?lang=en">Company Profile</a><a href="https://intro.wesco.works/blog/en/">Technical Guides</a><a href="/videos/#en">Videos</a><a class="nav-cta" href="https://tsp.wesco.works/en/?s=nav_blog_en_line-stop-root-cause-checklist#contact">Contact us</a></nav></div><script>try{var l=localStorage.getItem('wesco-intro-lang');if(/^(ko|en|cn|jp|vn)$/.test(l)){var m={ko:'ko',en:'en',cn:'zh-CN',jp:'ja',vn:'vi'},c={ko:'ko',en:'en',cn:'cn',jp:'en',vn:'vn'},a=document.querySelectorAll('.topnav a');a[0].href='/?lang='+l;a[1].href=l=='ko'?'/blog/':'/blog/en/';a[2].href='/videos/#'+m[l];a[3].href=a[3].href.replace(/tsp\.wesco\.works\/\w+\//,'tsp.wesco.works/'+c[l]+'/')}}catch(e){}</script></header><section class="post-head"><div class="wrap"><div class="kicker">WESCO Insight</div><h1>Equipment stop investigation — records to check before assigning a cause</h1><p class="sub">A review note for voltage records, control commands and contactor specifications</p><div class="post-meta"><span>2026-11-10</span><div class="tags"><span class="tag">Equipment downtime</span><span class="tag">Voltage sag</span><span class="tag">Control power</span><span class="tag">Contactors</span></div><a class="lang-toggle" href="https://intro.wesco.works/blog/line-stop-root-cause-checklist/">한국어</a></div></div></section><article class="post-body"><div class="wrap"><p>An equipment stop investigation begins with a question: do you have the records needed to assess the stop? An absent outage record does not prove a voltage sag. This checklist asks for voltage, control-command and alarm records, together with the actual contactor specification and restart circuit.</p>
+<h2>Equipment stop investigation: check the available records</h2>
+<p>Ask the person reviewing the stop for the following information. These are requests for evidence, not a formula for assigning a cause.</p>
+<ul>
+<li>Is there a voltage record for the supply to the affected equipment at the time of the stop?</li>
+<li>Can coil or control-command records and equipment alarms be compared on a common time basis?</li>
+<li>Have the available records been separated from information that is still missing?</li>
+</ul>
+<p>If no voltage record is available, do not record a voltage sag as confirmed. Whether other machines stopped can be noted, but do not use that observation alone to establish an internal fault or a supply-system cause.</p>
+<h2>Read a contactor specification with its conditions</h2>
+<p>Contactor dropout is the release of the contacts when the coil loses its energized state. Schneider Electric&rsquo;s TeSys D guidance separates dropout-voltage ranges by model group, AC/DC control circuit and temperature. A single percentage therefore cannot serve as the stop threshold for every contactor.</p>
+<p>In the review note, identify the model, AC or DC coil, applicable temperature and the specification being consulted. Leave missing values unresolved instead of estimating them.</p>
+<p>Reference: <a href="https://www.se.com/ng/en/faqs/FA409210/">Schneider Electric&rsquo;s TeSys D dropout conditions</a>. This article explains the distinctions to check; it does not reproduce the manufacturer&rsquo;s tables or diagrams.</p>
+<h2>Check the restart circuit after supply recovery</h2>
+<p>Supply recovery and equipment restart are separate questions. In the three-wire holding arrangement described by Schneider Electric, a supply or control interruption releases the held state and a fresh start signal is needed. In a two-wire arrangement, a maintained command can allow restart when supply returns.</p>
+<p>That explanation describes those control arrangements; it does not guarantee the response of every machine. Check the actual wiring, operating command, interlocks and equipment-specific restart requirements. Do not bypass safety interlocks to obtain a restart.</p>
+<p>Reference: <a href="https://www.se.com/nl/nl/faqs/FA147367/">Schneider Electric&rsquo;s explanation of two-wire and three-wire control</a>.</p>
+<h2>Define the circuit being protected</h2>
+<p>When considering WESCO TSP for control-power protection, identify the control circuit that would be connected. Protecting control power does not establish that an unprotected motor or drive power circuit, or the complete machine, will continue operating. Check the selected model&rsquo;s specifications, wiring and operating conditions separately.</p>
+<h2>Key takeaways</h2>
+<ul>
+<li>Collect voltage, control-command and alarm records; keep missing evidence marked as unconfirmed.</li>
+<li>Read contactor specifications with model, AC/DC and temperature conditions.</li>
+<li>Check the actual control circuit and interlocks for restart behavior.</li>
+<li>Distinguish control-power protection from whole-machine operation.</li>
+</ul><h2>Frequently Asked Questions</h2><dl class="faq"><dt>Q. Does the absence of an outage record prove a voltage sag?</dt><dd>No. Check voltage, control-command and equipment alarm records together with the actual product specification.</dd><dt>Q. Do all contactors have the same dropout voltage?</dt><dd>No. Schneider Electric’s TeSys D guidance distinguishes dropout-voltage ranges by model group, AC/DC control circuit and temperature. A value for one product is not a universal threshold.</dd><dt>Q. Will equipment restart as soon as voltage returns?</dt><dd>It depends on the circuit. The manufacturer&#x27;s three-wire holding arrangement requires a fresh start signal after interruption; a maintained two-wire command can permit restart on supply recovery. Check the actual interlocks and restart requirements.</dd></dl><div class="cta"><h4>Need protection against voltage sags?</h4><p>WESCO has manufactured battery-free voltage sag protectors (TSP&reg;) for 25 years. We can help you size and deploy the right unit for your line.</p><a class="btn" href="https://tsp.wesco.works/en/?s=blog-line-stop-root-cause-checklist">Request a quote</a><a class="btn btn-ghost" href="mailto:wesco@wesco.co.kr?subject=%5Bblog%3Aline-stop-root-cause-checklist%5D%20TSP%20inquiry">Email us</a></div><div class="related"><h2>Related posts</h2><a class="rel" href="https://intro.wesco.works/blog/en/magnetic-contactor-dropout/">Contactor Dropout: Check Voltage Sag, Restart Conditions and Protection Scope</a><a class="rel" href="https://intro.wesco.works/blog/en/data-center-voltage-sag/">Data center cooling: is protecting control power enough?</a><a class="rel" href="https://intro.wesco.works/blog/en/control-power-protection/">Protect the Control Power, Save the Line: The Selective Compensation Approach</a><a class="rel discovery-video" href="/en/videos/tsp-product/">Watch: TSP® Voltage Sag Protector | 3D Product Introduction | WESCO</a><p class="product">TSP® principle and specifications: <a href="https://intro.wesco.works/battery-free-voltage-sag-protection.html">Battery-free voltage sag protection (TSP®)</a></p></div></div></article><footer class="foot"><div class="wrap">© WESCO Co., Ltd. · Voltage Sag Protector Manufacturer · <a href="https://www.wesco.co.kr">www.wesco.co.kr</a></div></footer></body></html>
