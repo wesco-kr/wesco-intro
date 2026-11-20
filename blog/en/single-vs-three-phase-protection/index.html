@@ -1,0 +1,122 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Single- and three-phase TSP — product ranges and protection scope</title><meta name="description" content="Read WESCO TSP product ranges separately from installation arrangements, and identify the connected circuits before assessing protection scope."><link rel="canonical" href="https://intro.wesco.works/blog/en/single-vs-three-phase-protection/"><link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/single-vs-three-phase-protection/"><link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/single-vs-three-phase-protection/"><link rel="alternate" hreflang="x-default" href="https://intro.wesco.works/blog/single-vs-three-phase-protection/"><meta property="og:type" content="article"><meta property="og:title" content="Single- and three-phase TSP — product ranges and protection scope"><meta property="og:description" content="Read WESCO TSP product ranges separately from installation arrangements, and identify the connected circuits before assessing protection scope."><meta property="og:url" content="https://intro.wesco.works/blog/en/single-vs-three-phase-protection/"><meta property="og:image" content="https://intro.wesco.works/images/og-image.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Single- and three-phase TSP — product ranges and protection scope"><meta name="twitter:description" content="Read WESCO TSP product ranges separately from installation arrangements, and identify the connected circuits before assessing protection scope."><meta name="twitter:image" content="https://intro.wesco.works/images/og-image.jpg"><link rel="icon" type="image/x-icon" href="https://intro.wesco.works/favicon.ico"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"><style>
+:root{
+  --c-red:#C13816; --c-red-dk:#9C2C10; --c-red-lt:#FBEEE8;
+  --c-head:#2C2924; --c-text:#4A4641; --c-gray:#78716C; --c-gray-lt:#A8A29E;
+  --c-bg:#FDFCF9; --c-bg-soft:#F7F4EE; --c-divider:#E0DBD3; --c-accent:#E1431B;
+  --font-ko:'Noto Sans KR','맑은 고딕',sans-serif;
+  --font-en:'Inter',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font-ko);color:var(--c-text);background:var(--c-bg);
+  line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:var(--c-red);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+
+/* 상단바 */
+.topbar{border-bottom:1px solid var(--c-divider);background:var(--c-bg)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center}
+.brand img{height:22px;width:auto;display:block}
+.topnav a{color:var(--c-gray);font-size:14px;font-weight:500;margin-left:22px}
+.topnav a:hover{color:var(--c-red);text-decoration:none}
+.topnav a.nav-cta{background:var(--c-accent);color:#fff;border-radius:6px;padding:6px 14px}
+.topnav a.nav-cta:hover{background:var(--c-red-dk);color:#fff}
+
+/* 글 헤더 */
+.post-head{padding:56px 0 34px;border-bottom:1px solid var(--c-divider)}
+.post-head .kicker{font-family:var(--font-en);font-size:12px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--c-red)}
+.post-head h1{font-size:34px;line-height:1.32;color:var(--c-head);
+  font-weight:700;margin:14px 0 12px;letter-spacing:-.01em}
+.post-head .sub{font-size:18px;color:var(--c-gray);font-weight:400;line-height:1.6}
+.post-meta{margin-top:20px;font-size:13px;color:var(--c-gray-lt);
+  font-family:var(--font-en);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.post-meta .lang-toggle{border:1px solid var(--c-divider);border-radius:100px;
+  padding:3px 12px;font-weight:600;color:var(--c-gray)}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tags .tag{background:var(--c-bg-soft);color:var(--c-gray);border:1px solid var(--c-divider);
+  border-radius:100px;padding:3px 11px;font-size:12px;font-family:var(--font-ko)}
+
+/* 본문 */
+.post-body{padding:38px 0 10px}
+.post-body h2{font-size:23px;color:var(--c-head);font-weight:700;
+  margin:44px 0 16px;letter-spacing:-.01em;line-height:1.4}
+.post-body h3{font-size:19px;color:var(--c-head);font-weight:700;margin:30px 0 12px}
+.post-body p{margin:0 0 20px}
+.post-body ul,.post-body ol{margin:0 0 22px;padding-left:22px}
+.post-body li{margin:0 0 9px}
+.post-body strong{color:var(--c-head);font-weight:700}
+.post-body em{font-style:normal;color:var(--c-gray)}
+.post-body hr{border:0;border-top:1px solid var(--c-divider);margin:40px 0}
+.post-body blockquote{border-left:3px solid var(--c-red);padding:2px 0 2px 18px;
+  margin:0 0 22px;color:var(--c-gray)}
+.post-body img{max-width:100%;height:auto;border-radius:10px;margin:8px 0 24px}
+
+/* FAQ */
+.faq{margin-top:8px}
+.faq dt{font-weight:700;color:var(--c-head);margin:22px 0 8px}
+.faq dd{margin:0 0 8px;color:var(--c-text)}
+
+/* CTA */
+.cta{margin:44px 0 0;background:var(--c-bg-soft);border:1px solid var(--c-divider);
+  border-radius:14px;padding:28px 30px}
+.cta h4{font-size:18px;color:var(--c-head);margin-bottom:8px}
+.cta p{font-size:15px;color:var(--c-gray);margin-bottom:16px}
+.cta a.btn{display:inline-block;background:var(--c-red);color:#fff;font-weight:600;
+  font-size:15px;padding:11px 22px;border-radius:8px}
+.cta a.btn:hover{background:var(--c-red-dk);text-decoration:none}
+.cta a.btn-ghost{background:transparent;color:var(--c-red);border:1px solid var(--c-red);margin-left:8px}
+.cta a.btn-ghost:hover{background:var(--c-red);color:#fff}
+
+/* 영상 · 관련 글 */
+.video{position:relative;padding-top:56.25%;margin:8px 0 28px;border-radius:10px;overflow:hidden;background:var(--c-bg-soft)}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.related{margin-top:44px}
+.related h2{font-size:20px;color:var(--c-head);margin-bottom:6px}
+.related a.rel{display:block;padding:12px 0;border-bottom:1px solid var(--c-divider);color:var(--c-head);font-weight:500}
+.related .product{margin-top:16px;font-size:15px;color:var(--c-gray)}
+
+/* 푸터 */
+.foot{margin-top:64px;border-top:1px solid var(--c-divider);
+  padding:30px 0 60px;color:var(--c-gray-lt);font-size:13px;text-align:center}
+.foot a{color:var(--c-gray)}
+
+/* 목록 */
+.list-head{padding:56px 0 14px}
+.list-head h1{font-size:30px;color:var(--c-head);font-weight:700}
+.list-head p{color:var(--c-gray);margin-top:8px}
+.list-head .lang-toggle{display:inline-block;margin-top:14px;border:1px solid var(--c-divider);
+  border-radius:100px;padding:4px 14px;font-size:13px;font-weight:600;color:var(--c-gray)}
+.card{display:block;padding:26px 0;border-bottom:1px solid var(--c-divider)}
+.card:hover{text-decoration:none}
+.card .kicker{font-family:var(--font-en);font-size:11px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--c-red)}
+.card h2{font-size:22px;color:var(--c-head);font-weight:700;margin:8px 0 8px;line-height:1.4}
+.card p{color:var(--c-gray);font-size:15px}
+.card .date{font-family:var(--font-en);font-size:12px;color:var(--c-gray-lt);margin-top:10px}
+
+@media(max-width:600px){
+  body{font-size:16px}
+  .post-head h1{font-size:27px}
+  .post-head .sub{font-size:16px}
+  .post-body h2{font-size:20px}
+}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Single- and three-phase TSP — product ranges and protection scope", "description": "Read WESCO TSP product ranges separately from installation arrangements, and identify the connected circuits before assessing protection scope.", "datePublished": "2026-11-20", "dateModified": "2026-11-20", "inLanguage": "en", "mainEntityOfPage": "https://intro.wesco.works/blog/en/single-vs-three-phase-protection/", "author": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}, "publisher": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How does WESCO describe its single- and three-phase product ranges?", "acceptedAnswer": {"@type": "Answer", "text": "The small and medium range is listed as single-phase up to 20kVA and three-phase up to 200kVA. The large-capacity range is 300–2,400kVA. These range descriptions do not establish wiring compatibility or select a model for a particular machine."}}, {"@type": "Question", "name": "Are group and central compensation installed in the same place?", "acceptedAnswer": {"@type": "Answer", "text": "WESCO describes group compensation at a distribution panel, while central compensation is installed downstream of the main ACB in the low-voltage main switchboard. The actual protection scope requires checking the connected circuits."}}, {"@type": "Question", "name": "Does control-power protection guarantee that the whole machine keeps running?", "acceptedAnswer": {"@type": "Answer", "text": "No such guarantee follows. Control-power protection concerns the connected control circuit; it does not establish ride-through of unprotected drive power circuits or of the complete machine."}}]}</script><link rel="stylesheet" href="/blog/discovery.css"></head><body><header class="topbar"><div class="wrap"><a class="brand" href="https://intro.wesco.works/"><img src="https://intro.wesco.works/images/wesco_wordmark.png" alt="WESCO" width="119" height="22"></a><nav class="topnav"><a data-home href="https://intro.wesco.works/?lang=en">Company Profile</a><a href="https://intro.wesco.works/blog/en/">Technical Guides</a><a href="/videos/#en">Videos</a><a class="nav-cta" href="https://tsp.wesco.works/en/?s=nav_blog_en_single-vs-three-phase-protection#contact">Contact us</a></nav></div><script>try{var l=localStorage.getItem('wesco-intro-lang');if(/^(ko|en|cn|jp|vn)$/.test(l)){var m={ko:'ko',en:'en',cn:'zh-CN',jp:'ja',vn:'vi'},c={ko:'ko',en:'en',cn:'cn',jp:'en',vn:'vn'},a=document.querySelectorAll('.topnav a');a[0].href='/?lang='+l;a[1].href=l=='ko'?'/blog/':'/blog/en/';a[2].href='/videos/#'+m[l];a[3].href=a[3].href.replace(/tsp\.wesco\.works\/\w+\//,'tsp.wesco.works/'+c[l]+'/')}}catch(e){}</script></header><section class="post-head"><div class="wrap"><div class="kicker">WESCO Insight</div><h1>Single- and three-phase TSP — product ranges and protection scope</h1><p class="sub">Product capacity ranges and individual, group or central compensation describe different things</p><div class="post-meta"><span>2026-11-20</span><div class="tags"><span class="tag">Single-phase</span><span class="tag">Three-phase</span><span class="tag">Protection scope</span><span class="tag">Voltage sag</span></div><a class="lang-toggle" href="https://intro.wesco.works/blog/single-vs-three-phase-protection/">한국어</a></div></div></section><article class="post-body"><div class="wrap"><p>Single- and three-phase product labels should be read separately from individual, group and central compensation arrangements. This article distinguishes WESCO TSP product ranges from the installation point and the circuits intended for protection. It does not determine wiring compatibility or select a model for a particular machine.</p>
+<h2>What the single- and three-phase range figures tell you</h2>
+<p>WESCO product information lists the small and medium range as single-phase up to 20kVA and three-phase up to 200kVA, with a large-capacity range of 300–2,400kVA. TSP is intended for low-voltage applications at 1kV or below.</p>
+<p>These are product-range descriptions. A label such as PLC, sensor or motor is not used here to assign a supply arrangement or a TSP model. For an application assessment, gather the target circuit&rsquo;s supply specifications alongside those of the proposed model. Without the machine&rsquo;s circuit diagram and model-specific wiring documentation, this article does not propose a connection method.</p>
+<h2>Individual, group and central compensation describe installation points</h2>
+<p>In WESCO installation guidance, individual compensation is placed immediately before a machine&rsquo;s supply input to serve that machine. Group compensation is installed at a distribution panel to serve the equipment connected downstream. Central compensation is installed downstream of the main ACB in the low-voltage main switchboard.</p>
+<p>When preparing an assessment, mark the proposed installation point and the circuits connected downstream, rather than listing only a product name. Keep the term group compensation for the distribution-panel arrangement. Do not select one of these three installation arrangements solely from a single- or three-phase label.</p>
+<h2>Keep control-circuit protection distinct from whole-machine operation</h2>
+<p>Control-power protection concerns the connected control circuit. It does not establish that unprotected motor or drive power circuits, or the complete machine, will continue operating through a voltage sag. Assessing actual operation requires the selected model&rsquo;s specifications, wiring and operating conditions.</p>
+<p>For the assessment, mark both the intended protection point and the circuits outside that scope on the circuit diagram. State whether the proposal concerns a control circuit or equipment downstream of a distribution panel. No cost savings or uninterrupted-machine performance are estimated here.</p>
+<h2>Key takeaways</h2>
+<ul>
+<li>Distinguish single- and three-phase product capacity ranges from selecting a model for an actual application.</li>
+<li>Use WESCO&rsquo;s installation points and target scope to distinguish individual, group and central compensation.</li>
+<li>Do not turn a range description into a wiring-compatibility decision or a guarantee for unprotected circuits.</li>
+<li>An actual application assessment needs model specifications, the machine&rsquo;s circuit diagram and its operating conditions.</li>
+</ul><h2>Frequently Asked Questions</h2><dl class="faq"><dt>Q. How does WESCO describe its single- and three-phase product ranges?</dt><dd>The small and medium range is listed as single-phase up to 20kVA and three-phase up to 200kVA. The large-capacity range is 300–2,400kVA. These range descriptions do not establish wiring compatibility or select a model for a particular machine.</dd><dt>Q. Are group and central compensation installed in the same place?</dt><dd>WESCO describes group compensation at a distribution panel, while central compensation is installed downstream of the main ACB in the low-voltage main switchboard. The actual protection scope requires checking the connected circuits.</dd><dt>Q. Does control-power protection guarantee that the whole machine keeps running?</dt><dd>No such guarantee follows. Control-power protection concerns the connected control circuit; it does not establish ride-through of unprotected drive power circuits or of the complete machine.</dd></dl><div class="cta"><h4>Need protection against voltage sags?</h4><p>WESCO has manufactured battery-free voltage sag protectors (TSP&reg;) for 25 years. We can help you size and deploy the right unit for your line.</p><a class="btn" href="https://tsp.wesco.works/en/?s=blog-single-vs-three-phase-protection">Request a quote</a><a class="btn btn-ghost" href="mailto:wesco@wesco.co.kr?subject=%5Bblog%3Asingle-vs-three-phase-protection%5D%20TSP%20inquiry">Email us</a></div><div class="related"><h2>Related posts</h2><a class="rel" href="https://intro.wesco.works/blog/en/line-stop-root-cause-checklist/">Equipment stop investigation — records to check before assigning a cause</a><a class="rel" href="https://intro.wesco.works/blog/en/magnetic-contactor-dropout/">Contactor Dropout: Check Voltage Sag, Restart Conditions and Protection Scope</a><a class="rel" href="https://intro.wesco.works/blog/en/data-center-voltage-sag/">Data center cooling: is protecting control power enough?</a><a class="rel discovery-video" href="/en/videos/tsp-product/">Watch: TSP® Voltage Sag Protector | 3D Product Introduction | WESCO</a><p class="product">TSP® principle and specifications: <a href="https://intro.wesco.works/battery-free-voltage-sag-protection.html">Battery-free voltage sag protection (TSP®)</a></p></div></div></article><footer class="foot"><div class="wrap">© WESCO Co., Ltd. · Voltage Sag Protector Manufacturer · <a href="https://www.wesco.co.kr">www.wesco.co.kr</a></div></footer></body></html>
