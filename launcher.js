@@ -31,7 +31,33 @@
 
   function lang() { var l = (document.documentElement.lang || 'ko').slice(0, 2); return { zh: 'cn', ja: 'jp', vi: 'vn' }[l] || l; }
   function T(o) { var l = lang(); return (o && (o[l] || o.ko)) || ''; }
-  function href(h) { var l = lang(); return h.replace('{lang}', l).replace('{tsp}', l === 'jp' ? 'en' : l); }
+  // Label only the contact route used; no cookies, history or referrer guesses.
+  function contactSource() {
+    var current = new URL(location.href);
+    if (current.origin === 'https://tsp.wesco.works') {
+      var incoming = current.searchParams.get('s') || '';
+      return /^[a-z0-9_-]{1,40}$/i.test(incoming) ? incoming : 'launcher_tsp';
+    }
+    if (current.origin === 'https://intro.wesco.works') {
+      if (/^\/blog(?:\/|$)/.test(current.pathname)) return 'launcher_blog';
+      if (/^\/(?:(?:en|zh-cn|zh-tw|ja|vi)\/)?videos(?:\/|$)/.test(current.pathname)) return 'launcher_videos';
+      return 'launcher_intro';
+    }
+    return 'site_launcher';
+  }
+  function href(h) {
+    var l = lang(), resolved = h.replace('{lang}', l).replace('{tsp}', l === 'jp' ? 'en' : l);
+    var target = new URL(resolved, location.href);
+    if (target.origin === 'https://tsp.wesco.works' &&
+        /^\/(ko|en|cn|vn)\/$/.test(target.pathname) &&
+        /^(#contact|#inquiry|#catalog)$/.test(target.hash)) {
+      // Explicitly authored destination attribution remains authoritative.
+      var existing = target.searchParams.get('s') || '';
+      if (!/^[a-z0-9_-]{1,40}$/i.test(existing)) target.searchParams.set('s', contactSource());
+      return target.href;
+    }
+    return resolved;
+  }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 
   function build() {
@@ -43,7 +69,7 @@
     list.innerHTML = data.groups.map(function (g) {
       return '<div class="wl-g">' + esc(T(g.title)) + '</div>' + g.items.map(function (it) {
         var h = href(it.href), same = h.indexOf(location.origin) === 0;
-        var cur = h.replace(/#.*$/, '') === here || h === location.origin + '/' ? ' class="wl-cur"' : '';
+        var cur = h.replace(/[?#].*$/, '') === here || h === location.origin + '/' ? ' class="wl-cur"' : '';
         return '<a href="' + esc(h) + '"' + cur + (same ? '' : ' target="_blank" rel="noopener"') + '><b>' + esc(T(it.title)) + '</b><small>' + esc(T(it.desc)) + '</small></a>';
       }).join('');
     }).join('');

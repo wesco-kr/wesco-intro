@@ -31,6 +31,8 @@
 
 ## 상단 메뉴 정본 (261030)
 
+공용 사이트 서랍과 회사소개서의 다음 단계 카드에서 문의·카탈로그로 이동하면 `s`에 사용한 경로를 남긴다. `launcher_intro`, `launcher_blog`, `launcher_videos`, `launcher_tsp`는 각각 회사소개서·블로그·영상·TSP 페이지의 공통 메뉴 경로이며, 특정 검색엔진이나 개별 영상의 유입을 증명하지 않는다. 그 밖의 호스트는 `site_launcher`로 구분한다. TSP 페이지에 이미 유효한 `s`가 있거나 목적 링크에 명시된 `s`가 있으면 이를 유지한다. 쿠키나 브라우저 기록은 사용하지 않는다. 기존 본문 영상별 문의 코드는 그대로다. `node --test tools/tests/test_launcher_source.cjs`로 실제 사이트 목록의 링크를 검사한다.
+
 | 순서 | 한국어 | English | 주소 |
 |---|---|---|---|
 | 1 | 회사소개서 | Company Profile | `/` |
