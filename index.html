@@ -733,6 +733,8 @@ html[lang="ko"] .cover h1{font-size:47px}
 .back .qr.yt .t small{font-size:11.5px;color:#A8A29E}
 .back .qr.yt::after{content:"\2192";margin-left:6px;color:var(--red);font-family:Arial,sans-serif}
 .back .qr.yt:hover{background:#3A3633;border-color:var(--red)}
+.back .fac{position:absolute;right:64px;top:52px;width:250px;height:274px;object-fit:cover;z-index:1}
+.back h2{max-width:calc(100% - 320px)}
 .thumbs{width:150px;gap:0;padding:0;scrollbar-width:thin;scrollbar-color:var(--muted) transparent}
 .thumbs a{border:0;border-left:2px solid transparent;border-bottom:1px solid var(--line);border-radius:0;background:var(--tint2);padding:9px 10px;display:grid;grid-template-columns:23px 1fr;gap:6px;font-size:10px;line-height:1.45}
 .thumbs a b{font-size:10px;font-weight:400;color:var(--muted)}
@@ -851,6 +853,8 @@ body.reflow .back .cta,body.reflow .back .next{position:static;margin-top:16px}b
 body.reflow .back .ct{position:static;padding:24px 20px;grid-template-columns:1fr;gap:18px}body.reflow .back .qr.yt{position:static;margin:10px 0 0;padding:14px 16px;border:1px solid var(--stone);border-radius:0;background:#FDFCF9;color:var(--stone)}
 body.reflow .back .qr.yt .t b{color:var(--stone);font-size:14px}body.reflow .back .qr.yt .t small{color:var(--muted)}
 body.reflow .back .qr.yt::after{margin-left:auto}
+body.reflow .back .fac{position:static;display:block;width:100%;height:auto;aspect-ratio:711/810;margin:20px 0 0}
+body.reflow .back h2{max-width:none}
 }
 html[lang="ko"] .page{word-break:keep-all;overflow-wrap:anywhere}
 /* 중·일문엔 띄어쓰기가 없어 keep-all 이면 줄이 안 바뀐다(아이폰 5단계 칸 넘침 261003) */
@@ -1455,6 +1459,7 @@ html:not([lang="ko"]) .pg-hmi .cap{font-size:13px}
       <img class="wm" src="images/wesco_wordmark.png" alt="WESCO">
       <h2 data-r style="--d:1;margin-top:40px" data-i18n="b.h" data-i18n-html>순간정전은 막을 수 없지만,<br><em>피해는 막을 수 있습니다.</em></h2>
     </div>
+    <img class="fac" src="images/company/ems_factory.jpg" alt="WESCO TSP EMS Factory" data-r style="--d:2" loading="lazy">
     <div class="ct" data-r style="--d:2">
       <div><b>CONTACT</b>WESCO Co., Ltd.<br><span data-i18n="b.a1">경기도 안양시 만안구 (본사·연구소)</span></div>
       <div><b>SALES</b><span data-i18n="b.s1">사업개발본부 한상현 이사</span><br><a href="tel:+82314600000" data-i18n="b.tel">031-460-0000</a><br><a href="mailto:wesco@wesco.co.kr">wesco@wesco.co.kr</a> · <a href="https://www.wesco.co.kr" target="_blank" rel="noopener">www.wesco.co.kr</a></div>
