@@ -29,6 +29,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://intro.wesco.works/blog/pcb-plant-voltage-sag/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/pcb-plant-voltage-sag/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/pcb-plant-voltage-sag/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://intro.wesco.works/blog/pcb-plant-voltage-sag/"/>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://intro.wesco.works/blog/en/pcb-plant-voltage-sag/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/pcb-plant-voltage-sag/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/pcb-plant-voltage-sag/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://intro.wesco.works/blog/pcb-plant-voltage-sag/"/>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://intro.wesco.works/blog/single-vs-three-phase-protection/</loc>
     <xhtml:link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/single-vs-three-phase-protection/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/single-vs-three-phase-protection/"/>
