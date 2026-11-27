@@ -1,0 +1,131 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>PCB 공장과 순간전압강하 — 공정별 보호를 검토하기 전에 모을 자료</title><meta name="description" content="PCB 공장의 전압강하 대책을 검토할 때 모을 자료를 정리했다. 설비 명판과 제어회로, 전압·경보 기록, 재기동 절차를 확인하고, 공정별 취약도나 재공품 손실은 현장 근거 없이 단정하지 않는다."><link rel="canonical" href="https://intro.wesco.works/blog/pcb-plant-voltage-sag/"><link rel="alternate" hreflang="ko" href="https://intro.wesco.works/blog/pcb-plant-voltage-sag/"><link rel="alternate" hreflang="en" href="https://intro.wesco.works/blog/en/pcb-plant-voltage-sag/"><link rel="alternate" hreflang="x-default" href="https://intro.wesco.works/blog/pcb-plant-voltage-sag/"><meta property="og:type" content="article"><meta property="og:title" content="PCB 공장과 순간전압강하 — 공정별 보호를 검토하기 전에 모을 자료"><meta property="og:description" content="PCB 공장의 전압강하 대책을 검토할 때 모을 자료를 정리했다. 설비 명판과 제어회로, 전압·경보 기록, 재기동 절차를 확인하고, 공정별 취약도나 재공품 손실은 현장 근거 없이 단정하지 않는다."><meta property="og:url" content="https://intro.wesco.works/blog/pcb-plant-voltage-sag/"><meta property="og:image" content="https://intro.wesco.works/images/og-image.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="PCB 공장과 순간전압강하 — 공정별 보호를 검토하기 전에 모을 자료"><meta name="twitter:description" content="PCB 공장의 전압강하 대책을 검토할 때 모을 자료를 정리했다. 설비 명판과 제어회로, 전압·경보 기록, 재기동 절차를 확인하고, 공정별 취약도나 재공품 손실은 현장 근거 없이 단정하지 않는다."><meta name="twitter:image" content="https://intro.wesco.works/images/og-image.jpg"><link rel="icon" type="image/x-icon" href="https://intro.wesco.works/favicon.ico"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"><style>
+:root{
+  --c-red:#C13816; --c-red-dk:#9C2C10; --c-red-lt:#FBEEE8;
+  --c-head:#2C2924; --c-text:#4A4641; --c-gray:#78716C; --c-gray-lt:#A8A29E;
+  --c-bg:#FDFCF9; --c-bg-soft:#F7F4EE; --c-divider:#E0DBD3; --c-accent:#E1431B;
+  --font-ko:'Noto Sans KR','맑은 고딕',sans-serif;
+  --font-en:'Inter',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font-ko);color:var(--c-text);background:var(--c-bg);
+  line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:var(--c-red);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+
+/* 상단바 */
+.topbar{border-bottom:1px solid var(--c-divider);background:var(--c-bg)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center}
+.brand img{height:22px;width:auto;display:block}
+.topnav a{color:var(--c-gray);font-size:14px;font-weight:500;margin-left:22px}
+.topnav a:hover{color:var(--c-red);text-decoration:none}
+.topnav a.nav-cta{background:var(--c-accent);color:#fff;border-radius:6px;padding:6px 14px}
+.topnav a.nav-cta:hover{background:var(--c-red-dk);color:#fff}
+
+/* 글 헤더 */
+.post-head{padding:56px 0 34px;border-bottom:1px solid var(--c-divider)}
+.post-head .kicker{font-family:var(--font-en);font-size:12px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--c-red)}
+.post-head h1{font-size:34px;line-height:1.32;color:var(--c-head);
+  font-weight:700;margin:14px 0 12px;letter-spacing:-.01em}
+.post-head .sub{font-size:18px;color:var(--c-gray);font-weight:400;line-height:1.6}
+.post-meta{margin-top:20px;font-size:13px;color:var(--c-gray-lt);
+  font-family:var(--font-en);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.post-meta .lang-toggle{border:1px solid var(--c-divider);border-radius:100px;
+  padding:3px 12px;font-weight:600;color:var(--c-gray)}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tags .tag{background:var(--c-bg-soft);color:var(--c-gray);border:1px solid var(--c-divider);
+  border-radius:100px;padding:3px 11px;font-size:12px;font-family:var(--font-ko)}
+
+/* 본문 */
+.post-body{padding:38px 0 10px}
+.post-body h2{font-size:23px;color:var(--c-head);font-weight:700;
+  margin:44px 0 16px;letter-spacing:-.01em;line-height:1.4}
+.post-body h3{font-size:19px;color:var(--c-head);font-weight:700;margin:30px 0 12px}
+.post-body p{margin:0 0 20px}
+.post-body ul,.post-body ol{margin:0 0 22px;padding-left:22px}
+.post-body li{margin:0 0 9px}
+.post-body strong{color:var(--c-head);font-weight:700}
+.post-body em{font-style:normal;color:var(--c-gray)}
+.post-body hr{border:0;border-top:1px solid var(--c-divider);margin:40px 0}
+.post-body blockquote{border-left:3px solid var(--c-red);padding:2px 0 2px 18px;
+  margin:0 0 22px;color:var(--c-gray)}
+.post-body img{max-width:100%;height:auto;border-radius:10px;margin:8px 0 24px}
+
+/* FAQ */
+.faq{margin-top:8px}
+.faq dt{font-weight:700;color:var(--c-head);margin:22px 0 8px}
+.faq dd{margin:0 0 8px;color:var(--c-text)}
+
+/* CTA */
+.cta{margin:44px 0 0;background:var(--c-bg-soft);border:1px solid var(--c-divider);
+  border-radius:14px;padding:28px 30px}
+.cta h4{font-size:18px;color:var(--c-head);margin-bottom:8px}
+.cta p{font-size:15px;color:var(--c-gray);margin-bottom:16px}
+.cta a.btn{display:inline-block;background:var(--c-red);color:#fff;font-weight:600;
+  font-size:15px;padding:11px 22px;border-radius:8px}
+.cta a.btn:hover{background:var(--c-red-dk);text-decoration:none}
+.cta a.btn-ghost{background:transparent;color:var(--c-red);border:1px solid var(--c-red);margin-left:8px}
+.cta a.btn-ghost:hover{background:var(--c-red);color:#fff}
+
+/* 영상 · 관련 글 */
+.video{position:relative;padding-top:56.25%;margin:8px 0 28px;border-radius:10px;overflow:hidden;background:var(--c-bg-soft)}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.related{margin-top:44px}
+.related h2{font-size:20px;color:var(--c-head);margin-bottom:6px}
+.related a.rel{display:block;padding:12px 0;border-bottom:1px solid var(--c-divider);color:var(--c-head);font-weight:500}
+.related .product{margin-top:16px;font-size:15px;color:var(--c-gray)}
+
+/* 푸터 */
+.foot{margin-top:64px;border-top:1px solid var(--c-divider);
+  padding:30px 0 60px;color:var(--c-gray-lt);font-size:13px;text-align:center}
+.foot a{color:var(--c-gray)}
+
+/* 목록 */
+.list-head{padding:56px 0 14px}
+.list-head h1{font-size:30px;color:var(--c-head);font-weight:700}
+.list-head p{color:var(--c-gray);margin-top:8px}
+.list-head .lang-toggle{display:inline-block;margin-top:14px;border:1px solid var(--c-divider);
+  border-radius:100px;padding:4px 14px;font-size:13px;font-weight:600;color:var(--c-gray)}
+.card{display:block;padding:26px 0;border-bottom:1px solid var(--c-divider)}
+.card:hover{text-decoration:none}
+.card .kicker{font-family:var(--font-en);font-size:11px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--c-red)}
+.card h2{font-size:22px;color:var(--c-head);font-weight:700;margin:8px 0 8px;line-height:1.4}
+.card p{color:var(--c-gray);font-size:15px}
+.card .date{font-family:var(--font-en);font-size:12px;color:var(--c-gray-lt);margin-top:10px}
+
+@media(max-width:600px){
+  body{font-size:16px}
+  .post-head h1{font-size:27px}
+  .post-head .sub{font-size:16px}
+  .post-body h2{font-size:20px}
+}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "PCB 공장과 순간전압강하 — 공정별 보호를 검토하기 전에 모을 자료", "description": "PCB 공장의 전압강하 대책을 검토할 때 모을 자료를 정리했다. 설비 명판과 제어회로, 전압·경보 기록, 재기동 절차를 확인하고, 공정별 취약도나 재공품 손실은 현장 근거 없이 단정하지 않는다.", "datePublished": "2026-11-27", "dateModified": "2026-11-27", "inLanguage": "ko", "mainEntityOfPage": "https://intro.wesco.works/blog/pcb-plant-voltage-sag/", "author": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}, "publisher": {"@type": "Organization", "name": "WESCO Inc.", "url": "https://www.wesco.co.kr"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "도금·노광·드릴 중 어느 공정을 먼저 보호해야 하나?", "acceptedAnswer": {"@type": "Answer", "text": "이 글의 근거만으로 공정별 순위를 정할 수는 없다. 해당 설비의 구성과 사양, 정지 기록을 모은 뒤 보호 대상을 검토해야 한다. 모든 PCB 설비에 같은 제어기기가 설치돼 있다고 가정하지 않는다."}}, {"@type": "Question", "name": "전원이 돌아오면 설비도 자동으로 다시 움직이나?", "acceptedAnswer": {"@type": "Answer", "text": "실제 제어회로와 재기동 조건을 확인해야 한다. Schneider Electric이 설명한 3선식 자기유지 회로는 전원 또는 제어가 끊기면 새 기동 신호가 필요하다. 같은 자료의 2선식 예시는 기동 명령이 남아 있으면 복전 후 재기동할 수 있다. 이를 모든 PCB 설비에 그대로 적용해서는 안 된다."}}, {"@type": "Question", "name": "공정이 멈췄다는 기록만으로 재공품 폐기를 판단할 수 있나?", "acceptedAnswer": {"@type": "Answer", "text": "이 글에는 PCB 공정의 품질 판정 자료가 없다. 재가공·폐기 여부는 해당 공정의 작업 기록과 품질 기준, 담당자의 판정 결과로 확인할 항목으로 남긴다."}}]}</script><link rel="stylesheet" href="/blog/discovery.css"></head><body><header class="topbar"><div class="wrap"><a class="brand" href="https://intro.wesco.works/"><img src="https://intro.wesco.works/images/wesco_wordmark.png" alt="WESCO" width="119" height="22"></a><nav class="topnav"><a data-home href="https://intro.wesco.works/?lang=ko">회사소개서</a><a href="https://intro.wesco.works/blog/">기술 자료</a><a href="/videos/#ko">영상</a><a class="nav-cta" href="https://tsp.wesco.works/ko/?s=nav_blog_pcb-plant-voltage-sag#contact">문의하기</a></nav></div><script>try{var l=localStorage.getItem('wesco-intro-lang');if(/^(ko|en|cn|jp|vn)$/.test(l)){var m={ko:'ko',en:'en',cn:'zh-CN',jp:'ja',vn:'vi'},c={ko:'ko',en:'en',cn:'cn',jp:'en',vn:'vn'},a=document.querySelectorAll('.topnav a');a[0].href='/?lang='+l;a[1].href=l=='ko'?'/blog/':'/blog/en/';a[2].href='/videos/#'+m[l];a[3].href=a[3].href.replace(/tsp\.wesco\.works\/\w+\//,'tsp.wesco.works/'+c[l]+'/')}}catch(e){}</script></header><section class="post-head"><div class="wrap"><div class="kicker">WESCO Insight</div><h1>PCB 공장과 순간전압강하 — 공정별 보호를 검토하기 전에 모을 자료</h1><p class="sub">설비 명판, 제어회로, 정지 기록부터 확인한다</p><div class="post-meta"><span>2026-11-27</span><div class="tags"><span class="tag">PCB</span><span class="tag">순간전압강하</span><span class="tag">제어전원</span><span class="tag">전력품질</span></div><a class="lang-toggle" href="https://intro.wesco.works/blog/en/pcb-plant-voltage-sag/">English</a></div></div></section><article class="post-body"><div class="wrap"><p>PCB 공장의 순간전압강하 대책을 검토한다면 먼저 해당 설비의 명판, 제어회로도, 전압·경보 기록을 모으자. 이 글에 확보된 근거만으로 도금·노광·드릴의 취약도를 비교하거나 정지 후 재공품 손실을 예측할 수는 없다. 아래는 공정별 결론을 내리기 전에 준비할 자료 목록이다.</p>
+<h2>설비 이름 옆에 모델과 전원 사양을 적는다</h2>
+<p>도금 설비나 노광기라는 이름만 적는 대신, 확인하려는 장비와 제어부품의 제조사·모델을 기록한다. PLC, 드라이브, 릴레이, 전자접촉기를 조사 항목에 넣더라도 실제 설치 여부는 도면과 명판으로 확인한다. 이 목록은 모든 PCB 설비가 같은 구성이라는 뜻이 아니다.</p>
+<p>전자접촉기가 설치돼 있다면 코일의 AC/DC 구분과 정격전압, 사용 온도를 해당 모델 자료와 함께 확인한다. <a href="https://www.se.com/ng/en/faqs/FA409210/">Schneider Electric의 TeSys D 설명</a>도 탈락 전압을 모델군·AC/DC·온도 조건별로 제시한다. 그중 한 수치를 골라 PCB 라인 전체의 정지 기준으로 쓰지는 않는다.</p>
+<h2>전압 기록과 설비 경보를 같은 시각에 놓고 본다</h2>
+<p>가상 점검 상황을 생각해 보자. 담당자가 “도금 설비가 잠깐 멈췄다”는 기록만 전달받았다면, 우선 다음 자료를 요청하는 방식으로 조사를 시작할 수 있다.</p>
+<ul>
+<li>정지 시각과 그 전후의 전압 측정 기록</li>
+<li>설비의 경보 코드와 제어 명령 기록</li>
+<li>측정 지점이 표시된 전원·제어회로도</li>
+<li>당시 운전 상태와 담당자가 남긴 조치 내용</li>
+</ul>
+<p>이것은 실제 고객 사례가 아니라 자료 수집을 설명하기 위한 예다. 이 단계에서 전압강하가 원인이라고 확정하지 않는다. 확인 순서는 <a href="https://intro.wesco.works/blog/line-stop-root-cause-checklist/">설비 정지 원인 — 단정하기 전에 확인할 기록</a>과 함께 읽을 수 있다.</p>
+<h2>재기동 조건은 회로도와 절차서에서 확인한다</h2>
+<p><a href="https://www.se.com/nl/nl/faqs/FA147367/">Schneider Electric의 제어 방식 설명</a>에는 서로 다른 재기동 동작이 나온다. 설명된 3선식 자기유지 회로는 공급 또는 제어가 끊기면 새 기동 신호가 필요하다. 반면 설명된 2선식 회로에서는 기동 명령이 남아 있을 때 복전 후 다시 움직일 수 있다.</p>
+<p>이는 특정 제어 방식에 관한 설명이다. 실제 PCB 설비에 어느 동작이 해당하는지는 배선, 인터락, 제조사 재기동 절차를 확인할 항목으로 남겨야 한다. 자동 재기동을 위해 안전 인터락을 우회하는 방법을 제안하는 것도 아니다.</p>
+<h2>보호 범위와 품질 판정은 별도로 확인한다</h2>
+<p>제어전원 보호를 검토할 때는 보호하려는 회로와 그 밖의 전원 회로를 도면에 구분해 표시한다. 제어전원을 보호한다는 이유만으로 보호하지 않은 동력 회로나 설비 전체의 연속 운전을 보장할 수는 없다. 선정하려는 장치의 사양과 연결 조건도 함께 확인해야 한다.</p>
+<p>공정 정지 후 재공품을 어떻게 처리할지는 별도 확인 항목이다. 이 글은 PCB 공정별 품질 기준이나 실제 손실 기록을 근거로 삼지 않았다. 재가공이나 폐기가 필요하다는 결론을 미리 넣지 말고, 작업 기록·품질 기준·담당자 판정 결과를 요청하자.</p>
+<h2>정리</h2>
+<ul>
+<li>공정명만으로 취약도와 보호 순위를 정하지 말고 실제 설비 자료를 모은다.</li>
+<li>전압·경보·제어 명령 기록을 대조하기 전에는 정지 원인을 단정하지 않는다.</li>
+<li>재기동 조건과 보호할 회로의 범위는 도면·사양·절차서에서 확인한다.</li>
+<li>PCB 재공품의 재가공·폐기 여부는 이 글의 결론이 아니라 현장 품질 자료로 확인할 항목이다.</li>
+</ul><h2>자주 묻는 질문 (FAQ)</h2><dl class="faq"><dt>Q. 도금·노광·드릴 중 어느 공정을 먼저 보호해야 하나?</dt><dd>이 글의 근거만으로 공정별 순위를 정할 수는 없다. 해당 설비의 구성과 사양, 정지 기록을 모은 뒤 보호 대상을 검토해야 한다. 모든 PCB 설비에 같은 제어기기가 설치돼 있다고 가정하지 않는다.</dd><dt>Q. 전원이 돌아오면 설비도 자동으로 다시 움직이나?</dt><dd>실제 제어회로와 재기동 조건을 확인해야 한다. Schneider Electric이 설명한 3선식 자기유지 회로는 전원 또는 제어가 끊기면 새 기동 신호가 필요하다. 같은 자료의 2선식 예시는 기동 명령이 남아 있으면 복전 후 재기동할 수 있다. 이를 모든 PCB 설비에 그대로 적용해서는 안 된다.</dd><dt>Q. 공정이 멈췄다는 기록만으로 재공품 폐기를 판단할 수 있나?</dt><dd>이 글에는 PCB 공정의 품질 판정 자료가 없다. 재가공·폐기 여부는 해당 공정의 작업 기록과 품질 기준, 담당자의 판정 결과로 확인할 항목으로 남긴다.</dd></dl><div class="cta"><h4>순간전압강하 대응이 필요하신가요?</h4><p>WESCO는 25년간 전력 품질 분야에서 순간전압보상장치(TSP)를 제조해 왔습니다. 라인 환경에 맞는 용량 선정과 도입을 상담해 드립니다.</p><a class="btn" href="https://tsp.wesco.works/ko/?s=blog-pcb-plant-voltage-sag">도입 문의하기</a><a class="btn btn-ghost" href="mailto:wesco@wesco.co.kr?subject=%5Bblog%3Apcb-plant-voltage-sag%5D%20TSP%20%EB%8F%84%EC%9E%85%20%EB%AC%B8%EC%9D%98">메일로 문의</a></div><div class="related"><h2>관련 글</h2><a class="rel" href="https://intro.wesco.works/blog/magnetic-contactor-dropout/">마그네트가 떨어지는 이유: 순간전압강하와 재기동 조건 확인하기</a><a class="rel" href="https://intro.wesco.works/blog/line-stop-root-cause-checklist/">설비 정지 원인 — 단정하기 전에 확인할 기록</a><a class="rel" href="https://intro.wesco.works/blog/data-center-voltage-sag/">데이터센터 냉각 설비, 제어전원만 보호하면 충분할까?</a><a class="rel discovery-video" href="/videos/tsp-product/">영상으로 확인: 순간정전보상장치 TSP® 제품소개 | 3D 애니메이션 | WESCO 웨스코</a><p class="product product-ko"><a href="https://intro.wesco.works/?lang=ko#p9">TSP 제품 라인업 보기 (한국어)</a></p><p class="product">TSP® 제품 원리와 사양은 <a href="https://intro.wesco.works/battery-free-voltage-sag-protection.html">배터리 없는 순간전압강하 보상장치 TSP® 상세 보기 (영문)</a></p></div></div></article><footer class="foot"><div class="wrap">© WESCO Co., Ltd. · Voltage Sag Protector Manufacturer · <a href="https://www.wesco.co.kr">www.wesco.co.kr</a></div></footer></body></html>
